@@ -1,0 +1,117 @@
+  <view class="weui-cell weui-upload" hidden='{{!uploadImg}}'>
+    <view class="weui-cell__bd">
+      <view class="weui-uploader">
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files">
+              <view wx:for="{{pics}}" wx:for-item="image" wx:key="index"  bindtouchmove="move" bindtouchstart="movestart"
+bindtouchend="moveend" data-index="{{index+1}}" data-main="{{mainx}}" class="weui-uploader__file  {{mainx ==index+1? 'mainmove':'mainend'}}" style="left:{{start.x}}px; top:{{start.y}}px" >
+                <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+              </view>
+          </view>
+          <view class="weui-uploader__input-box {{isShow?'true':'hideTrue'}}">
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+          </view>
+        </view>
+      </view>
+      <view class='weui-icon'><image  src="/image/icon.png"></image>长按图片可拖动调整顺序</view>
+    </view>
+  </view>
+<view class='add-cont'>
+  <view class='uploadImg'  hidden='{{uploadImg}}'>
+    <image bindtap="chooseImage" src="/image/pic.png"></image>
+    <view>上传商品图片</view>
+  </view>
+  <view class="page__category-content">
+    <view class='weui-title'>商品信息</view>
+    <view class="weui-cell1">
+      <view class="weui-cell__hd"><image  src="/image/ic1.png"></image></view>
+      <view class="weui-cell__bd">
+        <text>标题</text>
+      </view>
+    </view>
+    <input class="weui-input" type="text" placeholder="请填写商品标题"></input>
+    <view class="weui-cell">
+      <view class="weui-cell__hd"><image  src="/image/ic2.png"></image></view>
+      <view class="weui-cell__bd">
+        <text>推荐心语</text>
+      </view>
+    </view>
+    <input class="weui-input" type="text" placeholder="请输入推荐语（选填）"></input>
+  </view>
+ <view class="page__category-content">
+  <view class='weui-title'>商品详情</view>
+  <view class="weui-cell1">
+    <view class="weui-cell__hd"><image  src="/image/ic3.png"></image></view>
+    <view class="weui-cell__bd">
+      <text>类目</text>
+    </view>
+    <view class="weui-cell__ft1"><image  src="/image/icl.png"></image></view>
+  </view>
+  <input class="weui-input" type="text" disabled='disabled' placeholder="未选择"></input>
+  <view class="weui-cell">
+    <view class="weui-cell__hd"><image  src="/image/ic4.png"></image></view>
+    <view class="weui-cell__bd">
+      <text>本店分类</text>
+    </view>
+    <view class="weui-cell__ft1"><image  src="/image/icl.png"></image></view>
+  </view>
+  <input class="weui-input" disabled='disabled' type="text" placeholder="未设置（选填）"></input>
+ </view>
+  <view class="page__category-content">
+  <navigator url='../spec/spec' class='weui-title'>商品规格<view>{{pageall.length>0?'已设置':'未设置'}}<image  src="/image/icl.png"></image></view></navigator>
+  <view class='page-weui {{index==0?"page-weui-active":""}}' wx:for="{{pageall}}" wx:key="index">
+      <view class="weui-cell">
+        <view class="weui-cell__hd"><image  src="/image/ic5.png"></image></view>
+          <view class="weui-cell__bd">
+            <text>{{item.name}}</text>
+          </view>
+      </view>
+      <view class='add-size'><text wx:for="{{item.attr}}" wx:key="index">{{item}}</text></view>
+  </view>
+  <input  wx:if="{{pageall.length<1}}" class="weui-input" type="text" disabled='disabled'  placeholder="不设置即仅一个规格（选填）"></input>
+ </view>
+<view class="page__category-content"  wx:if="{{pageShow}}">
+  <view class='weui-title'>商品价量</view>
+  <view class="weui-cell1">
+    <view class="weui-cell__hd"><image  src="/image/ic6.png"></image></view>
+    <view class="weui-cell__bd">
+      <text>价格</text>
+    </view>
+  </view>
+  <view class='weui-input'>每个规格批发价<input placeholder-class='pla-input' class="weui-input" type="text" placeholder=""></input><text>元</text></view>
+  <view class='weui-input'>每个规格零售价<input placeholder-class='pla-input' class="weui-input" type="text" placeholder="不填写即不零售（选填）"></input><text>元</text></view>
+  <view class="weui-cell">
+    <view class="weui-cell__hd"><image  src="/image/ic7.png"></image></view>
+    <view class="weui-cell__bd">
+      <text>库存</text>
+    </view>
+      <view class="weui-cell__ft weui-active">分别设置价格和库存</view>
+  </view>
+  <view class='weui-input'>每个规格库存<input placeholder-class='pla-input' class="weui-input" type="text" placeholder=""></input><text>件</text></view>
+  <view class='weui-input'>总库存<input placeholder-class='pla-input' class="weui-input" type="text" placeholder=""></input><text>件</text></view>
+ </view>
+<view class="page__category-content">
+  <view class="weui-cell1">
+    <view class="weui-cell__bd">
+      <text>商品图文详情</text>
+    </view>
+    <view class="weui-cell__ft">已设置<image  src="/image/icl.png"></image></view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <text>起批量</text>
+    </view>
+    <view class="weui-cell__ft"><text>2</text><image  src="/image/clo.png"></image></view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <text>运费</text>
+    </view>
+    <view class="weui-cell__ft">货到付款</view>
+  </view>
+ </view>
+</view>
+ <view class='add-bottom'>
+  <view><image  src="/image/pic.png"></image>上架出售</view>
+  <view><image  src="/image/pic.png"></image>放入仓库</view>
+</view>

@@ -1,0 +1,74 @@
+{
+  "pages":[
+    "pages/page/home/home",
+    "pages/page/userDetails/userDetails",
+    "pages/page/address/address",
+    "pages/page/update/update",
+    "pages/page/cartList/cartList",
+    "pages/page/newAddress/newAddress",
+    "pages/page/addressWe/addressWe",
+    "pages/page/order/order",
+    "pages/page/help/help",
+    "pages/page/nopay/nopay",
+    "pages/page/self/self",
+    "pages/page/user/user",
+    "pages/page/set/set",
+    "pages/page/updataPhone/updataPhone",
+    "pages/page/updataPwd/updataPwd",
+    "pages/page/details/details",
+    "pages/page/success/success",
+    "pages/page/invoice/invoice",
+    "pages/page/goodsDetails/goodsDetails",
+    "pages/page/germ/germ",
+    "pages/page/goodWe/goodWe",
+    "pages/page/derm/derm",
+    "pages/page/mes/mes",
+    "pages/page/serStatus/serStatus",
+    "pages/page/serList/serList",
+    "pages/page/goodsList/goodsList",
+    "pages/page/index/index",
+    "pages/page/logs/logs",
+    "pages/admin/status/status",
+    "pages/admin/writeCont/writeCont",
+    "pages/admin/addGoods/addGoods",
+    "pages/admin/class/class",
+    "pages/admin/batch/batch",
+    "pages/admin/classEdit/classEdit",
+    "pages/admin/batchClass/batchClass",
+    "pages/admin/spec/spec"
+  ],
+  "window":{
+    "backgroundTextStyle":"black",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "backgroundColor":"#F7F7F7",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#CCAA77",
+    "color": "#888",
+    "list": [
+      {
+        "pagePath": "pages/page/home/home",
+        "iconPath": "image/12.png",
+        "selectedIconPath": "image/11.png",
+        "text": "小云店"
+      },
+      {
+        "pagePath": "pages/page/cartList/cartList",
+        "iconPath": "image/22.png",
+        "selectedIconPath": "image/21.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/page/user/user",
+        "iconPath": "image/42.png",
+        "selectedIconPath": "image/41.png",
+        "text": "客户"
+      }
+    ]
+  }
+}

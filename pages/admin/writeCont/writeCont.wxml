@@ -1,0 +1,18 @@
+<view class='write'>
+  <textarea placeholder-class='weui-plac' style='font-weight:{{changeFont?"bold":""}};color:#{{showColor}}'  class='' placeholder="请填写商品介绍及照片、真实、直观的表达商品卖点..." />
+  <view  class="changeImg" >
+      <image wx:for="{{pics}}"  wx:for-item="image" wx:key="index"  src="{{image}}" mode="widthFix" data-src="{{image}}"></image>
+  </view>
+</view>
+<view class="sendmessage">
+  <view class='write-color' hidden='{{showColor}}'>
+    <view wx:for="{{colorData}}" wx:key="index" style='background:#{{item}}' bindtap='changeColor' data-index="{{item}}"></view>
+  </view>
+  <view class='triangle-down' hidden='{{showColor}}'></view>
+  <view class='write-cont'>
+    <image src="/image/font.png" bindtap='changeFont'></image><image  bindtap='showColor' src="/image/color.png"></image><image src="/image/image.png"  bindtap="chooseImage"></image><image src="/image/down.png"></image>
+  </view>
+  <input class="chat-input" type="emoji" placeholder="" />
+  <button class="btn" type="primary" plain="true" >发送</button>
+  <input style='display:none' type="" bindinput="bindChange" confirm-type="done" placeholder="" />
+</view>

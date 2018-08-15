@@ -1,0 +1,8 @@
+<view class='sp-cont'>
+  <view class="sp-color">颜色<image src="/image/edit.png"></image></view>
+  <view class='sp-button'>
+    <view>如图</view><view>米白色</view><view>深卡其色</view><view class='active'>+</view>
+  </view>
+  <view class='sp-add'><image src="/image/add3.png"></image>添加规格组</view>
+</view>
+<button class='sp-buttotn' bindtap='goback'>确定</button>

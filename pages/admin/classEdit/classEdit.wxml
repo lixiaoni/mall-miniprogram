@@ -1,0 +1,20 @@
+<view class='ed-cont'>
+  <view class='page_hd' wx:for="{{list}}" wx:key="{{index}}">
+    <navigator class='weui-cell weui-cell_access' url=''>
+        <view class='weui-cell__bd'>
+          <view class='my-info'>{{item.title}}</view>
+        </view>
+        <view class='weui-img'wx:if="{{index>0}}">
+          <image src="/image/top.png"></image>
+        </view>
+    </navigator>
+    <view class='ed-edit'>
+      <view><navigator url="/pages/batchClass/batchClass">编辑</navigator></view>
+      <view>删除</view>
+    </view>
+  </view> 
+</view>
+<view class='weui-bottom'>
+  <navigator>新建分类</navigator>
+  <navigator>完成</navigator>
+</view>

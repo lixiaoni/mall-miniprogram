@@ -1,0 +1,160 @@
+/* pages/mes/mes.wxss */
+.ym_jpstorebigimg {
+    position: relative;
+    overflow: hidden;
+}
+.ym_jpstorebigimg image {
+    width: 100%;
+}
+.mes-pos{
+    width: 140%;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: -52rpx;
+    position: absolute;
+    background: white;
+    margin-left: -20%;
+}
+.weui-bottom{
+  border-top: 1rpx  solid #EDEDED; 
+}
+.ym_jpstorelogo {
+    width: 160rpx;
+    height: 160rpx;
+    position: absolute;
+    z-index: 10000;
+    top:-150rpx;
+    left: 295rpx;
+    border-radius:10rpx;
+    overflow: hidden;   
+}
+.ym_jpstorelogo image {
+    border: solid 1px #EFEFEF;
+    width: 160rpx;
+    background-size: 100%;
+    height: 160rpx;
+}
+.ym_jpstorename{
+    background: #fff;
+    text-align: center;
+    font-size: 38rpx;
+    font-weight: bold;
+    color: #202020;
+    padding-top: 60rpx;
+    padding-bottom: 40rpx;
+    position: relative;
+}
+.ym_jpstorename view{
+  font-size: 28rpx;
+  color: #CCAA77;
+  font-weight: normal;
+  margin-top: 20rpx;
+}
+.ym_jpstorename text{
+  color: #333;
+  margin-left: 10rpx;
+  font-weight: normal;
+}
+.ym_jpstoredesc {
+    background: #fff;
+    position: relative;
+    padding:0rpx 70rpx 80rpx 70rpx;
+    font-size: 28rpx;
+    color: #333;
+    line-height:44rpx;
+    text-align: justify;
+    text-indent: 55rpx;
+}
+.ym_jpstoredesc text {
+    color: #D2D2D2;
+    font-size: 68rpx;
+    position: absolute;
+    font-family: Helvetica, Gotham, "Helvetica Neue", Arial, sans-serif;
+}
+.ym_jpstoredesc text:first-child{
+  left: 0;
+  top: 10rpx;
+}
+.rightyh {
+    bottom: 40rpx;
+    right: 45rpx;
+}
+.weui_cells{
+  font-size: 30rpx;
+  color: #999;
+  height: 100rpx;
+  background: #fff;
+  line-height:100rpx;
+  padding:0 20rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.weui_cells .weui-xian{
+  background:#F0F0F0;
+  width:94%;
+  height: 2rpx;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 3%;
+}
+.store-address{
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.weui_cells image{
+  width: 44rpx;
+  height:44rpx;
+  margin-top:-4rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.weui-view{
+  position: absolute;
+  top: 0rpx;
+  right:20rpx;
+}
+
+.weui-view image.img{
+  width: 24rpx;
+  height: 29rpx;
+  margin-left: 15rpx;
+  margin-top: -3rpx;
+}
+.weui-time{
+  margin-top:-20rpx;
+  margin-bottom:20rpx;
+  color: #333;
+  position: relative;
+  font-size: 28rpx;
+  background: #fff;
+  padding:25rpx 75rpx;
+}
+.weui-time text{
+  margin-left: 40rpx;
+  color: #666;
+}
+.weui-time view:first-child{
+  margin-bottom: 30rpx;
+}
+.weui-time image{
+  width: 24rpx;
+  height: 25rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+  margin-top: -4rpx;
+}
+.wt-font{
+  font-size: 24rpx;
+  color: #666;
+  height: 180rpx;
+  margin-bottom:100rpx;
+}
+.wt-font view:nth-child(2){
+color: #999;
+}
+.weui_cells .weui-xian1{
+  top:100rpx;
+}
+

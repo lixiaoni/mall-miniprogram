@@ -1,0 +1,27 @@
+<view class='my-top-line'></view>
+   <view class='page_hd page_hd1'>
+    <navigator class='weui-cell weui-cell_access' url=''>
+      <view class='weui-cell__bd'>
+        <view class='my-info'>未分类</view>
+      </view>
+      <view class='weui-img'>
+        123<image src="/image/icl.png"></image>
+      </view>
+    </navigator>
+  </view> 
+  <view class='page_bd'>
+    <view class='weui-cells weui-cells_after-title cl-class'>
+      <navigator class='weui-cell weui-cell_access' url='' wx:for="{{list}}" wx:key="{{index}}">
+        <view class='weui-cell__bd'>
+          {{item.title}}
+        </view>
+         <view class='weui-img'>
+          {{item.num}}<image src="/image/icl.png"></image>
+        </view>
+      </navigator>
+    </view>
+    <view class='weui-bottom'>
+      <navigator url="../classEdit/classEdit">新建分类</navigator>
+      <navigator url="../classEdit/classEdit">管理分类</navigator>
+    </view>
+  </view>

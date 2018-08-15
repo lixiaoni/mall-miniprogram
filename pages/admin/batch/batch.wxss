@@ -1,0 +1,55 @@
+@import '../com/com.wxss';
+.bt-cont{
+   border-top:2rpx solid #EDEDED;
+   border-bottom:2rpx solid #EDEDED;
+   background: #fff;
+   margin-bottom: 120rpx;
+}
+.st-cont{
+  height: 220rpx;margin-bottom: 0;
+  border-top:0;
+  padding-left: 280rpx;
+  margin-left: 30rpx;
+  }
+  .st-cont image{
+    left: 80rpx;
+  }
+  .bt-cont .st-cont:last-child{
+    border-bottom: 0;
+  }
+  .st-cont icon{
+    position: absolute;
+    left:0rpx;
+    top: 95rpx;
+  }
+  .bt-bottom{
+    position: fixed;
+    bottom: 0;
+    border-top:2rpx solid #EDEDED;
+    background: #FAFAFA;
+    height: 121rpx;
+    width: 100%;
+  }
+   .bt-bottom view{
+     width: 24%;
+     display: inline-block;
+     text-align: center;
+     font-size: 36rpx;
+     color: #CCAA77;
+     margin-top: 35rpx;
+     height: 55rpx;
+
+   }
+  .bt-bottom icon{
+    vertical-align: middle;
+    margin-top: -4rpx;
+    margin-right: 20rpx;
+  }
+  .bt-bottom view:nth-child(3){
+    border-left:2rpx solid #D7D7D7;
+    border-right:2rpx solid #D7D7D7;
+  }
+  .bt-bottom view:nth-child(1){
+    color: #333;
+    font-size: 30rpx;
+  }

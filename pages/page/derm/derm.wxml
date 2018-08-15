@@ -1,0 +1,4 @@
+<view class='erm-cont'>
+  <image src="/image/dimg.png"></image>
+  <view>识别小程序码，识别小云店吧</view>
+</view>

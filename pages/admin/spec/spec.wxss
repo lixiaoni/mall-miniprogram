@@ -1,0 +1,26 @@
+page{background: #fff;}
+.sp-cont{color: #333;padding:20rpx 30rpx;}
+.sp-color image{
+  width: 40rpx;height: 40rpx;position: absolute;right: 0;top:6rpx;
+}
+.sp-color{
+  font-size: 34rpx;font-weight: 600;margin-bottom: 30rpx;padding:0 10rpx;position: relative;
+}
+.sp-button view{
+  display: inline-block;background: #F1F1F1;height: 55rpx;line-height: 55rpx;position: relative;
+  font-size: 26rpx;border-radius: 8rpx;padding:0 25rpx;margin-left: 10rpx;margin-right: 10rpx;
+}
+.sp-button view.active{
+  background:#CCAA77;width: 70rpx;color: #fff;font-size: 48rpx;line-height: 43rpx;text-align: center;
+}
+.sp-add{
+  border:2rpx dashed #C7C7C7;height: 90rpx;margin:80rpx 10rpx 0 10rpx;
+  font-size: 30rpx;font-weight: 600;line-height: 80rpx;text-align: center
+}
+.sp-add image{
+  width: 55rpx;height: 55rpx;vertical-align:middle;margin-top: -2rpx;margin-right: 10rpx;
+}
+.sp-buttotn{
+  color: #CCAA77;border:2rpx solid #DDC7A5;border-radius: 8rpx;position: fixed;bottom: 18rpx;
+  height: 98rpx;line-height: 98rpx;text-align: center;width: 92%;background: #fff;left: 4%;
+}
