@@ -6,7 +6,6 @@ const formatTime = date => {
   const hour = date.getHours()
   const minute = date.getMinutes()
   const second = date.getSeconds()
-
   return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
@@ -24,10 +23,10 @@ function request(url, method, data, message, success, fail) {
     })
   }
   wx.request({
-    url:'https://task.youlife.me/'+url,
+    url:"https://xyk-doctor.com/"+url,
     data: data,
     header: {
-      'content-type': 'application/x-www-form-urlencoded'
+      "content-type":"application/json"
     },
     method: method,
     success: function (res) {

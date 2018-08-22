@@ -1,24 +1,78 @@
 {
   "pages":[
+    "pages/admin/set/set",
+    
+    "pages/admin/addGoods/addGoods",
+    
+    "pages/admin/spec/spec",
+    
+    
+    
+    
+    
     "pages/page/home/home",
-    "pages/page/userDetails/userDetails",
-    "pages/page/address/address",
-    "pages/page/update/update",
+    
+    
+    "pages/page/goodsDetails/goodsDetails",
+    
+    
+    
     "pages/page/cartList/cartList",
+    
+    
+    
     "pages/page/newAddress/newAddress",
+    
     "pages/page/addressWe/addressWe",
-    "pages/page/order/order",
+    
+    
+    "pages/admin/status/status",
+    
+    "pages/admin/shopClass/shopClass",
+    
+    
+    "pages/admin/firstClass/firstClass",
+    
+    
+    
+    
+    "pages/admin/thirdClass/thirdClass",
+    "pages/admin/secondClass/secondClass",
+    
+    
+    
+    
+    
+    
+    "pages/admin/batch/batch",
+    
+    "pages/admin/writeCont/writeCont",
+    
+    "pages/page/address/address",
+    
+    
+    
+
+    "pages/role/supplyOrder/supplyOrder",
+    "pages/role/orderSelf/orderSelf",
+    "pages/role/order/order",
+    "pages/role/orderDetails/orderDetails",
+    "pages/role/supplyDetails/supplyDetails",
+    "pages/role/supplySelf/supplySelf",
+
+    "pages/page/userDetails/userDetails",
+    "pages/page/update/update",
     "pages/page/help/help",
     "pages/page/nopay/nopay",
     "pages/page/self/self",
     "pages/page/user/user",
     "pages/page/set/set",
+    "pages/page/order/order",
     "pages/page/updataPhone/updataPhone",
     "pages/page/updataPwd/updataPwd",
     "pages/page/details/details",
     "pages/page/success/success",
     "pages/page/invoice/invoice",
-    "pages/page/goodsDetails/goodsDetails",
     "pages/page/germ/germ",
     "pages/page/goodWe/goodWe",
     "pages/page/derm/derm",
@@ -28,14 +82,13 @@
     "pages/page/goodsList/goodsList",
     "pages/page/index/index",
     "pages/page/logs/logs",
-    "pages/admin/status/status",
-    "pages/admin/writeCont/writeCont",
-    "pages/admin/addGoods/addGoods",
-    "pages/admin/class/class",
-    "pages/admin/batch/batch",
+    
+    
     "pages/admin/classEdit/classEdit",
     "pages/admin/batchClass/batchClass",
-    "pages/admin/spec/spec"
+    "pages/admin/class/class"
+    
+    
   ],
   "window":{
     "backgroundTextStyle":"black",

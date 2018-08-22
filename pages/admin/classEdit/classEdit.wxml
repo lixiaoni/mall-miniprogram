@@ -9,7 +9,7 @@
         </view>
     </navigator>
     <view class='ed-edit'>
-      <view><navigator url="/pages/batchClass/batchClass">编辑</navigator></view>
+      <view><navigator url="../batchClass/batchClass">编辑</navigator></view>
       <view>删除</view>
     </view>
   </view> 

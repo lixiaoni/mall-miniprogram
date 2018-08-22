@@ -4,7 +4,6 @@ var index = [0,0,0]
 var provinces = areaTool.getProvinces();
 var citys = areaTool.getCitys(index[0]);
 var areas = areaTool.getAreas(index[0],index[1]);
-
 Component({
   /**
    * 组件的属性列表

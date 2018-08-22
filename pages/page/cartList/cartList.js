@@ -1,4 +1,4 @@
-
+const app = getApp();
 var recordStartX = 0;
 var currentOffsetX = 0;
 Page({
@@ -182,6 +182,16 @@ Page({
 
   },
   onShow() {
+    var that=this
+    app.http.getRequest('/api/shop/shoppingcart/findByGoodsId/'+1)
+      .then(res => {
+        const obj = res.obj
+        console.log(obj)
+        that.setData({
+          carts: obj,
+          hasList: true,
+        })
+      })
     this.setData({
       hasList: true,
       carts:[

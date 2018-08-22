@@ -1,33 +1,5 @@
 @import '../cartList/cartList.wxss';
-.ad-top{
-  background: #fff;
-  color: ad-top;
-  font-size:34rpx;
-  text-align: center;
-  padding:35rpx 0;
-  color: #DDDDDD;
-}
-.ad-top image{
-  width: 50rpx;
-  height: 50rpx;
-  vertical-align: middle;
-  margin-right: 20rpx;
-}
-.ad-top view{
-  height: 145rpx;
-  width: 315rpx;
-  border-radius:10rpx;
-  border:2rpx solid #F4F4F4;
-  line-height: 145rpx;
-  display: inline-block;
-  margin-left: 10rpx;
-  margin-right: 10rpx;
-}
-.ad-top .ad-active{
-  background: #FFF1DD;
-  border: 2rpx solid #EFDBBD;
-  color: #CCAA77;
-}
+
 .ad-tel{
   font-size: 26rpx;
   color: #999;

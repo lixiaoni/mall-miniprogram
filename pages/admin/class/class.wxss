@@ -1,3 +1,4 @@
+@import '../com/com';
 .weui-img{
   font-size: 28rpx;
   color: #C79359;

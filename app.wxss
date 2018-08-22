@@ -274,7 +274,7 @@ border: none;
     display: inline-block;
     color: #888;
     margin-top: 17rpx;
-    padding:3rpx 10rpx;
+    padding:3rpx 0rpx;
     font-size: 24rpx;
     overflow: hidden;
 }
@@ -341,3 +341,108 @@ input:focus{
   margin-top: 140rpx;
   margin-bottom: 30rpx;
 }
+/* role */
+.c-title .or-phone{
+  position: relative;margin-left: 10rpx;
+  right: 0;color: #333;
+}
+.serchImg{
+   width: 37rpx;height: 37rpx;vertical-align: middle;margin-right:10rpx;position: absolute;top: 35rpx;z-index: 10;left: 13%;
+}
+.serInput{
+  height: 60rpx;margin:20rpx 5%;border-radius: 8rpx;font-size: 24rpx;background: #fff;text-align:center;
+  padding-left: 6%;
+}
+.serchImg1{
+  left: 6%;
+}
+.serInput1{
+  padding-left: 8%;text-align:left;width:84%;margin:20rpx 4%;
+}
+/* 表格 */
+.table{
+  border-bottom: 2rpx solid #EEEEEE;font-size: 24rpx;color: #999;
+  margin:10rpx 30rpx;
+}
+.tr{
+  display: flex;
+  justify-content: space-between;
+}
+.th,.td{
+  margin:0 auto;width: 25%;
+}
+.td{
+  color: #333;
+}
+.table .tr:nth-child(odd){
+  background: #FAFAFA;
+}
+.tr,.td{
+  text-align: center; 
+}
+.tr{
+  font-weight: 400;height: 75rpx;line-height: 75rpx;
+}
+.table .tr:first-child{
+  height: 50rpx;line-height: 30rpx;
+}
+.tr .td:last-child,.heji text{
+  color: #CCAA77;
+}
+.th{
+  height: 30rpx;margin-top: 10rpx;border-right: 2rpx solid #EEEEEE;
+}
+.tr .th:last-child{
+  border-right: 0;
+}
+/* 选择物流配送方式 */
+.ad-top{
+  background: #fff;
+  font-size:34rpx;
+  text-align: center;
+  padding:35rpx 0;
+  color: #DDDDDD;
+}
+.ad-top image{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.ad-top view{
+  height: 145rpx;
+  width: 315rpx;
+  border-radius:10rpx;
+  border:2rpx solid #F4F4F4;
+  line-height: 145rpx;
+  display: inline-block;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+.ad-top .ad-active{
+  background: #FFF1DD;
+  border: 2rpx solid #EFDBBD;
+  color: #CCAA77;
+}
+/* 模板 */
+.add-bottom{
+  position: fixed;bottom: 0;z-index: 10;color: #CCAA77;font-weight:600;
+  font-size: 36rpx;background:#fff;width: 100%;height: 120rpx;
+}
+.add-bottom view{
+  width: 49%;display: inline-block;text-align: center;position: relative;height: 50rpx;
+  margin-top: 30rpx;
+}
+.add-bottom view:first-child{
+  border-right: 2rpx solid #F4F4F4;
+}
+.add-bottom image{
+  height: 40rpx;width: 40rpx;vertical-align: middle;margin-right: 10rpx;margin-top: -3rpx;
+}
+.add-bottom1 view{
+  width: 33%;
+}
+.add-bottom1 view:nth-child(2){
+  border-right: 2rpx solid #F4F4F4;
+}
+

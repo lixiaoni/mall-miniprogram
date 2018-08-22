@@ -12,14 +12,56 @@ Page({
     mainx: 0,
     pageall:[],
     pageShow:true,
+    currentTab: 0,
+    hiddenSelt: false,
+    hiddenSend: true,
+    stock:'4',
+    strName:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options.className)
   },
+  // tab切换
+  swichNav: function (e) {
+    var that = this;
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      var index = e.target.dataset.current
+      if (index == 1) {
+        that.setData({
+          currentTab: e.target.dataset.current,
+          hiddenSelt: true,
+          hiddenSend: false
+        })
+      } else {
+        that.setData({
+          currentTab: e.target.dataset.current,
+          hiddenSelt: false,
+          hiddenSend: true
+        })
+      }
+
+    }
+  },
+  // 清空起批量
+  clearInput:function(e){
+    this.setData({
+      stock:''
+    })
+  },
+  // 分别设置价格和库存
+  clickSpec:function(){
+    var model = JSON.stringify(this.data.pageall);
+    wx.navigateTo({
+      url: '../set/set?model=' + model,
+    })
+  },
+  //长按拖动图片
   movestart: function (e) {
     currindex = e.currentTarget.dataset.index;
     x = e.touches[0].clientX;
@@ -132,12 +174,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that=this;
+    var that=this
     var pages=getCurrentPages();
     var currPage=pages[pages.length-1]
+    console.log(currPage.data.mydata)
+    if (currPage.data.strName){
+      that.setData({
+        strName: currPage.data.strName
+      })
+    }
     if(currPage.data.mydata){
-      console.log(currPage.data.mydata)
-      this.setData({
+      that.setData({
         pageall: currPage.data.mydata,
         pageShow:false
       })

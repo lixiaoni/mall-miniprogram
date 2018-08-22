@@ -1,0 +1,19 @@
+@import '../shopClass/shopClass';
+.shop-cont{
+  padding:0;
+}
+.shop-cont1{
+  margin-bottom: 20rpx;padding-top: 20rpx;
+}
+.shop-cont1 .shop-size{
+  margin-bottom: 50rpx;
+}
+.shop-cont>view{
+  border-bottom: 2rpx solid #F1F1F1;margin-left: 30rpx;
+}
+.shop-cont1>view{
+  padding-top:0;border-bottom:0;
+}
+navigator{
+  height: 70rpx;padding-top: 10rpx;
+}

@@ -1,26 +1,13 @@
-// pages/goodsdetails/goodsdetails.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://pic.youlife.me/v1/tfs/T1SRATBXVT1RXrhCrK.jpg',
-      'http://pic.youlife.me/v1/tfs/T1oyKTBXWT1RXrhCrK.jpg',
-      'http://pic.youlife.me/v1/tfs/T1LyATBXWT1RXrhCrK.jpg'
-    ],
-    items: [{
-      message: '18K锦囊金宝石',
-      status:0,
-    }, {
-        message: '18K锦囊金宝石',
-        status: 0,
-      }, {
-        message: '18K锦囊金宝石',
-        status: 1,
-      }],
-    weight:[{weight:'500g'},{weight:'600g'}],
+    imgUrls: [],
+    goodsSpecificationVOList:[],
+    goodsSkuVOList:[],
     className:'active',
     indicatorDots: true,
     autoplay: true,
@@ -30,7 +17,40 @@ Page({
     Height: ""  ,
     hidden: true,
     numbers: 1,
+    name:'',
+    wholesalePrice:'',
+    recommendDesc:'',
+    introduction:'',
+    swichNavCode:true,
+    changeButtonCode:true,
+    mainImgUrl:'',
+    wholesale: '',
+    sell:'',
+    stockNumber:''
   },
+  /**
+  * 生命周期函数--监听页面加载
+  */
+  onLoad: function (options) {
+    var that = this
+    app.http.getRequest('/admin/shop/goods/1808201739186161908a')
+      .then(res => {
+        var obj = res.obj
+        that.setData({
+          imgUrls: obj.goodsImageVOList,
+          name: obj.name,
+          wholesalePrice: obj.wholesalePrice,
+          recommendDesc: obj.recommendDesc,
+          introduction: obj.introduction,
+          goodsSpecificationVOList: obj.goodsSpecificationVOList,
+          goodsSkuVOList: obj.goodsSkuVOList,
+          sell: obj.sellPrice,
+          stockNumber: obj.goodsNum,
+          mainImgUrl: obj.mainImgUrl
+        })
+      })
+  },
+
   imgHeight: function (e) {
     var winWid = wx.getSystemInfoSync().windowWidth; //获取当前屏幕的宽度
     var imgh = e.detail.height;//图片高度
@@ -45,31 +65,19 @@ Page({
       hidden: true
     });
   },
-
   //选择规格
   showAlert:function(){
- 
-    // 用that取代this，防止不必要的情况发生
     var that = this;
-    // 创建一个动画实例
     var animation = wx.createAnimation({
-      // 动画持续时间
       duration: 300,
-      // 定义动画效果，当前是匀速
       timingFunction: 'linear'
     })
-    // 将该变量赋值给当前动画
     that.animation = animation
-    // 先在y轴偏移，然后用step()完成一个动画
     animation.translateY(300).step()
-    // 用setData改变当前动画
     that.setData({
-      // 通过export()方法导出数据
       animationData: animation.export(),
-      // 改变view里面的Wx：if
       hidden: false
     })
-    // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
     setTimeout(function () {
       animation.translateY(0).step()
       that.setData({
@@ -77,17 +85,72 @@ Page({
       })
     }, 30)
   },
+  goodsSku:function(code,index){
+    var _this=this,
+      dataList = _this.data.goodsSkuVOList
+     for (var i = 0; i < dataList.length; i++) {
+       if (dataList[i].specValueCodeList.indexOf(code) != -1) {
+        if(index==0){
+          if (dataList[i].specValueCodeList.indexOf(_this.data.swichNavCode) != -1) {
+            _this.setData({
+              wholesale: dataList[i].wholesalePrice,
+              stockNumber: dataList[i].stockNumber,
+              sell: dataList[i].sellPrice
+            })
+          }
+        }else{
+          if (dataList[i].specValueCodeList.indexOf(_this.data.changeButtonCode) != -1) {
+            _this.setData({
+              wholesale: dataList[i].wholesalePrice,
+              stockNumber: dataList[i].stockNumber,
+              sell: dataList[i].sellPrice
+            })
+          }
+        }
+       }
+     }
+   
+  },
   //选择规格属性
-  changeButton:function(e){
+  changeButton: function (e) {
+    var changeButtonCode =e.target.dataset.code
+    this.goodsSku(changeButtonCode,0)
     var that = this;
     if (this.data.specsTab === e.target.dataset.current) {
       return false;
     } else {
       that.setData({
         specsTab: e.target.dataset.current,
+        changeButtonCode: changeButtonCode
       })
     }
   },
+  weghtSwi: function (e) {
+    var swichNavCode = e.target.dataset.code
+    this.goodsSku(swichNavCode, 1)
+    var that = this;
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current,
+        swichNavCode: swichNavCode
+      })
+    }
+  },
+  // swichNav: function (e) {
+  //   var swichNavCode = e.target.dataset.code
+  //   console.log(swichNavCode)
+  //   var that = this;
+  //   if (this.data.currentTab === e.target.dataset.current) {
+  //     return false;
+  //   } else {
+  //     that.setData({
+  //       currentTab: e.target.dataset.current,
+  //       swichNavCode: swichNavCode
+  //     })
+  //   }
+  // },
   //关闭弹框
   closeAlert:function(){
     var that = this;
@@ -120,26 +183,7 @@ Page({
       url: '../cartList/cartList'
     })
   },
-  swichNav: function (e) {
-    var that = this;
-    if (this.data.currentTab === e.target.dataset.current) {
-      return false;
-    } else {
-      that.setData({
-        currentTab: e.target.dataset.current,
-      })
-    }
-  },
-  weghtSwi:function(e){
-    var that = this;
-    if (this.data.currentTab === e.target.dataset.current) {
-      return false;
-    } else {
-      that.setData({
-        currentTab: e.target.dataset.current,
-      })
-    }
-  },
+
   // 购买数量
   minusCount:function(){
     let num = this.data.numbers
@@ -159,13 +203,7 @@ Page({
       numbers:num
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-   
-  },
-
+ 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

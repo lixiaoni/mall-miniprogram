@@ -51,7 +51,6 @@
 .c-title .o-close {
   color: #999;
 }
-
 .cf-button{
   background: #fff;
   height: 120rpx;
@@ -116,7 +115,7 @@
   z-index: 100;
 }
 .order-zt{
-  color: #CCAA77;
+  color: #CCAA77;font-weight: normal;
   border:2rpx solid #CCAA77;
   font-size: 24rpx;padding:3rpx 12rpx;
   position: relative;margin-left: 20rpx;

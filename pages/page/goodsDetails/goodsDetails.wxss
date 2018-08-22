@@ -57,7 +57,7 @@
   color:#333;
   font-weight:bold;
   padding-right: 30rpx;
-  margin-top: 55rpx;
+  margin-top: 35rpx;
   margin-bottom: 10rpx;
 }
 .gd-ins text{
@@ -78,6 +78,7 @@
 .gd-gg .gd-view view{
   font-size: 26rpx;
   padding:0 15rpx;
+  min-width: 90rpx;
   column-rule-color: #fff;
   height: 70rpx;
   line-height: 70rpx;

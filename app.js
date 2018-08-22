@@ -1,3 +1,4 @@
+import http from './utils/http.js'
 App({
   onLaunch: function () {
     // 购物车
@@ -44,7 +45,7 @@ App({
     userInfo: null,
     skin: "normal",
   },
-
+  http: new http()
 });
 
 
