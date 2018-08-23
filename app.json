@@ -1,5 +1,9 @@
 {
   "pages":[
+    "pages/login/register/register",
+    "pages/login/login/login",
+    
+    "pages/page/home/home",
     "pages/admin/set/set",
     
     "pages/admin/addGoods/addGoods",
@@ -10,7 +14,7 @@
     
     
     
-    "pages/page/home/home",
+    
     
     
     "pages/page/goodsDetails/goodsDetails",
