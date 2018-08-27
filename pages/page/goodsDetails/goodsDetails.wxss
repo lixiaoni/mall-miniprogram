@@ -125,19 +125,47 @@
 .gd-title view{
   margin-bottom: 10rpx;
 }
+.gd-title view:first-child{
+ position: relative;padding-right:40rpx;
+}
+.gd-title view:first-child image{
+  width: 38rpx;height:38rpx;position: absolute;right: 0;top: 12rpx;
+}
+.gd-title view.gd-font{
+  font-size: 30rpx;color: #C7945A;
+}
+.gd-title view.gd-font1{
+  color:#999999;text-decoration-line:line-through;
+}
+.gd-title view.gd-font2{
+  color:#999999;
+}
+.gd-title .btn {
+  border:0;text-align: right
+}
+.gd-title view.gd-font .gd-yan{
+   font-size: 28rpx;color: #999;margin-left: 10rpx;
+}
+.gd-title view.gd-font image{
+  width: 40rpx;height: 40rpx;vertical-align: middle;
+}
 .gd-title button{
-  width: 150rpx;
-  height: 40rpx;
-  border-radius: 40rpx;
+  width: 180rpx;
+  border-radius: 10rpx;
   color: #C7945A;
   border:2rpx solid #C7945A;
   font-size: 24rpx;
   background: #fff;
-  padding:0;
+  padding:0;margin-top: 6rpx;
   vertical-align: middle;
   margin-left: 30rpx;
-  line-height:38rpx;
-  display: inline-block;
+  line-height:38rpx;float: right;
+}
+.gd-title .gd-view-n{
+color: #999999;font-size: 28rpx;margin-top: 20rpx;
+}
+.gd-title .gd-view-n button{
+  float: left;width: 120rpx;margin:5rpx 10rpx 0 0;
 }
 .gd-title text{
   color:#C79359;
@@ -217,16 +245,16 @@
   height: 90rpx;
   margin:20rpx 0 20rpx 0;
   line-height: 90rpx;
-  padding:0 40rpx 0 40rpx;
+  padding:0 58rpx 0 50rpx;
 }
 .ym_goodsstore {
     background: #fff;
-    padding: 40rpx;
+    padding: 40rpx 0;
     margin-top: 22rpx;
     margin-bottom: 20rpx;
 }
 .ym_goodsstoreh {
-    overflow: hidden;
+    overflow: hidden;padding-left: 58rpx;
 }
 .ym_goodsstoresprs {
     margin-top: 56rpx;
@@ -286,7 +314,7 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    width: 50%;
+    width: 35%;
     text-align: center;
     box-sizing: border-box;
 }
@@ -383,7 +411,7 @@
   text-align: center;
 }
 .gd_b_left>view,.gd_b_left>navigator{
-  width: 33.3%;
+  width: 33.3%;position: relative;
   display: inline-block;
   color: #888;
   font-size: 20rpx;
@@ -406,16 +434,10 @@
   height: 40rpx;
 }
 .mesImage{
-  position: fixed;
-  bottom: 140rpx;
-  right:40rpx;
-  width: 80rpx;
-  padding:0;
-  height: 80rpx;
-  border-radius: 50%;
-  border:2rpx solid #DBDBDB;
+  position: absolute;
   text-align: center;
-  background: #fff;
+  top:-35rpx;width: 100%;
+  height: 60rpx;padding:0;
 }
 .mesImage image{
   width: 60rpx;

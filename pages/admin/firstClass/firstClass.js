@@ -6,14 +6,16 @@ Page({
    */
   data: {
     dataList: [],
+    parentCategoryCode:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this
-    app.http.getRequest('/admin/shop/category/0')
+    var that=this,
+      parentCategoryCode = this.data.parentCategoryCode
+    app.http.getRequest('/admin/shop/category/sublist/'+parentCategoryCode)
       .then(res => {
         const obj = res.obj
         that.setData({

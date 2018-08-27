@@ -1,34 +1,14 @@
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    result: [
-      {
-        id: 1,
-        thumb: '/image/s5.png',
-        title: '周大福 艳丽动人 18K金镶坦桑石 V103235',
-        price: 0.01
-      },
-      {
-        id: 2,
-        thumb: '/image/s5.png',
-        title: '周大福 艳丽动人 18K金镶坦桑石 V103235',
-        price: 0.02
-      },
-      {
-        id: 1,
-        thumb: '/image/s5.png',
-        title: '周大福 艳丽动人 18K金镶坦桑石 V103235',
-        price: 0.01
-      },
-      {
-        id: 2,
-        thumb: '/image/s5.png',
-        title: '周大福 艳丽动人 18K金镶坦桑石 V103235',
-        price: 0.02
-      }
-    ],
+    storeId :123,
+    customCategoryCode :'',
+    pageNum:1,
+    pageSize :20,
+    result: [],
   },
   /**
    * 生命周期函数--监听页面加载
@@ -37,13 +17,29 @@ Page({
     wx.setNavigationBarTitle({
       title: options.name
     })
+    this.setData({
+      customCategoryCode: options.customCategoryCode
+    })
+    var _this = this,
+      storeId = this.data.storeId,
+      customCategoryCode = this.data.customCategoryCode,
+      pageNum = this.data.pageNum,
+      pageSize = this.data.pageSize
+    app.http.getRequest('/admin/shop/goods/findUnderStoreGoodsByCustomCategoryCode/' + storeId + '?customCategoryCode=' + customCategoryCode + '&pageNum=' + pageNum + '&pageSize=' + pageSize)
+      .then(res => {
+        const obj = res.obj
+        console.log(obj.result)
+        _this.setData({
+          result: obj.result
+        })
+      })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**

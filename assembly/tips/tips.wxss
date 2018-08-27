@@ -21,9 +21,9 @@
   margin: -180rpx -300rpx;
   border-radius: 10rpx;
 }
-button{
-  width: 240rpx;height: 70rpx;color: #CCAA77;line-height: 68rpx;
-  border: 2rpx solid #CCAA77;font-size: 30rpx;margin-top:25rpx;background:none;
+button,.button-hover{
+  width: 240rpx;height: 70rpx;color: #fff;line-height: 68rpx;
+  border: 2rpx solid #CCAA77;font-size: 30rpx;margin-top:25rpx;background:#CCAA77;
 }
 .mes-tel{
   color: #CCAA77;

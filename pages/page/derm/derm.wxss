@@ -1,1 +1,3 @@
-/* pages/derm/derm.wxss */
+page{background: #fff;}
+.add-bottom{color: #333;border-top: 2rpx solid #E8E8E8;}
+.add-bottom image{height: 45rpx;width: 45rpx;}

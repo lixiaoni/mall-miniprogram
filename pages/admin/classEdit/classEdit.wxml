@@ -1,20 +1,16 @@
-<view class='ed-cont'>
-  <view class='page_hd' wx:for="{{list}}" wx:key="{{index}}">
-    <navigator class='weui-cell weui-cell_access' url=''>
-        <view class='weui-cell__bd'>
-          <view class='my-info'>{{item.title}}</view>
-        </view>
-        <view class='weui-img'wx:if="{{index>0}}">
-          <image src="/image/top.png"></image>
-        </view>
-    </navigator>
-    <view class='ed-edit'>
-      <view><navigator url="../batchClass/batchClass">编辑</navigator></view>
-      <view>删除</view>
-    </view>
-  </view> 
+<view class='shop-cont'>
+  <view class='shop-size'>已选定两项</view>
+  <view wx:for='{{list}}' wx:key='{{index}}'>
+     <icon wx:if="{{item.selected}}" data-index="{{index}}" type="success" size="18" color="#CCAA77" bindtap="selectList"/>
+     <icon wx:else data-index="{{index}}" type="circle" size="18" bindtap="selectList"/>
+     {{item.name}}<view>{{item.count}}件</view>
+  </view>
 </view>
-<view class='weui-bottom'>
-  <navigator>新建分类</navigator>
-  <navigator>完成</navigator>
+<view class='add-bottom'>
+  <view bindtap='addClass'>
+    <icon wx:if="{{selectAllStatus}}" type="success" size="20" color="#CCAA77" class='iconall'  bindtap="selectAll"/>
+    <icon wx:else type="circle" class='iconall' size="20" bindtap="selectAll"/>
+  全选</view>
+  <view bindtap='removeFun'>删除</view>
 </view>
+

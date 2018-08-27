@@ -35,7 +35,7 @@
   background: #fff;
   position: relative;
 }
-.st-xiala{
+.st-xiala,.serList{
   position: absolute;
   border:2rpx solid #EDEDED;
   width:160rpx;
@@ -60,16 +60,16 @@
   line-height: 90rpx;
 }
 .st-title>view image{
-  width: 20rpx;
-  height: 20rpx;
-  margin-left: 5rpx;
+  width: 15rpx;
+  height: 15rpx;
+  margin-left:8rpx;
   vertical-align: middle;
 }
 .st-title>view.active{
   color: #C79359;
 }
 .st-cont{
-  height: 315rpx;
+  height:314rpx;
   position: relative;
   padding-left:230rpx;
   color: #333;
@@ -100,7 +100,7 @@
   font-size: 28rpx;
 }
 .st-d-t{
-  width:480rpx; 
+  width:430rpx; 
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -110,10 +110,9 @@
 }
 .st-bottom{
   position: absolute;bottom: 0;
-  width: 102.4%;
+  width: 100%;
   text-align: center;
-  left: 0;
-  border-top:2rpx solid #EDEDED;
+  left: 0;border-top: 2rpx solid #EEEEEE;
   height: 90rpx;
 }
 .st-bottom view{
@@ -135,13 +134,13 @@
   color: #666;
   font-size: 30rpx;
   text-align: center;
-  margin-top: 40rpx;
+  margin-top: 40rpx;margin-bottom: 150rpx;
 }
 .st-bottom1{
   background: #fff;
-  color: #333;
+  color: #333;position: fixed;
   font-size: 30rpx;
-  height: 120rpx;
+  height: 120rpx;border-top: 0;
 }
 .st-bottom1 view{
   border-right: 2rpx solid #EDEDED;
@@ -174,14 +173,14 @@
   line-height: 120rpx;
   float: right
 }
-.weui-bottom navigator:first-child{
+.weui-bottom navigator:first-child,.weui-bottom view:first-child{
   color: #fff;
   background:#CCAA77;
   position: absolute;
   left: 0;
-  line-height: 122rpx;
-  height: 122rpx;
-  top: -1rpx;
+  line-height: 121rpx;
+  height: 121rpx;
+  top: 0;
 }
 .alert-xiala view{
   border-bottom: 2rpx solid #EDEDED;height: 80rpx;line-height: 80rpx;
@@ -192,6 +191,25 @@
 .st-xiala{
   padding-top:0;padding-bottom: 0;border-bottom: 0;
 }
-.alert-xiala view.active{
+.alert-xiala view.active,.serList view.active{
   color:#CCAA77;
 }
+.serList{
+  width: 100%;right: 0;height:450rpx;overflow-y: scroll;top: 0;
+}
+.serList view{
+  height: 80rpx;line-height: 80rpx;font-size:30rpx;padding: 0 40rpx;position: relative;
+}
+.serList view image{
+  width: 30rpx;height:30rpx;position: absolute;right:40rpx;top: 22rpx;display: none;
+}
+.serList view.active image{
+  display: block;
+}
+.hideSer{
+  height: 100%;background:rgba(0, 0, 0, 0.5);position: fixed;width: 100%;bottom: 0;z-index: 1000;top: 170rpx;
+}
+.xiala,.xiala1{
+  position: absolute;width: 40rpx;height: 30rpx;top: -27rpx;
+}
+

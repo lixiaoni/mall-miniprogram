@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "本店分类"
+  "navigationBarTitleText": "本店分类",
+  "usingComponents": {
+    "spec": "../../../../assembly/specifications/spec"
+  }
 }

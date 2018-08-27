@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataList: [{ name: "戒指", num: 33, selected: false }, { name: "戒指", num: 33, selected: false }, { name: "戒指", num: 33, selected: false }, { name: "戒指", num: 33, selected: false }],
+    dataList: [],
     name:'',
   },
 
@@ -19,7 +19,7 @@ Page({
     that.setData({
       name:name
     })
-    app.http.getRequest('/admin/shop/category/'+parentCategoryCode)
+    app.http.getRequest('/admin/shop/category/sublist/'+parentCategoryCode)
       .then(res => {
         const obj = res.obj
         console.log(obj)

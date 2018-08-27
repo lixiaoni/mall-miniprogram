@@ -1,57 +1,81 @@
 {
   "pages":[
-    "pages/admin/set/set",
+    "pages/page/mesEdit/mesEdit",
     
-    "pages/admin/addGoods/addGoods",
-    
-    "pages/admin/spec/spec",
-    
-    
-    
-    
+    "pages/page/mes/mes",
     
     "pages/page/home/home",
     
-    
-    "pages/page/goodsDetails/goodsDetails",
-    
-    
-    
-    "pages/page/cartList/cartList",
-    
-    
-    
-    "pages/page/newAddress/newAddress",
-    
-    "pages/page/addressWe/addressWe",
-    
-    
     "pages/admin/status/status",
+    
+    "pages/admin/batch/batch",
+    
+    "pages/admin/class/class",
+    
+    "pages/admin/addGoods/addGoods",
     
     "pages/admin/shopClass/shopClass",
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    "pages/admin/spec/spec",
     
     "pages/admin/firstClass/firstClass",
     
     
     
     
+    
+    "pages/admin/serStatus/serStatus",
+    
+    
+    "pages/admin/editMesTitle/editMesTitle",
+    "pages/admin/writeCont/writeCont",
+    
+    
+    
+    
+    
+    
+    "pages/page/derm/derm",
+    
+    
+    "pages/page/goodsDetails/goodsDetails",
+    
+    
+    
+    "pages/page/newAddress/newAddress",
+    
+    
+    
+    
+    
+    "pages/admin/batchSet/batchSet",
+    "pages/admin/set/set",
+    
+    "pages/admin/success/success",
+    "pages/admin/classList/classList",
+    "pages/page/serList/serList",
+    "pages/page/serStatus/serStatus",
+    "pages/admin/classEdit/classEdit",
+    "pages/page/cartList/cartList",
+    
+    
+    "pages/page/addressWe/addressWe",
+    
+    
     "pages/admin/thirdClass/thirdClass",
     "pages/admin/secondClass/secondClass",
     
-    
-    
-    
-    
-    
-    "pages/admin/batch/batch",
-    
-    "pages/admin/writeCont/writeCont",
-    
     "pages/page/address/address",
-    
-    
-    
 
     "pages/role/supplyOrder/supplyOrder",
     "pages/role/orderSelf/orderSelf",
@@ -75,18 +99,13 @@
     "pages/page/invoice/invoice",
     "pages/page/germ/germ",
     "pages/page/goodWe/goodWe",
-    "pages/page/derm/derm",
-    "pages/page/mes/mes",
-    "pages/page/serStatus/serStatus",
-    "pages/page/serList/serList",
+   
     "pages/page/goodsList/goodsList",
     "pages/page/index/index",
     "pages/page/logs/logs",
     
     
-    "pages/admin/classEdit/classEdit",
-    "pages/admin/batchClass/batchClass",
-    "pages/admin/class/class"
+    "pages/admin/batchClass/batchClass"
     
     
   ],

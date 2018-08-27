@@ -8,18 +8,28 @@ Page({
     dataList: [],
     show:false,
     watchInput: false,
+    storeId:123,
+    shouTitile:false,
+    codeArr:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.code){
+    var code=options.code
+      var arr = code.split(',');
+     this.setData({
+       shouTitile:true,
+       codeArr:arr
+     })
+    }
     var that = this,
-        storeId=2
-    app.http.getRequest('/admin/shop/customCategory/'+storeId)
+      storeId = this.data.storeId
+    app.http.getRequest('/admin/shop/customcategory/store/'+storeId)
         .then(res => {
           const obj = res.obj
-          console.log(obj)
           that.setData({
             dataList: obj
           })
@@ -40,17 +50,30 @@ Page({
   // 确定
   comfirmFun(e){
     var dataList = this.data.dataList,
-        strName='';
+        strCode='',
+        codeList=[];
     for(var i=0;i<dataList.length;i++){
       if (dataList[i].selected){
-        strName += dataList[i].name+','
+        codeList.push({ name: dataList[i].name, customCategoryCode:dataList[i].customCategoryCode})
+        strCode = dataList[i].customCategoryCode
       }
+    }
+    if (this.data.shouTitile) {
+      var customCategoryCode =
+        app.http.postRequest('/admin/shop/goods/customcategory/'+strCode+'/goods', JSON.stringify(this.data.codeArr))
+          .then(res => {
+            wx.showToast({
+              title: '分类成功',
+              icon: 'none',
+              duration: 2000
+            })
+          })
     }
     var pages = getCurrentPages();             //  获取页面栈
     var currPage = pages[pages.length - 1];
     var prevPage = pages[pages.length - 2];    // 上一个页面
     prevPage.setData({
-      strName: strName
+      codeList: codeList
     })
     wx.navigateBack({
       data: 1

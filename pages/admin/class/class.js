@@ -1,22 +1,92 @@
-// pages/class/class.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[
-      { id: 1, title: "戒指", num: "123" }, { id: 1, title: "项链", num: "23" }, { id: 1, title: "耳钉", num: "13" }, { id: 1, title: "手链", num: "123" }
-    ],
+    list:[],
+    storeId:123
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this,
+      storeId = this.data.storeId
+    app.http.getRequest('/admin/shop/customcategory/store/'+storeId)
+      .then(res => {
+        const obj = res.obj
+        for (var i = 0; i < obj.length; i++) {
+          obj[i].selected = false
+        }
+        that.setData({
+          list: obj
+        })
+      })
   },
-
+  // 新建分类
+   watchInput: function (event) {
+    if (event.detail.value == '') {
+      this.setData({
+        watchInput: false
+      })
+    } else {
+      this.setData({
+        watchInput: true,
+        value: event.detail.value
+      })
+    }
+  },
+  addClass: function (e) {
+    this.setData({
+      show: true,
+      value: ''
+    })
+  },
+  cancel: function () {
+    this.setData({
+      show: false
+    })
+  },
+  confirm: function () {
+    var _this = this,
+      tempArr = {},
+      name = this.data.value
+    tempArr.name = name
+    tempArr.storeId = _this.data.storeId
+    if (_this.data.watchInput){
+      app.http.postRequest('/admin/shop/customcategory/save', JSON.stringify(tempArr))
+        .then(res => {
+          const obj = res.obj
+          _this.setData({
+            list: obj
+          })
+          wx.showToast({
+            title: '新建成功',
+            duration: 1000,
+            mask: true
+          })
+          _this.cancel()
+        })
+    }
+   
+  },
+  manaClass:function(){
+    var model = JSON.stringify(this.data.list);
+    wx.navigateTo({
+      url: '../classEdit/classEdit?model=' + model,
+    })
+  },
+  classList:function(e){
+    var code = e.target.dataset.code,
+        name=e.target.dataset.name
+        console.log(name+"//"+code)
+    wx.navigateTo({
+      url: '../classList/classList?name='+name+'&code='+code,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

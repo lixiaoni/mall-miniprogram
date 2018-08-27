@@ -7,10 +7,21 @@
 </swiper>
 <view class='gd-details'>
   <view class='gd-title'>
-    <view>{{name}}</view>
-    <text>￥{{wholesalePrice}}</text>
-    <!-- <button>享受批发价</button> -->
+    <view>{{name}}<image src="/image/fx.png"></image></view>
+    <view class='gd-font'>零售价：<text>￥{{wholesalePrice}}</text></view>
+    <view class='gd-font'>批发价：<image src='/image/wh.png'></image><text class='gd-yan'>商友验证中</text><button>享受批发价</button></view>
   </view>
+  <!-- <view class='gd-title'>
+    <view>{{name}}<image src="/image/fx.png"></image></view>
+    <view class='gd-font gd-font1'>零售价：￥333</view>
+    <view class='gd-font'>批发价：<text>￥333</text></view>
+  </view> -->
+  <!-- <view class='gd-title'>
+    <view>{{name}}<image src="/image/fx.png"></image></view>
+    <view class='gd-font gd-font2'>零售价：￥333</view>
+    <view class='gd-font'>批发价：<text>￥333</text><button class='btn'><text>3</text>件起批</button></view>
+    <view class='gd-view-n'><button>混批</button>全场满￥5000可混批</view>
+  </view> -->
   <view class="weui_cells">
       <image  src="/image/positionico.png"></image>
       <text class="store-address">北京 </text>
@@ -38,10 +49,9 @@
                 </view>
             </view>
             <view class="ym_goodsstoresprs">
-                <view class="ym_goodsstorel">
-                    <view class="store-goodsNum-data">35</view>关注人数
-                </view>
-                <view class="ym_goodsstorer"><view class='store-goodsNum-data'>0</view>全部商品</view>
+                <view class="ym_goodsstorel"><view class="store-goodsNum-data">35</view>全部商品</view>
+                <view class="ym_goodsstorer"><view class='store-goodsNum-data'>0</view>关注人数</view>
+                <view class="ym_goodsstorer"><view class='store-goodsNum-data'>0</view>进货商</view>
             </view>
             <view class="ym_goodsstoreop">
                 <navigator class="ui-link"><text class="ym_qzjoin_add1">+</text>关注</navigator>
@@ -69,9 +79,8 @@
   </view>
 <view class='gd_bottom'>
     <view class='gd_b_left'>
-        <view bindtap='urlHome'>
-          <view><image src="/image/i11.png"></image></view>
-          逛百荣
+        <view>
+          <view><button class='mesImage' open-type="contact" session-from="weapp"><image src="/image/mes.png"></image></button>  联系客服</view>
         </view>
         <view>
         <navigator url="../goodWe/goodWe"><image src="/image/i22.png"></image></navigator>
@@ -81,12 +90,20 @@
         <view bindtap='CratHome'><image src="/image/i33.png"></image></view>
           购物车
         </view>
+        <!-- <view bindtap='CratHome'><image src="/image/i33.png"></image></view>
+          进货车
+        </view> -->
     </view>
     <view class='gd_b_right' bindtap='showAlert'>
        <navigator>
-          立即购买
+          加入购物车
         </navigator>
     </view>
+    <!-- <view class='gd_b_right' bindtap='showAlert'>
+       <navigator>
+          立即进货
+        </navigator>
+    </view> -->
 </view>
 <view hidden="{{hidden}}" class='alertAdd'>
     <view class='gd-alert' animation='{{animationData}}'>
@@ -138,4 +155,3 @@
       </view>
     </view>
 </view>
-<button class="kf_button mesImage" open-type="contact" session-from="weapp"><image src="/image/mes.png"></image></button> 

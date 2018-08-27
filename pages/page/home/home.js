@@ -6,6 +6,10 @@ Page({
   data: {
     winWidth: 0,
     winHeight: 0,
+    show:false,
+    isShow:false,
+    showHide:true,
+    showDp:true,
     // tab切换 
     currentTab: 0,
     result: [
@@ -45,6 +49,33 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  addTip:function(){
+    this.setData({
+      show:true
+    })
+  },
+  confirm:function(){
+    this.setData({
+      show: false,
+      isShow:true,
+    })
+  },
+  editFun:function(){
+    this.setData({
+      showHide: false,
+    })
+  }, 
+  closeShow: function() {
+    this.setData({
+      showHide: true,
+      showDp:true
+    })
+  }, 
+  editDp: function () {
+    this.setData({
+      showDp: false,
+    })
+  }, 
   onLoad: function () {
     var that = this;
     // wx.navigateToMiniProgram({

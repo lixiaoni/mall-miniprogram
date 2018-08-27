@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.1.1",
+	"libVersion": "2.2.3",
 	"appid": "wx6241529c7dc70d51",
 	"projectname": "mall-miniprogram",
 	"isGameTourist": false,

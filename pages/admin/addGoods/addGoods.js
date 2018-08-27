@@ -1,4 +1,4 @@
-// pages/addGoods/addGoods.js
+const app = getApp();
 var x, y, x1, y1, x2, y2, index, currindex, n, yy;
 Page({
 
@@ -15,15 +15,64 @@ Page({
     currentTab: 0,
     hiddenSelt: false,
     hiddenSend: true,
+    clickSpecShow:false,
     stock:'4',
-    strName:''
+    strName:'',
+    skuListAll:[],
+    skuNum:'',
+    brand:'',
+    name: '',
+    recommendDesc:'',
+    description:'',
+    categoryCustomCode:'',
+    categoryCode:'200',
+    marketPrice: 100,
+    introduction: '',
+    sellPrice: 0,
+    wholesalePrice:0,
+    storeId:'123',
+    goodsImageVOList: [{ "imageUrl": "http://img2.imgtn.bdimg.com/it/u=1758226492,603315287&fm=214&gp=0.jpg" }],
+    mainImgUrl: "http://img2.imgtn.bdimg.com/it/u=1758226492,603315287&fm=214&gp=0.jpg",
   },
-
+  watchName: function (event) {
+    var _this = this,
+      val = event.detail.value
+    this.setData({
+      name: val
+    })
+  },
+  watchRec: function (event) {
+    var _this = this,
+      val = event.detail.value
+    this.setData({
+      recommendDesc: val
+    })
+  },
+  watchDec: function (event) {
+    var _this = this,
+      val = event.detail.value
+    this.setData({
+      description: val
+    })
+  },
+  wholesalePrice: function (event) {
+    var _this = this,
+      val = event.detail.value
+    this.setData({
+      wholesalePrice: val
+    })
+  },
+  sellPrice: function (event) {
+    var _this = this,
+      val = event.detail.value
+    this.setData({
+      sellPrice: val
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.className)
   },
   // tab切换
   swichNav: function (e) {
@@ -55,11 +104,20 @@ Page({
     })
   },
   // 分别设置价格和库存
-  clickSpec:function(){
-    var model = JSON.stringify(this.data.pageall);
-    wx.navigateTo({
-      url: '../set/set?model=' + model,
-    })
+  clickSpec:function(e){
+   if(e.target.dataset.id=='000'){
+     var model = JSON.stringify(this.data.skuListAll);
+     wx.navigateTo({
+       url: '../set/set?model=' + model,
+     })
+   }else{
+     var model = JSON.stringify(this.data.pageall);
+     console.log(model)
+     wx.navigateTo({
+       url: '../set/set?model=' + model,
+     })
+   }
+   
   },
   //长按拖动图片
   movestart: function (e) {
@@ -115,7 +173,6 @@ Page({
       success: function (res) {
         // success
         var imgSrc = res.tempFilePaths;
-        console.log(imgSrc)
         pics = pics.concat(imgSrc);
         // 控制触发添加图片的最多时隐藏
         if (pics.length >= 9) {
@@ -163,11 +220,43 @@ Page({
       urls: this.data.pics
     })
   },
+  // 放入仓库
+  addGit:function(e){
+    var status=e.target.dataset.status
+    console.log(status)
+    var goodsVO =  {
+      "categoryCode": this.data.categoryCode,
+      "categoryCustomCode": this.data.categoryCustomCode,
+      "description": this.data.description,
+      "goodsImageVOList": this.data.goodsImageVOList,
+      "goodsSkuVOList": this.data.goodsSkuVOList,
+      "goodsSpecificationVOList": this.data.pageall,
+      "mainImgUrl": this.data.mainImgUrl,
+      "marketPrice": this.data.marketPrice,
+      "name": this.data.name,
+      "recommendDesc": this.data.recommendDesc,
+      "sellPrice": this.data.sellPrice,
+      "status":status,
+      "storeId": this.data.storeId,
+      "wholesalePrice": this.data.wholesalePrice
+    }
+    app.http.postRequest('/admin/shop/goods/', JSON.stringify(goodsVO ))
+      .then(res => {
+        wx.showToast({
+          title: '添加成功',
+          icon: 'none',
+          duration: 2000
+        })
+        wx.navigateTo({
+          url: '../status/status',
+        })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    console.log(this.data.skuListAll)
   },
 
   /**
@@ -177,10 +266,24 @@ Page({
     var that=this
     var pages=getCurrentPages();
     var currPage=pages[pages.length-1]
-    console.log(currPage.data.mydata)
-    if (currPage.data.strName){
+    if (currPage.data.skuListAll!='') {
       that.setData({
-        strName: currPage.data.strName
+        skuListAll: currPage.data.skuListAll,
+        skuNum: currPage.data.skuNum,
+        clickSpecShow:true
+      })
+    }
+    if (currPage.data.codeList){
+      var codeList = currPage.data.codeList,
+          strName='',
+          code=''
+      for (var i = 0; i < codeList.length;i++){
+        strName += codeList[i].name+","
+        code += codeList[i].customCategoryCode+","
+      }
+      that.setData({
+        categoryCustomCode: code.slice(0, -1),
+        strName: strName.slice(0, -1)
       })
     }
     if(currPage.data.mydata){
@@ -190,7 +293,6 @@ Page({
       })
     }
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */

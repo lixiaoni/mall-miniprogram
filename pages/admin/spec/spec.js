@@ -11,15 +11,19 @@ var getTempList = function (that) {
       })
     })
 }
+Array.prototype.baoremove = function (dx) {
+  if (isNaN(dx) || dx > this.length) { return false; }
+  this.splice(dx, 1);
+} 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    attribute: [{ title: "如图" }, { title: "白色" }, { title: "红色" }, { title: "卡其色" }, { title: "香槟色" }],
-    navindex:-1,
+    navindex: -1,
     currentTab: 0,
-    templateCont: [{ templateName: "不用模板", specificationTemplateContentVOList: [{ specName: "颜色", specValueList: ["如图", "米白色"] }] }],
+    templateCont: [{
+    templateName: "不用模板", specificationTemplateContentVOList: [{id:'010',specName: "颜色", specValueList: ["如图", "米白色"] }] }],
     addSpec: false,
     addSpecAttc: false,
     watchInput: false,
@@ -31,41 +35,12 @@ Page({
     notemp: { templateName: "衣服" },
     specName: '',
     value: '',
-    goodsListData: [{
-      "goodsSpecificationValueVOList": [
-        {
-          "specValueCode": "18082113164999216652",
-          "specValueName": "黄色"
-        },
-        {
-          "specValueCode": "180821131649992ba35f",
-          "specValueName": "蓝色"
-        }
-      ],
-      "specCode": "1808211316499746b6e4",
-      "specName": "颜色"
-    },
-      {
-        "goodsSpecificationValueVOList": [
-          {
-            "specValueCode": "180821131649992b0154",
-            "specValueName": "M"
-          },
-          {
-            "specValueCode": "18082113164999254ab5",
-            "specValueName": "L"
-          }
-        ],
-        "specCode": "180821131649992996b2",
-        "specName": "尺寸"
-      }]
+    goodsListData: []
 
   },
   // 返回上一页
   goback: function () {
     var index = this.data.currentTab
-    console.log(this.data.templateId)
-    console.log(this.data.templateCont[index].specificationTemplateContentVOList)
     var pages = getCurrentPages();             //  获取页面栈
     var currPage = pages[pages.length - 1];
     var prevPage = pages[pages.length - 2];    // 上一个页面
@@ -92,7 +67,8 @@ Page({
       that.setData({
         currentTab: e.target.dataset.current,
         templateId: templateId,
-        navindex:-1
+        navindex:-1,
+        navindex1:-1
       })
     }
   },
@@ -103,19 +79,17 @@ Page({
     var newArr = { specName: "规格", specValueList: [] }
     var templateCont = this.data.templateCont
     var tempArr = templateCont[index].specificationTemplateContentVOList
-    if (tempArr.lenght < 3) {
-
-    }
     templateCont[index].specificationTemplateContentVOList = tempArr
     tempArr.push(newArr)
     this.setData({
       templateCont: templateCont
     })
     var tempArr = { specName: "规格", templateId: templateId, specValueList:[]}
-    app.http.postRequest('/admin/shop/specificationTemplate/saveSpecTemplateContent', JSON.stringify(tempArr))
-      .then(res => {
-      })
-
+    if (index != 0) {
+      app.http.postRequest('/admin/shop/specificationTemplate/saveSpecTemplateContent', JSON.stringify(tempArr))
+        .then(res => {
+        })
+    }
   },
   // 监听input
   watchInput: function (event) {
@@ -154,9 +128,6 @@ Page({
         newSpecValueList=[],
         specArr=[],
         str = "";
-    if (specName == '') {
-      return
-    }
     var templateContentId = _this.data.templateContentId
     var index = _this.data.currentTab
     var templateCont = _this.data.templateCont
@@ -177,25 +148,24 @@ Page({
           tempArr[i].specValueList.push(specName)
         }
         newSpecValueList = tempArr[i].specValueList
-        console.log(str)
-        
       } 
     }
     templateCont[index].specificationTemplateContentVOList = tempArr
     _this.setData({
       templateCont: templateCont
     })
+    _this.cancel()
+    if(templateContentId==''){return}
     app.http.postRequest('/admin/shop/specificationTemplate/updateTemplateContentSpecValue?templateContentId='+templateContentId+'&specValueList='+str)
       .then(res => {
         const code = res.code
         if (code == 1) {
           wx.showToast({
             title: '新建成功',
-            icon: 'succes',
+            icon: 'none',
             duration: 1000,
             mask: true
           })
-          _this.cancel()
         }
       })
   },
@@ -207,7 +177,38 @@ Page({
   },
   // 删除规格值
   removeTemp:function(e){
-    
+    var specName=e.target.dataset.name,
+        _this=this,
+        id = e.target.dataset.id,
+        pId=this.data.templateId,
+        tempArr={},
+        valData=[],
+        str='',
+        index=e.target.dataset.index,
+        valList = this.data.templateCont
+    for(var i=0;i<valList.length;i++){
+      if(valList[i].id==pId){
+        valData = valList[i].specificationTemplateContentVOList
+        for (var j = 0; j < valData.length;j++){
+          if(valData[j].id==id){
+            valData=valData[j].specValueList
+            valData.baoremove(index)
+            valList[i].specificationTemplateContentVOList[j].specValueList
+            for (var h =0; h < valData.length;h++){
+              str += valData[h] + ","
+            }
+          }
+        }
+      }
+    }
+    str = (str.substring(str.length - 1) == ',') ? str.substring(0, str.length - 1) : str;
+    var tempArr = { specName: "specName", templateId: id, specValueList: valData}
+    app.http.postRequest('/admin/shop/specificationTemplate/updateTemplateContentSpecValue?templateContentId='+id+ '&specValueList='+str)
+        .then(res => {
+          _this.setData({
+            templateCont: valList
+          })
+    })
   },
   // 确定 保存模板
   confirm1: function () {
@@ -228,7 +229,7 @@ Page({
         if (code == 1) {
           wx.showToast({
             title: '添加成功',
-            icon: 'succes',
+            icon: 'none',
             duration: 1000,
             mask: true
           })
@@ -243,21 +244,48 @@ Page({
         code= e.target.dataset.code,
         list={},
         listChi=[],
-        goodsList=[]
-     code+=code+""+code
-    listChi.push({ specValueCode: code, specValueName: e.target.dataset.namechi})
-    list.specName = pName
-    list.goodsSpecificationValueVOList = listChi
-    list.specCode = this.data.templateId+code
+        goodsList=[],
+        addIndex = false,
+        addIndexChi=false,
+        goodsListData = this.data.goodsListData,
+        codeTd = this.data.templateId
+        code+=code+""+code
+    for (var i = 0; i < goodsListData.length;i++){
+      if(goodsListData[i].specName==pName){
+        addIndex=true
+        if (goodsListData[i].goodsSpecificationValueVOList.length>0){
+          for (var j = 0; j < goodsListData[i].goodsSpecificationValueVOList.length; j++) {
+            if (goodsListData[i].goodsSpecificationValueVOList[j].specValueName==e.target.dataset.namechi) {
+              addIndexChi=true
+            }
+          }
+          if (!addIndexChi){
+            goodsListData[i].goodsSpecificationValueVOList.push({ specValueCode: code, specValueName: e.target.dataset.namechi })
+          }
+        }else{
+          goodsListData[i].goodsSpecificationValueVOList.push({ specValueCode: code, specValueName: e.target.dataset.namechi })
+        }
+      }
+    }
+    if (codeTd == '') {
+      codeTd = '000'
+    }
+    if(!addIndex){
+      listChi.push({ specValueCode: code, specValueName: e.target.dataset.namechi })
+      list.specName = pName
+      list.goodsSpecificationValueVOList = listChi
+      list.specCode = codeTd + code
+      goodsListData.push(list)
+    }
     if (current == this.data.navindex) {
       return false;
     } else {
       this.setData({
-        navindex: current
+        navindex: current,
+        goodsListData: goodsListData
       })
     }
   },
-
   // 删除模板
   unsetSpec: function () {
     var _this = this
@@ -279,7 +307,7 @@ Page({
               if (code == 1) {
                 wx.showToast({
                   title: '删除成功',
-                  icon: 'succes',
+                  icon: 'none',
                   duration: 1000,
                   mask: true
                 })
@@ -315,7 +343,7 @@ Page({
               if (code == 1) {
                 wx.showToast({
                   title: '删除成功',
-                  icon: 'succes',
+                  icon: 'none',
                   duration: 1000,
                   mask: true
                 })
@@ -349,7 +377,7 @@ Page({
         if (code == 1) {
           wx.showToast({
             title: '更新成功',
-            icon: 'succes',
+            icon: 'none',
             duration: 1000,
             mask: true
           })
@@ -407,7 +435,7 @@ Page({
         if (code == 1) {
           wx.showToast({
             title: '更新成功',
-            icon: 'succes',
+            icon: 'none',
             duration: 1000,
             mask: true
           })

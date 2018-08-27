@@ -2,6 +2,9 @@
 .sp-color image{
   width: 40rpx;height: 40rpx;position: absolute;right: 0;top:6rpx;
 }
+.sp-color image.img{
+  right: 70rpx;
+}
 .sp-color{
   font-size: 34rpx;font-weight: 600;margin-bottom: 30rpx;padding:0 10rpx;position: relative;
 }
@@ -27,8 +30,14 @@
 .sp-add{
   border:2rpx dashed #C7C7C7;height: 90rpx;margin:20rpx 50rpx;font-size: 30rpx;line-height: 80rpx;text-align: center;position: relative;
 }
+.sp-add1{
+  font-size: 30rpx;color: #999;
+}
 .sp-add image{
-  width: 55rpx;height: 55rpx;vertical-align:middle;margin-top: -4rpx;margin-right: 10rpx;
+  width: 50rpx;height:50rpx;vertical-align:middle;margin-top: -4rpx;margin-right: 10rpx;
+}
+.sp-add1 image{
+   width: 40rpx;height:40rpx;
 }
 .sp-buttotn{
   color: #CCAA77;border:2rpx solid #DDC7A5;border-radius: 8rpx;position: fixed;bottom: 18rpx;

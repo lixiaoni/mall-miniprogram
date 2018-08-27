@@ -1,25 +1,32 @@
 <view class='bt-cont' wx:if="{{hasList}}">
+  <view class='bt-title'>已选定2项</view>
   <view class='st-cont' wx:for="{{datas}}" wx:key="{{index}}">
-  <icon type="success"  wx:if="{{item.selected}}" color="#CCAA77" data-index="{{index}}"   bindtap="selectList"/>
-  <icon wx:else type="circle"  data-index="{{index}}" bindtap="selectList"/>
-    <image  src="{{item.image}}"></image>
+  <icon type="success"  wx:if="{{item.selected}}" color="#CCAA77" data-index="{{index}}"  data-id='{{item.id}}' bindtap="selectList"/>
+  <icon wx:else type="circle"  data-index="{{index}}" data-id='{{item.id}}' bindtap="selectList"/>
+    <image  src="{{item.mainImgUrl}}"></image>
     <view class='st-details'>
-      <view class='st-d-t'>{{item.title}}</view>
+      <view class='st-d-t'>{{item.name}}</view>
       <view class='st-d-status'>
-        <view><text>批发:</text><text class='st-mom'>￥{{item.priceP}}</text></view>
-        <view><text>零售:</text><text class='st-mom'>￥{{item.priceL}}</text></view>
-        <view>库存：{{item.num}}</view><view>引用：{{item.yy}}</view>
-        <view>进货：{{item.jh}}</view><view>销量：{{item.xl}}</view>
+        <view><text>批发:</text><text class='st-mom'>￥{{item.wholesalePrice}}</text></view>
+        <view><text>零售:</text><text class='st-mom'>￥{{item.sellPrice}}</text></view>
+        <view>供货：122</view><view>零售：144</view>
+        <view>库存：{{item.stockNum}}</view>
       </view>
     </view>
   </view>
-  <view class='bt-bottom'>
-    <view>
-    <icon type="success"  wx:if="{{allSelected}}" color="#CCAA77" data-index="{{index}}"   bindtap="selectAll"/>
-    <icon wx:else type="circle"  data-index="{{index}}" bindtap="selectAll"/>全选
-    </view>
-    <view>下架</view>
-    <view>删除</view>
-    <view>分类至</view>
-  </view>
+</view>
+<!-- <view class='add-bottom'>
+  <view bindtap='addClass'>
+    <icon wx:if="{{selectAllStatus}}" type="success" size="20" color="#CCAA77" class='iconall'  bindtap="selectAll"/>
+    <icon wx:else type="circle" class='iconall' size="20" bindtap="selectAll"/>
+  全选</view>
+  <view>分类至</view>
+</view> -->
+<view class='add-bottom add-bottom-bc'>
+  <view bindtap='addClass'>
+    <icon wx:if="{{selectAllStatus}}" type="success" size="20" color="#CCAA77" class='iconall'  bindtap="selectAll"/>
+    <icon wx:else type="circle" class='iconall' size="20" bindtap="selectAll"/>
+  全选</view>
+  <view>移除</view>
+  <view bindtap='addClass'>分类至</view>
 </view>

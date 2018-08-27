@@ -6,12 +6,15 @@
 .shop-cont .shop-size{
   font-size: 60rpx;margin-bottom: 50rpx;margin-top: 0;padding-top: 0;
 }
+.shop-cont .shop-size-new{
+  font-size:36rpx;margin-bottom: 0;
+}
 .shop-cont>view{
   position: relative;height:80rpx;padding-top:20rpx;
 }
 .shop-cont>view view{
-  width: 100rpx;height: 40rpx;line-height: 40rpx;text-align: center;color: #CCAA77;border:2rpx dashed #CCAA77;position: absolute;
-  right: 0;top: 19rpx;
+  min-width: 110rpx;height: 40rpx;line-height: 40rpx;text-align: center;color: #CCAA77;border:2rpx dashed #CCAA77;position: absolute;
+  right: 0;top: 20rpx;
 }
 .shop-cont icon{
   margin-right: 10rpx;
