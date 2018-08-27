@@ -1,16 +1,20 @@
 {
   "pages":[
+    "pages/admin/status/status",
+    
     "pages/page/mesEdit/mesEdit",
     
     "pages/page/mes/mes",
     
-    "pages/page/home/home",
     
-    "pages/admin/status/status",
     
     "pages/admin/batch/batch",
     
     "pages/admin/class/class",
+    "pages/login/register/register",
+    "pages/login/login/login",
+    
+    "pages/page/home/home",
     
     "pages/admin/addGoods/addGoods",
     

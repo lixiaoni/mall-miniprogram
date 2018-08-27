@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentTab: 0,
+    currentTab: -1,
     alertTab:0,
     hidden:true,
     storeId:123,
@@ -71,6 +71,7 @@ Page({
   },
   swichNav: function (e) {
     var that = this;
+    console.log(e.target.dataset.current)
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
@@ -90,11 +91,11 @@ Page({
     }
   },
   // 筛选
-  showXl:function(){
-    this.setData({
-      showXl:false,
-    })
-  },
+  // showXl:function(){
+  //   this.setData({
+  //     showXl:false,
+  //   })
+  // },
   alertNav:function(e){
     var that = this;
     if (that.data.alertTab === e.target.dataset.current) {
