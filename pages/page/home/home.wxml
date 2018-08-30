@@ -54,22 +54,24 @@
       <view></view>
       <text>200</text>
     </view>
+    <scroll-view scroll-y="true" style="height:100%;" bindscrolltolower="bindDownLoad">
     <view class="result-list" wx:for="{{result}}" wx:key="index">
       <view>
-        <navigator  url="../goodsDetails/goodsDetails"><image src="{{item.thumb}}"></image></navigator>
+        <navigator  url="../goodsDetails/goodsDetails?goodsId={{item.id}}"><image src="{{item.mainImgUrl}}"></image></navigator>
         <view class="result-text">
-          <text>{{item.title}}</text>
+          <text>{{item.name}}</text>
         </view>
         <view class="result-text result-text1">
-          零售<text>￥ {{item.price}}</text>
+          零售<text>￥ {{item.sellPrice}}</text>
           <view>
-          <!-- <text class='h-font'>￥ {{item.price}}</text>-->
+          <!-- <text class='h-font'>￥ {{item.wholesalePrice}}</text>-->
             批发<image src='/image/wh.png'></image><image class='h-img' bindtap='editFun' src="/image/edit2.png"/>
           </view>
         </view>
       </view>
     </view>
     <view class='nomore'>优生活技术支持</view>
+    </scroll-view>
 </view>
 <view class="result-null" wx:else>
     <view class="nomore">

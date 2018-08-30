@@ -105,7 +105,70 @@
         </navigator>
     </view> -->
 </view>
-<view hidden="{{hidden}}" class='alertAdd'>
+<view hidden="{{!hidden}}" class='alertAdd'>
+    <view class='gd-alert' animation='{{animationData}}'>
+      <view class='gd-top'>
+        <image class='gdclose' bindtap='closeAlert' src="/image/close.png"></image>
+        <view class='gd-image'>
+          <image  src="{{mainImgUrl}}"></image>
+        </view>
+        <view class='gd-ins'>
+          <view class='gd-title1'>{{name}}</view>
+          <view>15<text class='lt-text'>件起批</text></view>
+        </view>
+      </view>
+       <view wx:for='{{goodsSpecificationVOList}}' wx:key="{{index}}">
+        <view  class='gd-gg' wx:if='{{index==0}}'>
+          <text>{{item.specName}}</text>
+          <view>
+          <block wx:for="{{item.goodsSpecificationValueVOList}}" wx:key="{{index}}">
+              <view  class='gd-view'><view data-code='{{item.specValueCode}}' class="lt-view {{specsTab==index?'active':''}}" data-current="{{index}}" bindtap='changeButton'>{{item.specValueName}}</view></view>
+            </block>
+          </view>
+        </view>
+        <view  class='gd-gg lt-attr'  wx:if='{{index==1}}'>
+           <view class="lt-table">
+              <view class="lt-tr">
+                  <view>重量</view>
+                  <view>零售价</view>
+                  <view>批发价</view>
+                  <view>
+                    <view class="lt-add-cart">
+                      <view class="lt-down" bindtap="minusCount"><image  src="/image/lt-jian.png"></image></view>
+                      <view class="lt-num">批量</view>
+                      <view class="lt-add"  bindtap="addCount"><image  src="/image/lt-add.png"></image></view>
+                    </view>
+                </view>
+              </view>
+              <view class="lt-tr lt-tr1"  wx:for="{{goodsSkuVOList}}" wx:key="{{index}}">
+                  <view>重量</view>
+                  <view>{{item.sellPrice}}</view>
+                  <view>{{item.wholesalePrice}}</view>
+                  <view>
+                    <view class="lt-add-cart">
+                      <view class="lt-down" bindtap="minusCount"><image  src="/image/jian.png"></image></view>
+                      <view class="lt-num"><input value='1'></input></view>
+                      <view class="lt-add"  bindtap="addCount"><image  src="/image/lt-a.png"></image></view>
+                    </view>
+                </view>
+              </view>
+              <view class="tr"  wx:for="{{item.goodsSkuVOList}}" wx:key="{{index}}">
+                  <view>{{item}}</view>
+                  <view>{{item.sellPrice}}</view>
+                  <view>{{item.wholesalePrice}}</view>
+                  <view>222</view>
+              </view>
+          </view>
+        </view>
+      </view>
+      <view class='weui-bottom lt-weui-bottom'>
+        <view>￥96000.00<text>共<text>3</text>种<text>3</text>件商品</text></view>
+        <view >加入购物车</view>
+        <view>立即下单</view>
+      </view>
+    </view>
+</view>
+<!-- <view hidden="{{hidden}}" class='alertAdd'>
     <view class='gd-alert' animation='{{animationData}}'>
       <view class='gd-top'>
         <image class='gdclose' bindtap='closeAlert' src="/image/close.png"></image>
@@ -115,7 +178,7 @@
         <view class='gd-ins'>
           <view class='gd-title1'>{{name}}</view>
           <view>￥{{sell}}</view>
-          <text>库存：{{stockNumber}}件</text>
+          <text>库存：{{stockNum}}件</text>
         </view>
       </view>
        <view wx:for='{{goodsSpecificationVOList}}' wx:key="{{index}}">
@@ -154,4 +217,4 @@
         <view><navigator url="../address/address">立即购买</navigator></view>
       </view>
     </view>
-</view>
+</view> -->

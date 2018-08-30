@@ -1,6 +1,5 @@
 const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -8,11 +7,9 @@ Page({
     dataList: [],
     show:false,
     watchInput: false,
-    storeId:123,
     shouTitile:false,
     codeArr:[]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -25,9 +22,8 @@ Page({
        codeArr:arr
      })
     }
-    var that = this,
-      storeId = this.data.storeId
-    app.http.getRequest('/admin/shop/customcategory/store/'+storeId)
+    var that = this
+    app.http.getRequest('/admin/shop/customcategory/store/{{storeId}}',{})
         .then(res => {
           const obj = res.obj
           that.setData({
@@ -59,8 +55,7 @@ Page({
       }
     }
     if (this.data.shouTitile) {
-      var customCategoryCode =
-        app.http.postRequest('/admin/shop/goods/customcategory/'+strCode+'/goods', JSON.stringify(this.data.codeArr))
+        app.http.postRequest('/admin/shop/goods/customcategory/'+strCode+'/goods', this.data.codeArr)
           .then(res => {
             wx.showToast({
               title: '分类成功',
@@ -96,9 +91,7 @@ Page({
     var _this=this,
         tempArr={},
         name=this.data.value
-    tempArr.name = name
-    tempArr.storeId=2
-    app.http.postRequest('/admin/shop/customCategory/save', JSON.stringify(tempArr))
+    app.http.postRequest('/admin/shop/customCategory/save', { name: name})
       .then(res => {
         wx.showToast({
           title: '新建成功',

@@ -3,9 +3,6 @@ Page({
   data: {
     history: ["戒指", "项链", "钻戒"],
     hidden: false,
-    storeId:'123',
-    pageNum:30,
-    pageSize:1,
     result: [],
     value: '',
     showResult: false,
@@ -27,26 +24,26 @@ Page({
 
   },
   //搜索确定键
-  searchBtn(e) {
+  getList:function(){
     var keyword = this.data.value,
-        storeId=this.data.storeId,
-        pageNum=this.data.pageNum,
-        pageSize=this.data.pageSize,
-        _this=this
-    app.http.getRequest('/admin/shop/store/'+storeId+'/goods?keyword='+keyword+'&pageNum='+pageNum+'&pageSize='+pageSize)
+      _this = this
+    app.pageRequest.pageGet('/admin/shop/store/{{storeId}}/goods',{ keyword: keyword})
       .then(res => {
-        var obj = res.obj.result
-        if (obj.length > 0) {
+        var obj = res.obj.result,
+          datas = _this.data.result,
+          newArr = app.pageRequest.addDataList(datas, obj)
+        if (newArr.length > 0) {
           _this.setData({
             showResult: true,
-            result: obj
-          })
-        } else {
-          _this.setData({
-            result: obj
           })
         }
+        _this.setData({
+          result: newArr,
+        })
       })
+  },
+  searchBtn(e) {
+    this.getList()
   },
   // 清空input的内容
   emptyInput(e) {
@@ -96,5 +93,28 @@ Page({
       })
       console.log(this.data.history);
     }
+    var _this = this
+    _this.getList()
+    wx.getSystemInfo({
+      success: function (res) {
+        _this.setData({
+          scrollHeight: res.windowHeight
+        });
+      }
+    });
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    app.pageRequest.pageData.pageNum = 0
+    this.getList()
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+      this.getList()
   }
 })

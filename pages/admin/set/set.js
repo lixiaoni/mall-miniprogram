@@ -6,21 +6,22 @@ Page({
    */
   data: {
     goodsListData: [],
-    goodsSkuVOList:[],
+    goodsSkuVOList: [],
     skuListAll:[],
     skuNum:0,
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.modeList)
     let _this=this,
-        goodsListData = JSON.parse(options.model),
+      goodsListData = JSON.parse(options.model),
         skuList0=[],
         skuList1=[],
-        skuListAll=[]
+        skuListAll=[],
+      goodsSkuVOList = options.modeList
     if (goodsListData!=''){
       if (goodsListData.length == 1) {
         skuList0 = goodsListData[0].goodsSpecificationValueVOList
@@ -33,6 +34,18 @@ Page({
         for (var i = 0; i < skuList0.length; i++) {
           for (var j = 0; j < skuList1.length; j++) {
             skuListAll.push({ id: j + '1' + i, specValueName: skuList0[i].specValueName, specValueCode: skuList1[j].specValueName, specValueCodeList: [skuList0[i].specValueCode, skuList1[j].specValueCode], marketPrice: '600', sellPrice: '', stockNumber: '', wholesalePrice: '' })
+          }
+        }
+      }
+    }
+    if (goodsSkuVOList!=undefined){
+      goodsSkuVOList = JSON.parse(options.modeList)
+      for (var i = 0; i < goodsSkuVOList.length; i++) {
+        for (var j = 0; j < skuListAll.length; j++) {
+          if (goodsSkuVOList[i].specValueCodeList.sort().toString() == skuListAll[j].specValueCodeList.sort().toString()) {
+            skuListAll[j].sellPrice = goodsSkuVOList[i].sellPrice
+            skuListAll[j].wholesalePrice = goodsSkuVOList[i].wholesalePrice
+            skuListAll[j].stockNumber = goodsSkuVOList[i].stockNum
           }
         }
       }

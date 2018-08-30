@@ -5,9 +5,10 @@ class request {
   constructor() {
     this._baseUrl = 'https://xyk-doctor.com',
     this._headerGet = {'content-type': 'application/json'},
-    this._headerPost = { "Content-Type": "application/json;charset=UTF-8"}
+    this._headerPost = { "Content-Type": "application/json;charset=UTF-8"},
+    this.storeId = 123,
+    this.newData={}
   }
-
   /**
    * GET类型的网络请求
    */
@@ -20,14 +21,21 @@ class request {
   deleteRequest(url, data) {
     return this.requestAll(url, data, 'DELETE')
   }
-
   /**
    * POST类型的网络请求
    */
   postRequest(url, data) {
     return this.requestAll(url, data, 'POST')
   }
-
+  /**
+   * 解析URL
+   */
+  analysisUrl(url, data) {
+    for (var key in data) {
+      url = url.replace(new RegExp("\\{\\{" + key + "\\}\\}", "g"), data[key]);
+    }
+    return url
+  }
   /**
    * 网络请求
    */
@@ -37,8 +45,15 @@ class request {
       title: "正在加载",
     })
     return new Promise((resolve, reject) => {
+      if (Array.isArray(data) || data==undefined) {
+        this.newData.storeId = this.storeId
+        url = this.analysisUrl(url, this.newData)
+      } else {
+        data.storeId = this.storeId
+        url = this.analysisUrl(url, data)
+      }
       wx.request({
-        url: this._baseUrl+url,
+        url: this._baseUrl +url,
         data: data,
         header:this._headerGet,
         method: method,
@@ -61,16 +76,6 @@ class request {
         }
         reject(res)
       }),
-        // success: function (res) {
-        //   if (res.statusCode == 200) {
-        //     success(res.data)
-        //   } else {
-        //     console.log("请求成功，返回信息：" + res.statusCode)
-        //   }
-        // },
-        // fail: function (err) {
-        //   console.log('请求失败：' + err)
-        // },
         complete: function () {
           wx.hideLoading()
           wx.hideNavigationBarLoading()

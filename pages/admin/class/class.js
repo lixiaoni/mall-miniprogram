@@ -5,17 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[],
-    storeId:123
+    list:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this,
-      storeId = this.data.storeId
-    app.http.getRequest('/admin/shop/customcategory/store/'+storeId)
+    var that = this
+    app.pageRequest.pageGet('/admin/shop/customcategory/store/{{storeId}}',{})
       .then(res => {
         const obj = res.obj
         for (var i = 0; i < obj.length; i++) {
@@ -54,10 +52,8 @@ Page({
     var _this = this,
       tempArr = {},
       name = this.data.value
-    tempArr.name = name
-    tempArr.storeId = _this.data.storeId
     if (_this.data.watchInput){
-      app.http.postRequest('/admin/shop/customcategory/save', JSON.stringify(tempArr))
+      app.http.postRequest('/admin/shop/customcategory/save',{name:name})
         .then(res => {
           const obj = res.obj
           _this.setData({
@@ -65,8 +61,8 @@ Page({
           })
           wx.showToast({
             title: '新建成功',
-            duration: 1000,
-            mask: true
+            icon: 'none',
+            duration: 2000
           })
           _this.cancel()
         })

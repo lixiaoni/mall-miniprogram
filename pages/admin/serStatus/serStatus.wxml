@@ -8,6 +8,7 @@
     </view>
     <view class="result" wx:if="{{showResult}}">
         <view class="result-box" wx:if="{{result.length > 0}}">
+          <scroll-view  scroll-y="true" style="height:100%">
             <view class="result-list" wx:for="{{result}}" wx:key="index">
                 <navigator url="{{item.url}}">
                     <image src="{{item.mainImgUrl}}"></image>
@@ -20,6 +21,7 @@
                 </navigator>
             </view>
             <view class='nomore'>没有更多了</view>
+            </scroll-view>
         </view>
         <view class="result-null" wx:if="{{result.length==0}}">
             <view class="null-tips">搜索结果为空！</view>

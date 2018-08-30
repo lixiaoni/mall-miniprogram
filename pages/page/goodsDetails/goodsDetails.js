@@ -26,16 +26,19 @@ Page({
     mainImgUrl:'',
     wholesale: '',
     sell:'',
-    stockNumber:''
+    stockNum:''
   },
   /**
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    var that = this
-    app.http.getRequest('/admin/shop/goods/1808201739186161908a')
+    var that = this,
+      goodsId = options.goodsId
+    console.log(goodsId)
+    app.http.getRequest('/admin/shop/goods/180821182851051cbe48')
       .then(res => {
         var obj = res.obj
+        console.log(obj.goodsSkuVOList)
         that.setData({
           imgUrls: obj.goodsImageVOList,
           name: obj.name,
@@ -45,7 +48,7 @@ Page({
           goodsSpecificationVOList: obj.goodsSpecificationVOList,
           goodsSkuVOList: obj.goodsSkuVOList,
           sell: obj.sellPrice,
-          stockNumber: obj.goodsNum,
+          stockNum: obj.stockNum,
           mainImgUrl: obj.mainImgUrl
         })
       })
@@ -94,7 +97,7 @@ Page({
           if (dataList[i].specValueCodeList.indexOf(_this.data.swichNavCode) != -1) {
             _this.setData({
               wholesale: dataList[i].wholesalePrice,
-              stockNumber: dataList[i].stockNumber,
+              stockNum: dataList[i].stockNum,
               sell: dataList[i].sellPrice
             })
           }
@@ -102,7 +105,7 @@ Page({
           if (dataList[i].specValueCodeList.indexOf(_this.data.changeButtonCode) != -1) {
             _this.setData({
               wholesale: dataList[i].wholesalePrice,
-              stockNumber: dataList[i].stockNumber,
+              stockNum: dataList[i].stockNum,
               sell: dataList[i].sellPrice
             })
           }

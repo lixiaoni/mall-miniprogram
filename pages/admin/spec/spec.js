@@ -1,10 +1,9 @@
 // import http from '../../../utils/util';
 const app = getApp();
 var getTempList = function (that) {
-  app.http.getRequest('/admin/shop/specificationTemplate/findList')
+  app.http.getRequest('/admin/shop/specificationTemplate/findList',{})
     .then(res => {
       const obj = res.obj
-      console.log(obj)
       const templateCont = (that.data.templateCont).concat(obj)
       that.setData({
         templateCont: templateCont
@@ -68,7 +67,8 @@ Page({
         currentTab: e.target.dataset.current,
         templateId: templateId,
         navindex:-1,
-        navindex1:-1
+        navindex1:-1,
+        goodsListData:[]
       })
     }
   },
@@ -86,7 +86,7 @@ Page({
     })
     var tempArr = { specName: "规格", templateId: templateId, specValueList:[]}
     if (index != 0) {
-      app.http.postRequest('/admin/shop/specificationTemplate/saveSpecTemplateContent', JSON.stringify(tempArr))
+      app.http.postRequest('/admin/shop/specificationTemplate/saveSpecTemplateContent', tempArr)
         .then(res => {
         })
     }
@@ -156,7 +156,7 @@ Page({
     })
     _this.cancel()
     if(templateContentId==''){return}
-    app.http.postRequest('/admin/shop/specificationTemplate/updateTemplateContentSpecValue?templateContentId='+templateContentId+'&specValueList='+str)
+    app.http.postRequest('/admin/shop/specificationTemplate/updateTemplateContentSpecValue?templateContentId='+templateContentId+'&specValueList='+str,{})
       .then(res => {
         const code = res.code
         if (code == 1) {
@@ -203,7 +203,7 @@ Page({
     }
     str = (str.substring(str.length - 1) == ',') ? str.substring(0, str.length - 1) : str;
     var tempArr = { specName: "specName", templateId: id, specValueList: valData}
-    app.http.postRequest('/admin/shop/specificationTemplate/updateTemplateContentSpecValue?templateContentId='+id+ '&specValueList='+str)
+    app.http.postRequest('/admin/shop/specificationTemplate/updateTemplateContentSpecValue?templateContentId='+id+ '&specValueList='+str,{})
         .then(res => {
           _this.setData({
             templateCont: valList
@@ -223,7 +223,7 @@ Page({
     if (_this.data.value != '') {
       tempArr["templateName"] = _this.data.value
     }
-    app.http.postRequest('/admin/shop/specificationTemplate/addTemplateAndContent', JSON.stringify(tempArr))
+    app.http.postRequest('/admin/shop/specificationTemplate/addTemplateAndContent',tempArr)
       .then(res => {
         const code = res.code
         if (code == 1) {
@@ -236,6 +236,28 @@ Page({
           _this.cancel()
         }
       })
+  },
+  // 排序
+  zIndexUp:function (arr, index, length){
+    if(index+ 1 != length){
+        swapArray(arr, index, index + 1);
+      console.log(swapArray)
+      }else {
+        console.log('已经处于置顶，无法上移');
+      }
+  },
+  upTop:function(){
+    var _this = this,
+        templateId = _this.data.templateId,
+        templateCont= _this.data.templateCont
+    for (var i = 0; i < templateCont.length;i++){
+      if (templateCont[i].id == templateId){
+        var specList = templateCont[i]
+        _this.zIndexUp(specList,1,0)
+        console.log(templateCont[i])
+      }
+    }
+
   },
   // 属性切换
   swichNav(e) {
@@ -301,7 +323,7 @@ Page({
           _this.setData({
             templateCont: templateCont
           })
-          app.http.deleteRequest('/admin/shop/specificationTemplate/deleteTemplateById?templateId=' + templateId)
+          app.http.deleteRequest('/admin/shop/specificationTemplate/deleteTemplateById?templateId=' + templateId,{})
             .then(res => {
               const code = res.code
               if (code == 1) {
@@ -371,7 +393,7 @@ Page({
       templateCont: templateCont
     })
     if (templateName == '') { return }
-    app.http.postRequest('/admin/shop/specificationTemplate/updateTemplateName?templateId=' + templateId + '&templateName=' + templateName)
+    app.http.postRequest('/admin/shop/specificationTemplate/updateTemplateName?templateId=' + templateId + '&templateName=' + templateName,{})
       .then(res => {
         const code = res.code
         if (code == 1) {
@@ -385,18 +407,9 @@ Page({
         }
       })
   },
-  // 更新模板内容值
-  updataTemp: function () {
-    var templateId = this.data.templateId
-    // http.request('admin/shop/specificationTemplate/updateTemplateName', 'POST', { templateId: templateId, templateName: templateName }, '正在加载数据', function (res) {
-    // })
-    http.request('admin/shop/specificationTemplate/updateTemplateName', 'POST', { templateId: templateId, templateName: templateName }, '正在加载数据', function (res) {
-    })
-  },
   // 更新规格名字
   editName: function (e) {
     var editId = e.target.dataset.id
-    console.log(editId+"//")
     var name = e.target.dataset.name
     var _this = this
     _this.setData({
@@ -429,7 +442,7 @@ Page({
       templateCont: templateCont,
       editSpec: false
     })
-    app.http.postRequest('/admin/shop/specificationTemplate/updateSpecNameByTemplateContentId?templateContentId='+templateContentId+'&specName='+specName)
+    app.http.postRequest('/admin/shop/specificationTemplate/updateSpecNameByTemplateContentId?templateContentId='+templateContentId+'&specName='+specName,{})
       .then(res => {
         const code = res.code
         if (code == 1) {

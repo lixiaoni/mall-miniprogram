@@ -14,21 +14,22 @@
     </view>
 </view>
 <view class='st-title'>
-  <view class="{{currentTab==0 ? 'active' : ''}}" data-current="0" bindtap="swichNav">出售中</view>
-  <view class="{{currentTab==1 ? 'active' : ''}}" data-current="1" bindtap="swichNav">仓库中</view>
-  <view class="{{currentTab==2 ? 'active' : ''}}" data-current="2" bindtap="swichNav">已售完</view>
-  <view class="{{currentTab==3 ? 'active' : ''}}" data-current="3" bindtap="swichNav">本店分类<image  src="{{sImg}}"></image></view>
+  <view class="{{currentTab==0 ? 'active' : ''}}" data-current="0" data-index='1' bindtap="swichNav">出售中</view>
+  <view class="{{currentTab==1 ? 'active' : ''}}" data-current="1" data-index='0' bindtap="swichNav">仓库中</view>
+  <view class="{{currentTab==2 ? 'active' : ''}}" data-current="2" data-index='2' bindtap="swichNav">已售完</view>
+  <view class="{{classStatus? 'active' : ''}}" bindtap="swichNavLast">本店分类<image  src="{{sImg}}"></image></view>
 </view>
 <view class='hideSer' hidden='{{hidden}}' bindtap='hideSer'>
   <view  class='serList'>
       <view wx:for='{{list}}' wx:key='{{index}}' data-code='{{item.customCategoryCode}}' class="{{currentTabSer==index? 'active' : ''}}" data-current="{{index}}"  bindtap="swichSer">{{item.name}}<image src="/image/dui.png"></image></view>
   </view>
 </view>
-<view>
+<scroll-view scroll-y="true" style="height:100%;" bindscrolltolower="bindDownLoad">
+  <view>
  <view class="record-box"  wx:for="{{detailList}}" wx:key="{{index}}" wx:for-item="record">
   <view class="record" style="left:{{record.offsetX}}px;left:{{leftVal}}px" data-index="{{index}}" bindtouchstart="recordStart" catchtouchmove="recordMove" bindtouchend="recordEnd">
     <view class="st-cont">
-          <navigator><image class="cart-thumb" src="{{record.mainImgUrl}}"></image></navigator>
+          <image class="cart-thumb" src="{{record.mainImgUrl}}"></image>
                <view  class='st-d-t'>{{record.name}}</view> 
                 <view class='st-details'>
                   <view class='st-d-status'>
@@ -39,21 +40,23 @@
                   </view>
                    <!-- <view class='not'><view class='triangle_border_up'></view>该商品库存不足 请及时补货</view> -->
                   </view>
+             
               </view>
               <view class='st-bottom'>
-        <view>转发</view>
-        <view>预览</view>
-        <view wx:if='{{record.status==0}}' data-id='{{record.id}}' data-index='{{index}}' bindtap='changeStatus'>上架</view>
-        <view wx:if='{{record.status==1}}' data-id='{{record.id}}' data-index='{{index}}' bindtap='upStatus'>下架</view>
-        <view wx:if='{{record.status==2}}'>已下架</view>
-      </view>
+                <view>转发</view>
+                <view><navigator url='../editGoods/editGoods?goodsId={{record.id}}'>预览 </navigator></view>
+                <view wx:if='{{record.status==0}}' data-id='{{record.id}}' data-index='{{index}}' bindtap='changeStatus'>上架</view>
+                <view wx:if='{{record.status==1}}' data-id='{{record.id}}' data-index='{{index}}' bindtap='upStatus'>下架</view>
+                <view wx:if='{{record.status==2}}'>已下架</view>
+              </view>
             </view>
             <view class="delete-box" bindtap="deleteList" data-id='{{record.id}}' data-index="{{index}}">
             <view>删除</view>
             </view>
           </view>
-      </view>
-<view class='st-all'>{{totalCount}}件商品</view>
+  </view>
+  <view class='st-all'>{{totalCount}}件商品</view>
+</scroll-view>
 <view class='st-bottom st-bottom1'>
     <view><navigator url="../addGoods/addGoods">添加商品</navigator></view>
     <view><navigator url="../batch/batch">批量管理</navigator></view>
