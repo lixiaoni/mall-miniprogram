@@ -1,5 +1,36 @@
 {
   "pages":[
+    "pages/floor/choseAdmin/choseAdmin",
+    "pages/floor/floorList/floorList",
+    "pages/floor/floorDetail/floorDetail",
+    "pages/floor/areaDetail/areaDetail",
+    
+    "pages/floor/addTag/addTag",
+   
+    "pages/floor/floor/floor",
+    
+    
+    
+    "pages/admin/spec/spec",
+    
+    "pages/page/order/order",
+    
+    
+   
+    
+    
+    
+    "pages/floor/addAdmin/addAdmin",
+    "pages/floor/editAdmin/editAdmin",
+    "pages/floor/adminDetail/adminDetail",
+    "pages/floor/adminList/adminList",
+    
+    
+    "pages/floor/goodsTag/goodsTag",
+    
+    
+    
+    
     "pages/admin/status/status",
     
     "pages/page/mesEdit/mesEdit",
@@ -30,7 +61,6 @@
     
     
     
-    "pages/admin/spec/spec",
     
     "pages/admin/firstClass/firstClass",
     
@@ -95,7 +125,6 @@
     "pages/page/self/self",
     "pages/page/user/user",
     "pages/page/set/set",
-    "pages/page/order/order",
     "pages/page/updataPhone/updataPhone",
     "pages/page/updataPwd/updataPwd",
     "pages/page/details/details",
