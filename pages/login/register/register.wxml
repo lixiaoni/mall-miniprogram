@@ -1,5 +1,3 @@
-<import src='../login/login.wxml'/>
-    
     <login-component id='login' inner-text="Some text"></login-component>
 
     <view class='reg-box'>

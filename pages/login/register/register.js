@@ -1,3 +1,4 @@
+const app = getApp(); 
 // pages/register/register.js
 Page({
   /**
@@ -44,6 +45,29 @@ Page({
       })
       return
     }
+    
+    app.http['_headerGet']["content-type"] = "application/x-www-form-urlencoded";
+
+    let obj = {
+      mobile : this.data.telephone,
+      password : this.data.password,
+      smsCode : this.data.verificationCode
+    }
+
+    app.http.postRequest("/api/user/register", obj).then(res => {
+      if (res.code == 1) {
+        wx.showToast({
+          title: '恭喜您,注册成功!',
+          icon: 'none',
+        })
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+        })
+      }
+    })
+
   },
   //显示隐藏密码
   showHide() {
