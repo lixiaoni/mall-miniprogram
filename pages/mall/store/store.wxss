@@ -1,0 +1,9 @@
+@import '../follow/follow';
+.fw-store .button{
+  color: #999;font-size:24rpx;
+  height: 35rpx;background: #F5F5F5;border-radius: 10rpx;margin-top: 20rpx;
+  display: inline-block;line-height: 35rpx;padding:0 10rpx;margin-right: 10rpx;
+}
+.fw-store .button:nth-child(2){
+  color: #CCAA77;
+}

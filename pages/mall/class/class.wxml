@@ -1,0 +1,20 @@
+<view class="goods-ser">
+    <navigator url='../search/search'><input placeholder="搜索商品" disabled='disabled' value="{{value}}"/></navigator>
+    <image class="home-ser"  src="/image/search1.png"></image>
+</view>
+<view class='cl-cont'>
+  <view class='cl-left'>
+    <view class='active'>女装</view>
+    <view>女装</view>
+    <view>女装</view>
+    <view>女装</view>
+    <view>女装</view>
+    <view>女装</view>
+    <view>女装</view>
+  </view>
+  <view class='cl-right'>
+    <view class='active'>上装<image  src='/image/mallr.png'></image></view>
+    <view>T恤<image  src='/image/mallr.png'></image></view>
+    <view>短袖<image src='/image/mallr.png'></image></view>
+  </view>
+</view>

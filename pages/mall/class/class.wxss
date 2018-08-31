@@ -1,0 +1,24 @@
+.cl-cont{
+  background: #fff;margin:20rpx;border-radius: 10rpx;font-size: 30rpx;position: relative;overflow: hidden;
+}
+.cl-left{
+  width: 170rpx;background: #FAFAFA;
+}
+.cl-left view{
+  border-right: 2rpx solid #F7F7F7;height: 100rpx;line-height: 100rpx;text-align: center;
+}
+.cl-left view.active{
+  color: #CCAA77;border-bottom:4rpx solid #CCAA77;background: #fff;border-right: 0;font-weight: bold;
+}
+.cl-right{
+  position: absolute;left: 220rpx;top: 0;width: 66%;
+}
+.cl-right view{
+  height: 100rpx;line-height: 100rpx;
+}
+.cl-right image{
+  width: 40rpx;height: 40rpx;float: right;margin-top:30rpx;
+}
+.cl-right view.active{
+  font-weight: bold;
+}

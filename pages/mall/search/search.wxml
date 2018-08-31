@@ -1,0 +1,26 @@
+<view class="goods-ser">
+    <navigator url='../search/search'><input placeholder="请输入搜索关键词" disabled='disabled' value="{{value}}"/></navigator>
+    <image class="home-ser"  src="/image/search1.png"></image>
+</view>
+<view class='fw-title'>
+  <view class="{{currentTab==0?'active':''}}" data-current='0'  bindtap="swichNav">商品<view></view></view>
+  <view class="{{currentTab==1?'active':''}}" data-current='1'  bindtap="swichNav">小云店<view></view></view>
+</view>
+<view class="init-page">
+  <view wx:if="{{history.length > 0}}">
+    <image  bindtap="removeAll"  src="/image/rev.png"></image>
+    <view class="title"><text>历史搜索</text></view>
+    <view class="tags">
+      <view wx:for="{{history}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle"><view>{{item}}</view></view>
+    </view>
+  </view>
+</view>
+<view class="init-page">
+  <view wx:if="{{history.length > 0}}">
+    <view class="title"><text>热门搜索</text></view>
+    <view class="tags">
+      <view wx:for="{{history}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle"><view class='img'><image src="/image/huo.png"></image>{{item}}</view></view>
+      <view wx:for="{{history}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle"><view>{{item}}</view></view>
+    </view>
+  </view>
+</view>

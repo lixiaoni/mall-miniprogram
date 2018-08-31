@@ -1,0 +1,91 @@
+@import '../newest/newest';
+page{
+  background: #fff;
+}
+.goods-ser{
+ padding:20rpx 30rpx;
+}
+.home-ser{
+  top: 40rpx;left:60rpx;
+}
+.home-ser1{
+  left:87%;
+}
+.goods-ser>view{
+  background:#F6F6F6;border-radius: 10rpx;
+}
+.swiper-tab{ 
+  width: 100%; 
+  margin-top: -9rpx;
+  text-align: center; 
+  background: #fff;
+  line-height: 80rpx;} 
+.swiper-tab-item{ 
+  font-size: 28rpx; 
+  display: inline-block; 
+  width: 33.33%; 
+  color: #666; 
+} 
+.swiper-tab-item image{
+  width: 25rpx;
+  vertical-align: middle;
+  margin-left: 5rpx;
+  height: 25rpx;
+}
+.on{ 
+  color: #C79359; position: relative;
+}
+.on view{
+  height: 2rpx;
+  width: 80rpx;
+  background:#C79359;
+  left: 50%;
+  margin:0 auto;
+}
+.st-cont{
+  position: relative;
+  padding-left:335rpx;
+  color: #333;min-height: 290rpx;
+  font-size: 28rpx;
+  padding-right: 30rpx;
+  padding-top: 30rpx;width: 65%;
+  background:#fff;border-radius: 10rpx;
+}
+.st-cont image{
+  height: 260rpx;
+  width: 260rpx;
+  left:45rpx;
+  position: absolute;
+}
+.st-d-status {
+  margin-top: 10rpx;
+}
+.st-details{
+  position: relative;
+}
+.st-d-status view{
+  margin-bottom: 0;
+}
+.st-d-status view text{
+  color: #666;
+  font-size: 26rpx;
+}
+.st-d-t{
+  width:390rpx; 
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;margin-bottom:40rpx;
+  -webkit-box-orient: vertical;
+}
+.st-d-status view text.st-mom{
+  color: #C79359;
+}
+.st-d-status image{
+  width: 40rpx;height: 40rpx;vertical-align: middle;position: relative;left: 10rpx;
+}
+.sl-font{
+  color:#666;font-size: 28rpx;text-align: center;margin-bottom: 50rpx;margin-top: 10rpx;
+}

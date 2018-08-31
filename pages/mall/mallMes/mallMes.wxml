@@ -1,0 +1,72 @@
+<view class='mes-cont'>
+  <view class="ym_jpstorename">
+  <view class="ym_jpstorelogo">
+      <navigator url=''><image class="store-logo" src="/image/dp.png" ></image></navigator>
+    </view>
+    百荣世贸商城
+    <view class='ms-mes'><text>综合商贸城</text></view>
+  </view>
+  <view class="ym_jpstoredesc">
+    <text class="leftyh">“</text>百荣世贸商城总面积60万平米，汇集近3000家国际知名品牌及设计师自主品牌，拥有6000余家店，集购物、餐饮、儿童、休闲、运动于一体，面向家庭消费、全年龄段消费人群，引领新生活方式的南城地标行商业旗舰。<text class="rightyh">”</text>
+  </view>
+</view>
+<view class="weui_cells new-weui">
+    <view>
+      <text class='store-address'>商城概况</text>
+    </view>
+    <view class='new-view'><view>342</view>品牌店铺</view>
+    <view class='new-view'><view>342</view>购物店铺</view>
+    <view class='new-view'><view>342</view>商品总量</view>
+</view>
+<view class="weui_cells">
+    <view>
+      <image  src="/image/positionico.png"></image>
+      <text>北京市东城区永定门外大街101号</text>
+    </view>
+</view>
+<view class="weui_cells weui_cells-new">
+    <image  src="/image/mes12.png"></image>
+    <text class="store-address">商城信息 </text>
+    <view class='weui-view'>
+      <image class='m-img' src="/image/xcx.png"></image><image class='img' src="/image/icl.png"></image>
+    </view>
+   <view class='weui-xian weui-xian1'></view>
+</view>
+<view class='weui-time'>
+  <view>营业时间</view>
+  <view>百荣世贸商城 09:00~20:00</view>
+  <view>童装区 一期B1层，二期二层北区 7:00-17:00</view>
+  <view>鞋区 二期B1层 6:00-15:00</view>
+</view>
+<view class='weui-time weui-time-new'>
+  <view>客服电话<text>010-87803388</text><view class='mes-tel'><image src="/image/tel1.png"></image></view></view>
+  <view>客服微信<text>bairongshimao666</text></view>
+  <view>公众号<text>百荣世贸</text></view>
+</view>
+<view class="weui_cells weui_cells-new">
+    <image  src="/image/jt.png"></image>
+    <text class="store-address">周边交通 </text>
+    <view class='weui-xian weui-xian1'></view>
+</view>
+<view class='weui-time weui-time-new1'>
+  <view><image  src="/image/dt.png"></image>乘坐14号线永定门外下车，A口出往南走</view>
+  <view><image  src="/image/gj.png"></image>乘坐2路、300路...</view>
+</view>
+<view class="weui_cells weui_cells-new">
+    <image  src="/image/newx.png"></image>
+    <text class="store-address">贴心服务</text>
+    <view class='weui-xian weui-xian1'></view>
+</view>
+<view class='weui-time-last'>
+ <view><view><image  src="/image/mall111.png"></image></view>轮椅租借</view>
+ <view><view><image  src="/image/mall22.png"></image></view>广播寻人</view>
+ <view><view><image  src="/image/mall33.png"></image></view>失物招领</view>
+ <view><view><image  src="/image/mall44.png"></image></view>投诉转接处理</view>
+ <view><view><image  src="/image/mall5.png"></image></view>问路指路</view>
+ <view><view><image  src="/image/mall6.png"></image></view>复印传真</view>
+ <view><view><image  src="/image/mall7.png"></image></view>小物品存放</view>
+ <view><view><image  src="/image/mall8.png"></image></view>应急药品</view>
+ <view><view><image  src="/image/mall9.png"></image></view>提款机</view>
+ <view><view><image  src="/image/mall10.png"></image></view>物流快递</view>
+ <view><view><image  src="/image/mall11.png"></image></view>停车场</view>
+</view>

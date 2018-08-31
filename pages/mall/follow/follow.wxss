@@ -1,0 +1,80 @@
+
+.fw-store{
+  background: #fff;margin: 20rpx;
+  border-radius: 10rpx;padding:40rpx 20rpx;
+}
+.fw-store .fw-top{
+  position: relative;font-size:36rpx;
+  padding-left:90rpx;margin-top: 10rpx;
+}
+.fw-top view.fw-iew{
+  font-size: 24rpx;color: #999
+}
+.fw-top view.fw-iew text{
+  color: #CCAA77;margin-right: 20rpx;
+}
+.fw-top view.fw-iew1 text{
+  background: #CCAA77;font-size: 24rpx;color: #fff;border-radius: 8rpx;
+  padding:2rpx 10rpx 5rpx 10rpx;margin-left: 10rpx;
+}
+.fw-top view.fw-iew1 text:nth-child(2){
+  background:#FF5C52;
+}
+.fw-store .fw-logo{
+  height: 70rpx;width: 70rpx;border-radius: 10rpx;position: absolute;left: 0
+}
+.fw-store .fw-left{
+  width:35rpx;height: 35rpx;float: right;margin-top: -60rpx;
+}
+.fw-cont{
+  font-size: 26rpx;color: #999;text-align: center;
+}
+.fw-cont text{
+  color: #333;
+}
+.fw-cont .fw-you{
+  color: #CCAA77
+}
+.fw-cont>view{
+  display: inline-block;width: 33%;margin-top:35rpx;
+}
+.fw-c-img{
+  height: 200rpx;width: 200rpx;border-radius: 10rpx;
+}
+.fw-c-you{
+  height: 35rpx;width: 35rpx;vertical-align: middle;margin-top: -2rpx;
+}
+.fw-cont>view view:nth-child(2),.fw-cont>view view:nth-child(3),.fw-cont>view view:nth-child(4){
+  text-align: left;margin-left: 10rpx;
+}
+.fw-no{
+  font-size: 48rpx;height: 225rpx;background: #fff;border-top: 2rpx solid #EFEFEF;padding-top: 45rpx;padding-left:40rpx;font-weight: bold
+}
+.fw-no view:last-child{
+  font-size: 24rpx;color: #666;font-weight: normal
+}
+.lw-pop{
+  padding:35rpx 45rpx;font-size: 40rpx;background: #fff;
+}
+.lw-pop>view:first-child{
+ font-weight: bold;
+}
+.lw-pop>view:first-child text{
+   color: #CCAA77;font-size: 30rpx;float: right
+}
+.lw-pop>view:nth-child(2){
+  font-size: 28rpx;
+}
+.lw-pop-cont>view{
+  display: inline-block;width:30%;border-radius: 10rpx;background: #FAFAFA;font-weight: bold;
+  text-align: center;font-size: 28rpx;padding:35rpx 0;margin-top: 30rpx;margin-left: 10rpx;margin-right: 10rpx;
+}
+.lw-pop-cont>view view:nth-child(3){
+  font-size: 24rpx;color: #999;font-weight: normal
+}
+.lw-pop-cont>view view:last-child{
+  height:50rpx;width: 120rpx;background: #fff;color: #CCAA77;border-radius: 8rpx;margin:0 auto;margin-top: 20rpx;
+}
+.lw-pop-cont>view image{
+  height: 70rpx;width: 70rpx;border-radius: 8rpx;
+}

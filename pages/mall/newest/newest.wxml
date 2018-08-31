@@ -1,0 +1,93 @@
+<view class="goods-ser">
+    <navigator url='../search/search'><input placeholder="搜索商品或小云店" disabled='disabled' value="{{value}}"/></navigator>
+    <image class="home-ser"  src="/image/search1.png"></image>
+</view>
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="500">  
+  <block wx:for="{{movies}}" wx:for-index="index">  
+    <swiper-item>  
+      <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
+    </swiper-item>  
+  </block>  
+</swiper>
+<view class='nt-title'>
+    <view>
+      <navigator url='../class/class'>
+        <view>商品分类</view><text>class</text>
+      </navigator>
+    </view>
+  <view>
+    <navigator url='../store/store'>
+      <view>逛小云店</view><text>Cloud Store</text>
+    </navigator>
+  </view>
+  <view>
+    <navigator url='../mallMes/mallMes'>
+     <view>商城信息</view><text>Mall Infor</text>
+    </navigator>
+  </view>
+</view>
+<view class='lw-pop'>
+  <view>精彩活动推荐<view>2<text>/3</text></view></view>
+  <view>全方位生活指南，每天都有新乐趣</view>
+  <view class='nt-img'><image src="http://pic.youlife.me/v1/tfs/T1yt_TBC_T1RXrhCrK.jpg"  width="100%" mode="widthFix"/></view>
+</view>
+<view class='lw-pop'>
+  <view>1F 精选男装<text>More</text></view>
+  <view>风尚秋冬上新</view>
+  <view class='fw-cont'>
+      <view bindtap='getUrl'>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>复古男装</view>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+        <view>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>复古男装</view>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+         <view>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>复古男装</view>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+         <view>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>复古男装</view>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+    </view>
+</view>
+<view class='lw-pop'>
+  <view>2F 名品女装<text>More</text></view>
+  <view>为您推荐心选好物</view>
+  <view class='fw-cont'>
+      <view>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>复古男装</view>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+        <view>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>复古男装</view>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+         <view>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>复古男装</view>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+         <view>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>复古男装</view>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+    </view>
+</view>
