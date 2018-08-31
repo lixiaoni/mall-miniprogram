@@ -1,6 +1,7 @@
 import http from './utils/http.js'
+import pageRequest from './utils/pageRequest.js'
 App({
-  onLaunch: function () {
+  onLaunch: function (options) {
     // 购物车
     // wx.setTabBarItem({
     //   index: 1,
@@ -45,7 +46,8 @@ App({
     userInfo: null,
     skin: "normal",
   },
-  http: new http()
+  http: new http(),
+  pageRequest: new pageRequest()
 });
 
 

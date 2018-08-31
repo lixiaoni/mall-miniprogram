@@ -2,6 +2,9 @@
 .shop-cont{
   padding:0;
 }
+.shop-cont>view {
+  height: 70rpx;padding-top: 27rpx;
+}
 .shop-cont1{
   margin-bottom: 20rpx;padding-top: 20rpx;
 }
@@ -16,4 +19,14 @@
 }
 navigator{
   height: 70rpx;padding-top: 10rpx;
+}
+
+.shop-cont2>view {
+  border-top:2rpx solid #F1F1F1;border-bottom: 0;
+}
+.shop-cont .shop-size {
+  border-bottom: 0; margin-bottom:20rpx;padding-top:20rpx;padding-bottom:30rpx;border-top: 0;
+}
+.shop-cont2 text{
+  margin-left: 10rpx;color: #CCAA77;
 }

@@ -1,5 +1,5 @@
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -12,38 +12,8 @@ Page({
     showDp:true,
     // tab切换 
     currentTab: 0,
-    result: [
-      {
-        id: 1,
-        thumb: '/image/s5.png',
-        title: '周大福 艳丽动人 18K金镶坦桑石 V103235',
-        price: 0.01
-      },
-      {
-        id: 2,
-        thumb: '/image/s6.png',
-        title: '周大福 艳丽动人 18K金镶坦桑石 V103235',
-        price: 0.02
-      },
-      {
-        id: 1,
-        thumb: '/image/wytjimg.png',
-        title: '周大福 艳丽动人 18K金镶坦桑石 V103235',
-        price: 0.01
-      },
-      {
-        id: 2,
-        thumb: '/image/s5.png',
-        title: '周大福 艳丽动人 18K金镶坦桑石 V103235',
-        price: 0.02
-      },
-      {
-        id: 2,
-        thumb: 'null',
-        title: '周大福 艳丽动人 18K金镶坦桑石 V103235',
-        price: 0.02
-      }
-    ],
+    result: [],
+    keyword:'',
   },
 
   /**
@@ -76,8 +46,26 @@ Page({
       showDp: false,
     })
   }, 
-  onLoad: function () {
+
+  getList: function () {
+    var _this = this,
+      keyword = this.data.keyword
+    app.pageRequest.pageGet('/admin/shop/store/{{storeId}}/goods', { keyword: keyword })
+      .then(res => {
+        var detailList = res.obj.result,
+          datas = _this.data.result,
+          totalCount = res.obj.totalCount,
+          newArr = app.pageRequest.addDataList(datas, detailList)
+          console.log(newArr)
+        _this.setData({
+          result: newArr,
+        })
+      })
+  },
+  onLoad: function (options) {
+
     var that = this;
+    that.getList()
     // wx.navigateToMiniProgram({
     //   appId: 'wx339cc894ccbde5ab',
     //   path: 'pages/index/index?id=123',
@@ -102,7 +90,6 @@ Page({
 
 
   bindChange: function (e) {
-
     var that = this;
     that.setData({ currentTab: e.detail.current });
 
@@ -115,15 +102,6 @@ Page({
     } else {
       that.setData({
         currentTab: e.target.dataset.current,
-        result: [
-          {
-            id: 2,
-            thumb: '/image/s5.png',
-            title: '周大福 艳丽动人 18K金镶坦桑石 V103235',
-            price: 0.02
-          }
-        ],
-
       })
     }
   },
@@ -142,8 +120,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (options) {
   },
 
   /**
@@ -159,21 +136,25 @@ Page({
   onUnload: function () {
 
   },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log(111)
+    app.pageRequest.pageData.pageNum = 0
+    this.getList()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log(111)
+    this.getList()
   },
-
+  bindDownLoad: function () {
+    this.getList()
+  },
   /**
    * 用户点击右上角分享
    */

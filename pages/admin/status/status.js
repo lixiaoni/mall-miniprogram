@@ -2,7 +2,6 @@ const app = getApp();
 var recordStartX = 0;
 var currentOffsetX = 0;
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -10,16 +9,16 @@ Page({
     currentTab: -1,
     alertTab:0,
     hidden:true,
-    storeId:123,
     keyword:'',
     currentTabSer:0,
     showXl:true,
     list:[],
-    pageNum :1,
     totalCount:'',
-    pageSize :20,
     sImg:'/image/xl.png',
     detailList: [],
+    goodsStatus:'',
+    classStatus:false,
+    code:'',
     alertData:["全部商品","引用商品","自建商品"],
   },
   recordStart: function (e) {
@@ -69,33 +68,33 @@ Page({
       detailList: detailList
     });
   },
+  swichNavLast:function(){
+    this.setData({
+      hidden: false,
+      sImg: '/image/xl1.png',
+      classStatus:true,
+    })
+  },
   swichNav: function (e) {
-    var that = this;
-    console.log(e.target.dataset.current)
+    var that = this,
+        status=e.target.dataset.index
+    that.setData({
+      goodsStatus: status,
+      hidden: true,
+      classStatus:false,
+      detailList: []
+    })
+    app.pageRequest.pageData.pageNum =0
+    this.classCode('')
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
-      if(e.target.dataset.current==3){
-        that.setData({
-          hidden:false,
-          currentTab: e.target.dataset.current,
-          sImg:'/image/xl1.png'
-        })
-      }else{
         that.setData({
           currentTab: e.target.dataset.current,
           sImg: '/image/xl.png'
         })
-      }
-      
     }
   },
-  // 筛选
-  // showXl:function(){
-  //   this.setData({
-  //     showXl:false,
-  //   })
-  // },
   alertNav:function(e){
     var that = this;
     if (that.data.alertTab === e.target.dataset.current) {
@@ -107,28 +106,7 @@ Page({
 
     }
   },
-  swichSer:function(e){
-    var that = this;
-    if (that.data.currentTabSer === e.target.dataset.current) {
-      return false;
-    } else {
-      that.setData({
-        currentTabSer: e.target.dataset.current,
-      })
-
-    }
-  },
   hideSer:function(){
-    var that = this,
-      storeId = this.data.storeId
-    app.http.getRequest('/admin/shop/customcategory/store/'+storeId)
-      .then(res => {
-        const obj = res.obj
-        console.log(obj)
-        that.setData({
-          list: obj
-        })
-      })
     this.setData({
       hidden: true,
     })
@@ -149,7 +127,7 @@ Page({
         hasList: false
       });
     }
-    app.http.deleteRequest('/admin/shop/goods/'+goodId)
+    app.http.deleteRequest('/admin/shop/goods/{{goodId}}', { goodId: goodId})
       .then(res => {
        console.log(res)
         wx.showToast({
@@ -164,14 +142,14 @@ Page({
   changeStatus:function(e){
     const goodId = e.currentTarget.dataset.id,
           index = e.currentTarget.dataset.index,
-          storeId=this.data.storeId,
           _this=this,
           detailList = this.data.detailList,
           goodsIdList=[]
     goodsIdList.push(goodId)
-    app.http.postRequest('/admin/shop/store/' + storeId + '/goods/status/on',JSON.stringify(goodsIdList))
+    app.http.postRequest('/admin/shop/store/{{storeId}}/goods/status/on',goodsIdList)
       .then(res => {
         detailList[index].status="1"
+        detailList.splice(index,1)
         _this.setData({
           detailList: detailList,
         })
@@ -185,15 +163,14 @@ Page({
   upStatus:function(e){
     const goodId = e.currentTarget.dataset.id,
       index = e.currentTarget.dataset.index,
-      storeId = this.data.storeId,
       _this = this,
       detailList = this.data.detailList,
       goodsIdList = []
     goodsIdList.push(goodId)
-    console.log(goodsIdList)
-    app.http.postRequest('/admin/shop/store/'+storeId+'/goods/status/off', JSON.stringify(goodsIdList))
+    app.http.postRequest('/admin/shop/store/{{storeId}}/goods/status/off',goodsIdList)
       .then(res => {
         detailList[index].status = "0"
+        detailList.splice(index, 1)
         _this.setData({
           detailList: detailList,
         })
@@ -207,44 +184,92 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var _this=this,
-      storeId = this.data.storeId ,
-      keyword = this.data.keyword,
-      pageNum = this.data.pageNum ,
-      pageSize = this.data.pageSize 
-    app.http.getRequest('/admin/shop/store/'+storeId+'/goods?keyword='+keyword+'&pageNum='+pageNum+'&pageSize='+pageSize)
+
+  getList: function () {
+    var _this = this,
+      keyword = this.data.keyword
+    app.pageRequest.pageGet('/admin/shop/store/{{storeId}}/goods', { keyword: keyword})
       .then(res => {
-        var detailList = res.obj.result
-        console.log(res)
+        var detailList = res.obj.result,
+            datas = _this.data.detailList,
+            totalCount = res.obj.totalCount,
+            newArr = app.pageRequest.addDataList(datas, detailList)
         _this.setData({
-          detailList: detailList,
-          totalCount: res.obj.totalCount
+          detailList: newArr,
+          totalCount: totalCount
         })
       })
+  },
+  
+  onLoad: function (options) {
+    this.getList()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // var that = this,
-    //   storeId = this.data.storeId
-    // app.http.getRequest('/admin/shop/customCategory/' + storeId)
-    //   .then(res => {
-    //     const obj = res.obj
-    //     obj.unshift({ name: "全部商品",customCategoryCode:"0000"})
-    //     console.log(obj)
-    //     that.setData({
-    //       list: obj
-    //     })
-    //   })
+    var that = this
+    app.http.getRequest('/admin/shop/customcategory/store/{{storeId}}')
+      .then(res => {
+        var obj=res.obj
+        obj.unshift({ name: "全部商品",customCategoryCode:"0000"})
+        that.setData({
+          list: obj
+        })
+      })
   },
+  classCode:function(code){
+    var _this = this,
+      goodsStatus =this.data.goodsStatus
+    app.pageRequest.pageGet('/admin/shop/goods/{{storeId}}/goods/status/{{goodsStatus}}', {goodsStatus: goodsStatus, customCategoryCodes:code})
+      .then(res => {
+        var detailList = res.obj.result,
+          datas = _this.data.detailList,
+          totalCount = res.obj.totalCount,
+          newArr = app.pageRequest.addDataList(datas, detailList)
+        _this.setData({
+          detailList: newArr,
+          totalCount: totalCount
+        })
+      })
+  },
+  swichSer: function (e) {
+    var that = this,
+        code=e.target.dataset.code
+    app.pageRequest.pageData.pageNum = 0
+    this.classCode(code)
+    that.setData({
+      detailList: []
+    })
+    if (that.data.currentTabSer === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTabSer: e.target.dataset.current,
+        code:code
+      })
 
+    }
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
   
+  },
+  bindDownLoad: function () {
+    var that = this,
+        code = this.data.code,
+        goodsStatus = this.data.goodsStatus
+      if (this.data.goodsStatus == '' && this.data.code == '') {
+        that.getList()
+      }
+      if (this.data.goodsStatus != '' && this.data.code==''){
+        that.classCode('')
+      }
+      if (this.data.goodsStatus != '' && this.data.code != '') {
+        that.classCode(code)
+      }
   },
 
   /**
@@ -265,7 +290,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.setData({
+      currentTab:-1
+    })
+    app.pageRequest.pageData.pageNum = 0
+    this.getList()
   },
 
   /**

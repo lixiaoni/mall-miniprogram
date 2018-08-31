@@ -42,5 +42,5 @@
     top: 95rpx;
   }
 .bt-cont{
-  margin:20rpx;border-radius: 10rpx;border-top: 0;border-bottom: 0;
+  margin:20rpx;border-radius: 10rpx;border-top: 0;border-bottom: 0;margin-bottom: 140rpx;
 }

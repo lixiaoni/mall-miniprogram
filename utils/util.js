@@ -13,38 +13,7 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-/**http请求**/ 
-function request(url, method, data, message, success, fail) {
-  wx.showNavigationBarLoading()
-  wx.showLoading();
-  if (message != "") {
-    wx.showLoading({
-      title: message,
-    })
-  }
-  wx.request({
-    url:"https://xyk-doctor.com/"+url,
-    data: data,
-    header: {
-      "content-type":"application/json"
-    },
-    method: method,
-    success: function (res) {
-      if (res.statusCode == 200) {
-        success(res.data)
-      } else {
-        console.log("请求成功，返回信息：" + res.statusCode)
-      }
-    },
-    fail: function (err) {
-      console.log('请求失败：' + err)
-    },
-    complete:function(){
-      wx.hideLoading()
-      wx.hideNavigationBarLoading()
-    }
-  })
-}
+
 /**倒计时   定义一个总毫秒数，以一分钟为例。TODO，传入一个时间点，转换成总毫秒数**/
 var total_micro_second = 10000 * 40;
 /* 毫秒级倒计时 */
@@ -91,6 +60,5 @@ function fill_zero_prefix(num) {
 }
 module.exports = {
   formatTime: formatTime,
-  request: request,
   count_down:count_down
 }
