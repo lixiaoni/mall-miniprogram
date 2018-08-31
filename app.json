@@ -1,14 +1,39 @@
 {
   "pages":[
 
-    "pages/floor/choseAdmin/choseAdmin",
-    "pages/floor/floorList/floorList",
-    "pages/floor/floorDetail/floorDetail",
-    "pages/floor/areaDetail/areaDetail",
+    "pages/mall/newest/newest",
     
-    "pages/floor/addTag/addTag",
-   
-    "pages/floor/floor/floor",
+    "pages/mall/follow/follow",
+    
+    "pages/mall/mallMes/mallMes",
+    "pages/mall/store/store",
+    
+    
+    
+    
+    
+    "pages/mall/search/search",
+    
+    
+    "pages/mall/class/class",
+    
+    
+    
+    
+    "pages/mall/seaList/seaList",
+    
+    "pages/page/serStatus/serStatus",
+    
+    "pages/page/serList/serList",
+    
+    "pages/admin/serStatus/serStatus",
+    
+    
+    
+    
+    
+    
+    
     
     "pages/floor/addAdmin/addAdmin",
     "pages/floor/editAdmin/editAdmin",
@@ -52,7 +77,6 @@
     "pages/admin/editGoods/editGoods",
     "pages/admin/set/set",
     "pages/admin/status/status",
-    "pages/admin/serStatus/serStatus",
     
     "pages/admin/class/class",
     
@@ -68,8 +92,6 @@
     "pages/admin/batchSet/batchSet",
     "pages/admin/success/success",
     "pages/admin/classList/classList",
-    "pages/page/serList/serList",
-    "pages/page/serStatus/serStatus",
     "pages/admin/classEdit/classEdit",
     "pages/page/cartList/cartList",
     "pages/page/addressWe/addressWe",
@@ -115,22 +137,22 @@
     "color": "#888",
     "list": [
       {
-        "pagePath": "pages/page/home/home",
-        "iconPath": "image/12.png",
-        "selectedIconPath": "image/11.png",
-        "text": "小云店"
+        "pagePath": "pages/mall/follow/follow",
+        "iconPath": "image/mall1.png",
+        "selectedIconPath": "image/mall2.png",
+        "text": "关注"
       },
       {
-        "pagePath": "pages/page/cartList/cartList",
-        "iconPath": "image/22.png",
-        "selectedIconPath": "image/21.png",
-        "text": "购物车"
+        "pagePath": "pages/mall/newest/newest",
+        "iconPath": "image/mall4.png",
+        "selectedIconPath": "image/mall3.png",
+        "text": "精选"
       },
       {
         "pagePath": "pages/page/user/user",
         "iconPath": "image/42.png",
         "selectedIconPath": "image/41.png",
-        "text": "客户"
+        "text": "我的"
       }
     ]
   }

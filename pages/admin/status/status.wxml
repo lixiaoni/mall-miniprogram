@@ -40,7 +40,6 @@
                   </view>
                    <!-- <view class='not'><view class='triangle_border_up'></view>该商品库存不足 请及时补货</view> -->
                   </view>
-             
               </view>
               <view class='st-bottom'>
                 <view>转发</view>

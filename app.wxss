@@ -60,6 +60,48 @@ border: none;
     width:45rpx;
     height:45rpx;
 }
+/* 搜索 */
+.goods-ser{
+  height: 80rpx;
+  position: relative;
+  background: #fff;
+}
+.goods-ser input{
+  color: #888888;
+  font-size: 28rpx;
+  height: 80rpx;
+  padding-left: 90rpx;
+}
+.home-ser{
+  height: 40rpx;
+  width: 40rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 20rpx;
+}
+.fw-title{
+  color:#333;
+  font-size: 28rpx;
+  height: 70rpx;
+  background: #fff;
+  text-align: center;
+  padding-top: 10rpx;
+}
+.fw-title image{
+  width: 12rpx;height: 12rpx;vertical-align: middle;
+}
+.fw-title>view{
+  display: inline-block;
+  width: 50%;
+}
+.fw-title>view.active{
+  color: #CCAA77;
+}
+.fw-title>view.active view{
+  border-bottom: 2rpx solid #CCAA77;
+  width:140rpx;padding-bottom: 25rpx;
+  margin:0 auto
+}
 .init-page{
   padding: 0 30rpx;
   position: relative;
@@ -73,23 +115,31 @@ border: none;
 }
 .title{
     font-size: 30rpx;
-    margin: 40rpx 0;
+    margin: 40rpx 0;font-weight:bold;
 }
 .title text{
     padding-bottom: 10rpx;
     color: #333;
 }
-.tags view{width: 50%;display: inline-block;text-align: center;}
-.tags text{
+.tags view{
+  display: inline-block;text-align: center;margin-right: 20rpx;
+}
+.tags view image{
+ position: relative;color: #CCAA77;right: 0;top: 0;vertical-align: middle;margin-right: 10rpx;margin-top: -2rpx;
+}
+.tags view.img{
+color: #CCAA77;background: #F7F7F7;border:2rpx solid #CCAA77;height: 68rpx;line-height: 68rpx;
+}
+.tags view>view{
     display: inline-block;
     font-size: 30rpx;
     color: #333;
     height: 70rpx;
     line-height: 70rpx;
-    border-radius: 8rpx;
+    border-radius: 10rpx;
     text-align: center;min-width: 160rpx;
-    border:2rpx solid #E9E9E9;
-    margin-bottom: 60rpx;
+    background: #F1F1F1;
+    margin-bottom: 20rpx;
     word-break: break-all;
 }
 .tags text:nth-child(odd){

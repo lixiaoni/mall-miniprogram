@@ -1,0 +1,44 @@
+<view class="goods-ser">
+    <view url='../search/search'><input placeholder="男士眼镜" disabled='disabled' value="{{value}}"/></view>
+    <image class="home-ser"  src="/image/search.png"></image>
+    <image class="home-ser home-ser1"  src="/image/ser.png"></image>
+</view>
+<view class="swiper-tab"> 
+  <view class="swiper-tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">默认<view></view></view> 
+  <view class="swiper-tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">销量<view></view></view> 
+  <view class="swiper-tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">价格<image src="/image/sort.png" wx:if="{{currentTab!=2}}"></image><image src="/image/sort1.png" wx:if="{{currentTab==2}}"></image><view></view></view> 
+</view> 
+<view class="st-cont">
+  <image class="cart-thumb" src="/image/userphoto.png"></image>
+  <view  class='st-d-t'>音米复古圆形金属眼镜框 男  近视眼镜架大框韩式全框</view> 
+  <view class='st-details'>
+    <view class='st-d-status'>
+      <view><text>批发 </text><text class='st-mom'>￥444</text></view>
+      <view><text>零售 </text><image src='/image/wh.png'></image></view>
+      <view>inMix 眼镜百荣世贸店<image src='/image/mallr.png'></image></view>
+      </view>
+    </view>
+</view>
+<view class="st-cont">
+  <image class="cart-thumb" src="/image/userphoto.png"></image>
+  <view  class='st-d-t'>音米复古圆形金属眼镜框 男  近视眼镜架大框韩式全框</view> 
+  <view class='st-details'>
+    <view class='st-d-status'>
+      <view><text>批发 </text><text class='st-mom1'>￥444</text></view>
+      <view><text>零售 </text><text class='st-mom'>￥444</text></view>
+      <view>inMix 眼镜百荣世贸店<image src='/image/mallr.png'></image></view>
+      </view>
+    </view>
+</view>
+<view class="st-cont">
+  <image class="cart-thumb" src="/image/userphoto.png"></image>
+  <view  class='st-d-t'>音米复古圆形金属眼镜框 男  近视眼镜架大框韩式全框</view> 
+  <view class='st-details'>
+    <view class='st-d-status'>
+      <view><text>批发 </text><text class='st-mom'>￥444</text></view>
+      <view><text>零售 </text><image src='/image/wh.png'></image></view>
+      <view>inMix 眼镜百荣世贸店<image src='/image/mallr.png'></image></view>
+      </view>
+    </view>
+</view>
+<view class='sl-font'>没有更多了</view>

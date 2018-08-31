@@ -1,0 +1,42 @@
+@import '../follow/follow';
+.swiper {
+  height: 400rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.nt-title{
+  background:#fff;margin:20rpx 0;padding:50rpx 0;
+}
+.nt-title>view{
+  display: inline-block;width:33%;text-align: center;font-size: 32rpx;
+}
+.nt-title text{
+  color: #999;font-size:24rpx;
+}
+.nt-img{
+  text-align: center;margin-top: 30rpx;
+}
+.lw-pop{
+  margin-top: 20rpx;padding:35rpx 30rpx;
+}
+.lw-pop>view:first-child view{
+  float: right;font-weight: normal;
+}
+.lw-pop>view:first-child view text{
+  font-size: 24rpx;color: #999;float:none;
+}
+.fw-cont>view{
+  width: 50%;
+}
+.fw-c-img{
+  width: 320rpx;height: 320rpx;
+}
+.fw-cont>view view:nth-child(2){
+  color: #333;
+}
+.fw-cont>view view:nth-child(2),.fw-cont>view view:nth-child(3),.fw-cont>view view:nth-child(4){
+  text-align: left;margin-left: 30rpx;
+}

@@ -1,0 +1,62 @@
+<view class="goods-ser">
+    <navigator url='../search/search'><input placeholder="搜索小云店" disabled='disabled' value="{{value}}"/></navigator>
+    <image class="home-ser"  src="/image/search1.png"></image>
+</view>
+<view class='fw-title'>
+  <view class="{{currentTab==0?'active':''}}" data-current='0'  bindtap="swichNav">楼层导航 <image  wx:if="{{currentTab==1}}" src='/image/xl.png'></image><image  wx:else src='/image/xl1.png'></image><view></view></view>
+  <view class="{{currentTab==1?'active':''}}" data-current='1'  bindtap="swichNav">购物 <image  wx:if="{{currentTab!=1}}" src='/image/xl.png'></image><image wx:else src='/image/xl1.png'></image><view></view></view>
+</view>
+<view>
+<view class='fw-store'>
+  <view class='fw-top'>
+    <image class='fw-logo' src='/image/wytjimg.png'></image>
+    <view class='fw-iew1'>JANE STUDIO 简约<text>新批零</text></view>
+    <view class='fw-iew'><text>时尚女装</text>百荣世贸一期3FB区306</view>
+    <image class='fw-left' src='/image/mallr.png'></image>
+  </view>
+  <view class='fw-cont'>
+    <view>
+        <image class='fw-c-img' src='/image/userphoto.png' ></image>
+        <view>零售 <text>￥3232</text></view>
+        <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
+      </view>
+      <view>
+        <image class='fw-c-img' src='/image/userphoto.png' ></image>
+        <view>零售 <text>￥3232</text></view>
+        <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
+      </view>
+      <view>
+        <image class='fw-c-img' src='/image/userphoto.png' ></image>
+        <view>零售 <text>￥3232</text></view>
+        <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
+      </view>
+  </view>
+  <view> <view class='button'>购买过的店</view><view class='button'>12件上新</view><view class='button'>3523人买过</view></view>
+</view>
+<view class='fw-store'>
+    <view class='fw-top'>
+      <image class='fw-logo' src='/image/wytjimg.png'></image>
+      <view class='fw-iew1'>JANE STUDIO 简约<text>新批零</text><text>友</text></view>
+      <view class='fw-iew'><text>时尚女装</text>百荣世贸一期3FB区306</view>
+      <image class='fw-left' src='/image/mallr.png'></image>
+    </view>
+    <view class='fw-cont'>
+      <view>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+        <view>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+        <view>
+          <image class='fw-c-img' src='/image/userphoto.png' ></image>
+          <view>零售 <text>￥3232</text></view>
+          <view>批发 <text class='fw-you'>￥3232</text></view>
+        </view>
+    </view>
+    <view> <view class='button'>购买过的店</view></view>
+  </view>
+</view>
