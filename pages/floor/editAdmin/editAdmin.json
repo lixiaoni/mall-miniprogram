@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "编辑管理员",
+  "usingComponents": {
+    "spec": "../../../../assembly/specifications/spec"
+  }
+}

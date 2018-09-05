@@ -1,0 +1,81 @@
+<view class='floor-box adminD-box'>
+  <view class='floor-part detail-box'>
+    <image src='{{src}}' class='admin-icon'></image>
+    <view class='admin-name'>{{name}}</view>
+
+    <!-- 按钮 -->
+    <view class='btn-list'>
+      <view class='fun-btn'>
+        <image src='/image/msg.png' class='btn-icon'></image>
+        <text class='btn-name'>信息</text>
+      </view>
+
+      <view class='fun-btn' bindtap='call'>
+        <image src='/image/tel2.png' class='btn-icon'></image>
+        <text class='btn-name'>呼叫</text>
+      </view>
+
+      <view class='fun-btn' bindtap='setting'>
+        <image src='/image/set.png' class='btn-icon'></image>
+        <text class='btn-name'>设置</text>
+      </view>
+    </view>
+
+    <!-- 信息 -->
+    <view class='msg-box'>
+      <view class='msg-part'>
+        <view class='msg-title'>手机号码</view>
+        <view class='gold-font'>{{phoneNum}}</view>
+      </view>
+      <view class='msg-part'>
+        <view class='msg-title'>微信号</view>
+        <view wx:if="{{wx}}">{{wx}}</view>
+        <view class='msg-content' wx:else>暂无</view>
+      </view>
+      <view class='msg-part'>
+        <view class='msg-title'>部门</view>
+        <view wx:if="{{part}}">{{part}}</view>
+        <view class='msg-content' wx:else>暂无</view>
+      </view>
+      <view class='msg-part'>
+        <view class='msg-title'>优惠码</view>
+        <view  wx:if="{{code}}">{{code}}</view>
+        <view class='msg-content' wx:else>暂无</view>
+      </view>
+    </view>
+
+  </view>
+  
+    <!-- 管理层 -->
+    <view class='list-show floor-part'>
+      <view class='list-title'>我的管理层</view>
+
+      <block wx:for="{{manage}}">
+        <view class='border-box list-part'>
+          <view class='column-center'>
+            <image src='/image/dp.png' class='com-icon'></image>
+            <text class='com-title'>{{item.name}}</text>
+          </view>
+
+          <block wx:for="{{item.childList}}" wx:for-item="floor">
+            <view class='floor-box'>        
+              <view class='column-center'>
+                <image src='/image/floor.png' class='com-icon'></image>
+                <text>{{floor.floorNum}}</text>
+                <text>{{floorNum.name}}</text>
+              </view>
+              <block wx:for="{{floor.childList}}" wx:for-item="area">
+                <view class='column-center area-box'>
+                  <text class='area-font'>{{area.name}}</text>
+                  <text class='count-font'>{{area.storeCount}}</text>家
+                </view>
+               </block>
+            </view>
+          </block>
+
+        </view>
+      </block>
+    </view>
+    
+
+</view>

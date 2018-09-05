@@ -1,0 +1,106 @@
+/* pages/floor/adminDetail/adminDetail.wxss */
+@import "../floor/floor-common" ;
+
+.edit-part{
+  
+}
+.adminD-box{
+  margin-top: 135rpx;
+}
+.detail-box{
+  position: relative;
+  padding-top: 123rpx;
+}
+.admin-icon{
+  position: absolute;
+  top: -75rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.admin-name{
+  font-size: 44rpx;
+  text-align: center;
+  font-weight: 600;
+  padding-bottom: 60rpx;
+}
+/* 按钮 */
+.btn-list{
+  display: flex;
+  justify-content: space-around;
+}
+.fun-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn-icon{
+  width: 80rpx;
+  height: 80rpx;
+}
+.btn-name{
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #ccaa77;
+}
+/* 信息 */
+.msg-box{
+  display: flex;
+  flex-direction: column;
+  margin: 27rpx 0 0;
+}
+.msg-part{
+  display: flex;
+  width: 410rpx;
+  margin: 16rpx auto;
+  font-size: 28rpx;
+}
+.msg-title{
+  width: 180rpx;
+  color: #999;
+}
+.gold-font{
+  color: #ccaa77;
+}
+.msg-content{
+  color: #999;
+}
+/* 管理层 */
+.com-icon{
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 20rpx;
+}
+.list-show{
+  margin-top: 20rpx;
+}
+.list-title{
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 32rpx;
+}
+.list-part{
+  padding: 30rpx 0;
+}
+.com-title{
+  font-size: 26rpx;
+}
+
+.floor-box{
+  padding: 50rpx 0;
+}
+/* 区 */
+.area-box{
+  margin-left: 45rpx;
+  margin-top: 30rpx;
+}
+.area-font{
+  color:#666;
+}
+.count-font{
+  color:#ccaa77;
+  margin-left: 40rpx;
+}

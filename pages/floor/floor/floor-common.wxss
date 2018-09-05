@@ -1,0 +1,110 @@
+/* 公用样式 */
+.tri-icon{
+  width: 25rpx;
+  height: 32rpx;
+}
+.floor-box{
+   padding: 20rpx 20rpx 130rpx; 
+}
+.floor-part-box{
+  margin-top: 20rpx;
+}
+.floor-part{
+  border-radius: 5px;
+  background: white;    
+  padding: 40rpx 30rpx; 
+}
+.flex-box{
+  display: flex;
+  justify-content: space-between;
+}
+.tip {
+  width: 26rpx;
+  height: 36rpx;
+  border-radius: 4rpx;
+  background: red;
+  position: relative;
+}
+
+.tip::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-width: 13rpx;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+/* 楼层字体 */
+.title-box{
+  width: 110rpx;
+  padding-right:5rpx; 
+}
+.b-font{
+  font-weight: 600;
+}
+/* 公司logo名字 */
+.column-box{
+  display: flex;
+}
+.align-center{
+  align-items:center;  
+}
+.column-center{
+  display: flex;
+  align-items:center; 
+}
+.company-logo{
+  width: 33rpx;
+  height: 33rpx;
+  padding-top: 2rpx;
+}
+.company-name{
+  font-size: 34rpx;
+  font-weight: 600;
+  padding-left: 20rpx;
+}
+/* 区 */
+.area-img-list{
+  position: relative;
+  width: 130rpx;
+  overflow: hidden;
+}
+.area-admin{
+  position: absolute;
+}
+.floor-admin{
+  width:60rpx;
+  height:60rpx;
+}
+/* 边框 */
+.border-box{
+  border-top: 2rpx solid #eee;
+}
+/* 底部按钮 */
+.btn-bottom{
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 34rpx;
+  font-weight: 600;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+}  
+/* 标签 */
+.floor-tag{
+  display: inline-block;
+  border-radius: 4px;
+  color: white;
+  background: blue;
+  padding: 7rpx 32rpx;
+  font-size: 26rpx;
+  height: 40rpx;
+  margin-right:20rpx;
+}

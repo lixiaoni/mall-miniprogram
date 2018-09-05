@@ -1,0 +1,98 @@
+<!--pages/floor/choseAdmin/choseAdmin.wxml-->
+<view class='floor-box'>
+  <!-- 搜索 -->
+  <view class='floor-part flex-box align-center'>
+    <view class='ad-serch-box column-box align-center'>
+        <image src='/image/search1.png' class='search-img'></image>
+        <input bindinput='serch' type='text' style="width:500rpx;" placeholder='搜索管理员 '></input>
+    </view>
+    
+    <image src="/image/addFriend.png" bindtap='toCreate' class='add-img'></image>
+  </view>
+  <!-- 公司头 -->
+  <!-- <view class='floor-part flex-box align-center' wx:if='{{bigComName}}' bindtap='showLou'>
+    <view class='column-center'>
+      <image class='company-logo' src='{{companyLogo}}'></image>
+      <text class='company-name'>{{companyName}}</text>
+    </view>
+    <view>
+      <image class='tri-icon' src='/image/icl.png'></image>
+    </view>
+  </view> -->
+  <!-- 公司头 -->
+  <!-- <view class='floor-part' wx:else>
+    <view class='column-center padding-box'>
+      <image class='company-logo' src='{{companyLogo}}'></image>
+      <text class='company-sm-name'>{{companyName}}</text>
+      <text class='company-sm-name' wx:if="{{choseLou}}">>   {{louName}}</text>
+    </view>
+
+    <view wx:if="{{!choseLou}}">
+      <view class='flex-box align-center lou-box' bindtap='choseLou'>
+        <view class='column-center'>
+          <image class='lou-icon' src='/image/lou.png'></image>
+          <text>百荣世贸商城一期</text>
+        </view>
+        <image class='tri-icon' src='/image/icl.png'></image>
+      </view>
+
+      <view class='flex-box align-center lou-box'>
+        <view class='column-center'>
+          <image class='lou-icon' src='/image/lou.png'></image>
+          <text>百荣世贸商城一期</text>
+        </view>
+        <image class='tri-icon' src='/image/icl.png'></image>
+      </view>
+
+    </view>
+
+  </view> -->
+  <!-- 公司头 -->
+  <view class='floor-part flex-box align-center' wx:if='{{bigComName}}' bindtap='showLou'>
+    <view class='column-center'>
+      <image class='company-logo' src='{{companyLogo}}'></image>
+      <text class='company-name'>{{companyName}}</text>
+    </view>
+    <view>
+      <image class='tri-icon' src='/image/icl.png'></image>
+    </view>
+  </view>
+  <!-- 公司头 -->
+  <view class='floor-part' wx:else>
+    <view class='column-center padding-box'>
+      <image class='company-logo' src='{{companyLogo}}'></image>
+      <text class='company-sm-name' bindtap='returnCom'>{{companyName}}</text>
+      <text class='company-sm-name' wx:if="{{choseLou}}">>{{louName}}</text>
+    </view>
+
+    <view wx:if="{{!choseLou}}">
+      <block wx:for="{{louList}}">
+        <view data-code='{{item.code}}' data-name='{{item.name}}' class='flex-box align-center lou-box' bindtap='choseLou'>
+          <view class='column-center'>
+            <image class='lou-icon' src='/image/lou.png'></image>
+            <text>{{item.name}}</text>
+          </view>
+          <image class='tri-icon' src='/image/icl.png'></image>
+        </view>
+      </block>
+    </view>
+
+  </view>
+  <!-- 管理员列表 -->
+  <view class='floor-part floor-part-box'>
+      <view wx:if="admin.length > 0">
+        <block wx:for="{{admin}}">
+          <view class='flex-box align-center admin-item-box'>
+            <view class='column-box' bindtap='toDetail' data-id='{{item.userId}}'>
+              <view class="title-box">
+                  <image src='{{item.headPic}}' class='admin-ball'></image>
+              </view>
+              <text>{{item.name}}</text>
+            </view>
+            <image class='phone-icon' src='/image/phone.png' data-phone='{{item.phone}}'  bindtap='call'></image>
+          </view>
+        </block>
+      </view>
+      <view wx:else>无</view>
+  </view>
+</view>

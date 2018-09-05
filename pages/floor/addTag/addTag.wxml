@@ -1,0 +1,18 @@
+<!--pages/floor/choseAdmin/choseAdmin.wxml-->
+<view class='floor-box'>
+  <!-- 搜索 -->
+  <view class='floor-part'>
+    <view class='ad-serch-box column-box align-center'>
+      <view class='tip' style='background:{{background}}'></view>
+      <input bindinput='getVal' type='text' style="width:500rpx;margin-left:40rpx;" placeholder='请输入楼层指引标识'></input>
+    </view>
+
+    <view class='ball-box'>
+      <block wx:for="{{ballList}}">
+        <view bindtap='chose' data-index="{{index}}" data-color='{{item}}' style="background:{{item}}" class="ball {{index==whitch?'active':''}}"></view>
+      </block>
+    </view>
+
+    <button bindtap='create' type='default' style='background:#fff;border:1px solid #ccaa77;color:#ccaa77'>创建</button>
+  </view>
+</view>

@@ -1,0 +1,95 @@
+/* pages/floor/floorDetail/floorDetail.wxss */
+@import '../floor/floor-common';
+@import '../../admin/spec/spec';
+.danger{
+  background: #d9534f;
+  color: #fff;
+}
+.add-icon{
+  height: 40rpx;
+  width: 40rpx;
+}
+.edit-icon{
+  width: 39rpx;
+  height: 35rpx;
+}
+.area-box{
+  border-bottom: 2rpx solid #eee;
+}
+.floor-title{
+  font-size:44rpx;
+  font-weight: 600;
+}
+.floor-edit{
+  width: 25rpx;
+  height: 35rpx;
+  margin-top: 20rpx;
+}
+/* 分配管理员 */
+.add-admin{
+  margin-top: 58rpx;
+}
+.add-admin-img{
+  height: 80rpx;
+  width: 80rpx;
+  margin-right: 20rpx;
+}
+.add-admin-font{
+  display: block;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #666; 
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  width: 110rpx;
+  height: 60rpx;
+}
+.add-admin-font2{
+  display: block;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #666; 
+}
+
+.floor-icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+.area-type{
+  font-size:28rpx;
+  margin-right:19rpx;
+}
+/* 管理员 */
+.admin-list-box{
+  display: flex;
+  flex-wrap: wrap;
+}
+.admin-item{
+  width: 110rpx;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  padding: 14rpx;
+}
+.admin-item-img{
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 auto;
+}
+/* 滚动 */
+.scroll-tag{
+  white-space:nowrap;
+  width: 500rpx;
+  height: 57rpx;
+}
+/* 删除 */
+.del-btn{
+  letter-spacing:35rpx;
+  
+}
+.del-icon{
+  width: 35rpx;
+  height: 35rpx;
+  margin:0 20rpx 0 0;
+}

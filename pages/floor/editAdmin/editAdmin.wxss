@@ -1,0 +1,61 @@
+/* pages/floor/editAdmin/editAdmin.wxss */
+@import "../floor/floor-common";
+@import '../../admin/spec/spec';
+.danger{
+  background: #d9534f;
+  color: #fff;
+}
+.edit-box{
+  border-radius: 5px;
+  background: white;    
+  padding: 0 30rpx; 
+}
+.edit-part{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35rpx 0;
+  font-size: 28rpx;
+  color: #333333;
+}
+.icon{
+  border-radius: 50%;
+  height: 80rpx;
+  width: 80rpx;
+}
+.tri{
+ width: 17rpx;
+ height: 32rpx; 
+ margin-left: 17rpx;
+}
+.bottom-border{
+  border-bottom: 1rpx solid #eee;
+}
+.code{
+  font-weight: 600;
+  font-size: 26rpx;
+}
+.margin-class{
+  margin-top: 20rpx;
+}
+
+.botton-bottom{
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 34rpx;
+  font-weight: 600;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  color: #ccaa77;
+  background: #fff;
+}
+.button-item{
+  text-align: center;
+  width: 374rpx;
+}
+.border-right{
+  border-right: 2rpx solid #ddd;
+}

@@ -1,0 +1,36 @@
+/* pages/floor/floorList/floorList.wxss */
+@import '../../page/mesEdit/mesEdit';
+@import '../../admin/spec/spec';
+.floor-item{
+  padding: 50rpx 30rpx;
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 20rpx;
+}
+.box{
+  padding: 20rpx;
+}
+.icon{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 20rpx;
+}
+.more{
+  width:7rpx;
+  height: 43rpx;
+}
+.floor-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.name-box{
+  display: flex;
+  align-items: center;
+  width: 580rpx;
+  overflow: hidden;
+}
+.more-box{
+  width: 50rpx;
+  text-align: center;
+}

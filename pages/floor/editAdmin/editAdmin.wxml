@@ -1,0 +1,73 @@
+<view class='floor-box'>
+  <view class='edit-box'>
+    <view class='edit-part  bottom-border'>
+      <text>头像</text>
+      <view class='column-center'>
+        <image class='icon' src='{{src}}'></image>
+        <view class='tri'></view>
+      </view>
+    </view>
+
+    <view class='edit-part bottom-border'>
+      <text>姓名</text>
+      <view class='column-center' data-type='name' bindtap='changeMobel'>
+        <text>{{name}}</text>
+        <image class='tri' src='/image/icl.png'></image>
+      </view>
+    </view>
+
+    
+    <view class='edit-part'>
+      <text>优惠码</text>
+      <view class='column-center'>
+        <text class='code'>{{code}}</text>
+        <view class='tri'></view>
+      </view>
+    </view>
+  </view>
+
+  <view class='edit-box margin-class'>
+    <view class='edit-part bottom-border'>
+      <text>手机号</text>
+      <view class='column-center'>
+        <text>{{phone}}</text>
+        <view class='tri'></view>
+      </view>
+    </view>
+  
+
+    <view class='edit-part bottom-border'>
+      <text>微信号</text>
+      <view class='column-center' data-type='wx' bindtap='changeMobel'>
+        <text>{{wechatNumber}}</text>
+        <image class='tri' src='/image/icl.png'></image>
+      </view>
+    </view>
+
+    <view class='edit-part'>
+      <text>部门</text>
+      <view class='column-center' data-type='part' bindtap='changeMobel'>
+        <text>{{part}}</text>
+        <image class='tri' src='/image/icl.png'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='botton-bottom'>
+  <view class='button-item border-right' bindtap='del'>移除</view>
+  <view class='button-item' bindtap='back'>确定</view>
+</view>
+
+<!-- 弹窗 -->
+<spec show="{{mobel}}">
+  <view class='spec-title'>编辑{{change}}</view>
+  <input type='text' placeholder-class='spec-class' value='{{value}}'   bindinput='watchInput'  class='spec-input'  placeholder='请输入新{{change}}' />
+  <view class='spec-view' bindtap='cancel'>取消</view><view  class="spec-view spec-view-ac spec-view-active" bindtap='sureChange'>确定</view>
+</spec>
+<!-- 删除弹窗 -->
+ <!-- 删除弹框 -->
+  <spec show="{{delModal}}">
+    <view class='spec-title'>是否确认移除管理员</view>
+    <view class='spec-view' bindtap='cancel'>放弃</view><view  class="spec-view spec-view-ac danger"  bindtap='sureDel'>确定</view>
+</spec>

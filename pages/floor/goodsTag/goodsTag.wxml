@@ -1,0 +1,41 @@
+<!--pages/floor/choseAdmin/choseAdmin.wxml-->
+<view class='floor-box'>
+  <!-- 搜索 -->
+  <view class='floor-part'>
+    <view class='ad-serch-box column-box align-center'>
+        <image src='/image/search1.png' class='search-img'></image>
+        <input bindinput='serch' type='text' style="width:500rpx;" placeholder='搜索楼层指引标识'></input>
+    </view>
+
+     <!--创建新经营范围  -->
+    <view class='new-tag' bindtap='newTag'>
+      <view class='column-box' >
+        <view class="title-box">
+            <image src="/image/addTag.png" class='add-icon'></image>
+        </view>
+        <text class='font-gold'>创建新经营范围</text>
+      </view>
+    </view>
+    
+  </view>
+ 
+
+
+  <!-- 管理员列表 -->
+  <view class='floor-part floor-part-box'>
+      <view wx:if="tags.length > 0">
+        <block wx:for="{{tags}}">
+          <view class='flex-box align-center admin-item-box' data-id='{{item.tagCode}}' data-index="{{index}}" bindtap='chose'>
+            <view class='column-center' >
+              <view class="title-box">
+                   <view class='tip' style='background:{{item.tagColor}}'></view>
+              </view>
+              <text>{{item.tagName}}</text>
+            </view>
+            <image wx:if="{{item.isSlected}}" class='bingle' src='/image/dui.png'></image>
+          </view>
+        </block>
+      </view>
+      <view wx:else>无</view>
+  </view>
+</view>

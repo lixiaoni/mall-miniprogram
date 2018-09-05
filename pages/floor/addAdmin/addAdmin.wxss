@@ -1,0 +1,53 @@
+/* pages/floor/addAdmin/addAdmin.wxss */
+.box{
+  padding:65rpx 50rpx;
+}
+.icon{
+  width: 26rpx;
+  height: 31rpx;
+  margin-right: 17rpx;
+}
+.title{
+  font-weight: 600;
+  font-size: 58rpx;
+}
+.check{
+  width: 200rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border: 1rpx solid #ddd;
+  color: #d2b588;
+}
+.flex-box{
+  display: flex;
+  justify-content: space-between;
+}
+.phone-box{
+  width: 430rpx;
+  border-bottom: 1rpx solid #ddd;
+  display: flex;
+  align-items: center;
+}
+.add-btn{
+  border-radius: 5px;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  font-weight: 600;
+  font-size: 30rpx;
+}
+.ac-btn{
+  color: #999;
+  background: #eee;
+}
+.no-btn{
+  color: #fff;
+  background: #ccaa77;
+}
+.tip{
+  height: 24rpx;
+  font-size: 22rpx;
+  text-align: center;
+  margin: 50rpx 0;
+}
