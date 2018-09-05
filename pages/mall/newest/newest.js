@@ -1,16 +1,14 @@
-// pages/mall/newest/newest.js
+const app = getApp();
+import Api from '../../../utils/api.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    movies: [
-      { url: 'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg' },
-      { url: 'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg' },
-      { url: 'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg' },
-      { url: 'http://img02.tooopen.com/images/20141231/sy_78327074576.jpg' }
-    ] 
+    movies: [],
+    activities:[],
+    mallChosenGoods:[]
   },
   getUrl: function () {
     wx.navigateToMiniProgram({
@@ -24,13 +22,31 @@ Page({
     })
 
   },
+  getList:function(){
+    var _this=this
+    Api.mallIndex({ mallCode:1000})
+      .then(res => {
+        const obj=res.obj
+        console.log(obj.mallChosenGoods)
+        _this.setData({
+          movies: obj.banners,
+          activities: obj.activities,
+          mallChosenGoods: obj.mallChosenGoods
+        })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getList()
   },
-
+  moreList:function(e){
+    var index = e.target.dataset.index
+    wx.navigateTo({
+      url: '../goodsList/goodsList?index='+index,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -27,6 +27,19 @@ Page({
 
     }
   },
+  searchBtn: function (e) {
+    var name = e.detail.value
+    if(this.data.currentTab==0){
+      wx.navigateTo({
+        url: '../seaList/seaList?name=' + name,
+      })
+    }else{
+      wx.navigateTo({
+        url: '../store/store?name=' + name,
+      })
+    }
+  
+  },
   removeAll() {
     this.setData({
       history: []
@@ -64,14 +77,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    
   },
-
+  bindDownLoad: function () {
+    console.log(787878)
+  },
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    console.log(787878)
   },
 
   /**

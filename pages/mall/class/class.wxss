@@ -1,5 +1,6 @@
 .cl-cont{
-  background: #fff;margin:20rpx;border-radius: 10rpx;font-size: 30rpx;position: relative;overflow: hidden;
+  background: #fff;margin:20rpx;border-radius: 10rpx;font-size: 30rpx;
+  position: relative;overflow: scroll;height: 88%;
 }
 .cl-left{
   width: 170rpx;background: #FAFAFA;
@@ -17,7 +18,7 @@
   height: 100rpx;line-height: 100rpx;
 }
 .cl-right image{
-  width: 40rpx;height: 40rpx;float: right;margin-top:30rpx;
+  width: 40rpx;height: 40rpx;float: right;margin-top:38rpx;
 }
 .cl-right view.active{
   font-weight: bold;

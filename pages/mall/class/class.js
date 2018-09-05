@@ -1,20 +1,66 @@
-// pages/mall/class/class.js
+const app = getApp();
+import Api from '../../../utils/api.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    firstCodeList:[],
+    current:0,
+    twoList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  getFirstCode:function(){
+    var _this=this
+    Api.firstCode()
+    .then(res=>{
+      const obj = res.obj
+      if (obj.length>0){
+        _this.setData({
+          firstCodeList: obj,
+          twoList: obj[0]
+        })
+        _this.getChildList(obj[0].categoryCode)
+      }
+    })
   },
-
+  getChildList:function(code){
+    var _this=this,
+        newArr=[]
+    Api.childCategoryCode({parentCategoryCode:code})
+      .then(res => {
+        var obj = res.obj
+        _this.setData({
+          twoList: obj
+        })
+      })
+  },
+  onLoad: function (options) {
+    this.getFirstCode()
+  },
+  swichNav: function (e) {
+    var that = this,
+      categoryCode = e.target.dataset.code
+    if (this.data.current === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        current: e.target.dataset.current,
+      })
+      that.getChildList(categoryCode)
+    }
+  },
+  serList:function(e){
+    var  categoryCode = e.target.dataset.code,
+         name = e.target.dataset.name
+    wx.navigateTo({
+      url: '../goodsList/goodsList?code=' + categoryCode +'&keyword='+name,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

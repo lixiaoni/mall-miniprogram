@@ -3,9 +3,9 @@
     <image class="home-ser"  src="/image/search1.png"></image>
 </view>
 <swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="500">  
-  <block wx:for="{{movies}}" wx:for-index="index">  
+  <block wx:for="{{movies}}" wx:key="{{index}}">  
     <swiper-item>  
-      <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
+      <image src="{{item.imageUrl}}" class="slide-image" mode="aspectFill"/>  
     </swiper-item>  
   </block>  
 </swiper>
@@ -29,65 +29,24 @@
 <view class='lw-pop'>
   <view>精彩活动推荐<view>2<text>/3</text></view></view>
   <view>全方位生活指南，每天都有新乐趣</view>
-  <view class='nt-img'><image src="http://pic.youlife.me/v1/tfs/T1yt_TBC_T1RXrhCrK.jpg"  width="100%" mode="widthFix"/></view>
+  <swiper class="swiper nt-img" indicator-dots="true" autoplay="true" interval="2000" duration="500">  
+    <block wx:for="{{activities}}" wx:key="{{index}}">  
+      <swiper-item>  
+        <image src="{{item.imageUrl}}" class="slide-image" mode="aspectFill"/>  
+      </swiper-item>  
+    </block>  
+  </swiper>
 </view>
-<view class='lw-pop'>
-  <view>1F 精选男装<text>More</text></view>
-  <view>风尚秋冬上新</view>
+<view class='lw-pop' wx:for="{{mallChosenGoods}}" wx:key="{{index}}">
+  <view>{{item.name}}<text data-index='{{index}}' bindtap='moreList'>More</text></view>
+  <view>{{item.desc}}</view>
   <view class='fw-cont'>
-      <view bindtap='getUrl'>
-          <image class='fw-c-img' src='/image/userphoto.png' ></image>
-          <view>复古男装</view>
-          <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
-        </view>
-        <view>
-          <image class='fw-c-img' src='/image/userphoto.png' ></image>
-          <view>复古男装</view>
-          <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
-        </view>
-         <view>
-          <image class='fw-c-img' src='/image/userphoto.png' ></image>
-          <view>复古男装</view>
-          <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
-        </view>
-         <view>
-          <image class='fw-c-img' src='/image/userphoto.png' ></image>
-          <view>复古男装</view>
-          <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
-        </view>
-    </view>
-</view>
-<view class='lw-pop'>
-  <view>2F 名品女装<text>More</text></view>
-  <view>为您推荐心选好物</view>
-  <view class='fw-cont'>
-      <view>
-          <image class='fw-c-img' src='/image/userphoto.png' ></image>
-          <view>复古男装</view>
-          <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
-        </view>
-        <view>
-          <image class='fw-c-img' src='/image/userphoto.png' ></image>
-          <view>复古男装</view>
-          <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
-        </view>
-         <view>
-          <image class='fw-c-img' src='/image/userphoto.png' ></image>
-          <view>复古男装</view>
-          <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
-        </view>
-         <view>
-          <image class='fw-c-img' src='/image/userphoto.png' ></image>
-          <view>复古男装</view>
-          <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
+       <view wx:for="{{item.goodsList}}" wx:key="{{index}}"  wx:if="{{index<4}}">
+       <navigator class='miniDetails' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home" extra-data="" version="trial"></navigator>
+          <view  class='fw-c-img'><image src='{{item.mainImgUrl}}'></image></view>
+          <view>{{item.name}}</view>
+          <view>零售 <text>￥{{item.sellPrice}}</text></view>
+          <view class='new_left'>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>
         </view>
     </view>
 </view>

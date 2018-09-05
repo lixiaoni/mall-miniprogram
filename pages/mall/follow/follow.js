@@ -1,18 +1,51 @@
-// pages/mall/follow/follow.js
+const app = getApp();
+import Api from '../../../utils/api.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    currentTab:0
+    currentTab:0,
+    storeList:[],
+    result:[],
+    showFavorite:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  getInfo:function(){
+    var _this=this,
+      storeList=[]
+    Api.storeLook({ mallCode: 1000})
+    .then(res=>{
+      const obj = res.obj
+      storeList.push(obj)
+      _this.setData({
+        storeList: storeList
+      })
+    })
+    
+  },
+  getFavorite:function(){
+    var _this = this
+    Api.favorite({ mallCode: 1000 })
+      .then(res => {
+        const obj = res.obj
+       if(obj.result.length==0){
+         _this.getInfo()
+         _this.setData({
+           showFavorite:true
+         })
+       }
+        _this.setData({
+          result: obj.result
+        })
+      })
+  },
   onLoad: function (options) {
-  
+    this.getFavorite()
   },
   // tab切换
   swichNav: function (e) {

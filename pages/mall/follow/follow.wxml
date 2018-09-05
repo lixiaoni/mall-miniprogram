@@ -1,90 +1,32 @@
-<!-- <view class='fw-no'>
-  <view>还没关注小云店</view>
-  <view>为您推荐 给生活加点小确幸</view>
-  <view>特色奇妙店铺等您来发现</view>
-</view>
-<view class='lw-pop'>
-  <view>精品男装<text>More</text></view>
-  <view>有品有范又时尚</view>
-  <view class='lw-pop-cont'>
-    <view>
-      <image class='fw-logo' src='/image/wytjimg.png'></image>
-      <view>iWiNG 男装</view>
-      <view>一期1FA区102</view>
-      <view>进店</view>
-    </view>
-    <view>
-      <image class='fw-logo' src='/image/wytjimg.png'></image>
-      <view>iWiNG 男装</view>
-      <view>一期1FA区102</view>
-      <view>进店</view>
-    </view>
-    <view>
-      <image class='fw-logo' src='/image/wytjimg.png'></image>
-      <view>iWiNG 男装</view>
-      <view>一期1FA区102</view>
-      <view>进店</view>
-    </view>
+<view hidden='{{!showFavorite}}'>
+  <view class='fw-no'>
+    <view>还没关注小云店</view>
+    <view>为您推荐 给生活加点小确幸</view>
+    <view>特色奇妙店铺等您来发现</view>
   </view>
-</view>
-<view class='lw-pop'>
-  <view>流行女装<text>More</text></view>
-  <view>有品有范又时尚</view>
-  <view class='lw-pop-cont'>
-    <view>
-      <image class='fw-logo' src='/image/wytjimg.png'></image>
-      <view>iWiNG 男装</view>
-      <view>一期1FA区102</view>
-      <view>进店</view>
-    </view>
-    <view>
-      <image class='fw-logo' src='/image/wytjimg.png'></image>
-      <view>iWiNG 男装</view>
-      <view>一期1FA区102</view>
-      <view>进店</view>
-    </view>
-    <view>
-      <image class='fw-logo' src='/image/wytjimg.png'></image>
-      <view>iWiNG 男装</view>
-      <view>一期1FA区102</view>
-      <view>进店</view>
-    </view>
-  </view>
-</view> -->
-<view>
-  <view class='fw-title'>
-  <view class="{{currentTab==0?'active':''}}" data-current='0'  bindtap="swichNav">最近关注<view></view></view>
-  <view class="{{currentTab==1?'active':''}}" data-current='1'  bindtap="swichNav">最近上新<view></view></view>
-</view>
-<view class='fw-store'>
-  <view class='fw-top'>
-    <image class='fw-logo' src='/image/wytjimg.png'></image>
-    <view class='fw-iew1'>JANE STUDIO 简约<text>新批零</text></view>
-    <view class='fw-iew'><text>时尚女装</text>百荣世贸一期3FB区306</view>
-    <image class='fw-left' src='/image/mallr.png'></image>
-  </view>
-  <view class='fw-cont'>
-    <view>
-        <image class='fw-c-img' src='/image/userphoto.png' ></image>
-        <view>零售 <text>￥3232</text></view>
-        <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
+  <view class='lw-pop' wx:for='{{storeList}}' wx:key='index'>
+    <view>{{item.name}}<text>More</text></view>
+    <view>{{item.desc}}</view>
+    <view class='lw-pop-cont'>
+      <view  wx:for='{{item.storeGoodsList}}' wx:key='index' wx:if='{{index<3}}' data-id='{{item.store.id}}'>
+        <image class='fw-logo' src='{{item.store.logo}}'></image>
+        <view>{{item.store.name}}</view>
+        <view>{{item.store.address}}</view>
+        <view>进店</view>
       </view>
-      <view>
-        <image class='fw-c-img' src='/image/userphoto.png' ></image>
-        <view>零售 <text>￥3232</text></view>
-        <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
-      </view>
-      <view>
-        <image class='fw-c-img' src='/image/userphoto.png' ></image>
-        <view>零售 <text>￥3232</text></view>
-        <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
-      </view>
+    </view>
   </view>
 </view>
-<view class='fw-store'>
+<view  hidden='{{showFavorite}}'>
+  <view>
+    <view class='fw-title'>
+    <view class="{{currentTab==0?'active':''}}" data-current='0'  bindtap="swichNav">最近关注<view></view></view>
+    <view class="{{currentTab==1?'active':''}}" data-current='1'  bindtap="swichNav">最近上新<view></view></view>
+  </view>
+  <!-- <view class='fw-store'>
     <view class='fw-top'>
       <image class='fw-logo' src='/image/wytjimg.png'></image>
-      <view class='fw-iew1'>JANE STUDIO 简约<text>新批零</text><text>友</text></view>
+      <view class='fw-iew1'>JANE STUDIO 简约<text>新批零</text></view>
       <view class='fw-iew'><text>时尚女装</text>百荣世贸一期3FB区306</view>
       <image class='fw-left' src='/image/mallr.png'></image>
     </view>
@@ -92,18 +34,36 @@
       <view>
           <image class='fw-c-img' src='/image/userphoto.png' ></image>
           <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
+          <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
         </view>
         <view>
           <image class='fw-c-img' src='/image/userphoto.png' ></image>
           <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
+          <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
         </view>
         <view>
           <image class='fw-c-img' src='/image/userphoto.png' ></image>
           <view>零售 <text>￥3232</text></view>
-          <view>批发 <text class='fw-you'>￥3232</text></view>
+          <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
         </view>
+    </view>
+  </view> -->
+ 
+  <view class='fw-store'  wx:for='{{result}}' wx:key='index'>
+    <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home" extra-data="" version="trial"></navigator>
+      <view class='fw-top'>
+        <image class='fw-logo' src='{{item.store.logo}}'></image>
+        <view class='fw-iew1'>{{item.store.name}}<text>新批零</text><text>友</text></view>
+        <view class='fw-iew'><text>{{item.store.businessScope}}</text>{{item.store.address}}</view>
+        <image class='fw-left' src='/image/mallr.png'></image>
+      </view>
+      <view class='fw-cont'>
+        <view wx:for='{{item.goodsList}}' wx:key='index'>
+            <view class='fw-c-img'><image src='{{item.mainImgUrl}}'  mode="widthFix"></image></view>
+            <view>零售 <text>￥{{item.sellPrice}}</text></view>
+            <view>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>
+          </view>
+      </view>
     </view>
   </view>
 </view>
