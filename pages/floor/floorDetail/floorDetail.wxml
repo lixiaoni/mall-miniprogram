@@ -1,4 +1,5 @@
 <!--pages/floor/floorDetail/floorDetail.wxml-->
+<login id="login"></login>
 <view class='floor-box'>
   <!-- 公司头 -->
   <view class='floor-part'>

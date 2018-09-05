@@ -1,4 +1,7 @@
 {
   "backgroundColor": "#f7f7f7",
-  "navigationBarTitleText": "管理员信息"
+  "navigationBarTitleText": "管理员信息",
+  "usingComponents": {
+    "login": "../../login/login/login"
+  }
 }

@@ -96,6 +96,7 @@
   position: fixed;
   bottom: 0;
   background: #fff;
+  z-index: 11;
 }  
 /* 标签 */
 .floor-tag{

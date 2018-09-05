@@ -1,4 +1,7 @@
 {
   "backgroundColor": "#f7f7f7",
-  "navigationBarTitleText": "创建新标签"
+  "navigationBarTitleText": "创建新标签",
+  "usingComponents": {
+    "login": "../../login/login/login"
+  }
 }

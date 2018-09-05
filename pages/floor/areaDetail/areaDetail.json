@@ -2,6 +2,7 @@
   "backgroundColor": "#f7f7f7",
   "navigationBarTitleText": "楼层分区设置",
   "usingComponents": {
-    "spec": "../../../../assembly/specifications/spec"
+    "spec": "../../../../assembly/specifications/spec",
+    "login": "../../login/login/login"
   }
 }

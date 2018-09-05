@@ -1,3 +1,4 @@
+<login id="login"></login>
 <spec
   show="{{editSpec == 'name'}}"
   bind:sureSelectArea="sureSelectAreaListener"

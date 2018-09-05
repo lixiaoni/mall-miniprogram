@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "楼层管理",
   "usingComponents": {
-    "spec": "../../../../assembly/specifications/spec"
+    "spec": "../../../../assembly/specifications/spec",
+    "login": "../../login/login/login"
   }
+  
 }

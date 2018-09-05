@@ -1,3 +1,4 @@
+<login id="login"></login>
 <view class='floor-box adminD-box'>
   <view class='floor-part detail-box'>
     <image src='{{src}}' class='admin-icon'></image>

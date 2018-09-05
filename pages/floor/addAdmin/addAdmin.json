@@ -1,4 +1,7 @@
 {
   "backgroundColor": "#ffffff",
-  "navigationBarTitleText": "添加管理员"
+  "navigationBarTitleText": "添加管理员",
+  "usingComponents": {
+    "login": "../../login/login/login"
+  }
 }

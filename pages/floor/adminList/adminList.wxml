@@ -1,4 +1,5 @@
 <!--pages/floor/choseAdmin/choseAdmin.wxml-->
+<login id="login"></login>
 <view class='floor-box'>
   <!-- 搜索 -->
   <view class='floor-part flex-box align-center'>

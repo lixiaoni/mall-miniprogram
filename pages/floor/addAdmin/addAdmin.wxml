@@ -1,3 +1,4 @@
+<login id="login"></login>
 <view class='box'>
   <view class='title'>添加管理员</view>
   <view class='flex-box'>

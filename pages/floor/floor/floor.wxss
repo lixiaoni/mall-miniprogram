@@ -78,6 +78,7 @@
   position: fixed;
   bottom: 0;
   background: #fff;
+  z-index:11;
 }  
 /* 公用样式 */
 .floor-part{
