@@ -37,7 +37,7 @@ Page({
       value:name
     })
     
-    Api.goodsSer({ mallCode: 1000, keyword: name, sortType: sortType})
+    Api.goodsSer({keyword: name, sortType: sortType})
       .then(res => {
         const obj = res.obj
         _this.setData({

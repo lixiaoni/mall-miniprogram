@@ -48,6 +48,15 @@
           <image src="/image/icl.png"></image>
         </view>
       </navigator>
+      <navigator class='weui-cell weui-cell_access' url='../../floor/floorList/floorList'>
+        <image src='/image/u1.jpg' class='user-img'></image>
+        <view class='weui-cell__bd'  bindtap='chooseAddress'>
+          进入工作台
+        </view>
+        <view class='weui-img'>
+          <image src="/image/icl.png"></image>
+        </view>
+      </navigator>
     </view>
   </view>
    <view class='page_bd page_hd1'>

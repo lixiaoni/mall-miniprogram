@@ -24,10 +24,9 @@ Page({
   },
   getList:function(){
     var _this=this
-    Api.mallIndex({ mallCode:1000})
+    Api.mallIndex()
       .then(res => {
         const obj=res.obj
-        console.log(obj.mallChosenGoods)
         _this.setData({
           movies: obj.banners,
           activities: obj.activities,

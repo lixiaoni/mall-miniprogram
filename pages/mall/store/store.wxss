@@ -27,9 +27,12 @@
 .st-ser-cont>view{
   display: inline-table;width: 45%;font-size:28rpx;
 }
-.st-ser-cont{
+.st-ser-cont,.show-floor{
   padding-top: 30rpx;background: #fff;
   }
+.show-floor{
+  text-align: center;padding-bottom: 30rpx;color: #CCAA77
+}
 .st-ser-cont>view view{
   padding-left: 60rpx;height: 85rpx;line-height: 85rpx;
 }
@@ -46,5 +49,5 @@
   position: fixed;height: 100%;width: 100%;background: rgba(0, 0, 0, 0.5);top: 0;z-index: 100;
 }
 .st-ser  .fw-title{
-  height: 110rpx;
+  height: 117rpx;
 }

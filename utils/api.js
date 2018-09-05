@@ -5,7 +5,8 @@ import {
   favoriteUrl,
   firstCodeUrl,
   childCategoryCodeUrl,
-  storeSerListUrl
+  storeSerListUrl,
+  floorStoreUrl
 } from './constUrl.js'
 const app = getApp()
 /**mall首页**/
@@ -17,12 +18,12 @@ function goodsSer(data) {
   return app.pageRequest.pageGet(goodsSerUrl, data)
 }
 /**关注推荐**/
-function storeLook(data) {
-  return app.http.getRequest(storeLookUrl, data)
+function storeLook() {
+  return app.http.getRequest(storeLookUrl)
 }
 /**关注列表**/
-function favorite(data) {
-  return app.pageRequest.pageGet(favoriteUrl, data)
+function favorite() {
+  return app.pageRequest.pageGet(favoriteUrl)
 }
 /**分类一级**/
 function firstCode(data) {
@@ -36,6 +37,10 @@ function childCategoryCode(data) {
 function storeSerList(data) {
   return app.pageRequest.pageGet(storeSerListUrl, data)
 }
+/**小云店搜索**/
+function floorStore(data) {
+  return app.http.getRequest(floorStoreUrl, data)
+}
 module.exports = {
   mallIndex: mallIndex,
   goodsSer: goodsSer,
@@ -43,5 +48,6 @@ module.exports = {
   favorite: favorite,
   firstCode: firstCode,
   childCategoryCode:childCategoryCode,
-  storeSerList:storeSerList
+  storeSerList:storeSerList,
+  floorStore: floorStore
 }

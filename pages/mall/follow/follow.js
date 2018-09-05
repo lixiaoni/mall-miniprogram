@@ -18,7 +18,7 @@ Page({
   getInfo:function(){
     var _this=this,
       storeList=[]
-    Api.storeLook({ mallCode: 1000})
+    Api.storeLook()
     .then(res=>{
       const obj = res.obj
       storeList.push(obj)
@@ -30,7 +30,7 @@ Page({
   },
   getFavorite:function(){
     var _this = this
-    Api.favorite({ mallCode: 1000 })
+    Api.favorite()
       .then(res => {
         const obj = res.obj
        if(obj.result.length==0){

@@ -1,5 +1,8 @@
 {
-  "pages": [
+
+  "pages":[
+    
+    
     "pages/floor/floorList/floorList",
     "pages/floor/adminList/adminList",
     "pages/floor/addAdmin/addAdmin",

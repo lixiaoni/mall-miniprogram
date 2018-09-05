@@ -1,5 +1,5 @@
 <view class="goods-ser">
-    <input placeholder="搜索小云店" bindconfirm="searchBtn" value="{{value}}"/>
+    <input placeholder="搜索小云店" bindconfirm="searchBtn" bindinput='changeValue' value="{{value}}"/>
     <image class="home-ser"  src="/image/search1.png"></image>
 </view>
 <view class='fw-title {{serHide?"fw-title-active":""}}'>
@@ -9,31 +9,23 @@
 <view class='st-ser' hidden='{{!serHide}}'>
   <view class='fw-title'>
     <view class="{{stTab==0?'active':''}}" data-current='0'  bindtap="serNav">全部楼座<view></view></view>
-    <view class="{{stTab==1?'active':''}}" data-current='1'  bindtap="serNav">百荣二期<view></view></view>
-    <view class="{{stTab==2?'active':''}}" data-current='2'  bindtap="serNav">百荣一期<view></view></view>
+    <view class="{{stTab==1?'active':''}}" data-current='1'  bindtap="serNav">百荣一期<view></view></view>
+    <view class="{{stTab==2?'active':''}}" data-current='2'  bindtap="serNav">百荣二期<view></view></view>
   </view>
-  <view class='st-ser-cont'>
+  <view class='show-floor'  wx:if='{{stTab==0}}' bindtap='searchBtn'>全部楼座</view>
+  <view class='st-ser-cont' wx:for="{{floorList}}" wx:key="{{index}}"  wx:if='{{stTab!=0}}'>
       <view class='ser-left'>
-        <view  class="{{floorTab==0?'active':''}}" data-current='0'  bindtap="serNav">1F 精品男装</view>
-        <view>1F 精品男装</view>
-        <view>1F 精品男装</view>
-        <view>1F 精品男装</view>
-        <view>1F 精品男装</view>
-        <view>1F 精品男装</view>
-        <view>1F 精品男装</view>
+        <view  wx:for="{{item.childList}}" wx:key="{{index}}" class="{{floorTab==index?'active':''}}" data-current='{{index}}' data-code='{{item.code}}' bindtap="serFloorNav">{{item.name}}</view>
       </view>
       <view class='ser-right'>
         <view>全部分区</view>
-        <view>A区 商务男装</view>
-        <view>A区 商务男装</view>
-        <view>A区 商务男装</view>
-        <view>A区 商务男装</view>
+        <view  wx:for="{{childList}}" wx:key="{{index}}" data-code='{{item.code}}' bindtap="serChildFloorNav">{{item.name}}</view>
       </view>
     </view>
   </view>
 <scroll-view scroll-y="true" style="height:100%;" bindscrolltolower="bindDownLoad">
   <view>
-    <view class='fw-store'>
+    <!-- <view class='fw-store'>
       <view class='fw-top'>
         <image class='fw-logo' src='/image/wytjimg.png'></image>
         <view class='fw-iew1'>JANE STUDIO 简约<text>新批零</text></view>
@@ -58,29 +50,19 @@
           </view>
       </view>
       <view> <view class='button'>购买过的店</view><view class='button'>12件上新</view><view class='button'>3523人买过</view></view>
-    </view>
-    <view class='fw-store'>
+    </view> -->
+    <view class='fw-store' wx:for="{{dataList}}" wx:key="{{index}}">
       <view class='fw-top'>
-        <image class='fw-logo' src='/image/wytjimg.png'></image>
-        <view class='fw-iew1'>JANE STUDIO 简约<text>新批零</text><text>友</text></view>
-        <view class='fw-iew'><text>时尚女装</text>百荣世贸一期3FB区306</view>
+        <image class='fw-logo' src='{{item.store.logo}}'></image>
+        <view class='fw-iew1'>{{item.store.name}}<text>新批零</text><text>友</text></view>
+        <view class='fw-iew'><text>{{item.store.businessScope}}</text>{{item.store.address}}</view>
         <image class='fw-left' src='/image/mallr.png'></image>
       </view>
       <view class='fw-cont'>
-        <view>
-            <image class='fw-c-img' src='/image/userphoto.png' ></image>
-            <view>零售 <text>￥3232</text></view>
-            <view>批发 <text class='fw-you'>￥3232</text></view>
-          </view>
-          <view>
-            <image class='fw-c-img' src='/image/userphoto.png' ></image>
-            <view>零售 <text>￥3232</text></view>
-            <view>批发 <text class='fw-you'>￥3232</text></view>
-          </view>
-          <view>
-            <image class='fw-c-img' src='/image/userphoto.png' ></image>
-            <view>零售 <text>￥3232</text></view>
-            <view>批发 <text class='fw-you'>￥3232</text></view>
+        <view wx:for="{{item.goodsList}}" wx:key="{{index}}">
+            <image class='fw-c-img' src='{{item.mainImgUrl}}' ></image>
+            <view>零售 <text>￥{{item.sellPrice}}</text></view>
+            <view>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>
           </view>
       </view>
       <view> <view class='button'>购买过的店</view></view>
