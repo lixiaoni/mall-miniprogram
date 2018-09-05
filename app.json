@@ -1,8 +1,8 @@
 {
 
   "pages":[
-    
-    
+    "pages/mall/follow/follow",
+    "pages/mall/newest/newest",
     "pages/floor/floorList/floorList",
     "pages/floor/adminList/adminList",
     "pages/floor/addAdmin/addAdmin",
@@ -14,10 +14,8 @@
     "pages/floor/addTag/addTag",
     "pages/floor/choseAdmin/choseAdmin",
     "pages/floor/floor/floor",
-    "pages/mall/follow/follow",
     "pages/mall/store/store",
     "pages/mall/class/class",
-    "pages/mall/newest/newest",
     "pages/mall/search/search",
     "pages/mall/seaList/seaList",
     "pages/mall/goodsList/goodsList",

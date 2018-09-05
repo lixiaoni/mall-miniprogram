@@ -171,7 +171,10 @@ Component({
             key: 'access_token',
             data: res.access_token,
           })
-          wx.startPullDownRefresh()
+          let pages = getCurrentPages();
+          let curPage = pages[pages.length - 1];
+          curPage.onLoad();
+          curPage.onShow();
         })
       }
 
