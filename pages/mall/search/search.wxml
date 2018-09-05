@@ -1,5 +1,5 @@
 <view class="goods-ser">
-    <navigator url='../search/search'><input placeholder="请输入搜索关键词" disabled='disabled' value="{{value}}"/></navigator>
+    <input placeholder="请输入搜索关键词"  bindconfirm="searchBtn" value="{{value}}"/>
     <image class="home-ser"  src="/image/search1.png"></image>
 </view>
 <view class='fw-title'>

@@ -1,6 +1,6 @@
 /* pages/floor/floorDetail/floorDetail.wxss */
 @import '../floor/floor-common';
-@import '../../admin/spec/spec';
+@import '../floor/spec';
 .floor-title{
   font-size:44rpx;
   font-weight: 600;

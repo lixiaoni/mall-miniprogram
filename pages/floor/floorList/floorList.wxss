@@ -1,6 +1,6 @@
 /* pages/floor/floorList/floorList.wxss */
 @import '../../page/mesEdit/mesEdit';
-@import '../../admin/spec/spec';
+@import '../floor/spec';
 .floor-item{
   padding: 50rpx 30rpx;
   background: #fff;

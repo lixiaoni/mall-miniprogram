@@ -4,17 +4,12 @@
 </view>
 <view class='cl-cont'>
   <view class='cl-left'>
-    <view class='active'>女装</view>
-    <view>女装</view>
-    <view>女装</view>
-    <view>女装</view>
-    <view>女装</view>
-    <view>女装</view>
-    <view>女装</view>
+    <view wx:for='{{firstCodeList}}'  wx:key="{{index}}" class='{{index==0?"active":""}}' data-id="{{item.id}}" data-code='{{item.categoryCode}}' class='{{current==index?"active":""}}' data-current="{{index}}"  bindtap="swichNav">{{item.name}}</view>
   </view>
   <view class='cl-right'>
-    <view class='active'>上装<image  src='/image/mallr.png'></image></view>
-    <view>T恤<image  src='/image/mallr.png'></image></view>
-    <view>短袖<image src='/image/mallr.png'></image></view>
+    <s wx:for='{{twoList}}'  wx:key="{{index}}">
+      <view class='active' bindtap='serList' data-code='{{item.categoryCode}}' data-name='{{item.name}}'>{{item.name}}<image  src='/image/mallr.png'></image></view>
+      <view wx:for='{{item.subGoodsCategoryList}}'  wx:key="{{index}}"  bindtap='serList' data-code='{{item.categoryCode}}' data-name='{{item.name}}'>{{item.name}}<image  src='/image/mallr.png'></image></view>
+    </s>
   </view>
 </view>

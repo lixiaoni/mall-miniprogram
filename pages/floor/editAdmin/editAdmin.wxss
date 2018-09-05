@@ -1,6 +1,6 @@
 /* pages/floor/editAdmin/editAdmin.wxss */
 @import "../floor/floor-common";
-@import '../../admin/spec/spec';
+@import '../floor/spec';
 .danger{
   background: #d9534f;
   color: #fff;

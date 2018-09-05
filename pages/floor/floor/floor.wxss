@@ -1,5 +1,5 @@
 @import '../../page/mesEdit/mesEdit';
-@import '../../admin/spec/spec';
+@import '../floor/spec';
 .floor-box{
    padding: 20rpx 20rpx 130rpx; 
 }

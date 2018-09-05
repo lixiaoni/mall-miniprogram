@@ -39,7 +39,10 @@
   display: inline-block;width: 33%;margin-top:35rpx;
 }
 .fw-c-img{
-  height: 200rpx;width: 200rpx;border-radius: 10rpx;
+  height: 200rpx;width: 200rpx;border-radius: 10rpx;margin-bottom: 40rpx;text-align: center;
+}
+.fw-c-img image{
+  width:100%;
 }
 .fw-c-you{
   height: 35rpx;width: 35rpx;vertical-align: middle;margin-top: -2rpx;
@@ -70,7 +73,9 @@
   text-align: center;font-size: 28rpx;padding:35rpx 0;margin-top: 30rpx;margin-left: 10rpx;margin-right: 10rpx;
 }
 .lw-pop-cont>view view:nth-child(3){
-  font-size: 24rpx;color: #999;font-weight: normal
+  font-size: 24rpx;color: #999;font-weight: normal; text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;height: 70rpx;
+  -webkit-line-clamp: 2;line-clamp: 2;webkit-box-orient: vertical;
 }
 .lw-pop-cont>view view:last-child{
   height:50rpx;width: 120rpx;background: #fff;color: #CCAA77;border-radius: 8rpx;margin:0 auto;margin-top: 20rpx;

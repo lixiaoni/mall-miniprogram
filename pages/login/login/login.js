@@ -10,7 +10,7 @@ Component({
   },
   data: {
     //登录头信息
-    loginTitle:'快捷登录',
+    loginTitle: '快捷登录',
     //界面显示隐藏
     pageShow: false,
     //获取验证码按钮
@@ -97,12 +97,12 @@ Component({
       }
 
       app.http.postRequest("/api/user/resetPassword", obj).then(res => {
-        if(res.code == 1){
+        if (res.code == 1) {
           wx.showToast({
             title: '密码修改成功',
             icon: 'none',
           })
-        }else{
+        } else {
           wx.showToast({
             title: res.message,
             icon: 'none',
@@ -128,8 +128,8 @@ Component({
         return;
       }
 
-      
-      app.http._headerGet.Authorization =  'Basic QmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQ6ZTU2YThmMWZkOWJlMmMzMzNmYjdiZTcyNjVkMjRhYTM=';
+
+      app.http._headerGet.Authorization = 'Basic QmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQ6ZTU2YThmMWZkOWJlMmMzMzNmYjdiZTcyNjVkMjRhYTM=';
       app.http['_headerGet']["content-type"] = "application/x-www-form-urlencoded";
       if (this.data.loginType == 'code') {
         if (this.data.verificationCode.length == 0) {
@@ -140,7 +140,7 @@ Component({
           return;
         }
         let obj = {
-          mobile : this.data.telephone,
+          mobile: this.data.telephone,
           smsCode: this.data.verificationCode
         };
         app.http.postRequest("/mobile/token", obj).then(res => {
@@ -149,7 +149,7 @@ Component({
 
 
       } else {
-        
+
         if (this.data.password.length < 6 || this.data.password.length > 16) {
           wx.showToast({
             title: '密码必须是6 - 16位的数字或字母',
@@ -157,18 +157,24 @@ Component({
           })
           return
         }
-        
+
         let obj = {
           grant_type: 'password',
           username: this.data.telephone,
           password: this.data.password
         };
-        
-        app.http.postRequest("/oauth/token", obj).then(res=>{
-          
+
+
+        app.http.postRequest("/oauth/token", obj).then(res => {
+          this.closePage()
+          wx.setStorage({
+            key: 'access_token',
+            data: res.access_token,
+          })
+          wx.startPullDownRefresh()
         })
       }
-     
+
     },
     //显示隐藏密码
     showHide() {
@@ -235,9 +241,9 @@ Component({
           icon: 'none',
         })
       } else {
-        
-        app.http.getRequest("/code/smsCode", { mobile: this.data.telephone}).then(res =>{
-          
+
+        app.http.getRequest("/code/smsCode", { mobile: this.data.telephone }).then(res => {
+
         })
 
         //获取验证码倒计时
@@ -273,9 +279,9 @@ Component({
       this.setData({
         pageShow: false,
         forget: false,
-        telephone:"",
-        password:"",
-        verificationCode:"",
+        telephone: "",
+        password: "",
+        verificationCode: "",
         loginType: 'code'
       })
     },
@@ -286,6 +292,8 @@ Component({
     }
   }
 })
+
+
 // pages/lpgin/login.js
 // Page({
 

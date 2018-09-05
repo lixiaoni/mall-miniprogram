@@ -6,47 +6,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movies: [],
-    activities:[],
-    mallChosenGoods:[]
+    goodsList:[],
   },
-  getUrl: function () {
-    wx.navigateToMiniProgram({
-      appId: 'wx6241529c7dc70d51',
-      path: 'pages/page/goodsDetails/goodsDetails?id=sdfsfdfd',
-      extraData: { user_id: 111 },
-      envVersion: 'trial',
-      success(res) {
-        // 打开成功
-      }
-    })
 
-  },
-  getList:function(){
-    var _this=this
-    Api.mallIndex({ mallCode:1000})
-      .then(res => {
-        const obj=res.obj
-        console.log(obj.mallChosenGoods)
-        _this.setData({
-          movies: obj.banners,
-          activities: obj.activities,
-          mallChosenGoods: obj.mallChosenGoods
-        })
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getList()
+    var _this = this
+    app.pageRequest.pageData.pageNum = 0
+    if (options.index){
+      var index = options.index
+      Api.mallIndex({ mallCode: 1000 })
+        .then(res => {
+          const obj = res.obj
+          _this.setData({
+            goodsList: obj.mallChosenGoods[index].goodsList
+          })
+          wx.setNavigationBarTitle({
+            title: obj.mallChosenGoods[index].name
+          })
+        })
+    }
+    if(options.code){
+      wx.setNavigationBarTitle({
+        title: options.keyword
+      })
+      Api.goodsSer({ mallCode: 1000, keyword: options.keyword, categoryCode: options.code})
+        .then(res => {
+          const obj = res.obj
+          _this.setData({
+            goodsList: obj
+          })
+        })
+    }
   },
-  moreList:function(e){
-    var index = e.target.dataset.index
-    wx.navigateTo({
-      url: '../goodsList/goodsList?index='+index,
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

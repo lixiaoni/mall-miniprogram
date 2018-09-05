@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "设置规格",
-  "usingComponents": {
-    "spec": "../../../../assembly/specifications/spec"
-  }
-}

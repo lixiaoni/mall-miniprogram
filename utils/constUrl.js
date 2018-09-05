@@ -1,0 +1,7 @@
+export const mallIndexUrl = '/api/index/{{mallCode}}'
+export const goodsSerUrl='/api/mall/{{mallCode}}/goods'
+export const storeLookUrl='/api/mall/{{mallCode}}/chosen/store'
+export const favoriteUrl='/api/shop/user/favorite/store'
+export const firstCodeUrl='/api/shop/category/sublist/first'
+export const childCategoryCodeUrl='/api/shop/category/sublist/{{parentCategoryCode}}'
+export const storeSerListUrl='/api/mall/{{mallCode}}/store'
