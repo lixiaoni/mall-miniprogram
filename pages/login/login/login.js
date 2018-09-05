@@ -165,13 +165,14 @@ Component({
         };
         
         app.http.postRequest("/oauth/token", obj).then(res=>{
-
+          
         })
       }
      
     },
     //显示隐藏密码
     showHide() {
+      this.onLoad();
       let b = !this.data.ifhide;
       this.setData({
         ifhide: b

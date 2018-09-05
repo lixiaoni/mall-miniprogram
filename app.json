@@ -1,6 +1,38 @@
 {
   "pages":[
+    "pages/floor/floorList/floorList",
+      "pages/floor/adminList/adminList",
+    
+    "pages/floor/addAdmin/addAdmin",
+    "pages/floor/goodsTag/goodsTag", 
+    "pages/floor/editAdmin/editAdmin",
+ 
+    "pages/floor/adminDetail/adminDetail",
+    "pages/floor/areaDetail/areaDetail",
+    
+    
+    "pages/floor/floorDetail/floorDetail",
+   
+    "pages/floor/addTag/addTag",
+   
+    
+      "pages/floor/choseAdmin/choseAdmin",
+      
+      "pages/floor/floor/floor",
+      
+      
+      
+      
+      
+      
+      
+      
 
+"pages/page/order/order",
+"pages/role/orderSelf/orderSelf",
+
+  "pages/login/register/register",
+  
     "pages/mall/newest/newest",
     
     "pages/mall/follow/follow",
@@ -34,16 +66,10 @@
     
     
     
-    
-    "pages/floor/addAdmin/addAdmin",
-    "pages/floor/editAdmin/editAdmin",
-    "pages/floor/adminDetail/adminDetail",
-    "pages/floor/adminList/adminList",
-    "pages/floor/goodsTag/goodsTag",
+   
     
     "pages/admin/spec/spec",
     
-    "pages/page/order/order",
     
     
    
@@ -83,7 +109,7 @@
     "pages/admin/batch/batch",
     "pages/admin/shopClass/shopClass",
     "pages/page/mes/mes",
-    "pages/login/register/register",
+    
     "pages/login/login/login",
     "pages/admin/editMesTitle/editMesTitle",
     "pages/admin/writeCont/writeCont",
@@ -98,7 +124,6 @@
     "pages/admin/thirdClass/thirdClass",
     "pages/admin/secondClass/secondClass",
     "pages/page/address/address",
-    "pages/role/orderSelf/orderSelf",
     "pages/role/orderDetails/orderDetails",
     "pages/role/supplyDetails/supplyDetails",
     "pages/role/supplySelf/supplySelf",

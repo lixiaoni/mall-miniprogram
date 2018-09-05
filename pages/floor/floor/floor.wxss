@@ -1,4 +1,5 @@
 @import '../../page/mesEdit/mesEdit';
+@import '../../admin/spec/spec';
 .floor-box{
    padding: 20rpx 20rpx 130rpx; 
 }
@@ -14,12 +15,18 @@
 }
 .more{
   float: right;
-  width: 30rpx;
+  width: 50rpx;
+}
+
+.add{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 16rpx;
 }
 .more image{
-  
   width: 7rpx;
   height: 43rpx;
+  float: right;
 }
 /* 楼层块 */
 .floor-part-box{
@@ -41,8 +48,12 @@
 .area-title{
   font-weight: 600;
 }
+.area-type{
+  margin-right: 19rpx;
+}
 .title-box{
-  width: 100rpx;
+  width: 110rpx;
+  padding-right:5rpx; 
 }
 .area-img-list{
   position: relative;
@@ -50,10 +61,16 @@
 .area-admin{
   position: absolute;
 }
+.tri{
+  width: 16rpx;
+  height: 32rpx;
+}
 /* 新建 */
 .new-floor{
   height: 120rpx;
-  line-height: 120rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   font-size: 34rpx;
   font-weight: 600;

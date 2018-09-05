@@ -1,54 +1,24 @@
 // pages/login/floor/floor.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    id:"",
+    //添加
+    editSpec:false,
+    watchInput: false,
+    value:"",
+    //新名字
+    newName:"",
     //操作菜单
     showMenu:false,
     companyLogo:"/image/dp.png",
     moreSrc: "/image/moreO.png",
-    companyName:"百荣世贸商城一期",
-    floorList:[
-      {
-        floorTitle:'1F',
-        floorType:"鞋帽",
-        admin:"/image/pic.png",
-        area: [
-          {
-            areaName: 'A区',
-            areaType: "名品男装",
-            admin: [
-              "/image/pic.png",
-              "/image/pic.png"
-            ]
-          },
-          {
-            areaName: 'A区',
-            areaType: "名品男装",
-            admin: [
-              "/image/pic.png",
-              "/image/pic.png"
-            ]
-          },
-          {
-            areaName: 'A区',
-            areaType: "名品男装",
-            admin: [
-              "/image/pic.png",
-              "/image/pic.png"
-            ]
-          }
-        ]  
-      },
-      {
-        floorTitle: '1F',
-        floorType: "鞋帽",
-        admin: "/image/pic.png"
-      } 
-    ]
-    
+    companyName:"",
+    floorList: []
   },
   more(){
     this.setData({
@@ -60,11 +30,118 @@ Page({
       showMenu: false
     })
   },
+  createFloor(){
+    this.setData({
+      editSpec:"new",
+      value:""
+    })
+  },
+  // 监听input
+  watchInput: function (event) {
+    if (event.detail.value == '') {
+      this.setData({
+        watchInput: false
+      })
+    } else {
+      if (this.data.editSpec == "new"){
+        this.setData({
+          watchInput: true,
+          value: event.detail.value
+        })
+      }else{
+        this.setData({
+          watchInput: true,
+          newName: event.detail.value
+        })
+      }
+      
+    }
+  },
+  // 取消
+  cancel: function () {
+    this.setData({
+      watchInput:false,
+      editSpec:false
+    })
+  },  
+  newFloor(){
+    if (this.data.value.trim() == ""){
+      return
+    }
+    
+    app.http.postRequest("/admin/floor/add",{
+      mallCode:1,
+      parentCode:this.data.id,
+      type:2,
+      floorNum: this.data.value.trim(),
+      name:""
+    }).then(()=>{
+      this.loadPage()
+      
+      this.setData({
+        watchInput: false,
+        value: "",
+        editSpec: false
+      })
+    })
+  },
+  //改名字
+  changeName(){
+    if (this.data.newName.trim() == "") {
+      return
+    }
+    let id = this.data.id;
+    app.http.requestAll("/admin/floor/update",{
+      code: id,
+      name: this.data.newName.trim()
+    },'put').then((res) => {
+      if (res.code == 1){
+        this.setData({
+          id,
+          companyName: this.data.newName.trim(),
+          editSpec:false
+        })
+      }
+    })
+  },
+  showName(){
+    this.setData({
+      editSpec: "name",
+      newName: "",
+      watchInput: false
+    })
+  },
+  //加载页面
+  loadPage(){
+    let id = this.data.id;
+    app.http.getRequest("/admin/floor/sublist/" + id).then((res) => {
+      this.setData({
+        floorList: res.obj,
+        id
+      })
+    })
+  },
+  toFloorDetail(e){
+    console.log()
+    wx.navigateTo({
+      url: '../floorDetail/floorDetail?code=' + e.currentTarget.dataset.code,
+    })
+  },
+  toAreaDetail(e){
+    wx.navigateTo({
+      url: '../areaDetail/areaDetail?code=' + e.currentTarget.dataset.code,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    options.id = 10;
+    this.setData({
+      id: options.id,
+      companyName: options.name 
+    })
+   
   },
 
   /**
@@ -78,7 +155,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.loadPage()
   },
 
   /**

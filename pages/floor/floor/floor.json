@@ -1,4 +1,7 @@
 {
   "backgroundColor": "#f7f7f7",
-  "navigationBarTitleText":"楼层管理"
+  "navigationBarTitleText":"楼层管理",
+  "usingComponents": {
+    "spec": "../../../../assembly/specifications/spec"
+  }
 }

@@ -49,15 +49,18 @@ class request {
         this.newData.storeId = this.storeId
         url = this.analysisUrl(url, this.newData)
       } else {
-        data.storeId = this.storeId
+        //data.storeId = this.storeId
         url = this.analysisUrl(url, data)
       }
+      this._headerGet['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsaWNlbnNlIjoibWFkZSBieSB5b3V3ZSIsIm1lcmNoYW50TnVtYmVyIjoiMDQ5NTg2MTMiLCJ1c2VyX25hbWUiOiIxNjg4ODg4ODg4OCIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE1MzY1NDY1NTcsInVzZXJJZCI6IjJhOTE1M2JmZmIyYmRjZjVjZWRjOTIwMTlmYmJhNzliIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImFhNzM4Y2E2LTQyNjUtNGFlZS05Zjc4LTI2ZTVjY2M1YmQwYiIsImNsaWVudF9pZCI6IkJlaUppbmdCYWlSb25nU2hpTWFvQ2xpZW50In0.u8g0uarWHF3IKi-z8CcJWLMxkRca-9R_SwMBSeuN2u8';
       wx.request({
         url: this._baseUrl +url,
         data: data,
         header:this._headerGet,
         method: method,
         success: (res => {
+
+         
         if(res.statusCode === 200) {
         //200: 服务端业务处理正常结束
         resolve(res.data)
