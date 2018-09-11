@@ -1,5 +1,6 @@
 import http from './utils/http.js'
 import pageRequest from './utils/pageRequest.js'
+import AuthHandler from './utils/authHandler.js'
 App({
   onLaunch: function (options) {
     // 购物车
@@ -44,10 +45,11 @@ App({
   },
   globalData: {
     userInfo: null,
-    skin: "normal",
+    skin: "normal"
   },
   http: new http(),
-  pageRequest: new pageRequest()
+  pageRequest: new pageRequest(),
+  authHandler: new AuthHandler()
 });
 
 

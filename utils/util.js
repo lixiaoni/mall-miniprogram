@@ -62,3 +62,4 @@ module.exports = {
   formatTime: formatTime,
   count_down:count_down
 }
+

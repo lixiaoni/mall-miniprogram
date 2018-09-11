@@ -142,7 +142,7 @@ Component({
           mobile: this.data.telephone,
           smsCode: this.data.verificationCode
         };
-        loginApp.http.postRequest("/mobile/token", obj).then(res => {
+        loginApp.authHandler.loginByMobile(this.data.telephone, this.data.verificationCode).then(res => {
 
         })
 
@@ -163,17 +163,13 @@ Component({
           password: this.data.password
         };
 
-
-        loginApp.http.postRequest("/oauth/token", obj).then(res => {
-          this.closePage()
-          wx.setStorage({
-            key: 'access_token',
-            data: res.access_token,
-          })
-          let pages = getCurrentPages();
-          let curPage = pages[pages.length - 1];
-          curPage.onLoad();
-          curPage.onShow();
+        loginApp.authHandler.loginByUser(this.data.telephone, this.data.password).then(res => {
+            this.closePage();
+            console.log("-------");
+            let pages = getCurrentPages();
+            let curPage = pages[pages.length - 1];
+            curPage.onLoad();
+            curPage.onShow();
         })
       }
 

@@ -1,13 +1,15 @@
+import AuthHandler from './authHandler.js';
 /**
  请求
  */
 class request {
   constructor() {
-    this._baseUrl = 'https://mall.youlife.me',
+      this._baseUrl = 'https://mall.youlife.me',
       this._headerGet = { 'content-type': 'application/json' },
       this._headerPost = { "Content-Type": "application/json;charset=UTF-8" },
       this.mallCode = 1000,
-      this.newData = {}
+      this.newData = {},
+      this.authHandler = new AuthHandler()
   }
   /**
    * PUT类型的网络请求
@@ -59,50 +61,50 @@ class request {
         data.mallCode = this.mallCode
         url = this.analysisUrl(url, data)
       }
-      // wx.clearStorageSync('access_token')
-      if (url !== "/oauth/token"){
-        let token = wx.getStorageSync('access_token')
+      this.authHandler.getTokenOrRefresh().then(token=>{
         if (token) {
-          this._headerGet['Authorization'] = 'Bearer ' + token;
+          this._headerGet['Authorization'] = token;
+        } else {
+          delete this._headerGet['Authorization'];
         }
-      }
-      // this._headerGet['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsaWNlbnNlIjoibWFkZSBieSB5b3V3ZSIsIm1lcmNoYW50TnVtYmVyIjoiMDQ5NTg2MTMiLCJ1c2VyX25hbWUiOiIxNjg4ODg4ODg4OCIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE1MzY1NDY1NTcsInVzZXJJZCI6IjJhOTE1M2JmZmIyYmRjZjVjZWRjOTIwMTlmYmJhNzliIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImFhNzM4Y2E2LTQyNjUtNGFlZS05Zjc4LTI2ZTVjY2M1YmQwYiIsImNsaWVudF9pZCI6IkJlaUppbmdCYWlSb25nU2hpTWFvQ2xpZW50In0.u8g0uarWHF3IKi-z8CcJWLMxkRca-9R_SwMBSeuN2u8';
-      wx.request({
-        url: this._baseUrl + url,
-        data: data,
-        header: this._headerGet,
-        method: method,
-        success: (res => {
-          let pages = getCurrentPages()
-          let curPage = pages[pages.length - 1]
-          this.__page = curPage
-          if (res.statusCode === 200) {
-            resolve(res.data)
-            // curPage.onShow()
-            // curPage.onLoad()
-          } else if (res.statusCode === 401) {
-            curPage.loginCom = curPage.selectComponent("#login");
-            curPage.loginCom.showPage();
-          } else {
-            //其它错误，提示用户错误信息
+
+        wx.request({
+          url: this._baseUrl + url,
+          data: data,
+          header: this._headerGet,
+          method: method,
+          success: (res => {
+            let pages = getCurrentPages()
+            let curPage = pages[pages.length - 1]
+            this.__page = curPage
+            if (res.statusCode === 200) {
+              resolve(res.data)
+              // curPage.onShow()
+              // curPage.onLoad()
+            } else if (res.statusCode === 401) {
+              curPage.loginCom = curPage.selectComponent("#login");
+              curPage.loginCom.showPage();
+            } else {
+              //其它错误，提示用户错误信息
+              if (this._errorHandler != null) {
+                //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理
+                this._errorHandler(res)
+              }
+              reject(res)
+            }
+          }),
+          fail: (res => {
             if (this._errorHandler != null) {
-              //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理
               this._errorHandler(res)
             }
             reject(res)
+          }),
+          complete: function () {
+            wx.hideLoading()
+            wx.hideNavigationBarLoading()
           }
-        }),
-        fail: (res => {
-          if (this._errorHandler != null) {
-            this._errorHandler(res)
-          }
-          reject(res)
-        }),
-        complete: function () {
-          wx.hideLoading()
-          wx.hideNavigationBarLoading()
-        }
-      })
+        })
+      });
     })
   }
 }
