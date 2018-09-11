@@ -1,6 +1,14 @@
+<view class="weui-cell">
+  <view class="weui-cell__hd">
+    <image src="/image/userphoto.png" mode="aspectFill"></image>
+  </view>
+  <view class="weui-cell__name">
+    陈晨 Fanny<image src='/image/ermR.png'></image>
+  </view>
+</view>
 <view class='erm-cont'>
-  <image src="/image/dimg.png"></image>
-  <view>分享小程序码，获得更多流量吧</view>
+  <view class='erm-img'><image  mode="widthFix" src="/image/simg.png"></image></view>
+  <view>扫一扫二维码图案，加我商友</view>
 </view>
 <view class='add-bottom'>
   <view bindtap='addGit'><image  src="/image/downimg.png"></image>保存至相册</view>

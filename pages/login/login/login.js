@@ -164,24 +164,19 @@ Component({
           password: this.data.password
         };
 
-
         app.http.postRequest("/oauth/token", obj).then(res => {
           this.closePage()
           wx.setStorage({
             key: 'access_token',
             data: res.access_token,
           })
-          let pages = getCurrentPages();
-          let curPage = pages[pages.length - 1];
-          curPage.onLoad();
-          curPage.onShow();
+          wx.startPullDownRefresh()
         })
       }
 
     },
     //显示隐藏密码
     showHide() {
-      this.onLoad();
       let b = !this.data.ifhide;
       this.setData({
         ifhide: b

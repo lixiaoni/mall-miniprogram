@@ -85,7 +85,7 @@
   height:44rpx;
   margin-top:-4rpx;
   vertical-align: middle;
-  margin-right: 10rpx;
+  margin-right: 15rpx;
 }
 .weui_cells image.m-img{
   margin-right:0;
@@ -130,7 +130,7 @@
   margin-left: 70rpx;
 }
 .weui-time>view{
-  padding-bottom: 27rpx;margin-top: 27rpx;position: relative;font-weight: bold;
+  padding-bottom: 27rpx;margin-top: 27rpx;position: relative;
 }
 .weui-time .mes-tel{
   position: absolute;right: 25rpx;top: 0rpx;padding-left: 20rpx;
@@ -198,6 +198,9 @@ color: #999;margin-top: 0rpx;
 }
 .weui-time-new view:nth-child(2){
   border-bottom: 2rpx solid #F4F4F4;
+}
+.weui-time-new view:nth-child(2).mes-te {
+  border-bottom: 0;
 }
 .weui-time{
   border-bottom-right-radius:10rpx; border-bottom-left-radius:10rpx;

@@ -39,7 +39,7 @@
         </view>
       </view>
       <view class='weui-cell'>
-        <view class='weui-cell__bd'  bindtap='chooseAddress'>
+        <view class='weui-cell__bd'>
           微信号
           <text>cc2392788</text>
         </view>

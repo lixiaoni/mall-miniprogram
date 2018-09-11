@@ -33,19 +33,19 @@ Page({
     Api.favorite()
       .then(res => {
         const obj = res.obj
-       if(obj.result.length==0){
+       if(obj!=null){
+         _this.setData({
+           result: obj.result
+         })
+       }else{
          _this.getInfo()
          _this.setData({
-           showFavorite:true
+           showFavorite: true
          })
        }
-        _this.setData({
-          result: obj.result
-        })
       })
   },
   onLoad: function (options) {
-    this.getFavorite()
   },
   // tab切换
   swichNav: function (e) {
@@ -71,7 +71,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getFavorite()
   },
 
   /**
@@ -92,7 +92,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+   
   },
 
   /**

@@ -6,7 +6,8 @@ Page({
    */
   data: {
     currentTab: 0,
-    history: ["戒指", "项链", "钻戒"],
+    history: ["阿迪", "T恤", "短袖"],
+    hot: ["阿迪达斯","50"],
   },
 
   /**
@@ -27,18 +28,25 @@ Page({
 
     }
   },
-  searchBtn: function (e) {
-    var name = e.detail.value
-    if(this.data.currentTab==0){
+  keywordHandle:function(e){
+    var value = e.target.dataset.name
+    console.log(value)
+    this.goSerList(value)
+  },
+  goSerList:function(name){
+    if (this.data.currentTab == 0) {
       wx.navigateTo({
-        url: '../seaList/seaList?name=' + name,
+        url: '../seaList/seaList?name='+name,
       })
-    }else{
+    } else {
       wx.navigateTo({
-        url: '../store/store?name=' + name,
+        url: '../store/store?name='+name,
       })
     }
-  
+  },
+  searchBtn: function (e) {
+    var name = e.detail.value
+    this.goSerList(name)
   },
   removeAll() {
     this.setData({

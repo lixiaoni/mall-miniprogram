@@ -1,5 +1,4 @@
 @import '../../../style/style.wxss';
-@import '../goodsDetails/goodsDetails.wxss';
 .main{
   padding-bottom: 180rpx;
 }

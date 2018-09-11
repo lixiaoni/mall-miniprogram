@@ -6,6 +6,8 @@ import {
   firstCodeUrl,
   childCategoryCodeUrl,
   storeSerListUrl,
+  addressListUrl,
+  addressDeleteUrl,
   floorStoreUrl
 } from './constUrl.js'
 const app = getApp()
@@ -41,6 +43,14 @@ function storeSerList(data) {
 function floorStore(data) {
   return app.http.getRequest(floorStoreUrl, data)
 }
+/**获取用户地址列表**/
+function addressList(data) {
+  return app.http.getRequest(addressListUrl, data)
+}
+/**地址 删除**/
+function addressDelete(data) {
+  return app.http.deleteRequest(addressDeleteUrl, data)
+}
 module.exports = {
   mallIndex: mallIndex,
   goodsSer: goodsSer,
@@ -49,5 +59,7 @@ module.exports = {
   firstCode: firstCode,
   childCategoryCode:childCategoryCode,
   storeSerList:storeSerList,
-  floorStore: floorStore
+  floorStore: floorStore,
+  addressList: addressList,
+  addressDelete: addressDelete
 }
