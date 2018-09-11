@@ -51,7 +51,7 @@
   </view> -->
  
   <view class='fw-store'  wx:for='{{result}}' wx:key='index'>
-    <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home" extra-data="" version="trial"></navigator>
+  <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.id}}" extra-data="" version="trial"></navigator>
       <view class='fw-top'>
         <image class='fw-logo' mode="aspectFill" src='{{item.store.logo}}'></image>
         <view class='fw-iew1'>{{item.store.name}}<text>新批零</text><text>友</text></view>

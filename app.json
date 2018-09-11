@@ -2,9 +2,25 @@
 
   "pages":[
     "pages/mall/follow/follow",
-    "pages/mall/newest/newest",
-    "pages/floor/floorList/floorList",
+    
+    "pages/page/addressWe/addressWe",
+    
+    "pages/page/user/user",
+    
+    "pages/page/shopkeeper/shopkeeper",
+    
+    "pages/page/userDetails/userDetails",
+    
+    "pages/page/manageM/manageM",
     "pages/floor/adminList/adminList",
+    "pages/page/derm/derm",
+    "pages/mall/store/store",
+    "pages/page/newAddress/newAddress",
+    "pages/page/details/details",
+    "pages/mall/seaList/seaList",
+    "pages/mall/newest/newest",
+    "pages/mall/search/search",
+    "pages/floor/floorList/floorList",
     "pages/floor/addAdmin/addAdmin",
     "pages/floor/goodsTag/goodsTag",
     "pages/floor/editAdmin/editAdmin",
@@ -14,19 +30,15 @@
     "pages/floor/addTag/addTag",
     "pages/floor/choseAdmin/choseAdmin",
     "pages/floor/floor/floor",
-    "pages/mall/store/store",
     "pages/mall/class/class",
-    "pages/mall/search/search",
-    "pages/mall/seaList/seaList",
     "pages/mall/goodsList/goodsList",
     "pages/mall/mallMes/mallMes",
     "pages/login/register/register",
     "pages/login/login/login",
     
-    "pages/page/userDetails/userDetails",
+    "pages/page/set/set",
     "pages/page/update/update",
     "pages/page/help/help",
-    "pages/page/user/user",
     "pages/page/updataPhone/updataPhone",
     "pages/page/updataPwd/updataPwd",
     "pages/page/invoice/invoice"
@@ -39,6 +51,9 @@
     "backgroundColor": "#F7F7F7",
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 50
+  },
+  "networkTimeout":{
+    "request":500
   },
   "tabBar": {
     "borderStyle": "white",

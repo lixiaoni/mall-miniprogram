@@ -14,12 +14,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: options.name
-    })
-    this.setData({
-      customCategoryCode: options.customCategoryCode
-    })
+    if (options.name){
+      wx.setNavigationBarTitle({
+        title: options.name
+      })
+    }
+    if (options.customCategoryCode){
+      this.setData({
+        customCategoryCode: options.customCategoryCode
+      })
+    }
     var _this = this,
       storeId = this.data.storeId,
       customCategoryCode = this.data.customCategoryCode,
@@ -27,7 +31,6 @@ Page({
       pageSize = this.data.pageSize
     app.http.getRequest('/admin/shop/goods/findUnderStoreGoodsByCustomCategoryCode/' + storeId + '?customCategoryCode=' + customCategoryCode + '&pageNum=' + pageNum + '&pageSize=' + pageSize)
       .then(res => {
-        const obj = res.obj
         console.log(obj.result)
         _this.setData({
           result: obj.result

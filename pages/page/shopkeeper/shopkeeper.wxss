@@ -1,0 +1,9 @@
+@import '../manageM/manageM';
+@import '../userDetails/userDetails';
+.weui-view{font-weight: normal}
+.wd-pic .weui-cell{padding:0;height:140rpx}
+.wd-pic image.pic{margin-right: 10rpx}
+.wd-pic text{margin-top:25rpx;}
+.wd-pic{height: 100rpx;margin:0;height: 140rpx}
+.weui-cell__bd{height:140rpx;}
+.wd-pic  .weui-xian{top: 140rpx}

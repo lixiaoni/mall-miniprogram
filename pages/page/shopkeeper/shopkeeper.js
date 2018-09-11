@@ -1,4 +1,4 @@
-// pages/germ/germ.js
+// pages/page/shopkeeper/shopkeeper.js
 Page({
 
   /**

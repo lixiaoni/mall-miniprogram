@@ -11,7 +11,7 @@
     <image  bindtap="removeAll"  src="/image/rev.png"></image>
     <view class="title"><text>历史搜索</text></view>
     <view class="tags">
-      <view wx:for="{{history}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle"><view>{{item}}</view></view>
+      <view wx:for="{{history}}" wx:key="index" ><view data-name="{{item}}" bindtap="keywordHandle">{{item}}</view></view>
     </view>
   </view>
 </view>
@@ -19,8 +19,7 @@
   <view wx:if="{{history.length > 0}}">
     <view class="title"><text>热门搜索</text></view>
     <view class="tags">
-      <view wx:for="{{history}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle"><view class='img'><image src="/image/huo.png"></image>{{item}}</view></view>
-      <view wx:for="{{history}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle"><view>{{item}}</view></view>
+      <view wx:for="{{hot}}" wx:key="index"><view class='{{index<3?"img":""}}'  data-name="{{item}}" bindtap="keywordHandle"><image src="/image/huo.png" wx:if='{{index<3}}'></image>{{item}}</view></view>
     </view>
   </view>
 </view>

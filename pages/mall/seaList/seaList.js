@@ -22,7 +22,7 @@ Page({
   getSerList:function(name){
     var _this = this,
       sortType='',
-      currentTab=this.data
+      currentTab = this.data.currentTab
     wx.setNavigationBarTitle({
       title: name
     })
@@ -36,7 +36,6 @@ Page({
     this.setData({
       value:name
     })
-    
     Api.goodsSer({keyword: name, sortType: sortType})
       .then(res => {
         const obj = res.obj
@@ -48,17 +47,22 @@ Page({
       })
   },
   searchBtn: function (e) {
+    app.pageRequest.pageData.pageNum = 0
     var name = e.detail.value
     this.getSerList(e.detail.value)
   },
   onLoad: function (options) {
     if (options.name){
       this.getSerList(options.name)
+    }else{
+      this.getSerList('')
     }
     
   },
   swichNav: function (e) {
     var that = this;
+    app.pageRequest.pageData.pageNum = 0
+    this.getSerList(this.data.value)
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {

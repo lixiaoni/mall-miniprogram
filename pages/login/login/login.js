@@ -176,7 +176,6 @@ Component({
     },
     //显示隐藏密码
     showHide() {
-      this.onLoad();
       let b = !this.data.ifhide;
       this.setData({
         ifhide: b

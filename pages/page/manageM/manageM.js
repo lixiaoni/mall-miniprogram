@@ -1,49 +1,23 @@
-const app = getApp();
-import Api from '../../../utils/api.js'
+// pages/page/manageM/manageM.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    movies: [],
-    activities:[],
-    mallChosenGoods:[]
+  
   },
-  getUrl: function () {
-    wx.navigateToMiniProgram({
-      appId: 'wx6241529c7dc70d51',
-      path: 'pages/page/goodsDetails/goodsDetails?id=sdfsfdfd',
-      extraData: { user_id: 111 },
-      envVersion: 'trial',
-      success(res) {
-        // 打开成功
-      }
-    })
 
-  },
-  getList:function(){
-    var _this=this
-    Api.mallIndex()
-      .then(res => {
-        const obj=res.obj
-        _this.setData({
-          movies: obj.banners,
-          activities: obj.activities,
-          mallChosenGoods: obj.mallChosenGoods
-        })
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+  
   },
-  moreList:function(e){
-    var index = e.target.dataset.index
-    wx.navigateTo({
-      url: '../goodsList/goodsList?index='+index,
+  //打电话
+  tel: function () {
+    wx.makePhoneCall({
+      phoneNumber: '1316773022',
     })
   },
   /**
@@ -57,7 +31,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getList()
+  
   },
 
   /**

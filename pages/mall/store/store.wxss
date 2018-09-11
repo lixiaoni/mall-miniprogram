@@ -7,6 +7,9 @@
 .fw-store .button:nth-child(2){
   color: #CCAA77;
 }
+.fw-store{
+  position: relative;
+}
 .st-ser .fw-title{
   height: 90rpx;
 }

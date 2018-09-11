@@ -32,7 +32,10 @@
   width: 50%;position: relative
 }
 .fw-c-img{
-  width: 320rpx;height: 320rpx;
+  width: 320rpx;height: 320rpx;text-align: center
+}
+.fw-c-img image{
+max-width: 320rpx;max-height: 320rpx;
 }
 .fw-cont>view view:nth-child(2){
   color: #333;

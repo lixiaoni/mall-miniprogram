@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "店铺小程序二维码"
+  "navigationBarTitleText": "我的二维码",
+  "enablePullDownRefresh": false
 }
