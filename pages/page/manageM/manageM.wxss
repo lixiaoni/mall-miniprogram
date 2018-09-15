@@ -1,4 +1,12 @@
 @import '../../mall/mallMes/mallMes';
+.user-text{
+  max-width: 230rpx;
+  height: 55rpx;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+
+}
 .weui_cells>view,.weui_cells navigator{
   position: relative
 }

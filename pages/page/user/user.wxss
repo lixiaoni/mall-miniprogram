@@ -1,4 +1,10 @@
 /* pages/user/user.wxss */
+.user-headPic{
+  overflow:hidden;
+  display:block;
+  border-radius: 50%;
+  margin: 0 auto;
+}
 .u-title{
   background:#fff;
   margin-top: -2rpx;

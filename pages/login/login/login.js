@@ -95,7 +95,7 @@ Component({
         smsCode: this.data.verificationCode
       }
 
-      loginApp.http.postRequest("/api/user/resetPassword", obj).then(res => {
+      loginApp.http.postRequest("/api/user/resetpassword", obj).then(res => {
         if (res.code == 1) {
           wx.showToast({
             title: '密码修改成功',
@@ -143,7 +143,12 @@ Component({
           smsCode: this.data.verificationCode
         };
         loginApp.authHandler.loginByMobile(this.data.telephone, this.data.verificationCode).then(res => {
-
+          this.closePage();
+          console.log("-------");
+          let pages = getCurrentPages();
+          let curPage = pages[pages.length - 1];
+          curPage.onLoad();
+          curPage.onShow();
         })
 
 
@@ -164,12 +169,12 @@ Component({
         };
 
         loginApp.authHandler.loginByUser(this.data.telephone, this.data.password).then(res => {
-            this.closePage();
-            console.log("-------");
-            let pages = getCurrentPages();
-            let curPage = pages[pages.length - 1];
-            curPage.onLoad();
-            curPage.onShow();
+          this.closePage();
+          console.log("-------");
+          let pages = getCurrentPages();
+          let curPage = pages[pages.length - 1];
+          curPage.onLoad();
+          curPage.onShow();
         })
       }
 
@@ -239,7 +244,9 @@ Component({
         })
       } else {
 
-        app.http.getRequest("/code/smsCode", { mobile: this.data.telephone }).then(res => {
+        loginApp.http.getRequest("/code/sms", {
+          mobile: this.data.telephone
+        }).then(res => {
 
         })
 

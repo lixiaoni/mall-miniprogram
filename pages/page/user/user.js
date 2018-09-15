@@ -6,6 +6,21 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hasUser:false
+  },
+  showLogin(){
+    this.selectComponent("#login").showPage();
+  },
+  getUser(){
+
+    app.http.getRequest("/admin/user/byuserid/123").then((res)=>{
+      if (res.success){
+          this.setData({
+            user: res.obj,
+            hasUser: true
+          })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -20,6 +35,8 @@ Page({
         })
       },
     })
+
+    this.getUser();
   },
   //用户选择收货地址
   chooseAddress: function () {
@@ -61,13 +78,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**

@@ -17,5 +17,5 @@
         </view>
       </navigator>
   </view>
-  <button class='aw-but'>退出登录</button>
+  <button wx:if='{{token}}' bindtap='quit' class='aw-but'>退出登录</button>
 </view>

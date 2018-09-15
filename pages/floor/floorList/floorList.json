@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "楼层管理",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "spec": "../../../../assembly/specifications/spec",
     "login": "../../login/login/login"
