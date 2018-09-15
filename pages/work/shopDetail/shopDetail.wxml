@@ -1,0 +1,78 @@
+<view class='mes-cont'>
+  <view class="ym_jpstorename">
+  <view class="ym_jpstorelogo">
+      <navigator url=''><image class="store-logo" src="/image/dp.png" ></image></navigator>
+    </view>
+    {{store.name}}
+    <view><text class='shopStatus'>运营中</text></view>
+  </view>
+  <view class="ym_jpstoredesc">
+    <text class="leftyh">“</text>{{store.description}}<text class="rightyh">”</text>
+  </view>
+</view>
+<view class="weui_cells new-weui">
+    <view>
+      <text class='store-address'>运营数据</text>
+    </view>
+    <view class='new-view'><view>{{count.goodsNum}}</view>商品总量</view>
+    <view class='new-view'><view>{{count.followNum}}</view>关注人数</view>
+    <view class='new-view'><view>{{count.purchaserNum}}</view>进货商</view>
+</view>
+<view class="weui_cells">
+    <view>
+      <image  src="/image/positionico.png"></image>
+      <text>{{store.address}}</text>
+    </view>
+    <view class='flex-box'>
+      <view class='area-box'>
+        <image  src="/image/positionico.png"></image>
+        <text class="store-address">所属商场</text>
+      </view>
+      <view>{{floor.floorInfo.mallName}}</view>
+    </view>
+    <view class='flex-box'>
+      <view class='area-box'>
+        <image  src="/image/positionico.png"></image>
+        <text class="store-address">楼层区域</text>
+      </view>
+      <view>{{floor.floorInfo.balcony}} {{floor.floorInfo.area}}</view>
+    </view>
+</view>
+<!-- 小云店 -->
+<view class="weui_cells weui_cells-new" style='margin-bottom:0;'>
+    <image src="/image/mes12.png"></image>
+    <text class="store-address">小云店 </text>
+    <view class='weui-view'>
+      <image class='img' src="/image/icl.png"></image>
+    </view>
+   <view class='weui-xian weui-xian1'></view>
+</view>
+<view class='show-img-box'>
+  <block wx:key="{{index}}" wx:for="{{goodsList}}">
+    <view wx:if="{{index<6}}" class='img-item'>
+      <image mode='aspectFit' src="{{item.mainImgUrl}}"></image>
+    </view>
+  </block>
+</view>
+
+
+
+<!-- 小云店信息 -->
+<view class="weui_cells weui_cells-new">
+    <image  src="/image/mes12.png"></image>
+    <text class="store-address">小云店信息 </text>
+    <view class='weui-view'>
+      <image class='m-img' src="/image/xcx.png"></image><image class='img' src="/image/icl.png"></image>
+    </view>
+   <view class='weui-xian weui-xian1'></view>
+</view>
+<view class='weui-time weui-time-new'>
+  <view>营业时间<text>{{store.openingTime}}</text></view>
+  <view>客服电话<text>{{store.servicePhone}}</text><view class='mes-tel'><image src="/image/tel1.png" bindtap='callMeMaybe'></image></view></view>
+  <view>客服微信<text>{{store.wechatNumber}}</text></view>
+  <view>公众号<text>百荣世贸</text></view>
+</view>
+<!-- 按钮 -->
+<view wx:if="{{state=='1'}}" bindtap='authentication' class='bottom-button ac-btn'>商城认证</view>
+<view wx:if="{{state=='2'}}" bindtap='freeze' class='bottom-button default-btn'>冻结店铺</view>
+<view wx:if="{{state=='3'}}" bindtap='unfreeze' class='bottom-button default-btn'>解冻店铺</view>

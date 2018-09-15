@@ -1,18 +1,34 @@
 // pages/set/set.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    token:""
+  },
+
+  quit(){
+    
+    app.http.postRequest("/authentication/removeToken",{
+      accesstoken: this.data.token
+    }).then((res)=>{
+        
+    }) 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let token = wx.getStorageSync('uesrToken')
+    if(token){
+      this.setData({
+        token
+      })
+    }
+    
   },
 
   /**

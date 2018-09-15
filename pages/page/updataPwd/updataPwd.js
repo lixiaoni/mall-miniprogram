@@ -1,13 +1,60 @@
 // pages/updataPwd/updataPwd.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    old:"",
+    new:"",
+    re:""
   },
+  watchInput(e){
+    let val = e.detail.value,
+        type = e.currentTarget.dataset.type,
+        obj = {};
 
+    switch(type){
+      case "old" : 
+      obj = {
+        old: val
+      }
+      break;
+      case "new":
+        obj = {
+          new: val
+        }
+        break;
+      case "re":
+        obj = {
+          re: val
+        }
+        break;
+    }
+    this.setData(obj);
+  },
+  sure(){
+    let newpass = this.data.new,
+        re = this.data.re,
+        old = this.data.old;
+    if (newpass == re & newpass!=""){
+      app.http.postRequest("/authentication/changepassword",{
+        oldPassword: old,
+        newPassword: newpass
+      }).then((res)=>{
+        wx.showToast({
+          title: res.message,
+          icon:'none'
+        })
+      })
+    }else{
+      wx.showToast({
+        title: '两次输入不一致',
+        icon:'none'
+      })
+    }    
+  },
   /**
    * 生命周期函数--监听页面加载
    */

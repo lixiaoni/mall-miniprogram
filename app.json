@@ -2,6 +2,22 @@
 
   "pages":[
     "pages/mall/follow/follow",
+    "pages/work/shopList/shopList",
+    
+    "pages/page/user/user",
+    
+    "pages/page/manageM/manageM",
+    
+    
+    "pages/page/set/set",
+    
+    "pages/page/updataPwd/updataPwd",
+    
+    
+    
+    "pages/work/shopDetail/shopDetail",
+    
+    
     "pages/mall/seaList/seaList",
     "pages/mall/class/class",
     "pages/page/derm/derm",
@@ -13,19 +29,21 @@
     "pages/login/register/register",
     "pages/page/addressWe/addressWe",
     
-    "pages/page/user/user",
     
     "pages/page/shopkeeper/shopkeeper",
     
     "pages/page/userDetails/userDetails",
     
-    "pages/page/manageM/manageM",
     "pages/floor/adminList/adminList",
     "pages/page/newAddress/newAddress",
     "pages/page/details/details",
     "pages/mall/newest/newest",
     "pages/mall/search/search",
     "pages/floor/floorList/floorList",
+    
+    
+    "pages/mall/mallMes/mallMes",
+    
     "pages/floor/addAdmin/addAdmin",
     "pages/floor/goodsTag/goodsTag",
     "pages/floor/editAdmin/editAdmin",
@@ -36,14 +54,12 @@
     "pages/floor/choseAdmin/choseAdmin",
     "pages/floor/floor/floor",
     "pages/mall/goodsList/goodsList",
-    "pages/mall/mallMes/mallMes",
+
     "pages/login/login/login",
     
-    "pages/page/set/set",
     "pages/page/update/update",
     "pages/page/help/help",
     "pages/page/updataPhone/updataPhone",
-    "pages/page/updataPwd/updataPwd",
     "pages/page/invoice/invoice"
   ],
   "window": {

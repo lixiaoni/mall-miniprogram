@@ -1,0 +1,63 @@
+<login id="login"></login>
+<!-- 搜索 -->
+<view class='flex-box search-box'>
+  <view class='flex'>
+    <image class='search-img' src='/image/search1.png'></image>
+    <input bindinput='watchInput' placeholder='输入小云店名称、手机号' type='text'></input>
+  </view>
+  <view bindtap='search' class='search-btn'>筛选</view>
+</view>
+
+<!-- 切换 -->
+<view class='tab-box'>
+  <scroll-view scroll-x='true'>
+    <view class='flex'>
+      <block wx:for="{{tab}}" wx:key="{{index}}">
+        <view bindtap='switchTab' data-index='{{index}}' data-type='{{item.type}}' class="search-item {{item.check?'ac-item':''}}">{{item.name}}{{item.num?"("+item.num+")":""}}</view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 商品 -->
+<view wx:if="{{list.length>0}}">
+  <block wx:key="{{index}}" wx:for="{{list}}">
+    <navigator url='../shopDetail/shopDetail?id={{item.storeId}}'>
+      <view class='goods-item'>
+        <view>
+          <!-- 商品信息 -->
+          <view class='flex'>
+            <view class='icon-box'>
+              <image class='good-icon' mode='aspectFit' src='{{item.logo}}'></image>
+            </view>
+            <view>
+              <view class='name-box'>
+                <text class='store-name'>{{item.name}}</text>
+                <text class='tip'>{{item.storeNature}}</text>
+              </view>
+              <view class='goods-type'>
+                <text class='theme-color'>{{item.businessScope}}</text>
+                <text class='area-font'>{{item.floorInfo}}</text>
+              </view>
+            </view>
+          </view>
+          <!-- 关注 -->
+          <view>
+            <view class='label-item'>
+              <text class='theme-color'>756</text>件商品
+            </view>
+            <view class='label-item'>
+              <text class='theme-color'>3123123</text>关注
+            </view>
+          </view>
+        </view>
+        <image class='more' src='/image/icl.png'></image>
+      </view>
+    </navigator>
+  </block>
+</view>
+<view class='goods-item' wx:else>无</view>
+<view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">正在加载</view>
+</view>

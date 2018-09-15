@@ -1,59 +1,70 @@
 <!--pages/user/user.wxml-->
+<login id="login"></login>
+
 <view class='u-title'>
-  <navigator url='../derm/derm' class='init-page'><image src='/image/er.png'></image></navigator>
+  <navigator url='../derm/derm' class='init-page'>
+    <image src='/image/er.png'></image>
+  </navigator>
   <view class='u-t-cont'>
-    <navigator url='../userDetails/userDetails'><image class='u-t-ewmico' src='/image/userphoto.png'></image></navigator>
+    <navigator url='../userDetails/userDetails'>
+      <image  hidden='{{!hasUser}}' wx:if="{{user.headPic}}" class='u-t-ewmico' src='{{user.headPic}}'></image>
+      <view hidden='{{hasUser}}'><open-data  class='user-headPic u-t-ewmico' type="userAvatarUrl"></open-data></view>
+      
+    </navigator>
     <view class='u-pic'>
-      <view>晨晨 EEDDD</view>
-      <button>已绑定手机</button>
+      <view hidden='{{!hasUser}}' wx:if="{{user.nickName}}">{{user.nickName}}</view>
+      <view hidden='{{hasUser}}'><open-data type="userNickName"></open-data></view>
+      
+      <button wx:if='{{user}}'>已绑定手机</button>
+      <button wx:else bindtap='showLogin'>绑定手机</button>
     </view>
   </view>
 </view>
-  <view class='page_bd'>
-    <view class='weui-back weui-back1'>
-      <navigator class='weui-cell weui-cell_access'  url='../addressWe/addressWe'> 
-        <image src='/image/u1.jpg' class='user-img'></image>
-        <view class='weui-cell__bd'>
-          地址管理
-        </view>
-        <view class='weui-img'>
-          <image src="/image/icl.png"></image>
-        </view>
-      </navigator>
-      <navigator class='weui-cell weui-cell_access'  url='../set/set'>
+<view class='page_bd'>
+  <view class='weui-back weui-back1'>
+    <navigator class='weui-cell weui-cell_access' url='../addressWe/addressWe'>
+      <image src='/image/u1.jpg' class='user-img'></image>
+      <view class='weui-cell__bd'>
+        地址管理
+      </view>
+      <view class='weui-img'>
+        <image src="/image/icl.png"></image>
+      </view>
+    </navigator>
+    <navigator class='weui-cell weui-cell_access' url='../set/set'>
       <image src='/image/u3.jpg' class='user-img user-img1'></image>
-        <view class='weui-cell__bd'>
-          设置
-        </view>
-        <view class='weui-img'>
-          <image src="/image/icl.png"></image>
-        </view>
-      </navigator>
-    </view>
-    <view class='weui-back'>
-       <navigator class='weui-cell weui-cell_access'>
-        <image src='/image/u5.png' class='user-img'></image>
-        <view class='weui-cell__bd'>
-          管理小云店
-        </view>
-        <view class='weui-img'>
-          <image src="/image/icl.png"></image>
-        </view>
-      </navigator>
-    </view>
-     <view class='weui-back'>
-        <navigator class='weui-cell weui-cell_access' url='../manageM/manageM' >
-        <image src='/image/u6.png' class='user-img'></image>
-        <view class='weui-cell__bd'>
-          管理商贸云
-        </view>
-        <view class='weui-img'>
-          <image src="/image/icl.png"></image>
-        </view>
-      </navigator>
-    </view>
+      <view class='weui-cell__bd'>
+        设置
+      </view>
+      <view class='weui-img'>
+        <image src="/image/icl.png"></image>
+      </view>
+    </navigator>
   </view>
-  <!-- <view class='page_bd page_hd1'>
+  <view class='weui-back'>
+    <navigator class='weui-cell weui-cell_access'>
+      <image src='/image/u5.png' class='user-img'></image>
+      <view class='weui-cell__bd'>
+        管理小云店
+      </view>
+      <view class='weui-img'>
+        <image src="/image/icl.png"></image>
+      </view>
+    </navigator>
+  </view>
+  <view class='weui-back'>
+    <navigator class='weui-cell weui-cell_access' url='../manageM/manageM'>
+      <image src='/image/u6.png' class='user-img'></image>
+      <view class='weui-cell__bd'>
+        管理商贸云
+      </view>
+      <view class='weui-img'>
+        <image src="/image/icl.png"></image>
+      </view>
+    </navigator>
+  </view>
+</view>
+<!-- <view class='page_bd page_hd1'>
     <view class='weui-back'>
       <navigator class='weui-cell weui-cell_access'   url='../../floor/floorList/floorList'>
       <image src='/image/u4.jpg' class='user-img user-img1'></image>
@@ -66,7 +77,7 @@
       </navigator>
     </view>
   </view> -->
-   <!-- <view class='page_bd page_hd1'>
+<!-- <view class='page_bd page_hd1'>
     <view class='weui-back'>
       <navigator class='weui-cell weui-cell_access'  url=''>
       <image src='/image/u4.jpg' class='user-img user-img1'></image>
@@ -79,4 +90,3 @@
       </navigator>
     </view>
   </view> -->
-

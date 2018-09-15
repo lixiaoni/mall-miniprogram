@@ -1,4 +1,5 @@
 // pages/page/manageM/manageM.js
+const app = getApp();
 Page({
 
   /**
@@ -7,19 +8,28 @@ Page({
   data: {
   
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
   //打电话
   tel: function () {
     wx.makePhoneCall({
       phoneNumber: '1316773022',
     })
   },
+  getData() {
+    app.http.getRequest("/admin/floor/malluser/logininfo").then((res) => {
+      if (res.obj){
+        this.setData({
+          user:res.obj
+        })
+      }  
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getData();
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
