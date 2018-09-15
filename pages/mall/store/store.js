@@ -14,10 +14,12 @@ Page({
     value:'',
     floorserList:[],
     floorList:[],
-    childList:[],
+    childList: [],
+    childListLast:[],
     balconyCode:'',
     floorCode:'',
     floorAreaCode:'',
+    isShow:true
   },
 
   /**
@@ -25,15 +27,17 @@ Page({
    */
   getFloorSer:function(){
     var _this=this
-    Api.floorStore({mallCode: 1000})
+    Api.floorStore()
       .then(res => {
+        var arr=res.obj
+        arr.unshift({ name: "全部楼座", code: "000", childList:[]})
+        console.log(arr)
         _this.setData({
-          floorserList:res.obj
+          floorserList:arr
         })
       })
   },
   onLoad: function (options) {
-    console.log(options.name)
     if (options.name){
       this.setData({
         value: options.name
@@ -45,21 +49,25 @@ Page({
   },
   // tab切换
   swichNav: function (e) {
-    var that = this
+    var that = this,
+    serHide=this.data.serHide
+    if (serHide==false){
+      that.setData({
+        serHide: true
+      })
+    }
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
       that.setData({
         currentTab: e.target.dataset.current,
-        serHide:true
       })
-
     }
   },
   serFloorNav:function(e){
     var that = this,
       indexFloor=e.target.dataset.current,
-      floorserList = this.data.floorserList,
+      childList = this.data.childList,
       index = this.data.stTab,
       code = e.target.dataset.code
     if (this.data.floorTab === indexFloor) {
@@ -67,9 +75,9 @@ Page({
     } else {
       that.setData({
         floorTab: indexFloor,
-        childList: [],
+        childListLast: [],
         floorCode:code,
-        childList: floorserList[index - 1].childList[indexFloor].childList
+        childListLast: childList[indexFloor].childList
       })
     }
   },
@@ -79,21 +87,25 @@ Page({
       floorserListNew=[],
       childList=[],
       index = e.target.dataset.current,
-      balconyCode=''
+      balconyCode = e.target.dataset.code
       that.setData({
         floorList:[]
       })
-    floorserListNew.push(floorserList[index - 1])
-    if(index>0){
-      balconyCode = floorserListNew[0].code
+    if (floorserList[index].childList.length==0){
+      that.setData({
+        isShow:true
+      })
+    }else{
+      that.setData({
+        isShow: false
+      })
     }
     if (this.data.stTab === index) {
       return false;
     } else {
       that.setData({
         stTab: index,
-        floorList: floorserListNew,
-        childList: childList,
+        childList: floorserList[index].childList,
         balconyCode: balconyCode
       })
 
@@ -107,6 +119,12 @@ Page({
         var dataList = res.obj.result,
           datas = _this.data.dataList
         newArr = app.pageRequest.addDataList(datas, dataList)
+       }else{
+        wx.showToast({
+          title: '暂无更多了！',
+          icon: 'none',
+          duration: 2000
+        })
        }
       if (app.pageRequest.pageData.pageNum == 1 && res.obj == null){
          var newArr=[]
@@ -114,10 +132,9 @@ Page({
       if (app.pageRequest.pageData.pageNum > 1 && res.obj == null) {
         var newArr = this.data.dataList
       }
-
         _this.setData({
           dataList: newArr,
-          serHide:false
+          serHide: false,
         })
       })
   },
@@ -143,7 +160,10 @@ Page({
       dataList:[],
       floorAreaCode: floorAreaCode
     })
-    this.getList({ keyword: this.data.value, mallCode: 1000, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode})
+    this.getList({ keyword: this.data.value, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode})
+  },
+  allFloorNav:function(){
+    this.getList({ keyword: this.data.value, balconyCode: this.data.balconyCode, floorCode: this.data.floorCode})
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -181,7 +201,7 @@ Page({
       value:'',
     })
     app.pageRequest.pageData.pageNum = 0
-    this.getList({mallCode: 1000})
+    this.getList()
   },
 
   /**

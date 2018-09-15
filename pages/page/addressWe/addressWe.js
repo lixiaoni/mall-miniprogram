@@ -77,24 +77,6 @@ Page({
     wx.navigateTo({
       url: '../newAddress/newAddress?id=' + id,
     })
-    // const index = e.currentTarget.dataset.index,
-    //   id = e.target.dataset.id,
-    //   _this = this
-    //   console.log(id)
-    // let detailList = this.data.list;
-    // detailList.splice(index, 1);
-    // app.http.deleteRequest('/admin/user/usershopaddress/{{id}}', { id: id })
-    //   .then(res => {
-    //     var res = res.obj
-    //     _this.setData({
-    //       list: detailList
-    //     })
-    //     wx.showToast({
-    //       title: '成功',
-    //       icon: 'none',
-    //       duration: 2000
-    //     })
-    //   })
   },
   newAddress(e) {
     wx.navigateTo({

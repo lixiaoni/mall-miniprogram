@@ -199,7 +199,7 @@ color: #999;margin-top: 0rpx;
 .weui-time-new view:nth-child(2){
   border-bottom: 2rpx solid #F4F4F4;
 }
-.weui-time-new view:nth-child(2).mes-te {
+.weui-time-new view.mes-tel {
   border-bottom: 0;
 }
 .weui-time{

@@ -1,12 +1,12 @@
-<login-component id='login' inner-text="Some text"></login-component>
 <view hidden='{{!showFavorite}}'>
   <view class='fw-no'>
     <view>还没关注小云店</view>
     <view>为您推荐 给生活加点小确幸</view>
     <view>特色奇妙店铺等您来发现</view>
   </view>
+  <navigator></navigator>
   <view class='lw-pop' wx:for='{{storeList}}' wx:key='index'>
-    <view>{{item.name}}<text>More</text></view>
+    <view>{{item.name}}<text  data-index='{{index}}' bindtap='moreList'>More</text></view>
     <view>{{item.desc}}</view>
     <view class='lw-pop-cont'>
       <view  wx:for='{{item.storeGoodsList}}' wx:key='index' wx:if='{{index<3}}' data-id='{{item.store.id}}'>
@@ -14,6 +14,7 @@
         <view>{{item.store.name}}</view>
         <view>{{item.store.address}}</view>
         <view>进店</view>
+      <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.store.id}}" extra-data="" version="trial"></navigator>
       </view>
     </view>
   </view>
@@ -49,9 +50,9 @@
         </view>
     </view>
   </view> -->
- 
+  <scroll-view scroll-y="true" style="height:100%;" bindscrolltolower="bindDownLoad">
   <view class='fw-store'  wx:for='{{result}}' wx:key='index'>
-  <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.id}}" extra-data="" version="trial"></navigator>
+  <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.storeId}}" extra-data="" version="trial"></navigator>
       <view class='fw-top'>
         <image class='fw-logo' mode="aspectFill" src='{{item.store.logo}}'></image>
         <view class='fw-iew1'>{{item.store.name}}<text>新批零</text><text>友</text></view>
@@ -66,5 +67,6 @@
           </view>
       </view>
     </view>
+    </scroll-view>
   </view>
 </view>

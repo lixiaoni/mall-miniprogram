@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "我的关注",
   "usingComponents": {
-    "login-component": "../../login/login/login"
+    "login": "../../login/login/login"
   }
 }

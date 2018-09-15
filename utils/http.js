@@ -1,10 +1,13 @@
 import AuthHandler from './authHandler.js';
+import {
+  productionUrl
+} from './const.js'
 /**
  请求
  */
 class request {
   constructor() {
-      this._baseUrl = 'https://mall.youlife.me',
+      this._baseUrl = productionUrl,
       this._headerGet = { 'content-type': 'application/json' },
       this._headerPost = { "Content-Type": "application/json;charset=UTF-8" },
       this.mallCode = 1000,
@@ -84,7 +87,7 @@ class request {
             } else if (res.statusCode === 401) {
               curPage.loginCom = curPage.selectComponent("#login");
               curPage.loginCom.showPage();
-            } else {
+            }else {
               //其它错误，提示用户错误信息
               if (this._errorHandler != null) {
                 //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理

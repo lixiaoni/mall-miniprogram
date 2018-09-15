@@ -8,7 +8,12 @@ import {
   storeSerListUrl,
   addressListUrl,
   addressDeleteUrl,
-  floorStoreUrl
+  addressInfoUrl,
+  floorStoreUrl,
+  addressDefaultUrl,
+  saveAddressUrl,
+  editAddressUrl,
+  newsUrl
 } from './constUrl.js'
 const app = getApp()
 /**mall首页**/
@@ -18,6 +23,10 @@ function mallIndex(data) {
 /**商品搜索**/
 function goodsSer(data) {
   return app.pageRequest.pageGet(goodsSerUrl, data)
+}
+/**最近上新**/
+function news(data) {
+  return app.pageRequest.pageGet(newsUrl, data)
 }
 /**关注推荐**/
 function storeLook() {
@@ -47,9 +56,26 @@ function floorStore(data) {
 function addressList(data) {
   return app.http.getRequest(addressListUrl, data)
 }
+/**默认用户地址**/
+function addressDefault(data) {
+  return app.http.getRequest(addressDefaultUrl, data)
+}
+
+  /**编辑地址**/
+  function editAddress(data) {
+    return app.http.putRequest(editAddressUrl, data)
+  }
 /**地址 删除**/
 function addressDelete(data) {
   return app.http.deleteRequest(addressDeleteUrl, data)
+}
+/**地址添加**/
+function saveAddress(data) {
+  return app.http.postRequest(saveAddressUrl, data)
+}
+/**地址详情**/
+function addressInfo(data) {
+  return app.http.getRequest(addressInfoUrl, data)
 }
 module.exports = {
   mallIndex: mallIndex,
@@ -61,5 +87,11 @@ module.exports = {
   storeSerList:storeSerList,
   floorStore: floorStore,
   addressList: addressList,
-  addressDelete: addressDelete
+  addressDefault: addressDefault,
+  addressDelete: addressDelete,
+  saveAddress: saveAddress,
+  addressInfo: addressInfo,
+  editAddress: editAddress,
+  addressDelete: addressDelete,
+  news: news
 }
