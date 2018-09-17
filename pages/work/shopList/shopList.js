@@ -13,7 +13,9 @@ Page({
       { name: "已验证", type: 'already', check: false },
       { name: "已冻结", type: 'freeze', check: false }
     ],
-    isHideLoadMore:true
+    isHideLoadMore:true,
+    val:"", //搜索内容
+    inputVal:""
   },
 
   // 切换TAB
@@ -37,12 +39,15 @@ Page({
   // 监听
   watchInput(e){
     this.setData({
-      val : e.detail.value
+      inputVal : e.detail.value
     })
   },
   //搜索
   search(){
-
+    this.setData({
+      val: this.data.inputVal
+    })
+    this.getList(true)
   },
   getList(re){
     //类
@@ -59,7 +64,8 @@ Page({
         }
       }
     })
-    
+
+    obj.keyword = this.data.val
 
     this.setData({
       isHideLoadMore:false
@@ -79,14 +85,31 @@ Page({
         isHideLoadMore: true
       })
       if (re) {
+        let count = res.obj.count;
+        let arr = this.data.tab;
+        arr.forEach((el)=>{
+          // { name: "全部", type: 'all', check: true },
+          // { name: "待验证", type: 'wait', check: false },
+          // { name: "已验证", type: 'already', check: false },
+          // { name: "已冻结", type: 'freeze', check: false }
+          switch (el.type){
+            case "all": el.num = count.total;break;
+            case "wait": el.num = count.verifyNum; break;
+            case "already": el.num = count.passNum; break;
+            case "freeze": el.num = count.freezeNum; break;
+          }
+        })
+
+
         this.setData({
-          list: res.obj.result
+          list: res.obj.data.result,
+          tab : arr
         })
         return
       }
-      if (res.success && res.obj.result.length>0){
+      if (res.success && res.obj.data.result.length>0){
         this.setData({
-          list: this.data.list.concat(res.obj.result)
+          list: this.data.list.concat(res.obj.data.result)
         })
       }
     })
@@ -108,8 +131,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getList();
-
+    this.getList(true);
   },
 
   /**

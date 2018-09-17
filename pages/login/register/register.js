@@ -55,17 +55,10 @@ Page({
     }
 
     app.http.postRequest("/api/user/register", obj).then(res => {
-      if (res.code == 1) {
-        wx.showToast({
-          title: '恭喜您,注册成功!',
-          icon: 'none',
-        })
-      } else {
-        wx.showToast({
-          title: res.message,
-          icon: 'none',
-        })
-      }
+      wx.showToast({
+        title: res.message,
+        icon: 'none'
+      })
     })
 
   },
@@ -130,6 +123,9 @@ Page({
         icon: 'none',
       })
     } else {
+      app.http.getRequest("/api/smsCode", { mobile: this.data.telephone }).then(res => {
+
+      })
       //获取验证码倒计时
       let sec = this.data.btnSec;
       this.setData({

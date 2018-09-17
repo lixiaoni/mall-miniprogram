@@ -41,7 +41,7 @@ class TokenHandler {
           if (res.statusCode === 200) {
             this.saveTokenInfo(res.data);
           }
-          resolve(res.data);
+          resolve(res);
         })
       })
     });
@@ -69,7 +69,7 @@ class TokenHandler {
           if (res.statusCode === 200) {
             this.saveTokenInfo(res.data);
           }
-          return res.data;
+          resolve(res);
         })
       })
     });

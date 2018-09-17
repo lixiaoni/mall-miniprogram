@@ -13,7 +13,7 @@ Page({
   },
   getUser(){
 
-    app.http.getRequest("/admin/user/byuserid/123").then((res)=>{
+    app.http.getRequest("/admin/user/byuserid").then((res)=>{
       if (res.success){
           this.setData({
             user: res.obj,

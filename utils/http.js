@@ -67,37 +67,31 @@ class request {
         } else {
           delete this._headerGet['Authorization'];
         }
-
-        wx.request({
-          url: this._baseUrl + url,
-          data: data,
-          header: this._headerGet,
-          method: method,
-          success: (res => {
-            let pages = getCurrentPages()
-            let curPage = pages[pages.length - 1]
-            this.__page = curPage
-            if (res.statusCode === 200) {
-              resolve(res.data)
-              // curPage.onShow()
-              // curPage.onLoad()
-            } else if (res.statusCode === 401) {
-              curPage.loginCom = curPage.selectComponent("#login");
-              curPage.loginCom.showPage();
-            } else {
-              //其它错误，提示用户错误信息
-              if (this._errorHandler != null) {
-                //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理
-                this._errorHandler(res)
-              }
-              reject(res)
-            }
-          }),
-          fail: (res => {
+        
+       this._headerGet['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsaWNlbnNlIjoibWFkZSBieSB5b3V3ZSIsInVzZXJfbmFtZSI6IjEzNjgxNTQ3NDQwIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTUzNzI1OTQ5NywidXNlcklkIjoiNzlmM2JiZjg2YzA1Y2Q4NTQyNmIxNWQ3YjAwMzY3YWIiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiOWQ1MWNmNzgtOTVkNC00YzUyLWI0ODctNzg3MWQ5MTY0NWY0IiwiY2xpZW50X2lkIjoiQmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQifQ.DhSaIP8ew13B3x1BJxAdDEO1oqhDpCOUfWhTMTd-4tw';
+      wx.request({
+        url: this._baseUrl + url,
+        data: data,
+        header: this._headerGet,
+        method: method,
+        success: (res => {
+          let pages = getCurrentPages()
+          let curPage = pages[pages.length - 1]
+          this.__page = curPage
+          if (res.statusCode === 200) {
+            resolve(res.data)
+            // curPage.onShow()
+            // curPage.onLoad()
+          } else if (res.statusCode === 401) {
+            curPage.loginCom = curPage.selectComponent("#login");
+            curPage.loginCom.showPage();
+          } else {
+            //其它错误，提示用户错误信息
             if (this._errorHandler != null) {
               this._errorHandler(res)
             }
             reject(res)
+          }  
           }),
           complete: function () {
             wx.hideLoading()
@@ -105,7 +99,9 @@ class request {
           }
         })
       });
+
     })
+      
   }
 }
 
