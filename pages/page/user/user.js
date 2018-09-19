@@ -20,60 +20,18 @@ Page({
             hasUser: true
           })
       }
+    }).catch(e=>{
+      this.setData({
+        user: {},
+        hasUser: false
+      })
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.getStorage({
-      key: 'skins',
-      success: function (res) {
-        that.setData({
-          SkinStyle: res.data
-        })
-      },
-    })
-
-    this.getUser();
   },
-  //用户选择收货地址
-  chooseAddress: function () {
-    var that = this;
-    if (wx.chooseAddress) {
-      wx.chooseAddress({
-        success: function (res) {
-          console.log(JSON.stringify(res));
-          console.log(res);
-          that.setData({
-            "add_userName": res.userName,
-            "add_telNumber": res.telNumber,
-            "add_provinceName": res.provinceName,
-            "add_cityName": res.cityName,
-            "add_countyName": res.countyName,
-            "add_detailInfo": res.detailInfo,
-            "add_postalCode": res.postalCode,
-            //具体收货地址显示
-            flag: false,
-
-          })
-        },
-        fail: function (err) {
-          console.log(JSON.stringify(err));
-          console.info("收货地址授权失败");
-          wx.showToast({
-            title: '授权失败，您将无法进行下单支付;重新授权请删除小程序后再次进入',
-            icon: 'success',
-            duration: 20000
-          })
-        }
-      })
-    } else {
-      console.log('当前微信版本不支持chooseAddress');
-    }
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -84,7 +42,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.getUser(); 
   },
 
   /**

@@ -7,14 +7,19 @@
   </navigator>
   <view class='u-t-cont'>
     <navigator url='../userDetails/userDetails'>
-      <image  hidden='{{!hasUser}}' wx:if="{{user.headPic}}" class='u-t-ewmico' src='{{user.headPic}}'></image>
-      <view hidden='{{hasUser}}'><open-data  class='user-headPic u-t-ewmico' type="userAvatarUrl"></open-data></view>
-      
+      <view class='u-t-ewmico'>
+        <image hidden='{{!hasUser}}' mode='aspectFit' class='user-headPic' src='{{user.headPic?user.headPic:"/image/42.png"}}'></image>
+        <view hidden='{{hasUser}}'>
+          <open-data class='user-headPic' type="userAvatarUrl"></open-data>
+        </view>
+      </view>
     </navigator>
     <view class='u-pic'>
       <view hidden='{{!hasUser}}' wx:if="{{user.nickName}}">{{user.nickName}}</view>
-      <view hidden='{{hasUser}}'><open-data type="userNickName"></open-data></view>
-      
+      <view hidden='{{hasUser}}'>
+        <open-data type="userNickName"></open-data>
+      </view>
+
       <button wx:if='{{user}}'>已绑定手机</button>
       <button wx:else bindtap='showLogin'>绑定手机</button>
     </view>

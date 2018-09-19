@@ -176,16 +176,17 @@ Component({
         })
         return
       }
-      this.closePage()
       if (res.access_token) {
-        wx.setStorage({
-          key: 'access_token',
-          data: res.access_token,
-        })
+        this.closePage()        
         let pages = getCurrentPages();
         let curPage = pages[pages.length - 1];
+        console.log(curPage)
         curPage.onLoad();
         curPage.onShow();
+        wx.showToast({
+          title: "登录成功",
+          icon: 'none'
+        })
       }
     },
     //显示隐藏密码
@@ -253,7 +254,7 @@ Component({
         })
       } else {
 
-        loginApp.http.getRequest("/code/sms", {
+        loginApp.http.getRequest("/oauth/code/sms", {
           mobile: this.data.telephone
         }).then(res => {
 

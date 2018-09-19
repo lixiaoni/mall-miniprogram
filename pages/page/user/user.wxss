@@ -3,7 +3,8 @@
   overflow:hidden;
   display:block;
   border-radius: 50%;
-  margin: 0 auto;
+  max-width: 200rpx;
+  max-height:200rpx;
 }
 .u-title{
   background:#fff;
@@ -14,11 +15,10 @@
   position: relative;
 }
 .u-t-ewmico{
-  margin-top: 40rpx;
   width: 200rpx;
   height: 200rpx;
   border-radius:50%;
-  margin-bottom:30rpx;
+  margin: 40rpx auto 30rpx;
 }
 .u-pic{
   color: #333;

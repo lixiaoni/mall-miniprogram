@@ -54,11 +54,11 @@ class request {
     })
     return new Promise((resolve, reject) => {
       if (Array.isArray(data) || data == undefined) {
-        this.newData.mallCode = this.mallCode
+        //this.newData.mallCode = this.mallCode
         url = this.analysisUrl(url, this.newData)
       } else {
 
-        data.mallCode = this.mallCode
+        //data.mallCode = this.mallCode
         url = this.analysisUrl(url, data)
       }
       this.authHandler.getTokenOrRefresh().then(token=>{
@@ -68,7 +68,7 @@ class request {
           delete this._headerGet['Authorization'];
         }
         
-       this._headerGet['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsaWNlbnNlIjoibWFkZSBieSB5b3V3ZSIsInVzZXJfbmFtZSI6IjEzNjgxNTQ3NDQwIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTUzNzI1OTQ5NywidXNlcklkIjoiNzlmM2JiZjg2YzA1Y2Q4NTQyNmIxNWQ3YjAwMzY3YWIiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiOWQ1MWNmNzgtOTVkNC00YzUyLWI0ODctNzg3MWQ5MTY0NWY0IiwiY2xpZW50X2lkIjoiQmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQifQ.DhSaIP8ew13B3x1BJxAdDEO1oqhDpCOUfWhTMTd-4tw';
+        // this._headerGet['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsaWNlbnNlIjoibWFkZSBieSB5b3V3ZSIsInVzZXJfbmFtZSI6IjEzNjgxNTQ3NDQwIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTUzNzkzMjExNywidXNlcklkIjoiNzlmM2JiZjg2YzA1Y2Q4NTQyNmIxNWQ3YjAwMzY3YWIiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiZDNhZjk5ZTctMDMyOS00Mzc2LThiMTgtZDExNzYxOWQxZjdlIiwiY2xpZW50X2lkIjoiQmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQifQ.9Km0wfMqoQjTEIx8-sK732X-EN-xliVAoBacNl0WvSE';
       wx.request({
         url: this._baseUrl + url,
         data: data,
@@ -85,6 +85,7 @@ class request {
           } else if (res.statusCode === 401) {
             curPage.loginCom = curPage.selectComponent("#login");
             curPage.loginCom.showPage();
+            reject(res)
           } else {
             //其它错误，提示用户错误信息
             if (this._errorHandler != null) {

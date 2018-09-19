@@ -1,12 +1,15 @@
 {
 
   "pages":[
-    "pages/work/shopList/shopList",
-    
     "pages/page/user/user",
     
+    "pages/work/shopList/shopList",
     
-    "pages/page/manageM/manageM",
+    
+    "pages/page/manageM/manageM",    
+    
+    
+    
     
     
     "pages/page/set/set",
