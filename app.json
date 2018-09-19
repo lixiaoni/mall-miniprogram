@@ -2,11 +2,14 @@
 
   "pages":[
     "pages/mall/follow/follow",
+    "pages/page/user/user",
     "pages/work/shopList/shopList",
     
-    "pages/page/user/user",
     
-    "pages/page/manageM/manageM",
+    "pages/page/manageM/manageM",    
+    
+    
+    
     
     
     "pages/page/set/set",

@@ -143,12 +143,7 @@ Component({
           smsCode: this.data.verificationCode
         };
         loginApp.authHandler.loginByMobile(this.data.telephone, this.data.verificationCode).then(res => {
-          this.closePage();
-          console.log("-------");
-          let pages = getCurrentPages();
-          let curPage = pages[pages.length - 1];
-          curPage.onLoad();
-          curPage.onShow();
+          this.loginAfter(res);
         })
 
 
@@ -167,17 +162,32 @@ Component({
           username: this.data.telephone,
           password: this.data.password
         };
-
         loginApp.authHandler.loginByUser(this.data.telephone, this.data.password).then(res => {
-          this.closePage();
-          console.log("-------");
-          let pages = getCurrentPages();
-          let curPage = pages[pages.length - 1];
-          curPage.onLoad();
-          curPage.onShow();
+          this.loginAfter(res);
         })
       }
 
+    },
+    loginAfter(res) {
+      if (res.message) {
+        wx.showToast({
+          title: res.message,
+          icon: 'none'
+        })
+        return
+      }
+      if (res.access_token) {
+        this.closePage()        
+        let pages = getCurrentPages();
+        let curPage = pages[pages.length - 1];
+        console.log(curPage)
+        curPage.onLoad();
+        curPage.onShow();
+        wx.showToast({
+          title: "登录成功",
+          icon: 'none'
+        })
+      }
     },
     //显示隐藏密码
     showHide() {
@@ -244,7 +254,7 @@ Component({
         })
       } else {
 
-        loginApp.http.getRequest("/code/sms", {
+        loginApp.http.getRequest("/oauth/code/sms", {
           mobile: this.data.telephone
         }).then(res => {
 

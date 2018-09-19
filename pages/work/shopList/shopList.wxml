@@ -44,10 +44,10 @@
           <!-- 关注 -->
           <view>
             <view class='label-item'>
-              <text class='theme-color'>756</text>件商品
+              <text class='theme-color'>{{item.goodsNum?item.goodsNum:"0"}}</text>件商品
             </view>
             <view class='label-item'>
-              <text class='theme-color'>3123123</text>关注
+              <text class='theme-color'>{{item.followNum?item.followNum:"0"}}</text>关注
             </view>
           </view>
         </view>

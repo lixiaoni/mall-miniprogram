@@ -10,11 +10,20 @@ Page({
   },
 
   quit(){
-    
-    app.http.postRequest("/authentication/removeToken",{
+    app.http['_headerGet']["content-type"] = "application/x-www-form-urlencoded";
+    app.http.postRequest("/oauth/authentication/removetoken",{
       accesstoken: this.data.token
     }).then((res)=>{
-        
+      wx.showToast({
+        title: res.message,
+        icon: "none"
+      })
+      if (res.success){
+        app.authHandler.flushTokenInfo();
+        this.setData({
+          token:""
+        })
+      }
     }) 
   },
 
@@ -22,7 +31,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let token = wx.getStorageSync('uesrToken')
+    let token = wx.getStorageSync('access_token')
     if(token){
       this.setData({
         token
