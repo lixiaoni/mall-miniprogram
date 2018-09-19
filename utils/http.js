@@ -69,7 +69,6 @@ class request {
         } else {
           delete this._headerGet['Authorization'];
         }
-        
         // this._headerGet['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsaWNlbnNlIjoibWFkZSBieSB5b3V3ZSIsInVzZXJfbmFtZSI6IjEzNjgxNTQ3NDQwIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTUzNzkzMjExNywidXNlcklkIjoiNzlmM2JiZjg2YzA1Y2Q4NTQyNmIxNWQ3YjAwMzY3YWIiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiZDNhZjk5ZTctMDMyOS00Mzc2LThiMTgtZDExNzYxOWQxZjdlIiwiY2xpZW50X2lkIjoiQmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQifQ.9Km0wfMqoQjTEIx8-sK732X-EN-xliVAoBacNl0WvSE';
       wx.request({
         url: this._baseUrl + url,
