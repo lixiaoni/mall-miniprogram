@@ -3,7 +3,7 @@
   position: relative;overflow: scroll;height: 88%;
 }
 .cl-left{
-  width: 170rpx;background: #FAFAFA;
+  width: 170rpx;background: #FAFAFA;height: 1200rpx;overflow:scroll;
 }
 .cl-left view{
   border-right: 2rpx solid #F7F7F7;height: 100rpx;line-height: 100rpx;text-align: center;
@@ -12,7 +12,7 @@
   color: #CCAA77;border-bottom:4rpx solid #CCAA77;background: #fff;border-right: 0;font-weight: bold;
 }
 .cl-right{
-  position: absolute;left: 220rpx;top: 0;width: 66%;
+  position: absolute;left: 220rpx;top: 0;width: 66%;height: 1200rpx;overflow:scroll;
 }
 .cl-right view{
   height: 100rpx;line-height: 100rpx;

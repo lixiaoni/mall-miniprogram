@@ -7,6 +7,7 @@ Page({
    */
   data: {
     dataList: [],
+    baseUrl: wx.getStorageSync('baseUrl'),
   },
 
   /**

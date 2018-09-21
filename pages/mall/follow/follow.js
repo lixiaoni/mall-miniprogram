@@ -12,6 +12,7 @@ Page({
     dataList:[],
     showFavorite:false,
     limitShow:false,
+    baseUrl: app.globalData.imageUrl,
     token:wx.getStorageSync('access_token')
   },
 
@@ -50,6 +51,7 @@ Page({
       })
   },
   onLoad: function (options) {
+   
   },
   // tab切换
   swichNav: function (e) {

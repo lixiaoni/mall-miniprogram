@@ -1,6 +1,7 @@
 import http from './utils/http.js'
 import pageRequest from './utils/pageRequest.js'
 import AuthHandler from './utils/authHandler.js'
+import { imageUrl } from './utils/const.js'
 App({
   onLaunch: function (options) {
     // 购物车
@@ -19,7 +20,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    skin: "normal"
+    skin: "normal",
+    imageUrl:imageUrl
   },
   http: new http(),
   pageRequest: new pageRequest(),

@@ -43,7 +43,7 @@ Page({
       })
     })
     array[index1].isDefault = true
-    Api.addressDefault({ userId: userId, id: id })
+    Api.addressDefault({id: id })
       .then(res => {
         var res = res.obj
       })
