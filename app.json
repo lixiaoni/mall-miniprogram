@@ -1,11 +1,12 @@
 {
 
   "pages":[
+    "pages/mall/follow/follow",
+    
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
     
     "pages/cloudOrder/orderList/orderList",
     
-    "pages/mall/follow/follow",
     
     "pages/work/workIndex/workIndex",
     
