@@ -15,6 +15,16 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.goHome{
+  position:fixed;bottom: 170rpx;right: 20rpx;background: #fff;width: 100rpx;height: 100rpx;border-radius: 50%;color: #CCAA77;font-size: 24rpx;
+  border:2rpx solid #CCAA77;text-align: center;
+}
+.goHome view{
+  line-height: 0
+}
+.goHome image{
+  width: 40rpx;height: 40rpx;margin-top:10rpx;
+}
 page{
     background-color: #f7f7f7;
     font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;

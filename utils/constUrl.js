@@ -13,3 +13,5 @@ export const addressDefaultUrl = '/admin/user/usershopaddress/default/{{id}}/{{u
 export const saveAddressUrl = '/admin/user/usershopaddress/save'
 export const editAddressUrl = '/admin/user/usershopaddress/update'
 export const newsUrl='/api/mall/{{mallCode}}/store/news'
+export const workIndexUrl ='/admin/mall/store/index'
+export const superAdminWorkUrl='/admin/mall/store/{{mallCode}}/index'

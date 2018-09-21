@@ -47,10 +47,10 @@
     </navigator>
   </view>
   <view class='weui-back'>
-    <navigator class='weui-cell weui-cell_access'>
+    <navigator class='weui-cell weui-cell_access' url='../../work/shopList/shopList'>
       <image src='/image/u5.png' class='user-img'></image>
       <view class='weui-cell__bd'>
-        管理小云店
+        小云店工作台
       </view>
       <view class='weui-img'>
         <image src="/image/icl.png"></image>
@@ -61,7 +61,18 @@
     <navigator class='weui-cell weui-cell_access' url='../manageM/manageM'>
       <image src='/image/u6.png' class='user-img'></image>
       <view class='weui-cell__bd'>
-        管理商贸云
+        商贸云工作台
+      </view>
+      <view class='weui-img'>
+        <image src="/image/icl.png"></image>
+      </view>
+    </navigator>
+  </view>
+  <view class='weui-back'>
+    <navigator class='weui-cell weui-cell_access' url=''>
+      <image src='/image/u6.png' class='user-img'></image>
+      <view class='weui-cell__bd'>
+        云产品订单
       </view>
       <view class='weui-img'>
         <image src="/image/icl.png"></image>
