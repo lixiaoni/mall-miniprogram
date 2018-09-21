@@ -12,6 +12,7 @@ class request {
       this._headerPost = { "Content-Type": "application/json;charset=UTF-8" },
       this.mallCode = 1000,
       this.newData = {},
+      this.arrUrl = ["/api/user/register", "/api/smsCode", "/api/user/register", "/api/user/resetpassword","/oauth/code/sms"],
       this.authHandler = new AuthHandler()
   }
   /**
@@ -56,12 +57,14 @@ class request {
       title: "正在加载",
     })
     return new Promise((resolve, reject) => {
-      if (Array.isArray(data) || data == undefined) {
-        this.newData.mallCode = this.mallCode
-        url = this.analysisUrl(url, this.newData)
-      } else {
-        data.mallCode = this.mallCode
-        url = this.analysisUrl(url, data)
+      if (this.arrUrl.indexOf(url) == -1) {
+        if (Array.isArray(data) || data == undefined) {
+          this.newData.mallCode = this.mallCode
+          url = this.analysisUrl(url, this.newData)
+        } else {
+          data.mallCode = this.mallCode
+          url = this.analysisUrl(url, data)
+        }
       }
       this.authHandler.getTokenOrRefresh().then(token=>{
         if (token) {
