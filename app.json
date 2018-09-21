@@ -1,6 +1,9 @@
 {
 
   "pages":[
+    "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
+    
+    "pages/cloudOrder/orderList/orderList",
     "pages/page/user/user",
     
     "pages/work/shopList/shopList",

@@ -1,9 +1,9 @@
 <view class="weui-cell">
   <view class="weui-cell__hd">
-    <image src="/image/userphoto.png" mode="aspectFill"></image>
+    <image hidden='{{!hasUser}}' mode='aspectFit' class='user-headPic' src='{{user.headPic?user.headPic:"/image/42.png"}}'></image>
   </view>
   <view class="weui-cell__name">
-    陈晨 Fanny<image src='/image/ermR.png'></image>
+    {{user.nickName}}<image src='/image/ermR.png'></image>
   </view>
 </view>
 <view class='erm-cont'>

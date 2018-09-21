@@ -5,7 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    user:{}
+  },
+
+  getUser() {
+
+    app.http.getRequest("/admin/user/byuserid").then((res) => {
+      if (res.success) {
+        this.setData({
+          user: res.obj,
+          hasUser: true
+        })
+      }
+    }).catch(e => {
+      this.setData({
+        user: {},
+        hasUser: false
+      })
+    })
   },
 
   /**
