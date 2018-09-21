@@ -48,6 +48,11 @@ Page({
           title: res.message,
           icon:'none'
         })
+        if (res.success){
+          setTimeout(()=>{
+            wx.navigateBack({})
+          },1000)
+        }
       })
     }else{
       wx.showToast({
