@@ -14,21 +14,21 @@
   height: 90rpx;
 }
 .fw-title-active{
-  position: fixed;z-index:1000;
+  position: fixed;z-index:99999;
   width:100%;top: 0;
 }
 .st-ser .fw-title>view {
-  width: 33%;font-size: 30rpx;font-weight: bold;padding-top: 45rpx;
+  font-size: 30rpx;font-weight: bold;padding-top: 45rpx;display: inline-block;width: auto;margin-right:20rpx;margin-left: 20rpx;
 }
 .st-ser{
-  position:fixed;width: 100%;z-index: 1000;background: #fff;padding-bottom: 80rpx;
-  height: 100%;background: rgba(0, 0, 0, 0.5);top: 0;z-index: 100;padding-top:40rpx;
+  position:fixed;width: 100%;z-index: 9999;background: #fff;padding-bottom: 80rpx;
+  height: 100%;background: rgba(0, 0, 0, 0.5);top: 0;padding-top:40rpx;
 }
 .fw-title>view.active view{
   border-bottom:4rpx solid #CCAA77;padding-bottom: 20rpx;
 }
 .st-ser-cont>view{
-  display: inline-table;width: 45%;font-size:28rpx;
+  display: inline-table;width: 45%;font-size:28rpx;height: 450rpx;overflow: scroll
 }
 .st-ser-cont,.show-floor{
   padding-top: 30rpx;background: #fff;
@@ -40,7 +40,7 @@
   padding-left: 60rpx;height: 85rpx;line-height: 85rpx;
 }
 .st-ser-cont>view.ser-left{
-  width: 55%;background: #F5F5F5;
+  width: 55%;background: #F5F5F5;height: 450rpx;overflow: scroll
 }
 .st-ser-cont>view.ser-left .active{
   background: #fff
@@ -54,3 +54,7 @@
 .st-ser  .fw-title{
   height: 117rpx;
 }
+.fw-title1>view.active view {
+  width: auto
+}
+

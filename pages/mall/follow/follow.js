@@ -9,7 +9,10 @@ Page({
     currentTab:0,
     storeList:[],
     result:[],
-    showFavorite:false
+    dataList:[],
+    showFavorite:false,
+    limitShow:false,
+    token:wx.getStorageSync('access_token')
   },
 
   /**
@@ -20,10 +23,11 @@ Page({
       storeList=[]
     Api.storeLook()
     .then(res=>{
-      const obj = res.obj
+      var obj = res.obj
       storeList.push(obj)
       _this.setData({
-        storeList: storeList
+        storeList: storeList,
+        showFavorite:true
       })
     })
     
@@ -32,7 +36,7 @@ Page({
     var _this = this
     Api.favorite()
       .then(res => {
-        const obj = res.obj
+        var obj=res.obj
        if(obj!=null){
          _this.setData({
            result: obj.result
@@ -49,17 +53,37 @@ Page({
   },
   // tab切换
   swichNav: function (e) {
-    var that = this;
-    if(this.data.currentTab === e.target.dataset.current) {
+    var that = this,
+      index = e.target.dataset.current
+    if(this.data.currentTab === index) {
       return false;
     } else {
         that.setData({
-          currentTab: e.target.dataset.current
+          currentTab:index,
+          result:[]
+        },function(){
+          app.pageRequest.pageData.pageNum = 0
+          if(index==0){
+            this.getFavorite()
+          }else{
+            Api.news()
+              .then(res => {
+                var detailList = res.obj.result,
+                  datas = that.data.result,
+                  totalCount = res.obj.totalCount,
+                  newArr = app.pageRequest.addDataList(datas, detailList)
+                that.setData({
+                  result: newArr,
+                })
+              })
+          }
         })
 
     }
   },
+  bindDownLoad:function(){
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -72,8 +96,19 @@ Page({
    */
   onShow: function () {
     this.getFavorite()
+    
   },
-
+  goStore:function(){
+    wx.navigateTo({
+      url: '../store/store',
+    })
+  },
+  moreList: function (e) {
+    var index = e.target.dataset.index
+    wx.navigateTo({
+      url: '../storeList/storeList?index=' + index,
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -99,7 +134,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    var index = this.data.currentTab
+    if(index==0){
+      this.getFavorite()
+    }else{
+      Api.news()
+    }
   },
 
   /**

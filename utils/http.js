@@ -1,14 +1,18 @@
 import AuthHandler from './authHandler.js';
+import {
+  productionUrl
+} from './const.js'
 /**
  请求
  */
 class request {
   constructor() {
-      this._baseUrl = 'https://mall.youlife.me',
+      this._baseUrl = productionUrl,
       this._headerGet = { 'content-type': 'application/json' },
       this._headerPost = { "Content-Type": "application/json;charset=UTF-8" },
       this.mallCode = 1000,
       this.newData = {},
+      this.arrUrl = ["/api/user/register", "/api/smsCode", "/api/user/register", "/api/user/resetpassword","/oauth/code/sms"],
       this.authHandler = new AuthHandler()
   }
   /**
@@ -53,13 +57,14 @@ class request {
       title: "正在加载",
     })
     return new Promise((resolve, reject) => {
-      if (Array.isArray(data) || data == undefined) {
-        //this.newData.mallCode = this.mallCode
-        url = this.analysisUrl(url, this.newData)
-      } else {
-
-        //data.mallCode = this.mallCode
-        url = this.analysisUrl(url, data)
+      if (this.arrUrl.indexOf(url) == -1) {
+        if (Array.isArray(data) || data == undefined) {
+          this.newData.mallCode = this.mallCode
+          url = this.analysisUrl(url, this.newData)
+        } else {
+          data.mallCode = this.mallCode
+          url = this.analysisUrl(url, data)
+        }
       }
       this.authHandler.getTokenOrRefresh().then(token=>{
         if (token) {
@@ -67,7 +72,6 @@ class request {
         } else {
           delete this._headerGet['Authorization'];
         }
-        
         // this._headerGet['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsaWNlbnNlIjoibWFkZSBieSB5b3V3ZSIsInVzZXJfbmFtZSI6IjEzNjgxNTQ3NDQwIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTUzNzkzMjExNywidXNlcklkIjoiNzlmM2JiZjg2YzA1Y2Q4NTQyNmIxNWQ3YjAwMzY3YWIiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiZDNhZjk5ZTctMDMyOS00Mzc2LThiMTgtZDExNzYxOWQxZjdlIiwiY2xpZW50X2lkIjoiQmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQifQ.9Km0wfMqoQjTEIx8-sK732X-EN-xliVAoBacNl0WvSE';
       wx.request({
         url: this._baseUrl + url,

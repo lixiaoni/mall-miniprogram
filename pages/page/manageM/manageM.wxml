@@ -65,14 +65,14 @@
   </view>
 </view>
 <view class='bottom_M'>
-  <view>
+  <navigator   url='../../work/workIndex/workIndex'>
     <image src="/image/work.png"></image>
     <view>工作台</view>
-  </view>
-  <view>
+  </navigator>
+  <navigator>
     <image src="/image/12.png"></image>
-    <view>店铺</view>
-  </view>
+    <view>小云店</view>
+  </navigator>
   <view>
     <image src="/image/41.png"></image>
     <view class='active'>我的</view>

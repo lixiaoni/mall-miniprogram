@@ -1,3 +1,4 @@
+<login id="login"></login>
 <!-- 删除 -->
 <mes
   show="{{show1}}"

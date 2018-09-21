@@ -39,11 +39,22 @@ Page({
     Api.goodsSer({keyword: name, sortType: sortType})
       .then(res => {
         const obj = res.obj
-        _this.setData({
-          goodsList:obj,
-          value:name
-        })
-        console.log(res)
+        if(obj.length!=0){
+          var goodsList =obj,
+            datas = _this.data.goodsList,
+            newArr = app.pageRequest.addDataList(datas, goodsList)
+          _this.setData({
+            goodsList: newArr,
+            value: name
+          })
+        }else{
+          wx.showToast({
+            title: '暂无更多了！',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+
       })
   },
   searchBtn: function (e) {
@@ -108,13 +119,13 @@ Page({
   },
 
   bindDownLoad: function () {
-    
+    this.getSerList(this.data.value)
   },
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getSerList(this.data.value)
+   
   },
 
   /**
