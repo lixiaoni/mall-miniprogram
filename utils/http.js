@@ -76,7 +76,17 @@ class request {
           let curPage = pages[pages.length - 1]
           this.__page = curPage
           if (res.statusCode === 200) {
-            resolve(res.data)
+            if(res.data.code == 0){
+              resolve(res.data);
+            }else if (res.data.code == 1){
+              wx.showToast({
+                title: res.data.message,
+                icon: 'none'
+              })
+              reject(res);
+            }else{
+              reject(res);
+            }
           } else if (res.statusCode === 401) {
             curPage.loginCom = curPage.selectComponent("#login");
             curPage.loginCom.showPage();
