@@ -32,7 +32,6 @@ Page({
       .then(res => {
         var arr=res.obj
         arr.unshift({ name: "全部楼座", code: "000", childList:[]})
-        console.log(arr)
         _this.setData({
           floorserList:arr
         })
@@ -112,14 +111,18 @@ Page({
 
     }
   },
-  getList:function(data){
+  getList: function (data, nextPage){
     var   _this = this
-    Api.storeSerList(data)
+    Api.storeSerList(data,nextPage)
       .then(res => {
       if(res.obj!==null){
         var dataList = res.obj.result,
+          newArr=[],
           datas = _this.data.dataList
-        newArr = app.pageRequest.addDataList(datas, dataList)
+          newArr = app.pageRequest.addDataList(datas, dataList)
+        _this.setData({
+          dataList: newArr,
+        })
        }else{
         wx.showToast({
           title: '暂无更多了！',
@@ -127,14 +130,7 @@ Page({
           duration: 2000
         })
        }
-      if (app.pageRequest.pageData.pageNum == 1 && res.obj == null){
-         var newArr=[]
-       }
-      if (app.pageRequest.pageData.pageNum > 1 && res.obj == null) {
-        var newArr = this.data.dataList
-      }
         _this.setData({
-          dataList: newArr,
           serHide: false,
         })
       })
@@ -148,7 +144,6 @@ Page({
     this.setData({
       dataList: []
     })
-    app.pageRequest.pageData.pageNum = 0
     this.getList({ keyword: this.data.value, mallCode: 1000})
   },
   serChildFloorNav:function(e){
@@ -156,7 +151,6 @@ Page({
       balconyCode = this.data.balconyCode,
       floorCode = this.data.floorCode,
       floorAreaCode = e.target.dataset.code
-    app.pageRequest.pageData.pageNum = 0
     _this.setData({
       dataList:[],
       floorAreaCode: floorAreaCode
@@ -198,11 +192,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({
-      value:'',
-    })
-    app.pageRequest.pageData.pageNum = 0
-    this.getList()
+   
   },
 
   /**
@@ -213,7 +203,7 @@ Page({
       balconyCode = this.data.balconyCode,
       floorCode = this.data.floorCode,
       floorAreaCode = this.data.floorAreaCode
-    this.getList({ keyword: this.data.value, mallCode: 1000, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode })
+    this.getList({ keyword: this.data.value, mallCode: 1000, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode },true)
   },
   onReachBottom: function () {
    

@@ -39,19 +39,50 @@ Page({
       .then(res => {
         var obj=res.obj
        if(obj!=null){
+         var detailList = res.obj.result,
+           datas = _this.data.result,
+           newArr = app.pageRequest.addDataList(datas, detailList)
          _this.setData({
-           result: obj.result
-         })
+            result: newArr,
+          })
        }else{
-         _this.getInfo()
-         _this.setData({
-           showFavorite: true
-         })
+         if (!nextPage){
+           _this.getInfo()
+           _this.setData({
+             showFavorite: true
+           })
+         }else{
+           wx.showToast({
+             title: '暂无更多了！',
+             icon: 'none',
+             duration: 2000
+           })
+         }
        }
       })
   },
   onLoad: function (options) {
    
+  },
+  getNewList: function (nextPage){
+    var that = this
+    Api.news(nextPage)
+      .then(res => {
+        if (res.obj != null) {
+          var detailList = res.obj.result,
+            datas = that.data.result,
+            newArr = app.pageRequest.addDataList(datas, detailList)
+          that.setData({
+            result: newArr,
+          })
+        } else {
+          wx.showToast({
+            title: '暂无更多了！',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
   },
   // tab切换
   swichNav: function (e) {
@@ -64,20 +95,10 @@ Page({
           currentTab:index,
           result:[]
         },function(){
-          app.pageRequest.pageData.pageNum = 0
           if(index==0){
-            this.getFavorite(false)
+            this.getFavorite()
           }else{
-            Api.news()
-              .then(res => {
-                var detailList = res.obj.result,
-                  datas = that.data.result,
-                  totalCount = res.obj.totalCount,
-                  newArr = app.pageRequest.addDataList(datas, detailList)
-                that.setData({
-                  result: newArr,
-                })
-              })
+            this.getNewList(false)
           }
         })
 
@@ -140,7 +161,7 @@ Page({
     if(index==0){
       this.getFavorite(true)
     }else{
-      Api.news()
+      this.getNewList(true)
     }
   },
 

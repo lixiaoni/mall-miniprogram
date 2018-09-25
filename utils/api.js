@@ -37,12 +37,12 @@ function workIndex(data) {
   return app.http.getRequest(workIndexUrl, data)
 }
 /**商品搜索**/
-function goodsSer(data) {
-  return app.pageRequest.pageGet(goodsSerUrl, data)
+function goodsSer(data, nextPage) {
+  return app.pageRequest.pageGet(goodsSerUrl, data, nextPage)
 }
 /**最近上新**/
-function news(data) {
-  return app.pageRequest.pageGet(newsUrl, data)
+function news(data, nextPage) {
+  return app.pageRequest.pageGet(newsUrl, data,nextPage)
 }
 /**关注推荐**/
 function storeLook() {
@@ -66,8 +66,8 @@ function childCategoryCode(data) {
   return app.http.getRequest(childCategoryCodeUrl, data)
 }
 /**店铺搜索**/
-function storeSerList(data) {
-  return app.pageRequest.pageGet(storeSerListUrl, data)
+function storeSerList(data, nextPage) {
+  return app.pageRequest.pageGet(storeSerListUrl, data, nextPage)
 }
 /**小云店搜索**/
 function floorStore(data) {

@@ -4,7 +4,7 @@
 </view>
 <view class='fw-title {{serHide?"fw-title-active":""}}'>
   <view class="{{currentTab==0?'active':''}}" data-current='0'  bindtap="swichNav">楼层导航 <image  wx:if="{{currentTab==1}}" src='/image/xl.png'></image><image  wx:else src='/image/xl1.png'></image><view></view></view>
-  <view class="{{currentTab==1?'active':''}}" data-current='1'  bindtap="swichNav">购物 <image  wx:if="{{currentTab!=1}}" src='/image/xl.png'></image><image wx:else src='/image/xl1.png'></image><view></view></view>
+  <view class="{{currentTab==1?'active':''}}" data-current='1' >购物 <image  wx:if="{{currentTab!=1}}" src='/image/xl.png'></image><image wx:else src='/image/xl1.png'></image><view></view></view>
 </view>
 <view class='st-ser' hidden='{{!serHide}}'>
   <view class='fw-title fw-title1'>

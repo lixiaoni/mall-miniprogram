@@ -8,6 +8,7 @@ class pageRequest extends http {
     }
   }
   pageGet(url, data, nextPage) {
+    console.log(nextPage)
     if(data==undefined){
       var data={}
     }

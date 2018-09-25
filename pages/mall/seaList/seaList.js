@@ -10,6 +10,7 @@ Page({
     goodsList:[],
     baseUrl: app.globalData.imageUrl,
     value:'',
+    priceShow:false,
   },
 
   /**
@@ -20,10 +21,11 @@ Page({
       value:''
     })
   },
-  getSerList:function(name){
+  getSerList: function (name, nextPage){
     var _this = this,
       sortType='',
-      currentTab = this.data.currentTab
+      currentTab = this.data.currentTab,
+      priceShow = this.data.priceShow
     wx.setNavigationBarTitle({
       title: name
     })
@@ -32,12 +34,16 @@ Page({
     } else if (currentTab == 1) {
       sortType = 'sales'
     } else if (currentTab == 2) {
-      sortType = 'prices_asc'
+      if (priceShow){
+        sortType = 'prices_asc'
+      }else{
+        sortType = 'prices_desc'
+      }
     }
     this.setData({
       value:name
     })
-    Api.goodsSer({keyword: name, sortType: sortType})
+    Api.goodsSer({ keyword: name, sortType: sortType }, nextPage)
       .then(res => {
         const obj = res.obj
         if(obj.length!=0){
@@ -72,14 +78,32 @@ Page({
     
   },
   swichNav: function (e) {
-    var that = this;
-    app.pageRequest.pageData.pageNum = 0
-    this.getSerList(this.data.value)
+    var that = this,
+      priceShow = this.data.priceShow
     if (this.data.currentTab === e.target.dataset.current) {
+      if (this.data.currentTab==2){
+        if (priceShow){
+          that.setData({
+            goodsList: [],
+            priceShow: false
+          })
+        }else{
+          that.setData({
+            goodsList: [],
+            priceShow: true
+          })
+        }
+        that.getSerList(that.data.value)
+      }
       return false;
     } else {
       that.setData({
         currentTab: e.target.dataset.current,
+      },function(){
+        that.setData({
+          goodsList:[]
+        })
+        that.getSerList(that.data.value)
       })
     }
   },
@@ -115,12 +139,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    app.pageRequest.pageData.pageNum = 0
-    this.getSerList(this.data.value)
+ 
   },
 
   bindDownLoad: function () {
-    this.getSerList(this.data.value)
+    this.getSerList(this.data.value,true)
   },
   /**
    * 页面上拉触底事件的处理函数

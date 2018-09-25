@@ -14,7 +14,6 @@ Page({
    */
   onLoad: function (options) {
     var _this = this
-    app.pageRequest.pageData.pageNum = 0
     if (options.index){
       var index = options.index
       Api.mallIndex()
@@ -32,16 +31,19 @@ Page({
       wx.setNavigationBarTitle({
         title: options.keyword
       })
-      Api.goodsSer({ mallCode: 1000,categoryCode: options.code})
-        .then(res => {
-          const obj = res.obj
-          _this.setData({
-            goodsList: obj
-          })
-        })
+      _this.getSerList(options.code)
+     
     }
   },
-
+  getSerList(code){
+    Api.goodsSer({ mallCode: 1000, categoryCode: code})
+      .then(res => {
+        const obj = res.obj
+        _this.setData({
+          goodsList: obj
+        })
+      })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
