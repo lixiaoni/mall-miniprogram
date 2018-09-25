@@ -47,11 +47,10 @@ Page({
   },
   //获取展示管理员列表
   getList(obj){
-    console.log(obj)
     let send = obj?obj:{};
-    send.mallCode = 1;
+    send.mallCode = app.http.mallCode;
     //获取已选中的管理员，存起来
-    app.http.postRequest("/admin/floor/malluser/mallusers", {floorCode: this.data.code, mallCode: 1 }).then((own) => {//delit
+    app.http.postRequest("/admin/floor/malluser/mallusers", { floorCode: this.data.code, mallCode: app.http.mallCode }).then((own) => {//delit
       let myAdmin = own.obj ? own.obj:[];
       let adminObj = {};
       for (let i = 0; i < myAdmin.length; i++) {

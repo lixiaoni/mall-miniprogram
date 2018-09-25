@@ -1,12 +1,22 @@
 {
 
   "pages":[
+    "pages/page/user/user",
+    
+    "pages/floor/addAdmin/addAdmin",
+    
     "pages/mall/follow/follow",
     
     "pages/page/user/user",
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
     "pages/cloudOrder/orderList/orderList",
     "pages/work/workIndex/workIndex",
+<<<<<<< HEAD
+=======
+    
+    
+    
+>>>>>>> 54b76a4774add5199bdfe631c3552b01857a8bad
     "pages/work/shopList/shopList",
     "pages/page/manageM/manageM",    
     "pages/page/set/set",
@@ -31,7 +41,6 @@
     
     "pages/mall/mallMes/mallMes",
     
-    "pages/floor/addAdmin/addAdmin",
     "pages/floor/goodsTag/goodsTag",
     "pages/floor/editAdmin/editAdmin",
     "pages/floor/adminDetail/adminDetail",

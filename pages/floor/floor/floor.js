@@ -70,7 +70,7 @@ Page({
     }
     
     app.http.postRequest("/admin/floor/add",{
-      mallCode:1,
+      mallCode: app.http.mallCode,
       parentCode:this.data.id,
       type:2,
       floorNum: this.data.value.trim(),
@@ -95,7 +95,7 @@ Page({
       code: id,
       name: this.data.newName.trim()
     },'put').then((res) => {
-      if (res.code == 1){
+      if (res.success){
         this.setData({
           id,
           companyName: this.data.newName.trim(),
@@ -136,7 +136,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    options.id = 10;
     this.setData({
       id: options.id,
       companyName: options.name 

@@ -42,7 +42,7 @@ Page({
       return
     }
     app.http.postRequest("/admin/floor/malltag/save",{
-      "mallCode": "1",
+      "mallCode": app.http.mallCode,
       "tagColor": this.data.background,
       "tagName": this.data.inputValue
     }).then((res)=>{
