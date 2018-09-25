@@ -1,9 +1,10 @@
 {
 
   "pages":[
+    "pages/page/user/user",
+    
     "pages/floor/addAdmin/addAdmin",
     
-    "pages/page/user/user",
     "pages/mall/follow/follow",
     
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
