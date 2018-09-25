@@ -73,7 +73,7 @@
     "onReachBottomDistance": 50
   },
   "networkTimeout":{
-    "request":500
+    "request":3000
   },
   "tabBar": {
     "borderStyle": "white",
