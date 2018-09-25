@@ -30,7 +30,7 @@ Page({
     })
   },
   getList(){
-    app.http.getRequest("/admin/floor/balcony/1").then((res) => {
+    app.http.getRequest("/admin/floor/balcony/1000").then((res) => {
       this.setData({
         list: res.obj
       })
