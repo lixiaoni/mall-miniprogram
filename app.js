@@ -15,6 +15,10 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
+    wx.setStorage({
+      key: 'purchaserStoreIds',
+      data: ["123","122"],
+    })
     var that = this;
    
   },

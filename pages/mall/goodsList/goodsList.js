@@ -7,8 +7,15 @@ Page({
    */
   data: {
     goodsList:[],
-  },
+    baseUrl: app.globalData.imageUrl,
 
+  },
+  isPurchaser: function (index) {
+    var arr = wx.getStorageSync('purchaserStoreIds')
+    if (arr.indexOf(index) != -1) {
+      return true
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,8 +26,18 @@ Page({
       Api.mallIndex()
         .then(res => {
           const obj = res.obj
+          const goodsList= obj.mallChosenGoods[index].goodsList
+          for (var j = 0; j < goodsList.length; j++) {
+            if (j < 5) {
+              if (_this.isPurchaser(goodsList[j].storeId)) {
+                goodsList[j].isPurchaser = true
+              } else {
+                goodsList[j].isPurchaser = false
+              }
+            }
+          }
           _this.setData({
-            goodsList: obj.mallChosenGoods[index].goodsList
+            goodsList: goodsList
           })
           wx.setNavigationBarTitle({
             title: obj.mallChosenGoods[index].name

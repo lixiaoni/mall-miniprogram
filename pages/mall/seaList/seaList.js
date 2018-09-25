@@ -21,6 +21,12 @@ Page({
       value:''
     })
   },
+  isPurchaser: function (index) {
+    var arr = wx.getStorageSync('purchaserStoreIds')
+    if (arr.indexOf(index) != -1) {
+      return true
+    }
+  },
   getSerList: function (name, nextPage){
     var _this = this,
       sortType='',
@@ -46,9 +52,17 @@ Page({
     Api.goodsSer({ keyword: name, sortType: sortType }, nextPage)
       .then(res => {
         const obj = res.obj
+   
         if(obj.length!=0){
-          var goodsList =obj,
-            datas = _this.data.goodsList,
+          var goodsList =obj
+          for (var i = 0; i < goodsList.length; i++) {
+            if (_this.isPurchaser(goodsList[i].storeId)) {
+              goodsList[i].isPurchaser = true
+            } else {
+              goodsList[i].isPurchaser = false
+            }
+        }
+          var  datas = _this.data.goodsList,
             newArr = app.pageRequest.addDataList(datas, goodsList)
           _this.setData({
             goodsList: newArr,

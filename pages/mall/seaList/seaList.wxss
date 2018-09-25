@@ -11,6 +11,9 @@ page{
 .home-ser1{
   left:87%;
 }
+.miniDetails{
+  left:0
+}
 .goods-ser>view{
   background:#F6F6F6;border-radius: 10rpx;
 }

@@ -17,7 +17,7 @@ Page({
    */
 
   onLoad: function (options) {
-    this.getList()
+   
   },
   getList: function () {
     var _this = this,
@@ -25,6 +25,7 @@ Page({
     Api.addressList()
       .then(res => {
         var res = res.obj
+        console.log(res)
         _this.setData({
           list: res,
           show1: false,

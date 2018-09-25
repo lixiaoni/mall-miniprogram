@@ -59,8 +59,8 @@ function storeLook(data) {
   return app.http.getRequest(storeLookUrl,data)
 }
 /**判断是否是超级管理员**/
-function isAdmin() {
-  data = initMallCode();
+function isAdmin(data) {
+  data = initMallCode(data);
   return app.http.getRequest(isAdminUrl, data)
 }
 /**关注列表**/

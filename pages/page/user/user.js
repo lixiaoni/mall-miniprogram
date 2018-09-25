@@ -1,4 +1,4 @@
-// pages/user/user.js
+import Api from '../../../utils/api.js'
 var app = getApp();
 Page({
 
@@ -6,18 +6,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hasUser:false
+    hasUser:false,
+    isStoreOwner:''
   },
   showLogin(){
     this.selectComponent("#login").showPage();
   },
   getUser(){
-
+    Api.isAdmin({})
+      .then(res => {
+        var obj=res.obj
+        wx.setStorage({
+          key: 'isSuperAdmin',
+          data: obj.isSuperAdmin,
+        })
+      })
     app.http.getRequest("/api/user/byuserid").then((res)=>{
       if (res.success){
           this.setData({
             user: res.obj,
-            hasUser: true
+            hasUser: true,
+            isStoreOwner: res.obj.isStoreOwner
           })
       }
     }).catch(e=>{

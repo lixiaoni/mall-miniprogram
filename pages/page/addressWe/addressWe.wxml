@@ -13,7 +13,7 @@
   <view class='aw-cont'>
     <view class='aw-list' wx:for="{{list}}" wx:key="{{index}}">
       <view>{{item.userName}} <text>{{item.userPhone}}</text></view>
-      <text>{{item.provinceCode}}{{item.city}}{{item.county}}{{item.detailAddress}}</text>
+      <text>{{item.province}}{{item.city}}{{item.county}}{{item.detailAddress}}</text>
       <view class='aw-edit'>
         <icon wx:if="{{item.isDefault}}" type="success" size='17' data-id='{{item.id}}' color="#CCAA77" data-index="{{index}}" bindtap="selectList"/>
         <icon wx:else  type="circle" size='17' data-index="{{index}}" data-id='{{item.id}}' bindtap="selectList"/>

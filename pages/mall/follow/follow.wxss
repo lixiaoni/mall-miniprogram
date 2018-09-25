@@ -78,7 +78,7 @@
   font-size: 28rpx;
 }
 .miniProgram{
-  bottom: 0;
+  bottom: 0;top: 0;
 }
 .lw-pop-cont>view{
   display: inline-block;width:30%;border-radius: 10rpx;background: #FAFAFA;font-weight: bold;height: 250rpx;position: relative;

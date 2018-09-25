@@ -2,15 +2,16 @@
 
   "pages":[
     "pages/mall/follow/follow",
-    
+    "pages/mall/search/search",
     "pages/mall/seaList/seaList",
     
-    "pages/mall/store/store",
     
+    "pages/page/user/user",
+    
+    "pages/mall/store/store",
     "pages/floor/floorList/floorList",
     "pages/floor/addAdmin/addAdmin",
     
-    "pages/page/user/user",
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
     "pages/cloudOrder/orderList/orderList",
     "pages/work/workIndex/workIndex",
@@ -31,7 +32,6 @@
     "pages/page/newAddress/newAddress",
     "pages/page/details/details",
     "pages/mall/newest/newest",
-    "pages/mall/search/search",
     
     
     "pages/mall/mallMes/mallMes",

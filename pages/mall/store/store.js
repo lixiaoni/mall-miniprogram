@@ -22,7 +22,12 @@ Page({
     floorAreaCode:'',
     isShow:true
   },
-
+   isPurchaser:function(index){
+    var arr = wx.getStorageSync('purchaserStoreIds')
+    if(arr.indexOf(index)!=-1){
+      return true
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -38,14 +43,15 @@ Page({
       })
   },
   onLoad: function (options) {
+    this.getFloorSer()
     if (options.name){
       this.setData({
         value: options.name
       })
       this.getList({ keyword: options.name})
+    }else{
+      this.getList()
     }
-    this.getFloorSer()
-    this.getList()
   },
   // tab切换
   swichNav: function (e) {
@@ -116,8 +122,16 @@ Page({
     Api.storeSerList(data,nextPage)
       .then(res => {
       if(res.obj!==null){
-        var dataList = res.obj.result,
-          newArr=[],
+    
+        var dataList = res.obj.result
+        for (var i = 0; i < dataList.length; i++) {
+          if (_this.isPurchaser(dataList[i].storeId)) {
+            dataList[i].isPurchaser = true
+          } else {
+            dataList[i].isPurchaser = false
+          }
+        }
+        var newArr=[],
           datas = _this.data.dataList
           newArr = app.pageRequest.addDataList(datas, dataList)
         _this.setData({

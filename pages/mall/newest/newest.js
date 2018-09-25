@@ -23,15 +23,34 @@ Page({
     })
 
   },
+   isPurchaser:function(index){
+    var arr = wx.getStorageSync('purchaserStoreIds')
+    if(arr.indexOf(index)!=-1){
+      return true
+    }
+  },
   getList:function(){
     var _this=this
     Api.mallIndex()
       .then(res => {
         const obj=res.obj
+        const arrMall = obj.mallChosenGoods
+        for (var i = 0; i < arrMall.length;i++){
+          var goodsList = arrMall[i].goodsList
+          for (var j = 0; j < goodsList.length;j++){
+            if(j<5){
+              if (_this.isPurchaser(goodsList[j].storeId)) {
+                goodsList[j].isPurchaser = true
+              } else {
+                goodsList[j].isPurchaser = false
+              }
+            }
+          }
+        }
         _this.setData({
           movies: obj.banners,
           activities: obj.activities,
-          mallChosenGoods: obj.mallChosenGoods
+          mallChosenGoods: arrMall
         })
     })
   },

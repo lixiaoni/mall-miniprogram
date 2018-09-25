@@ -13,12 +13,13 @@ Page({
     showFavorite:false,
     limitShow:false,
     baseUrl: app.globalData.imageUrl,
-    token:wx.getStorageSync('access_token')
+    token:wx.getStorageSync('access_token'),
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+
   getInfo:function(){
     var _this=this,
       storeList=[]
@@ -39,8 +40,15 @@ Page({
       .then(res => {
         var obj=res.obj
        if(obj!=null){
-         var detailList = res.obj.result,
-           datas = _this.data.result,
+         var detailList = res.obj.result
+         for (var i = 0; i < detailList.length;i++){
+           if(_this.isPurchaser(detailList[i].storeId)){
+             detailList[i].isPurchaser=true
+           }else{
+             detailList[i].isPurchaser =false
+           }
+         }
+        var  datas = _this.data.result,
            newArr = app.pageRequest.addDataList(datas, detailList)
          _this.setData({
             result: newArr,
@@ -61,16 +69,28 @@ Page({
        }
       })
   },
+  isPurchaser:function(index){
+    var arr = wx.getStorageSync('purchaserStoreIds')
+    if(arr.indexOf(index)!=-1){
+      return true
+    }
+  },
   onLoad: function (options) {
-   
   },
   getNewList: function (nextPage){
     var that = this
-    Api.news(nextPage)
+    Api.news({},nextPage)
       .then(res => {
         if (res.obj != null) {
-          var detailList = res.obj.result,
-            datas = that.data.result,
+          var detailList = res.obj.result
+          for (var i = 0; i < detailList.length; i++) {
+            if (that.isPurchaser(detailList[i].storeId)) {
+              detailList[i].isPurchaser = true
+            } else {
+              detailList[i].isPurchaser = false
+            }
+          }
+          var  datas = that.data.result,
             newArr = app.pageRequest.addDataList(datas, detailList)
           that.setData({
             result: newArr,
@@ -119,7 +139,6 @@ Page({
    */
   onShow: function () {
     this.getFavorite()
-    
   },
   goStore:function(){
     wx.navigateTo({

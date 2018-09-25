@@ -46,7 +46,8 @@
           <view  class='fw-c-img fw-c-img1'><image mode="aspectFill" src='{{baseUrl}}{{item.mainImgUrl}}'></image></view>
           <view>{{item.name}}</view>
           <view>零售 <text>￥{{item.sellPrice}}</text></view>
-          <view class='new_left'>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>
+          <view hidden='{{!item.isPurchaser}}' class='new_left'>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>
+          <view hidden='{{item.isPurchaser}}' class='new_left'>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
         </view>
     </view>
 </view>

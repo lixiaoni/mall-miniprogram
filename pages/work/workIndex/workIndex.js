@@ -9,36 +9,41 @@ Page({
     orders: '',
     purchaseOrders: '',
     storeNum: '',
-    todaySaleNum: ''
+    todaySaleNum: '',
+    isSuperAdmin:wx.getStorageSync("isSuperAdmin")
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   getMes:function(){
-    var _this=this
-    Api.superAdminWork()
-    .then(res=>{
-      var obj = res.obj
-      _this.setData({
-        goodsNum: obj.goodsNum,
-        orders: obj.orders,
-        purchaseOrders: obj.purchaseOrders,
-        storeNum: obj.storeNum,
-        todaySaleNum: obj.todaySaleNum,
-      })
-    })
-    // Api.workIndex()
-    // .then(res=>{
-      // var obj=res.obj
-      // _this.setData({
-      //   goodsNum: obj.goodsNum,
-      //   orders: obj.orders,
-      //   purchaseOrders: obj.purchaseOrders,
-      //   storeNum: obj.storeNum,
-      //   todaySaleNum: obj.todaySaleNum,
-      // })
-    // })
+    var _this=this,
+      isSuperAdmin = this.data.isSuperAdmin
+    if (isSuperAdmin){
+      Api.superAdminWork()
+        .then(res => {
+          var obj = res.obj
+          _this.setData({
+            goodsNum: obj.goodsNum,
+            orders: obj.orders,
+            purchaseOrders: obj.purchaseOrders,
+            storeNum: obj.storeNum,
+            todaySaleNum: obj.todaySaleNum,
+          })
+        })
+    }else{
+      Api.workIndex()
+        .then(res => {
+          var obj = res.obj
+          _this.setData({
+            goodsNum: obj.goodsNum,
+            orders: obj.orders,
+            purchaseOrders: obj.purchaseOrders,
+            storeNum: obj.storeNum,
+            todaySaleNum: obj.todaySaleNum,
+          })
+        })
+    }
   },
   goHome: function () {
     wx.switchTab({

@@ -6,8 +6,9 @@ Page({
    */
   data: {
     currentTab: 0,
-    history: ["阿迪", "T恤", "短袖"],
-    hot: ["阿迪达斯","50"],
+    // history: ["阿迪", "T恤", "短袖"],
+    hot: ["羽绒服", "毛衣", "短袖"],
+    hot1: ["耐克", "only", "杰克琼斯", "安踏"],
   },
 
   /**
@@ -30,7 +31,6 @@ Page({
   },
   keywordHandle:function(e){
     var value = e.target.dataset.name
-    console.log(value)
     this.goSerList(value)
   },
   goSerList:function(name){
@@ -48,11 +48,11 @@ Page({
     var name = e.detail.value
     this.goSerList(name)
   },
-  removeAll() {
-    this.setData({
-      history: []
-    });
-  },
+  // removeAll() {
+    // this.setData({
+    //   history: []
+    // });
+  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

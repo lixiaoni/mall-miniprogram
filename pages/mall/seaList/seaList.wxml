@@ -1,5 +1,5 @@
 <view class="goods-ser">
-    <view url='../search/search'><input placeholder="男士眼镜"  bindconfirm="searchBtn" value="{{value}}"/></view>
+    <view url='../search/search'><input placeholder="请输入搜索关键词"  bindconfirm="searchBtn" value="{{value}}"/></view>
     <image class="home-ser"  src="/image/search.png"></image>
     <image class="home-ser home-ser1"  src="/image/ser.png" bindtap='emptyVal'></image>
 </view>
@@ -26,7 +26,8 @@
   <view  class='st-d-t'>{{item.name}}</view> 
   <view class='st-details'>
     <view class='st-d-status'>
-      <view><text>批发 </text><text class='st-mom1'>￥{{item.sellPrice}}</text></view>
+      <view hidden='{{!item.isPurchaser}}'><text>批发 </text><text class='st-mom1'>￥{{item.sellPrice}}</text></view>
+      <view hidden='{{item.isPurchaser}}'><text>批发 </text><image src='/image/wh.png'></image></view>
       <view><text>零售 </text><text class='st-mom'>￥{{item.wholesalePrice}}</text></view>
       <view>{{item.brand}}<image src='/image/mallr.png'></image></view>
       </view>
