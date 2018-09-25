@@ -22,7 +22,7 @@ Page({
   getInfo:function(){
     var _this=this,
       storeList=[]
-    Api.storeLook()
+    Api.storeLook({})
     .then(res=>{
       var obj = res.obj
       storeList.push(obj)

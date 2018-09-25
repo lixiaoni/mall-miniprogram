@@ -86,16 +86,13 @@ Component({
         })
         return
       }
-
-      loginApp.http['_headerGet']["content-type"] = "application/x-www-form-urlencoded";
-
       let obj = {
         mobile: this.data.telephone,
         password: this.data.password,
         smsCode: this.data.verificationCode
       }
 
-      loginApp.http.postRequest("/api/user/resetpassword", obj).then(res => {
+      loginApp.http.postRequest("/api/user/resetpassword", obj, { 'content-type': 'application/x-www-form-urlencoded' }).then(res => {
         if (res.code == 1) {
           wx.showToast({
             title: '密码修改成功',
@@ -126,10 +123,6 @@ Component({
         })
         return;
       }
-
-
-      loginApp.http._headerGet.Authorization = 'Basic QmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQ6ZTU2YThmMWZkOWJlMmMzMzNmYjdiZTcyNjVkMjRhYTM=';
-      loginApp.http['_headerGet']["content-type"] = "application/x-www-form-urlencoded";
       if (this.data.loginType == 'code') {
         if (this.data.verificationCode.length == 0) {
           wx.showToast({

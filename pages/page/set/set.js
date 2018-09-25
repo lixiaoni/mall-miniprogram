@@ -10,10 +10,9 @@ Page({
   },
 
   quit(){
-    app.http['_headerGet']["content-type"] = "application/x-www-form-urlencoded";
     app.http.postRequest("/oauth/authentication/removetoken",{
       accesstoken: this.data.token
-    }).then((res)=>{
+    }, { 'content-type': 'application/x-www-form-urlencoded' }).then((res)=>{
       wx.showToast({
         title: res.message,
         icon: "none"
