@@ -49,7 +49,7 @@ Page({
   //获取标签列表
   getList(obj) {
     let send = obj ? obj : {};
-    send.mallCode = 1;
+    send.mallCode = app.http.mallCode;
     //获取已选中的管理员，存起来
     app.http.getRequest("/admin/floor/malltag/{{floorCode}}/tags", { floorCode: this.data.code}).then((own) => {
       let myAdmin = own.obj ? own.obj:[];

@@ -63,7 +63,7 @@ Page({
   getList(obj) {
     console.log(obj)
     let send = obj ? obj : {};
-    send.mallCode = 1;
+    send.mallCode = app.http.mallCode;
    
       //获取所有管理员，并加上选中标识
       app.http.postRequest("/admin/floor/malluser/mallusers", send).then((res) => {

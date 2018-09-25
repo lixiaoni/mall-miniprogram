@@ -70,7 +70,7 @@ Page({
     }
     
     app.http.postRequest("/admin/floor/add",{
-      mallCode:1,
+      mallCode: app.http.mallCode,
       parentCode:this.data.id,
       type:2,
       floorNum: this.data.value.trim(),

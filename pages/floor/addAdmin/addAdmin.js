@@ -47,7 +47,7 @@ Page({
       if (/^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(this.data.value)) {
         app.http.postRequest("/admin/floor/malluser/add",{
           phone:this.data.value,
-          mallCode:1
+          mallCode: app.http.mallCode
         }).then((res)=>{
             wx.showToast({
               title: res.message,
@@ -61,7 +61,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
 
   /**

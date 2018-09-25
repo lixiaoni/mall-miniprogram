@@ -1,6 +1,10 @@
 {
 
   "pages":[
+    "pages/floor/addAdmin/addAdmin",
+    
+    "pages/page/user/user",
+    
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
     
     "pages/cloudOrder/orderList/orderList",
@@ -10,7 +14,6 @@
     "pages/work/shopList/shopList",
     
     
-    "pages/page/user/user",
     
     
     "pages/page/manageM/manageM",    
@@ -54,7 +57,6 @@
     
     "pages/mall/mallMes/mallMes",
     
-    "pages/floor/addAdmin/addAdmin",
     "pages/floor/goodsTag/goodsTag",
     "pages/floor/editAdmin/editAdmin",
     "pages/floor/adminDetail/adminDetail",
