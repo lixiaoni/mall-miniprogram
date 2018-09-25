@@ -69,12 +69,12 @@
     <image src="/image/work.png"></image>
     <view>工作台</view>
   </navigator>
-  <navigator>
+  <navigator url='../../work/shopList/shopList'>
     <image src="/image/12.png"></image>
     <view>小云店</view>
   </navigator>
   <view>
-    <image src="/image/41.png"></image>
+    <image src="/image/w12.png"></image>
     <view class='active'>我的</view>
   </view>
 </view>

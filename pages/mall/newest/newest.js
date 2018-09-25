@@ -8,7 +8,8 @@ Page({
   data: {
     movies: [],
     activities:[],
-    mallChosenGoods:[]
+    mallChosenGoods:[],
+    baseUrl: app.globalData.imageUrl,
   },
   getUrl: function () {
     wx.navigateToMiniProgram({

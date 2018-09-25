@@ -1,2 +1,2 @@
 export const productionUrl = 'https://mall.youlife.me'
-export const developmentUrl = ''
+export const imageUrl = 'https://dev.image.youlife.me/'

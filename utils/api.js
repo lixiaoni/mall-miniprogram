@@ -13,12 +13,22 @@ import {
   addressDefaultUrl,
   saveAddressUrl,
   editAddressUrl,
-  newsUrl
+  newsUrl,
+  workIndexUrl,
+  superAdminWorkUrl
 } from './constUrl.js'
 const app = getApp()
 /**mall首页**/
 function mallIndex(data) {
   return app.http.getRequest(mallIndexUrl, data)
+}
+/**超级管理员工作台首页**/
+function superAdminWork(data) {
+  return app.http.getRequest(superAdminWorkUrl, data)
+}
+/**工作台首页**/
+function workIndex(data) {
+  return app.http.getRequest(workIndexUrl, data)
 }
 /**商品搜索**/
 function goodsSer(data) {
@@ -93,5 +103,7 @@ module.exports = {
   addressInfo: addressInfo,
   editAddress: editAddress,
   addressDelete: addressDelete,
-  news: news
+  news: news,
+  workIndex: workIndex,
+  superAdminWork: superAdminWork
 }

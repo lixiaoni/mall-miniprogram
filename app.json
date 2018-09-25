@@ -4,32 +4,22 @@
     "pages/floor/addAdmin/addAdmin",
     
     "pages/page/user/user",
+    "pages/mall/follow/follow",
     
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
     
     "pages/cloudOrder/orderList/orderList",
     
-    "pages/mall/follow/follow",
+    
     "pages/work/workIndex/workIndex",
+    
+    
+    
     "pages/work/shopList/shopList",
-    
-    
-    
-    
     "pages/page/manageM/manageM",    
-    
-    
-    
-    
-    
     "pages/page/set/set",
-    
     "pages/page/updataPwd/updataPwd",
-    
-    
-    
     "pages/work/shopDetail/shopDetail",
-    
     
     "pages/mall/seaList/seaList",
     "pages/mall/class/class",
@@ -84,7 +74,7 @@
     "onReachBottomDistance": 50
   },
   "networkTimeout":{
-    "request":500
+    "request":3000
   },
   "tabBar": {
     "borderStyle": "white",

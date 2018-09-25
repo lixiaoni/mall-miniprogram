@@ -1,35 +1,40 @@
 <view class='wk-cont'>
   <view class='wk-title'>
     <text>今日销售额（元）</text>
-    <view>36588.00</view>
-    <image mode='widthFix' src='/image/xcx2.png'></image>
+    <view>{{todaySaleNum}}.00</view>
+    <image mode='widthFix' bindtap='goDerm' src='/image/xcx2.png'></image>
   </view>
   <view class='wk-bot'>
-    <view>343<text>万</text><view>商品数</view><view class='wk-xian'></view></view>
-    <view>343<view>商铺总数</view><view class='wk-xian'></view></view>
-    <view>343<view>进货单数</view><view class='wk-xian'></view></view>
-    <view>343<view>订单数</view></view>
+    <view>{{goodsNum}}<text>万</text><view>商品数</view><view class='wk-xian'></view></view>
+    <view>{{storeNum}}<view>小云店总数</view><view class='wk-xian'></view></view>
+    <view>{{purchaseOrders}}<view>进货单数</view><view class='wk-xian'></view></view>
+    <view>{{orders}}<view>订单数</view></view>
   </view>
 </view>
 <view class='wk-cont wk-cont'>
+ <!-- 超级管理员 -->
   <view class='wx-bot-cont'>
-    <view><view><image mode='widthFix' src='/image/admim1.png'></image></view><view>楼层管理</view></view>
-    <view><view><image mode='widthFix' src='/image/11.png'></image></view><view>小云店</view></view>
-    <view><view><image mode='widthFix' src='/image/admin2.png'></image></view><view>楼管管理</view></view>
-    <view><view><image mode='widthFix' src='/image/admin2.png'></image></view><view>云产品订单</view></view>
+    <navigator url='../../work/shopList/shopList'><view><image mode='widthFix' src='/image/11.png'></image></view><view>小云店</view></navigator>
   </view>
+  <!-- 楼层管理员 -->
+  <!-- <view class='wx-bot-cont'>
+    <navigator url='../../floor/adminList/adminList'><view><image mode='widthFix' src='/image/admim1.png'></image></view><view>楼层管理</view></navigator>
+    <navigator url='../../floor/floorList/floorList'><view><image mode='widthFix' src='/image/admin2.png'></image></view><view>楼管管理</view></navigator>
+    <navigator url='../../work/shopList/shopList'><view><image mode='widthFix' src='/image/11.png'></image></view><view>小云店</view></navigator>
+  </view> -->
 </view>
+<view class='goHome' bindtap='goHome'><view><image src="/image/home.png"></image></view>回首页</view>
 <view class='bottom_M'>
   <view>
     <image src="/image/work1.png"></image>
     <view  class='active'>工作台</view>
   </view>
-  <navigator>
+  <navigator url='../../work/shopList/shopList'>
     <image src="/image/12.png"></image>
     <view>小云店</view>
   </navigator>
   <navigator url='../../page/manageM/manageM'>
-    <image src="/image/42.png"></image>
+    <image src="/image/w11.png"></image>
     <view>我的</view>
   </navigator>
 </view>

@@ -8,6 +8,7 @@ Page({
   data: {
     currentTab:0,
     goodsList:[],
+    baseUrl: app.globalData.imageUrl,
     value:'',
   },
 

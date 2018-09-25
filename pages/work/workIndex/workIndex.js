@@ -1,20 +1,58 @@
-// pages/work/workIndex/workIndex.js
+import Api from '../../../utils/api.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    goodsNum:'',
+    orders: '',
+    purchaseOrders: '',
+    storeNum: '',
+    todaySaleNum: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  getMes:function(){
+    var _this=this
+    Api.superAdminWork()
+    .then(res=>{
+      var obj = res.obj
+      _this.setData({
+        goodsNum: obj.goodsNum,
+        orders: obj.orders,
+        purchaseOrders: obj.purchaseOrders,
+        storeNum: obj.storeNum,
+        todaySaleNum: obj.todaySaleNum,
+      })
+    })
+    // Api.workIndex()
+    // .then(res=>{
+      // var obj=res.obj
+      // _this.setData({
+      //   goodsNum: obj.goodsNum,
+      //   orders: obj.orders,
+      //   purchaseOrders: obj.purchaseOrders,
+      //   storeNum: obj.storeNum,
+      //   todaySaleNum: obj.todaySaleNum,
+      // })
+    // })
   },
-
+  goHome: function () {
+    wx.switchTab({
+      url: '../../page/user/user'
+    })
+  },
+  onLoad: function (options) {
+    this.getMes()
+  },
+  goDerm: function () {
+    wx.navigateTo({
+      url: '../../page/derm/derm',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

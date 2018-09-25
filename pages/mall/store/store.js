@@ -8,6 +8,7 @@ Page({
   data: {
     currentTab:0,
     stTab:0,
+    baseUrl: app.globalData.imageUrl,
     floorTab:-1,
     serHide:false,
     dataList:[],

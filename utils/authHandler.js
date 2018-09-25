@@ -135,10 +135,10 @@ class TokenHandler {
           if (res.statusCode === 200) {
             this.saveTokenInfo(res.data);
           }
-          //  else {
-          //   //强制刷新失败，清除本地的token信息，token返回为空
-          //   this.flushTokenInfo();
-          // }
+           else {
+            //强制刷新失败，清除本地的token信息，token返回为空
+            this.flushTokenInfo();
+          }
           resolve();
         })
       })
