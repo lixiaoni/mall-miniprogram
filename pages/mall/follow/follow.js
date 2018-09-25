@@ -33,9 +33,9 @@ Page({
     })
     
   },
-  getFavorite:function(){
+  getFavorite:function(nextPage){
     var _this = this
-    Api.favorite()
+    Api.favorite(nextPage)
       .then(res => {
         var obj=res.obj
        if(obj!=null){
@@ -66,7 +66,7 @@ Page({
         },function(){
           app.pageRequest.pageData.pageNum = 0
           if(index==0){
-            this.getFavorite()
+            this.getFavorite(false)
           }else{
             Api.news()
               .then(res => {
@@ -97,7 +97,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getFavorite()
+    this.getFavorite(false)
     
   },
   goStore:function(){
@@ -138,7 +138,7 @@ Page({
   onReachBottom: function () {
     var index = this.data.currentTab
     if(index==0){
-      this.getFavorite()
+      this.getFavorite(true)
     }else{
       Api.news()
     }

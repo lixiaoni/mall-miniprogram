@@ -15,7 +15,9 @@ import {
   editAddressUrl,
   newsUrl,
   workIndexUrl,
-  superAdminWorkUrl
+  superAdminWorkUrl,
+  isAdminUrl,
+  identityUserUrl
 } from './constUrl.js'
 const app = getApp()
 /**mall首页**/
@@ -25,6 +27,10 @@ function mallIndex(data) {
 /**超级管理员工作台首页**/
 function superAdminWork(data) {
   return app.http.getRequest(superAdminWorkUrl, data)
+}
+/**用户身份判断**/
+function identityUser(data) {
+  return app.http.getRequest(identityUserUrl, data)
 }
 /**工作台首页**/
 function workIndex(data) {
@@ -42,10 +48,15 @@ function news(data) {
 function storeLook() {
   return app.http.getRequest(storeLookUrl)
 }
-/**关注列表**/
-function favorite() {
-  return app.pageRequest.pageGet(favoriteUrl)
+/**判断是否是超级管理员**/
+function isAdmin() {
+  return app.http.getRequest(isAdminUrl)
 }
+/**关注列表**/
+function favorite(nextPage) {
+  return app.pageRequest.pageGet(favoriteUrl,{},nextPage)
+}
+
 /**分类一级**/
 function firstCode(data) {
   return app.http.getRequest(firstCodeUrl, data)
@@ -105,5 +116,7 @@ module.exports = {
   addressDelete: addressDelete,
   news: news,
   workIndex: workIndex,
-  superAdminWork: superAdminWork
+  superAdminWork: superAdminWork,
+  isAdmin: isAdmin,
+  identityUser:identityUser
 }

@@ -7,11 +7,15 @@ class pageRequest extends http {
       pageSize: 20
     }
   }
-  pageGet(url, data) {
+  pageGet(url, data, nextPage) {
     if(data==undefined){
       var data={}
     }
-    this.pageData.pageNum++
+    if (nextPage){
+      this.pageData.pageNum++
+    }else{
+      this.pageData.pageNum=1
+    }
     return this.getRequest(url, Object.assign(data, this.pageData))
   }
   // 追加数组
