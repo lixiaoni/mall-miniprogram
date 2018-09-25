@@ -1,48 +1,49 @@
 import AuthHandler from './authHandler.js';
 import {
-  productionUrl
+  baseUrl,
+  mallCode
 } from './const.js'
 /**
  请求
  */
 class request {
   constructor() {
-      this._baseUrl = productionUrl,
-      this._headerGet = { 'content-type': 'application/json' },
-      this._headerPost = { "Content-Type": "application/json;charset=UTF-8" },
-      this.mallCode = 1000,
-      this.newData = {},
-      this.arrUrl = ["/api/user/register", "/api/smsCode", "/api/user/register", "/api/user/resetpassword","/oauth/code/sms"],
+      this._baseUrl = baseUrl,
+      this.defaultHeader = { 'content-type': 'application/json;charset=UTF-8' },
+      this.mallCode = mallCode,
       this.authHandler = new AuthHandler()
   }
   /**
    * PUT类型的网络请求
    */
-  putRequest(url, data) {
-    return this.requestAll(url, data, 'PUT')
+  putRequest(url, data, header) {
+    return this.requestAll(url, data, 'PUT', header)
   }
   /**
    * GET类型的网络请求
    */
-  getRequest(url, data) {
-    return this.requestAll(url, data, 'GET')
+  getRequest(url, data, header) {
+    return this.requestAll(url, data, 'GET', header)
   }
   /**
    * DELETE类型的网络请求
    */
-  deleteRequest(url, data) {
-    return this.requestAll(url, data, 'DELETE')
+  deleteRequest(url, data, header) {
+    return this.requestAll(url, data, 'DELETE', header)
   }
   /**
    * POST类型的网络请求
    */
-  postRequest(url, data) {
-    return this.requestAll(url, data, 'POST')
+  postRequest(url, data, header) {
+    return this.requestAll(url, data, 'POST', header)
   }
   /**
    * 解析URL
    */
   analysisUrl(url, data) {
+    if (data == undefined || data == null){
+        return url;
+    }
     for (var key in data) {
       url = url.replace(new RegExp("\\{\\{" + key + "\\}\\}", "g"), data[key]);
     }
@@ -51,32 +52,24 @@ class request {
   /**
    * 网络请求
    */
-  requestAll(url, data, method) {
+  requestAll(url, data, method,customHeader) {
     wx.showNavigationBarLoading()
     wx.showLoading({
       title: "正在加载",
     })
     return new Promise((resolve, reject) => {
-      if (this.arrUrl.indexOf(url) == -1) {
-        if (Array.isArray(data) || data == undefined) {
-          this.newData.mallCode = this.mallCode
-          url = this.analysisUrl(url, this.newData)
-        } else {
-          data.mallCode = this.mallCode
-          url = this.analysisUrl(url, data)
-        }
-      }
+      url = this.analysisUrl(url, data);
+      var header = (customHeader === undefined || customHeader == null || customHeader == "") ? this.defaultHeader : customHeader;
       this.authHandler.getTokenOrRefresh().then(token=>{
         if (token) {
-          this._headerGet['Authorization'] = token;
+          header['Authorization'] = token;
         } else {
-          delete this._headerGet['Authorization'];
+          delete header['Authorization'];
         }
-        // this._headerGet['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsaWNlbnNlIjoibWFkZSBieSB5b3V3ZSIsInVzZXJfbmFtZSI6IjEzNjgxNTQ3NDQwIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTUzNzkzMjExNywidXNlcklkIjoiNzlmM2JiZjg2YzA1Y2Q4NTQyNmIxNWQ3YjAwMzY3YWIiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiZDNhZjk5ZTctMDMyOS00Mzc2LThiMTgtZDExNzYxOWQxZjdlIiwiY2xpZW50X2lkIjoiQmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQifQ.9Km0wfMqoQjTEIx8-sK732X-EN-xliVAoBacNl0WvSE';
       wx.request({
         url: this._baseUrl + url,
         data: data,
-        header: this._headerGet,
+        header: header,
         method: method,
         success: (res => {
           let pages = getCurrentPages()
@@ -84,8 +77,6 @@ class request {
           this.__page = curPage
           if (res.statusCode === 200) {
             resolve(res.data)
-            // curPage.onShow()
-            // curPage.onLoad()
           } else if (res.statusCode === 401) {
             curPage.loginCom = curPage.selectComponent("#login");
             curPage.loginCom.showPage();
@@ -109,5 +100,4 @@ class request {
       
   }
 }
-
 export default request

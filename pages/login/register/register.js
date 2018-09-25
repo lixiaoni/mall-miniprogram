@@ -45,8 +45,6 @@ Page({
       })
       return
     }
-    
-    app.http['_headerGet']["content-type"] = "application/x-www-form-urlencoded";
 
     let obj = {
       mobile : this.data.telephone,
@@ -54,7 +52,7 @@ Page({
       smsCode : this.data.verificationCode
     }
 
-    app.http.postRequest("/api/user/register", obj).then(res => {
+    app.http.postRequest("/api/user/register", obj, { 'content-type': 'application/x-www-form-urlencoded' }).then(res => {
       wx.showToast({
         title: res.message,
         icon: 'none'

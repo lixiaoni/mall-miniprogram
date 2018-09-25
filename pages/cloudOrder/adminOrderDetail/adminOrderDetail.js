@@ -48,10 +48,9 @@ Page({
       })
       return
     }
-    app.http['_headerGet']["content-type"] = "application/x-www-form-urlencoded";
     app.http.postRequest("/admin/ystore/order/" + num + "/uploadpayvoucher", {
       payVoucher: payCode
-    }).then(res => {
+    }, { 'content-type': 'application/x-www-form-urlencoded' }).then(res => {
       wx.showToast({
         title: res.message,
         icon: 'none'

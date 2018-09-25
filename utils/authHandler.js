@@ -1,10 +1,16 @@
-// 认证token处理类
+import {
+  baseUrl,
+  basicAuthorization
+} from './const.js'
+/**
+ *  认证token处理类
+ * */
 class TokenHandler {
   //构造函数
   constructor() {
-    //初始化基础的认证常量
-    this.basicAuthorization = 'Basic QmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQ6ZTU2YThmMWZkOWJlMmMzMzNmYjdiZTcyNjVkMjRhYTM=',
-      this.baseUrl = "https://mall.youlife.me";
+      //初始化基础的认证常量
+      this.basicAuthorization = basicAuthorization,
+      this.baseUrl = baseUrl;
   }
   /**
    * 获取商户编号

@@ -39,11 +39,10 @@ Page({
         re = this.data.re,
         old = this.data.old;
     if (newpass == re & newpass!=""){
-      app.http['_headerGet']["content-type"] = "application/x-www-form-urlencoded";
       app.http.postRequest("/oauth/authentication/changepassword",{
         oldPassword: old,
         newPassword: newpass
-      }).then((res)=>{
+      }, { 'content-type': 'application/x-www-form-urlencoded' }).then((res)=>{
         wx.showToast({
           title: res.message,
           icon:'none'
