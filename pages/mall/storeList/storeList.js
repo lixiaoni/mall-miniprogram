@@ -13,12 +13,25 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  isPurchaser: function (index) {
+    var arr = Api.getPurchaserStoreIds()
+    if (arr.indexOf(index) != -1) {
+      return true
+    }
+  },
   getInfo: function (index) {
     var _this = this,
       dataList = []
     Api.storeLook()
       .then(res => {
         var obj = res.obj
+        for (var i = 0; i < obj.length; i++) {
+          if (_this.isPurchaser(obj[i].storeId)) {
+            obj[i].isPurchaser = true
+          } else {
+            obj[i].isPurchaser = false
+          }
+        }
         dataList.push(obj)
         wx.setNavigationBarTitle({
           title:obj.name
