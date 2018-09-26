@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "小云店管理",
+  "usingComponents": {
+    "login": "../../login/login/login"
+  }
+}

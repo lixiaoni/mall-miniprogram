@@ -23,7 +23,7 @@ Page({
     isShow:true
   },
    isPurchaser:function(index){
-    var arr = wx.getStorageSync('purchaserStoreIds')
+     var arr = Api.getPurchaserStoreIds()
     if(arr.indexOf(index)!=-1){
       return true
     }

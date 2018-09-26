@@ -18,3 +18,4 @@ export const superAdminWorkUrl='/admin/mall/store/{{mallCode}}/index'
 export const isAdminUrl='/api/mall/user/relation/{{mallCode}}'
 export const identityUserUrl ='/api/user/byuserid'
 export const adminMallStoreListUrl = "/admin/mall/store/storelist"
+export const purchaserStoreUrl = '/api/user/purchaser/store'
