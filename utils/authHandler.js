@@ -193,6 +193,15 @@ class TokenHandler {
     }
   }
 
+
+/**
+ * 判断用户是否登录
+ */
+  static isLogin(){
+    let token = wx.getStorageSync('access_token')
+    return  token!=null&&token!=undefined&&token!="";
+  }
+
   /**
    * 设置缓存信息
    */
