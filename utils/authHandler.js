@@ -8,8 +8,8 @@ import {
 class TokenHandler {
   //构造函数
   constructor() {
-      //初始化基础的认证常量
-      this.basicAuthorization = basicAuthorization,
+    //初始化基础的认证常量
+    this.basicAuthorization = basicAuthorization,
       this.baseUrl = baseUrl;
   }
   /**
@@ -87,28 +87,28 @@ class TokenHandler {
    */
   getTokenOrRefresh() {
     return new Promise((resolve, reject) => {
-        let expiresIn = wx.getStorageSync('expires_in');
-        if (!expiresIn) {
-          resolve(null);
-          return;
-        }
-        let timestamp = Date.parse(new Date);
-        let isExpire = (expiresIn < timestamp);
-        let accessToken;
-        //如果token过期
-        if (isExpire) {
-          //强制刷新token
-          this.forceRefreshToken().then(() => {
-            let accessToken = wx.getStorageSync('token_type') + " " + wx.getStorageSync('access_token');
-            resolve(accessToken);
-          });
-
-        } else {
-          if (wx.getStorageSync('access_token')) {
-            accessToken = wx.getStorageSync('token_type') + " " + wx.getStorageSync('access_token');
-          }
+      let expiresIn = wx.getStorageSync('expires_in');
+      if (!expiresIn) {
+        resolve(null);
+        return;
+      }
+      let timestamp = Date.parse(new Date);
+      let isExpire = (expiresIn < timestamp);
+      let accessToken;
+      //如果token过期
+      if (isExpire) {
+        //强制刷新token
+        this.forceRefreshToken().then(() => {
+          let accessToken = wx.getStorageSync('token_type') + " " + wx.getStorageSync('access_token');
           resolve(accessToken);
+        });
+
+      } else {
+        if (wx.getStorageSync('access_token')) {
+          accessToken = wx.getStorageSync('token_type') + " " + wx.getStorageSync('access_token');
         }
+        resolve(accessToken);
+      }
     });
   }
 
@@ -125,6 +125,8 @@ class TokenHandler {
         resolve()
         return
       }
+      //移除refreshToken
+      wx.removeStorageSync('refresh_token');
 
       wx.request({
         url: this.baseUrl + '/oauth/token',
@@ -141,9 +143,12 @@ class TokenHandler {
           if (res.statusCode === 200) {
             this.saveTokenInfo(res.data);
           }
-           else {
+          else {
             //强制刷新失败，清除本地的token信息，token返回为空
-            this.flushTokenInfo();
+            let newRefreshToken = wx.getStorageSync('refresh_token');
+            if (refreshToken == newRefreshToken) {
+              this.flushTokenInfo();
+            }
           }
           resolve();
         })
@@ -194,12 +199,12 @@ class TokenHandler {
   }
 
 
-/**
- * 判断用户是否登录
- */
-  static isLogin(){
+  /**
+   * 判断用户是否登录
+   */
+  static isLogin() {
     let token = wx.getStorageSync('access_token')
-    return  token!=null&&token!=undefined&&token!="";
+    return token != null && token != undefined && token != "";
   }
 
   /**
