@@ -52,6 +52,8 @@ Page({
             wx.navigateBack({})
           },1000)
         }
+      }).catch(e=>{
+        consle.log(e)
       })
     }else{
       wx.showToast({

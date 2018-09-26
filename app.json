@@ -1,15 +1,19 @@
 {
 
   "pages":[
+    "pages/page/user/user",
+    
+    "pages/floor/floorList/floorList",
+    
+    
+    
     "pages/mall/follow/follow",
     "pages/mall/search/search",
     "pages/mall/seaList/seaList",
     
     
-    "pages/page/user/user",
     
     "pages/mall/store/store",
-    "pages/floor/floorList/floorList",
     "pages/floor/addAdmin/addAdmin",
     
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",

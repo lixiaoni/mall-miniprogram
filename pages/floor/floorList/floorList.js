@@ -75,7 +75,6 @@ Page({
       code: id,
       name: this.data.newName.trim()
     }, 'put').then((res) => {
-      if (res.code == 1) {
         this.setData({
           id,
           companyName: this.data.newName.trim(),
@@ -83,7 +82,6 @@ Page({
         })
 
         this.getList()
-      }
     })
   },
   showName() {

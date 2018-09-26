@@ -14,19 +14,15 @@ Page({
     let index = e.currentTarget.dataset.index;
     if (this.data.tags[index].isSlected) {
       app.http.deleteRequest("/admin/floor/floortag/" + e.currentTarget.dataset.id + "/" + this.data.code).then((res) => {
-        if (res.code == 1) {
           this.setData({
             ['tags[' + index + '].isSlected']: false
           })
-        }
       })
     } else {
       app.http.getRequest("/admin/floor/floortag/" + e.currentTarget.dataset.id + "/allocation/" + this.data.code).then((res) => {
-        if (res.code == 1) {
           this.setData({
             ['tags[' + index + '].isSlected']: true
           })
-        }
       })
     }
   },

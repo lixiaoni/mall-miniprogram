@@ -23,16 +23,16 @@ Page({
   bindDateChange(e) {
     let date = e.detail.value;
     app.http.putRequest("/api/user/birthday/" + date).then(res => {
-      after(res)
+      this.after(res)
     })
   },
   choseSex(e) {
-    var text = e.target.dataset.text.val
+    var text = e.target.dataset.text
     this.setData({
       show: true
     })
     app.http.putRequest("/api/user/gender/" + text).then(res => {
-      after(res)
+      this.after(res)
     })
   },
   after(res) {
@@ -40,11 +40,18 @@ Page({
       this.getData()
     }
   },
+  //改微信
+  changeWx(){
+
+  },
+  //改头像
+  changeIcon(){
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData()
   },
   updataSex(e) {
     this.setData({

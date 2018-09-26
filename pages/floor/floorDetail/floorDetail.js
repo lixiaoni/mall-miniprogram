@@ -123,13 +123,11 @@ Page({
         title: res.message,
         icon:'none'
       })
-      if(res.code == 1){
-        setTimeout(()=>{
-          wx.navigateBack({
-            delta: 1
-          })
-        },1000)
-      }
+      setTimeout(()=>{
+        wx.navigateBack({
+          delta: 1
+        })
+      },1000)
     })
   },
   //跳转tag

@@ -29,19 +29,15 @@ Page({
     let index = e.currentTarget.dataset.index;
     if (this.data.admin[index].isSlected){
       app.http.deleteRequest("/admin/floor/userfloor/" + this.data.code + "/" + e.currentTarget.dataset.id).then((res)=>{
-        if (res.code == 1) {
           this.setData({
             ['admin[' + index + '].isSlected']: false
           })
-        }
       })
     }else{
       app.http.getRequest("/admin/floor/userfloor/" + this.data.code + "/allocation/" + e.currentTarget.dataset.id).then((res) => {
-        if(res.code == 1){
           this.setData({
             ['admin['+index+'].isSlected'] : true
           })
-        }
       })
     }
   },

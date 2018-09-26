@@ -12,7 +12,7 @@
 <view class='page_bd'>
   <view class='weui-back'>
     <navigator class='weui-cell' url='../update/update?name={{user.nickName}}'>
-      <view class='weui-cell__bd'>
+      <view class='weui-cell__bd' bindtap='changeIcon'>
         用户昵称
         <text>{{user.nickName}}</text>
       </view>
@@ -32,7 +32,7 @@
     </view>
     <view class='weui-cell'>
       <view class='weui-cell__bd'>
-        <picker class='picker' mode="date" value="{{order.date}}" start="1900-01-01" end="2017-09-01" bindchange="bindDateChange">
+        <picker class='picker' mode="date" value="{{user.birthday}}" start="1900-01-01" end="2017-09-01" bindchange="bindDateChange">
           出生日期
           <text>{{user.birthday}}</text>
         </picker>
@@ -43,7 +43,7 @@
     </view>
 
     <view class='weui-cell'>
-      <view class='weui-cell__bd' bindtap='chooseAddress'>
+      <view class='weui-cell__bd' bindtap='changeWx'>
         微信号
         <text>cc2392788</text>
       </view>

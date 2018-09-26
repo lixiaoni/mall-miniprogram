@@ -46,17 +46,13 @@ Page({
       "tagColor": this.data.background,
       "tagName": this.data.inputValue
     }).then((res)=>{
-      if(res.code == 1){
-        wx.showToast({
-          title: '创建成功',
-          icon:'none'
-        })
-        setTimeout(()=>{
-          wx.navigateBack({
-
-          })
-        },1000)
-      }
+      wx.showToast({
+        title: res.message,
+        icon: 'none'
+      })
+      setTimeout(()=>{
+        wx.navigateBack()
+      },800)
     })
     
   },

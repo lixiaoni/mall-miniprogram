@@ -113,15 +113,16 @@ Page({
     app.http.deleteRequest("/admin/floor/" + this.data.code).then((res) => {
       wx.showToast({
         title: res.message,
-        icon:none
+        icon:'none'
       })
-      if (res.code == 1) {
-        setTimeout(() => {
-          wx.navigateBack({
-            delta: 1
-          })
-        }, 1000)
-      }
+      this.setData({
+        delModal: false
+      })
+      setTimeout(() => {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 1000)
     })
   },
   /**

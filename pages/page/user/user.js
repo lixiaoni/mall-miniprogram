@@ -31,7 +31,7 @@ Page({
       }
     }).catch(e=>{
       this.setData({
-        user: {},
+        user: "",
         hasUser: false
       })
     })

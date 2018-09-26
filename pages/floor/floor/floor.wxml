@@ -28,7 +28,7 @@
 
   </view>
 
-  <block wx:for='{{floorList}}'>
+  <block wx:key='{{index}}' wx:for='{{floorList}}'>
     <view class='floor-part-box'>
       <view class='floor-part flex-box'>
         <view class='column-box'>
@@ -39,7 +39,7 @@
           
           <view class='area-img-list'  data-code='{{item.code}}' bindtap='toFloorDetail'>
             <view wx:if="{{item.userList}}">
-              <block wx:for='{{item.userList}}' wx:for-item='ad'>
+              <block wx:key='{{index}}' wx:for='{{item.userList}}' wx:if="{{index<3}}" wx:for-item='ad'>
                 <image style='right:{{40*index}}rpx;z-index:{{10-index}}' class='floor-admin area-admin' src="{{ad.headPic?ad.headPic:'/image/41.png'}}"></image>
               </block>
             </view>
@@ -51,17 +51,17 @@
       </view>
 
       <!-- 区 -->
-      <block wx:for="{{item.childList}}" wx:for-item="area">
+      <block wx:key='{{index}}' wx:for="{{item.childList}}" wx:for-item="area">
         <view class='floor-part flex-box area-box'>
           <view class='column-box'>
             <view class='area-title title-box'>{{area.name}}</view>
-            <block wx:for='{{area.tags}}' wx:for-item="tag">
+            <block wx:if='{{index<3}}' wx:key='{{index}}' wx:for='{{area.tags}}' wx:for-item="tag">
               <text class='area-type'>{{tag.tagName}}</text>
             </block>
           </view>
           <view class='area-img-list' data-code='{{area.code}}' bindtap='toAreaDetail'>
               <view wx:if="{{area.userList}}">
-                <block wx:for='{{area.userList}}' wx:for-item='ad'>
+                <block wx:key='{{index}}' wx:for='{{area.userList}}'  wx:if="{{index<3}}" wx:for-item='ad'>
                   <image style='right:{{40*index}}rpx;z-index:{{10-index}}' class='floor-admin area-admin' src="{{ad.headPic?ad.headPic:'/image/41.png'}}"></image>
                 </block>
               </view>
