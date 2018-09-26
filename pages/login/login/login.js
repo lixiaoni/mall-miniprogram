@@ -93,17 +93,10 @@ Component({
       }
 
       loginApp.http.postRequest("/api/user/resetpassword", obj, { 'content-type': 'application/x-www-form-urlencoded' }).then(res => {
-        if (res.code == 1) {
-          wx.showToast({
-            title: '密码修改成功',
-            icon: 'none',
-          })
-        } else {
           wx.showToast({
             title: res.message,
             icon: 'none',
           })
-        }
       })
     },
     //登录
@@ -157,6 +150,11 @@ Component({
         };
         loginApp.authHandler.loginByUser(this.data.telephone, this.data.password).then(res => {
           this.loginAfter(res);
+        }).catch(e=>{
+          wx.showToast({
+            title: '账户密码错误',
+            icon:'none'
+          })
         })
       }
 

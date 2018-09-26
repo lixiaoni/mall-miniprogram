@@ -13,14 +13,14 @@
   <scroll-view scroll-x='true'>
     <view class='flex'>
       <block wx:for="{{tab}}" wx:key="{{index}}">
-        <view bindtap='switchTab' data-index='{{index}}' data-type='{{item.type}}' class="search-item {{item.check?'ac-item':''}}">{{item.name}}{{item.num?"("+item.num+")":""}}</view>
+        <view bindtap='switchTab' data-index='{{index}}' data-type='{{item.type}}' class="search-item {{item.check?'ac-item':''}}">{{item.name}}{{item.num?"("+item.num+")":"(0)"}}</view>
       </block>
     </view>
   </scroll-view>
 </view>
 
 <!-- 商品 -->
-<view wx:if="{{list.length>0}}">
+<view>
   <block wx:key="{{index}}" wx:for="{{list}}">
     <navigator url='../shopDetail/shopDetail?id={{item.storeId}}'>
       <view class='goods-item'>
@@ -56,7 +56,6 @@
     </navigator>
   </block>
 </view>
-<view class='goods-item' wx:else>无</view>
 <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
   <view class="weui-loading"></view>
   <view class="weui-loadmore__tips">正在加载</view>

@@ -76,10 +76,12 @@ Page({
       })  
     },10000)
 
+    let next = true;
     if (re) {
       app.pageRequest.pageData.pageNum = 0;
+      next = false;
     }
-    app.pageRequest.pageGet("/admin/mall/store/storelist", obj).then((res)=>{
+    app.pageRequest.pageGet("/admin/mall/store/storelist", obj, next).then((res)=>{
       clearTimeout(timer);
       this.setData({
         isHideLoadMore: true

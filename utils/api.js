@@ -17,7 +17,8 @@ import {
   workIndexUrl,
   superAdminWorkUrl,
   isAdminUrl,
-  identityUserUrl
+  identityUserUrl,
+  adminMallStoreListUrl
 } from './constUrl.js'
 
 import {
@@ -63,11 +64,19 @@ function isAdmin(data) {
   data = initMallCode(data);
   return app.http.getRequest(isAdminUrl, data)
 }
+/**超级管理员小云店管理**/
+function adminShopList(data,nextPage){
+  data = initMallCode(data);
+  return app.pageRequest.pageGet(adminMallStoreListUrl, data, nextPage)
+}
 /**关注列表**/
 function favorite(nextPage) {
   return app.pageRequest.pageGet(favoriteUrl,{},nextPage)
 }
-
+/**上传图片**/
+function uploadImage(types) {
+  return app.http.chooseImageUpload(types)
+}
 /**分类一级**/
 function firstCode(data) {
   return app.http.getRequest(firstCodeUrl, data)
@@ -126,6 +135,7 @@ module.exports = {
   goodsSer: goodsSer,
   storeLook: storeLook,
   favorite: favorite,
+  uploadImage: uploadImage,
   firstCode: firstCode,
   childCategoryCode:childCategoryCode,
   storeSerList:storeSerList,
@@ -141,5 +151,6 @@ module.exports = {
   workIndex: workIndex,
   superAdminWork: superAdminWork,
   isAdmin: isAdmin,
-  identityUser:identityUser
+  identityUser:identityUser,
+  adminShopList
 }

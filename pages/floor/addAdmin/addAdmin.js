@@ -22,17 +22,21 @@ Page({
     if(/^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(this.data.value)){
       app.http.getRequest("/admin/user/bymobile/" + this.data.value).then((res)=>{
         let r ;
-        if(res.code == 0){
-          //没注册
-          r = false;
-        }else if(res.code == 1){
-          //已注册
-          r = true;
-        }
+        //已注册
+        r = true;
         this.setData({
           register:r,
           check:true
         })
+      }).catch(e=>{
+        if(e.code == 2) {
+          //没注册
+          r = false;
+          this.setData({
+            register: r,
+            check: true
+          })
+        }
       })
     }else{
       wx.showToast({

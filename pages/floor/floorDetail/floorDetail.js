@@ -52,13 +52,10 @@ Page({
             editModal: false
           })
           this.loadPart(['floorTitle', 'floorType'])
-          if(res.code == 1){
             wx.showToast({
               title: '修改成功',
               icon: 'none'
             })
-           
-          }
       })
     }
   },
@@ -160,13 +157,11 @@ Page({
           areaModal: false
         })
         this.loadPart(['area'])
-        if (res.code == 1) {
           wx.showToast({
-            title: '新建成功',
+            title: res.message,
             icon: 'none'
           })
           
-        }
       })
     }
   },

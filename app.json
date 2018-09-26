@@ -3,6 +3,25 @@
   "pages":[
     "pages/page/user/user",
     
+    "pages/work/adminShopList/adminShopList",
+    
+    
+    
+    "pages/cloudOrder/orderList/orderList",
+    
+    "pages/work/shopList/shopList",
+    
+    
+    
+    
+    
+    
+    
+    "pages/floor/adminList/adminList",
+    
+    
+    
+    
     "pages/floor/floorList/floorList",
     
     
@@ -15,10 +34,8 @@
     "pages/floor/addAdmin/addAdmin",
     
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
-    "pages/cloudOrder/orderList/orderList",
     "pages/work/workIndex/workIndex",
 
-    "pages/work/shopList/shopList",
     "pages/page/manageM/manageM",    
     "pages/page/set/set",
     "pages/page/updataPwd/updataPwd",
@@ -30,7 +47,6 @@
     "pages/page/addressWe/addressWe",
     "pages/page/shopkeeper/shopkeeper",
     "pages/page/userDetails/userDetails",
-    "pages/floor/adminList/adminList",
     "pages/page/newAddress/newAddress",
     "pages/page/details/details",
     "pages/mall/newest/newest",

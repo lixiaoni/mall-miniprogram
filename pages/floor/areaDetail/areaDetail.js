@@ -81,13 +81,11 @@ Page({
         this.setData({
           areaModal: false
         })
-        if (res.code == 1){
           this.loadPage(['areaTitle'])
           wx.showToast({
             title: res.message,
             icon: "none"
           })
-        }
       })
     }else{
       wx.showToast({

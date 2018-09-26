@@ -7,7 +7,8 @@
     <view class="weui-cell__name">
       <text class='user-text'>{{user.name}}</text>
       <image src='/image/ermR.png'></image>
-      <view class='floor-admin'>楼层管理员</view>
+      <view wx:if='{{isSuperAdmin}}' class='floor-admin'>超级管理员</view>
+      <view wx:else class='floor-admin'>楼层管理员</view>
       <view class="weui-dp">
         <image src='/image/dp.png' mode="widthFix"></image>{{user.mallName}} {{user.deptName}}
       </view>
@@ -17,7 +18,7 @@
       </view> -->
   </view>
 </view>
-<view class="weui_cells ">
+<view class="weui_cells " wx:if="{{!isSuperAdmin}}">
   <view>
     <text class="store-address">优惠码 </text>
     <view class='weui-view'>
@@ -55,7 +56,7 @@
     </view>
   </view>
 </view>
-<view class="weui_cells ">
+<view class="weui_cells "  wx:if="{{!isSuperAdmin}}">
   <view>
     <image src="/image/yq.png"></image>
     <text class="store-address">邀请商户开启小云店 </text>
@@ -65,11 +66,11 @@
   </view>
 </view>
 <view class='bottom_M'>
-  <navigator   url='../../work/workIndex/workIndex'>
+  <navigator  open-type='redirect'  url='../../work/workIndex/workIndex'>
     <image src="/image/work.png"></image>
     <view>工作台</view>
   </navigator>
-  <navigator url='../../work/shopList/shopList'>
+  <navigator  url='{{isSuperAdmin?"../../work/adminShopList/adminShopList":"../../work/shopList/shopList"}}'>
     <image src="/image/12.png"></image>
     <view>小云店</view>
   </navigator>

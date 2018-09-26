@@ -1,4 +1,5 @@
 // pages/cloudOrder/orderList/orderList.js
+import Api from '../../../utils/api.js'
 const app = getApp();
 Page({
 
@@ -76,13 +77,15 @@ Page({
     this.getList(true);
   },
   getList(re) {
+    let next = true; 
     if(re){
       app.pageRequest.pageData.pageNum = 0;
       this.setData({
         list:[]
       })
+      next=false;
     }
-    app.pageRequest.pageGet("/admin/ystore/order/merchant/" + this.data.which).then(res => {
+    app.pageRequest.pageGet("/admin/ystore/order/merchant/" + this.data.which, {}, next).then(res => {
       if (!res.success) { return }
       this.setData({
         list: this.data.list.concat(res.obj.result)
@@ -93,7 +96,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getList()
+    this.getList(true)
+    this.setData({
+      baseUrl: app.globalData.imageUrl
+    })
   },
 
   /**

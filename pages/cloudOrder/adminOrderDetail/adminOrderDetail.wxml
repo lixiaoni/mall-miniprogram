@@ -16,7 +16,7 @@
       <text class="com">新购-来自</text>
     </view>
     <view>
-      <text class="price">￥{{msg.payAmount}}</text>
+      <text class="price">￥{{msg.orderAmount}}</text>
     </view>
   </view>
 
@@ -96,7 +96,7 @@
   </view>
   <view class='pay-item' style='padding:0;'>
     <text class='msg-title'>实付金额</text>
-    <text class="msg-content gold">￥{{msg.payAmount}}</text>
+    <text class="msg-content gold">￥{{msg.orderAmount}}</text>
   </view>
 </view>
 <view class='company'>优生活技术支持</view>
