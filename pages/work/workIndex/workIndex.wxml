@@ -18,8 +18,8 @@
   </view>
   <!-- 超级管理员 -->
   <view class='wx-bot-cont'  hidden='{{!isSuperAdmin}}'>
-    <navigator url='../../floor/adminList/adminList'><view><image mode='widthFix' src='/image/admim1.png'></image></view><view>楼层管理</view></navigator>
-    <navigator url='../../floor/floorList/floorList'><view><image mode='widthFix' src='/image/admin2.png'></image></view><view>楼管管理</view></navigator>
+    <navigator url='../../floor/floorList/floorList'><view><image mode='widthFix' src='/image/admim1.png'></image></view><view>楼层管理</view></navigator>
+    <navigator url='../../floor/adminList/adminList'><view><image mode='widthFix' src='/image/admin2.png'></image></view><view>楼管管理</view></navigator>
     <navigator url='../../work/shopList/shopList'><view><image mode='widthFix' src='/image/11.png'></image></view><view>小云店</view></navigator>
   </view>
 </view>
