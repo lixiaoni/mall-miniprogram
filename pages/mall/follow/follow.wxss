@@ -60,13 +60,17 @@
   text-align: left;margin-left: 10rpx;
 }
 .fw-no{
-  font-size: 48rpx;height: 225rpx;background: #fff;border-top: 2rpx solid #EFEFEF;padding-top: 45rpx;padding-left:40rpx;font-weight: bold
+  font-size: 48rpx;background: #fff;border-top: 2rpx solid #EFEFEF;padding-top: 50rpx;padding-left:50rpx;font-weight: bold;
+  padding-bottom:25rpx;
 }
 .fw-no view:last-child{
   font-size: 24rpx;color: #666;font-weight: normal
 }
+.fw-no view:first-child{
+  line-height: 40rpx;
+}
 .lw-pop{
-  padding:35rpx 45rpx;font-size: 40rpx;background: #fff;
+  padding:35rpx 50rpx;font-size: 40rpx;background: #fff;
 }
 .lw-pop>view:first-child{
  font-weight: bold;
