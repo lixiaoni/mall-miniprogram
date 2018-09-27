@@ -46,6 +46,16 @@ class TokenHandler {
         success: (res => {
           if (res.statusCode === 200) {
             this.saveTokenInfo(res.data);
+          }else if(res.statusCode===400){
+            wx.showToast({
+              title: '用户名或密码错误',
+              icon: 'none'
+            });
+          }else {
+            wx.showToast({
+              title: '认证异常',
+              icon: 'none'
+            });
           }
           resolve(res.data);
         })
@@ -74,6 +84,16 @@ class TokenHandler {
         success: (res => {
           if (res.statusCode === 200) {
             this.saveTokenInfo(res.data);
+          } else if (res.statusCode === 400) {
+            wx.showToast({
+              title: '验证码错误',
+              icon: 'none'
+            });
+          } else {
+            wx.showToast({
+              title: '认证异常',
+              icon: 'none'
+            });
           }
           resolve(res.data);
         })
