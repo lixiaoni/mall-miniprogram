@@ -1,4 +1,5 @@
 const app = getApp(); 
+import API from '../../../utils/api.js';
 // pages/register/register.js
 Page({
   /**
@@ -52,7 +53,7 @@ Page({
       smsCode : this.data.verificationCode
     }
 
-    app.http.postRequest("/api/user/register", obj, { 'content-type': 'application/x-www-form-urlencoded' }).then(res => {
+    API.register(obj).then(res => {
       wx.showToast({
         title: res.message,
         icon: 'none'
@@ -121,9 +122,10 @@ Page({
         icon: 'none',
       })
     } else {
-      app.http.getRequest("/api/smsCode", { mobile: this.data.telephone }).then(res => {
+      API.registerPhoneMsg({ mobile: this.data.telephone }).then(res => {
 
       })
+      
       //获取验证码倒计时
       let sec = this.data.btnSec;
       this.setData({

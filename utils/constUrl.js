@@ -19,3 +19,7 @@ export const isAdminUrl='/api/mall/user/relation/{{mallCode}}'
 export const identityUserUrl ='/api/user/byuserid'
 export const adminMallStoreListUrl = "/admin/mall/store/storelist"
 export const purchaserStoreUrl = '/api/user/purchaser/store'
+export const resetPasswordUrl = "/api/user/resetpassword"
+export const phoneMessageUrl = "/oauth/code/sms"
+export const registerUrl = "/api/user/register"
+export const registerPhoneMsgUrl = "/api/smsCode"
