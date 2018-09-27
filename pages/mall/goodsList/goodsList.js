@@ -53,6 +53,7 @@ Page({
     }
   },
   getSerList(code){
+    var _this=this
     Api.goodsSer({ mallCode: 1000, categoryCode: code})
       .then(res => {
         const obj = res.obj

@@ -7,9 +7,19 @@ Page({
    */
   data: {
     list: [],
-    userId: '123',
     show1: false,
     id: '',
+  },
+
+  selectAdd(e) {
+    let obj = this.data.list[e.currentTarget.dataset.index];
+    var pages = getCurrentPages();
+    if (pages.length > 1) {
+      //上一个页面实例对象
+      var prePage = pages[pages.length - 2];
+      prePage.getAddress(obj)
+      wx.navigateBack();
+    }
   },
 
   /**
@@ -17,15 +27,13 @@ Page({
    */
 
   onLoad: function (options) {
-   
+    this.getList()
   },
   getList: function () {
-    var _this = this,
-      userId = this.data.userId
+    var _this = this
     Api.addressList()
       .then(res => {
         var res = res.obj
-        console.log(res)
         _this.setData({
           list: res,
           show1: false,
@@ -35,22 +43,24 @@ Page({
   selectList(e) {
     const index1 = e.currentTarget.dataset.index,
       id = e.target.dataset.id,
-      userId = this.data.userId,
-      array = this.data.list
-    array.forEach((item, index, arr) => {
-      var sItem = "list[" + index + "].isDefault"
-      this.setData({
-        [sItem]: false,
-      })
-    })
-    array[index1].isDefault = true
-    Api.addressDefault({id: id })
-      .then(res => {
-        var res = res.obj
-      })
-    this.setData({
-      list: array
-    })
+      array = this.data.list,
+      _this = this,
+      code = e.currentTarget.dataset.code
+    if (code == 0) {
+      Api.removeDefault({ id: id })
+        .then(res => {
+          var res = res.obj
+          _this.getList()
+        })
+    } else {
+      Api.addressDefault({ id: id })
+        .then(res => {
+          var res = res.obj
+          _this.getList()
+        })
+
+    }
+
   },
   // 删除
   deleteList(e) {

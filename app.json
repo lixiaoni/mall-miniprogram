@@ -1,6 +1,8 @@
 {
 
   "pages":[
+    "pages/mall/follow/follow",
+    
     "pages/page/user/user",
     
     "pages/floor/adminList/adminList",
@@ -34,7 +36,6 @@
     
     
     
-    "pages/mall/follow/follow",
     "pages/mall/search/search",
     "pages/mall/seaList/seaList",
     

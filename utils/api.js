@@ -18,6 +18,7 @@ import {
   superAdminWorkUrl,
   isAdminUrl,
   identityUserUrl,
+  removeDefaultUrl,
   adminMallStoreListUrl,
   purchaserStoreUrl,
   resetPasswordUrl,
@@ -50,6 +51,10 @@ function identityUser(data) {
 /**工作台首页**/
 function workIndex(data) {
   return app.http.getRequest(workIndexUrl, data)
+}
+/**取消默认地址**/
+function removeDefault(data) {
+  return app.http.putRequest(removeDefaultUrl, data)
 }
 /**商品搜索**/
 function goodsSer(data, nextPage) {
@@ -202,6 +207,7 @@ module.exports = {
   workIndex: workIndex,
   superAdminWork: superAdminWork,
   isAdmin: isAdmin,
+  removeDefault:removeDefault,
   identityUser:identityUser,
   adminShopList: adminShopList,
   getPurchaserStoreIds: getPurchaserStoreIds,
