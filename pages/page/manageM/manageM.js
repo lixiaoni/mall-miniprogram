@@ -15,7 +15,7 @@ Page({
     })
   },
   getData() {
-    app.http.getRequest("/admin/floor/malluser/logininfo").then((res) => {
+    app.http.getRequest("/admin/floor/malluser/logininfloor").then((res) => {
       if (res.obj){
         this.setData({
           user:res.obj

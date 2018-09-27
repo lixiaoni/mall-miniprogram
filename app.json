@@ -1,9 +1,13 @@
 {
 
   "pages":[
+    "pages/page/user/user",
+    
+    "pages/mall/mallMes/mallMes",
+    
+    
     "pages/mall/follow/follow",
     
-    "pages/page/user/user",
     
     "pages/floor/adminList/adminList",
     
@@ -61,7 +65,6 @@
     "pages/mall/newest/newest",
     
     
-    "pages/mall/mallMes/mallMes",
     
     "pages/floor/goodsTag/goodsTag",
     "pages/floor/editAdmin/editAdmin",

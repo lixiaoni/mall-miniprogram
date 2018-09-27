@@ -71,7 +71,7 @@
 }
 .user-img{
   width: 44rpx;
-  height: 41rpx;
+  height: 44rpx;
   margin-right:30rpx;
 }
 .user-img1{
