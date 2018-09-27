@@ -1,13 +1,14 @@
 {
 
   "pages":[
+    "pages/mall/follow/follow",
+    
     "pages/page/user/user",
     
     "pages/floor/floorList/floorList",
     
     
     
-    "pages/mall/follow/follow",
     "pages/mall/search/search",
     "pages/mall/seaList/seaList",
     

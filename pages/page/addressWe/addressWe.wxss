@@ -15,6 +15,9 @@
 .aw-list view{
   padding-top: 35rpx;
 }
+.aw-list view.two-view{
+  padding-top:5rpx;
+}
 .aw-list .aw-edit{
   margin-top: 30rpx;
   padding-top:0;height: 100rpx;line-height: 100rpx;

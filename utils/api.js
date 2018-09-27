@@ -18,7 +18,8 @@ import {
   superAdminWorkUrl,
   isAdminUrl,
   identityUserUrl,
-  purchaserStoreUrl
+  purchaserStoreUrl,
+  removeDefaultUrl
 } from './constUrl.js'
 
 import {
@@ -45,6 +46,10 @@ function identityUser(data) {
 /**工作台首页**/
 function workIndex(data) {
   return app.http.getRequest(workIndexUrl, data)
+}
+/**取消默认地址**/
+function removeDefault(data) {
+  return app.http.putRequest(removeDefaultUrl, data)
 }
 /**商品搜索**/
 function goodsSer(data, nextPage) {
@@ -174,5 +179,6 @@ module.exports = {
   superAdminWork: superAdminWork,
   isAdmin: isAdmin,
   identityUser: identityUser,
+  removeDefault:removeDefault,
   getPurchaserStoreIds: getPurchaserStoreIds
 }
