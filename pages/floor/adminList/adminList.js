@@ -15,7 +15,8 @@ Page({
     louList: [],
     choseLou: false,//选择楼层
     bigComName: true,//公司名显示
-    admin:[]
+    admin:[],
+    baseUrl: app.globalData.imageUrl
   },
   chose(e){
     console.log(e.currentTarget.dataset.id)

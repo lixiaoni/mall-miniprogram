@@ -67,7 +67,7 @@
     </view>
 
     <view wx:if="{{!choseLou}}">
-      <block wx:for="{{louList}}">
+      <block wx:for="{{louList}}" wx:key="{{index}}">
         <view data-code='{{item.code}}' data-name='{{item.name}}' class='flex-box align-center lou-box' bindtap='choseLou'>
           <view class='column-center'>
             <image class='lou-icon' src='/image/lou.png'></image>
@@ -82,11 +82,11 @@
   <!-- 管理员列表 -->
   <view class='floor-part floor-part-box'>
       <view wx:if="admin.length > 0">
-        <block wx:for="{{admin}}">
+        <block wx:for="{{admin}}" wx:key="{{index}}">
           <view class='flex-box align-center admin-item-box'>
             <view class='column-box' bindtap='toDetail' data-id='{{item.userId}}'>
               <view class="title-box">
-                  <image src='{{item.headPic}}' class='admin-ball'></image>
+                  <image src='{{baseUrl+item.headPic}}' class='admin-ball'></image>
               </view>
               <text>{{item.name}}</text>
             </view>

@@ -31,7 +31,7 @@
     <view class='edit-part bottom-border'>
       <text>手机号</text>
       <view class='column-center'>
-        <text>{{phone}}</text>
+        <text>{{phoneNum}}</text>
         <view class='tri'></view>
       </view>
     </view>

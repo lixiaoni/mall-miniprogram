@@ -20,20 +20,17 @@ Page({
   },
   check(){
     if(/^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(this.data.value)){
-      app.http.getRequest("/admin/user/bymobile/" + this.data.value).then((res)=>{
-        let r ;
+      app.http.getRequest("/api/user/mobileexist/" + this.data.value).then((res)=>{
         //已注册
-        r = true;
         this.setData({
-          register:r,
+          register: true,
           check:true
         })
       }).catch(e=>{
-        if(e.code == 2) {
+        if(e.data.code == 2) {
           //没注册
-          r = false;
           this.setData({
-            register: r,
+            register: false,
             check: true
           })
         }

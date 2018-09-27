@@ -3,6 +3,15 @@
   "pages":[
     "pages/page/user/user",
     
+    "pages/floor/adminList/adminList",
+    
+    
+    
+    
+    
+    
+    
+    
     "pages/work/adminShopList/adminShopList",
     
     
@@ -17,7 +26,6 @@
     
     
     
-    "pages/floor/adminList/adminList",
     
     
     
