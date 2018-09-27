@@ -1,16 +1,16 @@
 <view class="weui-cell">
   <view class="weui-cell__hd">
-    <image hidden='{{!hasUser}}' mode='aspectFit' class='user-headPic' src='{{user.headPic?user.headPic:"/image/42.png"}}'></image>
+    <image hidden='{{!hasUser}}' mode='aspectFit' class='user-headPic' src='{{user.headPic?baseUrl+user.headPic:"/image/42.png"}}'></image>
   </view>
   <view class="weui-cell__name">
     {{user.nickName}}<image src='/image/ermR.png'></image>
   </view>
 </view>
 <view class='erm-cont'>
-  <view class='erm-img'><image  mode="widthFix" src="/image/simg.png"></image></view>
+  <view class='erm-img'><image  mode="widthFix" src="{{baseUrl+uesr.qrcode}}"></image></view>
   <view>扫一扫二维码图案，加我商友</view>
 </view>
 <view class='add-bottom'>
-  <view bindtap='addGit'><image  src="/image/downimg.png"></image>保存至相册</view>
-  <view><image  src="/image/fenxiang.png"></image>推广给朋友</view>
+  <view bindtap='saveImg'><image  src="/image/downimg.png"></image>保存至相册</view>
+  <button open-type="share"><image  src="/image/fenxiang.png"></image>推广给朋友</button>
 </view>

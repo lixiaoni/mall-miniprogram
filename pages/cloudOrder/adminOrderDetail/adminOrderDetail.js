@@ -63,8 +63,7 @@ Page({
   openStore(e) {
     this.setData({
       payCode: "",
-      openModal: true,
-      num: e.currentTarget.dataset.num
+      openModal: true
     })
   },
   closeModal() {
@@ -79,6 +78,7 @@ Page({
     this.setData({
       num:options.num
     })
+    this.getData();
   },
 
   /**

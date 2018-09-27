@@ -1,5 +1,6 @@
 // pages/work/shopList/shopList.js
 const app = getApp();
+import Api from '../../../utils/api.js';
 Page({
 
   /**
@@ -81,7 +82,8 @@ Page({
       app.pageRequest.pageData.pageNum = 0;
       next = false;
     }
-    app.pageRequest.pageGet("/admin/mall/store/storelist", obj, next).then((res)=>{
+
+    Api.adminShopList(obj, next).then((res)=>{
       clearTimeout(timer);
       this.setData({
         isHideLoadMore: true

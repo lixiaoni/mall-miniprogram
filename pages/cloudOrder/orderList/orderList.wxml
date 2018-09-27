@@ -26,7 +26,7 @@
 
     <view class='order-title'>
       <view class='col-md'>
-        <image class='user-icon' src='{{item.userInfoVO.headPic?item.userInfoVO.headPic:"/image/w2.png"}}'></image>
+        <image class='user-icon' src='{{item.userInfoVO.headPic?baseUrl+item.userInfoVO.headPic:"/image/w2.png"}}'></image>
         <text class='store-name'>{{item.userInfoVO.nickName}}</text>
       </view>
       <text wx:if='{{item.orderStatus=="unpaid"}}' class='youyou'>已付款</text>
@@ -40,7 +40,7 @@
         <text>订单金额</text>
       </view>
       <view>
-        <text class="price">￥{{item.payAmount}}</text>
+        <text class="price">￥{{item.orderAmount}}</text>
       </view>
     </view>
 

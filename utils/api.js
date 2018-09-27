@@ -18,8 +18,13 @@ import {
   superAdminWorkUrl,
   isAdminUrl,
   identityUserUrl,
+  removeDefaultUrl,
+  adminMallStoreListUrl,
   purchaserStoreUrl,
-  removeDefaultUrl
+  resetPasswordUrl,
+  phoneMessageUrl,
+  registerUrl,
+  registerPhoneMsgUrl
 } from './constUrl.js'
 
 import {
@@ -71,11 +76,19 @@ function isAdmin(data) {
   data = initMallCode(data);
   return app.http.getRequest(isAdminUrl, data)
 }
+/**超级管理员小云店管理**/
+function adminShopList(data,nextPage){
+  data = initMallCode(data);
+  return app.pageRequest.pageGet(adminMallStoreListUrl, data, nextPage)
+}
 /**关注列表**/
 function favorite(nextPage) {
   return app.pageRequest.pageGet(favoriteUrl, {}, nextPage)
 }
-
+/**上传图片**/
+function uploadImage(types) {
+  return app.http.chooseImageUpload(types)
+}
 /**分类一级**/
 function firstCode(data) {
   return app.http.getRequest(firstCodeUrl, data)
@@ -119,7 +132,22 @@ function saveAddress(data) {
 function addressInfo(data) {
   return app.http.getRequest(addressInfoUrl, data)
 }
-
+/**重置密码**/
+function resetPassword(data){
+  return app.http.postRequest(resetPasswordUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
+}
+/**短信验证码**/
+function phoneMessage(data){
+  return app.http.getRequest(phoneMessageUrl, data)
+}
+/**注册**/
+function register(data){
+  return app.http.postRequest(registerUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
+}
+/**注册短信验证码**/
+function registerPhoneMsg(data){
+  return app.http.getRequest(registerPhoneMsgUrl, data)
+}
 
 /**
  * 获取用户对应进货商列表
@@ -163,6 +191,7 @@ module.exports = {
   goodsSer: goodsSer,
   storeLook: storeLook,
   favorite: favorite,
+  uploadImage: uploadImage,
   firstCode: firstCode,
   childCategoryCode: childCategoryCode,
   storeSerList: storeSerList,
@@ -178,7 +207,12 @@ module.exports = {
   workIndex: workIndex,
   superAdminWork: superAdminWork,
   isAdmin: isAdmin,
-  identityUser: identityUser,
   removeDefault:removeDefault,
-  getPurchaserStoreIds: getPurchaserStoreIds
+  identityUser:identityUser,
+  adminShopList: adminShopList,
+  getPurchaserStoreIds: getPurchaserStoreIds,
+  resetPassword: resetPassword,
+  phoneMessage: phoneMessage,
+  register: register,
+  registerPhoneMsg: registerPhoneMsg
 }

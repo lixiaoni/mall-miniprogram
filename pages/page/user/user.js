@@ -28,6 +28,11 @@ Page({
             hasUser: true,
             isStoreOwner: res.obj.isStoreOwner
           })
+      }else{
+        this.setData({
+          user: "",
+          hasUser: false
+        })
       }
     }).catch(e=>{
       this.setData({
@@ -40,6 +45,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      baseUrl: app.globalData.imageUrl
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

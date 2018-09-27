@@ -60,12 +60,11 @@ Page({
         this.setData({
           mobel: false
         })
-        if(res.code == 1){
-          this.loadPage();
-          wx.showToast({
-            title: res.message
-          })
-        }
+        this.loadPage();
+        wx.showToast({
+          title: res.message,
+          icon:'none'
+        })
       })
         
     }
@@ -103,14 +102,12 @@ Page({
   },
   sureDel(){
     app.http.deleteRequest("/admin/floor/malluser"+this.data.userId).then((res)=>{
-      if(res.code == 1){
         wx.redirectTo({
           url: '../adminList/adminList',
         })
         wx.showToast({
           title: '删除成功',
         })
-      }
     })
   },
   back(){

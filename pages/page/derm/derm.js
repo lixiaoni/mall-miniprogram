@@ -1,4 +1,6 @@
 // pages/derm/derm.js
+const app = getApp();
+import Api from '../../../utils/api.js';
 Page({
 
   /**
@@ -9,8 +11,7 @@ Page({
   },
 
   getUser() {
-
-    app.http.getRequest("/admin/user/byuserid").then((res) => {
+    app.http.getRequest("/api/user/byuserid").then((res) => {
       if (res.success) {
         this.setData({
           user: res.obj,
@@ -24,12 +25,32 @@ Page({
       })
     })
   },
-
+  saveImg(){
+    if(this.data.user.qrcode){
+      wx.saveImageToPhotosAlbum({
+        filePath: this.data.baseUrl + this.data.user.qrcode,
+      })
+    }else{
+      wx.showToast({
+        title: '暂无二维码',
+        icon:'none'
+      })
+    }
+  },
+  share(){
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      baseUrl: app.globalData.imageUrl
+    })
+    this.getUser();
   },
 
   /**

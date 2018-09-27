@@ -1,8 +1,8 @@
 <view class='wd-pic'>
   <view class='weui-cell'>
-    <view class='weui-cell__bd' bindtap='chooseAddress'>
+    <view class='weui-cell__bd' bindtap='changeIcon'>
       <text>用户头像</text>
-      <image class='pic' src="{{user.headPic?user.headPic:'/image/42.png'}}"></image>
+      <image class='pic' src="{{user.headPic?baseUrl+user.headPic:'/image/42.png'}}"></image>
     </view>
     <view class='weui-img'>
       <image src="/image/icl.png"></image>
@@ -11,8 +11,8 @@
 </view>
 <view class='page_bd'>
   <view class='weui-back'>
-    <navigator class='weui-cell' url='../update/update?name={{user.nickName}}'>
-      <view class='weui-cell__bd' bindtap='changeIcon'>
+    <navigator class='weui-cell' url='../update/update?name={{user.nickName}}&type=name'>
+      <view class='weui-cell__bd'>
         用户昵称
         <text>{{user.nickName}}</text>
       </view>
@@ -42,15 +42,16 @@
       </view>
     </view>
 
-    <view class='weui-cell'>
+    <navigator class='weui-cell' url='../update/update?name={{user.weixinNumber}}&type=wx'>
       <view class='weui-cell__bd' bindtap='changeWx'>
         微信号
-        <text>cc2392788</text>
+        <text>{{user.weixinNumber}}</text>
       </view>
       <view class='weui-img'>
         <image src="/image/icl.png"></image>
       </view>
-    </view>
+    </navigator>
+
   </view>
 </view>
 <view class='showHide' hidden='{{show}}'>
@@ -59,4 +60,3 @@
     <view bindtap='closeShow'>取消</view>
   </view>
 </view>
-

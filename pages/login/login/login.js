@@ -1,4 +1,5 @@
 const loginApp = getApp();
+import API from '../../../utils/api.js';
 Component({
   properties: {
     // 这里定义了innerText属性，属性值可以在组件使用时指定
@@ -91,19 +92,11 @@ Component({
         password: this.data.password,
         smsCode: this.data.verificationCode
       }
-
-      loginApp.http.postRequest("/api/user/resetpassword", obj, { 'content-type': 'application/x-www-form-urlencoded' }).then(res => {
-        if (res.code == 1) {
-          wx.showToast({
-            title: '密码修改成功',
-            icon: 'none',
-          })
-        } else {
+      API.resetPassword(obj).then(res => {
           wx.showToast({
             title: res.message,
             icon: 'none',
           })
-        }
       })
     },
     //登录
@@ -157,6 +150,11 @@ Component({
         };
         loginApp.authHandler.loginByUser(this.data.telephone, this.data.password).then(res => {
           this.loginAfter(res);
+        }).catch(e=>{
+          wx.showToast({
+            title: '账户密码错误',
+            icon:'none'
+          })
         })
       }
 
@@ -246,8 +244,7 @@ Component({
           icon: 'none',
         })
       } else {
-
-        loginApp.http.getRequest("/oauth/code/sms", {
+        API.phoneMessage({
           mobile: this.data.telephone
         }).then(res => {
 
