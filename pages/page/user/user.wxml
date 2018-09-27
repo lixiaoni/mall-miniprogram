@@ -19,7 +19,6 @@
       <view hidden='{{hasUser}}'>
         <open-data type="userNickName"></open-data>
       </view>
-
       <button wx:if='{{user}}'>已绑定手机</button>
       <button wx:else bindtap='showLogin'>绑定手机</button>
     </view>
@@ -28,7 +27,7 @@
 <view class='page_bd'>
   <view class='weui-back weui-back1'>
     <navigator class='weui-cell weui-cell_access' url='../addressWe/addressWe'>
-      <image src='/image/u1.jpg' class='user-img'></image>
+      <image src='/image/u1.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         地址管理
       </view>
@@ -37,7 +36,7 @@
       </view>
     </navigator>
     <navigator class='weui-cell weui-cell_access' url='../set/set'>
-      <image src='/image/u3.jpg' class='user-img user-img1'></image>
+      <image src='/image/u3.png' class='user-img user-img1'></image>
       <view class='weui-cell__bd'>
         设置
       </view>
@@ -48,7 +47,7 @@
   </view>
   <view class='weui-back' hidden='{{!isStoreOwner}}'>
     <navigator class='weui-cell weui-cell_access' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/workIndex/workIndex?storeId={{user.id}}" extra-data="" version="trial">
-      <image src='/image/u5.png' class='user-img'></image>
+      <image src='/image/cloudIcon.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         小云店工作台
       </view>
@@ -59,7 +58,7 @@
   </view>
   <view class='weui-back'>
     <navigator class='weui-cell weui-cell_access' url='../manageM/manageM'>
-      <image src='/image/u6.png' class='user-img'></image>
+      <image src='/image/mallCloudIcon.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         商贸云工作台
       </view>
@@ -70,7 +69,7 @@
   </view>
   <view class='weui-back'>
     <navigator class='weui-cell weui-cell_access' url='../../cloudOrder/orderList/orderList'>
-      <image src='/image/u6.png' class='user-img'></image>
+      <image src='/image/cloudOrder.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         云产品订单
       </view>
@@ -79,6 +78,17 @@
       </view>
     </navigator>
   </view>
+  <!-- <view class='weui-back'>
+      <navigator class='weui-cell weui-cell_access'  url=''>
+      <image src='/image/u4.png' class='user-img user-img1'></image>
+        <view class='weui-cell__bd'>
+          申请小云店
+        </view>
+        <view class='weui-img'>
+          <image src="/image/icl.png"></image>
+        </view>
+      </navigator>
+    </view> -->
 </view>
 <!-- <view class='page_bd page_hd1'>
     <view class='weui-back'>
@@ -86,19 +96,6 @@
       <image src='/image/u4.jpg' class='user-img user-img1'></image>
         <view class='weui-cell__bd'>
           进入工作台
-        </view>
-        <view class='weui-img'>
-          <image src="/image/icl.png"></image>
-        </view>
-      </navigator>
-    </view>
-  </view> -->
-<!-- <view class='page_bd page_hd1'>
-    <view class='weui-back'>
-      <navigator class='weui-cell weui-cell_access'  url=''>
-      <image src='/image/u4.jpg' class='user-img user-img1'></image>
-        <view class='weui-cell__bd'>
-          申请小云店
         </view>
         <view class='weui-img'>
           <image src="/image/icl.png"></image>

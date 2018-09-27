@@ -10,7 +10,7 @@
       <view wx:if='{{isSuperAdmin}}' class='floor-admin'>超级管理员</view>
       <view wx:else class='floor-admin'>楼层管理员</view>
       <view class="weui-dp">
-        <image src='/image/dp.png' mode="widthFix"></image>{{user.mallName}} {{user.deptName}}
+        <image src='/image/dp.png' mode="widthFix"></image>{{user.mallName?user.mallName:""}} {{user.deptName?user.deptName:""}}
       </view>
     </view>
     <!-- <view class='weui-view'>
