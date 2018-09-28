@@ -6,7 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isSuperAdmin: wx.getStorageSync("isSuperAdmin"),
     baseUrl: app.globalData.imageUrl
   },
   //打电话
@@ -28,6 +27,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      isSuperAdmin: wx.getStorageSync("isSuperAdmin")
+    })
     this.getData();
   },
   

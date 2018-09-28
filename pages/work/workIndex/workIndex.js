@@ -10,7 +10,7 @@ Page({
     purchaseOrders: '',
     storeNum: '',
     todaySaleNum: '',
-    isSuperAdmin:wx.getStorageSync("isSuperAdmin")
+   
   },
 
   /**
@@ -51,6 +51,9 @@ Page({
     })
   },
   onLoad: function (options) {
+    this.setData({
+      isSuperAdmin: wx.getStorageSync("isSuperAdmin")
+    })
     this.getMes()
   },
   goDerm: function () {
