@@ -1,14 +1,9 @@
 {
 
   "pages":[
-    "pages/page/user/user",
-    
-    "pages/mall/mallMes/mallMes",
-    
-    
     "pages/mall/follow/follow",
-    
-    
+    "pages/page/user/user",
+    "pages/mall/mallMes/mallMes",
     "pages/floor/adminList/adminList",
     "pages/work/adminShopList/adminShopList",
     "pages/cloudOrder/orderList/orderList",
