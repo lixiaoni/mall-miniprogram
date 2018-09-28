@@ -3,7 +3,7 @@
 
 <view class='u-title'>
   <navigator url='../derm/derm' class='init-page'>
-    <image src='/image/er.png'></image>
+    <image hidden='{{!hasUser}}' src='/image/er.png'></image>
   </navigator>
   <view class='u-t-cont'>
     <view class='u-t-ewmico'>
