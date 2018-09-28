@@ -153,24 +153,29 @@ function registerPhoneMsg(data){
  * 获取用户对应进货商列表
  */
 function getPurchaserStoreIds() {
+  let  process = wx.getStorageSync("purchaserProcess");
+  if(process){
+    return [];
+  }
+  wx.setStorageSync('purchaserProcess', true);
   let purchaserStoreIds = wx.getStorageSync("purchaserStoreIds");
   let purchaserStoreIdsExpiresIn = wx.getStorageSync("purchaserStoreIdsExpiresIn");
 
   let timestamp = Date.parse(new Date);
-  if (purchaserStoreIds == null || purchaserStoreIds == "" || purchaserStoreIds == undefined ||
-    purchaserStoreIdsExpiresIn == null || purchaserStoreIdsExpiresIn == ""
+  if (purchaserStoreIdsExpiresIn == ""
     || purchaserStoreIds == undefined || purchaserStoreIdsExpiresIn < timestamp) {
     //如果用户没有登录，则返回空
     if (!AuthHandler.isLogin()) {
       return [];
     }
     app.http.getRequest(purchaserStoreUrl).then((res) => {
+      wx.removeStorageSync('purchaserProcess');
       purchaserStoreIds = res.obj;
-      purchaserStoreIdsExpiresIn = timestamp + 600;
+      purchaserStoreIdsExpiresIn = timestamp + 600*1000;
       if (purchaserStoreIds != null && purchaserStoreIds != undefined && purchaserStoreIds.length > 0) {
         wx.setStorageSync("purchaserStoreIds", purchaserStoreIds);
-        wx.setStorageSync("purchaserStoreIdsExpiresIn", purchaserStoreIdsExpiresIn);
       }
+      wx.setStorageSync("purchaserStoreIdsExpiresIn", purchaserStoreIdsExpiresIn);
     });
   }
   return (purchaserStoreIds == null || purchaserStoreIds == "") ? [] : purchaserStoreIds;
