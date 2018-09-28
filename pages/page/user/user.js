@@ -20,6 +20,14 @@ Page({
           key: 'isSuperAdmin',
           data: obj.isSuperAdmin,
         })
+        wx.setStorage({
+          key: 'isFloorAdmin',
+          data: obj.isFloorAdmin,
+        })
+        this.setData({
+          isSuperAdmin: obj.isSuperAdmin,
+          isFloorAdmin: obj.isFloorAdmin
+        })
       })
     app.http.getRequest("/api/user/byuserid").then((res)=>{
       if (res.success){
