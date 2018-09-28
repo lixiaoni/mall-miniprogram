@@ -2,7 +2,7 @@
 <view class="weui_cells weui_cells_n">
   <view class="weui-cell">
     <view class="weui-cell__hd">
-      <image src="{{baseUrl+headPic}}" mode="widthFix"></image>
+      <image src="{{user.headPic?baseUrl+user.headPic:'/image/42.png'}}" mode="widthFix"></image>
     </view>
     <view class="weui-cell__name">
       <text class='user-text'>{{user.name}}</text>
