@@ -70,8 +70,8 @@
   height: 105rpx;
 }
 .user-img{
-  width: 44rpx;
-  height: 44rpx;
+  width: 50rpx;
+  height: 50rpx;
   margin-right:30rpx;
 }
 .user-img1{
@@ -113,4 +113,8 @@
   opacity: 0;
   background:#fff;
   z-index: 10;
+}
+.init-page image{
+  width: 50rpx;
+  height: 50rpx;
 }

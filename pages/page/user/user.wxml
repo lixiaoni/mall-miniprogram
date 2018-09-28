@@ -3,7 +3,7 @@
 
 <view class='u-title'>
   <navigator url='../derm/derm' class='init-page'>
-    <image src='/image/er.png'></image>
+    <image hidden='{{!hasUser}}' src='/image/er.png'></image>
   </navigator>
   <view class='u-t-cont'>
     <view class='u-t-ewmico'>
@@ -36,7 +36,7 @@
       </view>
     </navigator>
     <navigator class='weui-cell weui-cell_access' url='../set/set'>
-      <image src='/image/u3.png' class='user-img user-img1'></image>
+      <image src='/image/u3.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         设置
       </view>
@@ -56,8 +56,8 @@
       </view>
     </navigator>
   </view>
-  <view class='weui-back'>
-    <navigator class='weui-cell weui-cell_access' url='../manageM/manageM'>
+  <view class='weui-back' wx:if='{{(isFloorAdmin || isSuperAdmin) && hasUser}}'>
+    <navigator class='weui-cell weui-cell_access' url='../../work/workIndex/workIndex'>
       <image src='/image/mallCloudIcon.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         商贸云工作台
@@ -67,7 +67,7 @@
       </view>
     </navigator>
   </view>
-  <view class='weui-back'>
+  <!-- <view class='weui-back'>
     <navigator class='weui-cell weui-cell_access' url='../../cloudOrder/orderList/orderList'>
       <image src='/image/cloudOrder.png' class='user-img'></image>
       <view class='weui-cell__bd'>
@@ -77,7 +77,7 @@
         <image src="/image/icl.png"></image>
       </view>
     </navigator>
-  </view>
+  </view> -->
   <!-- <view class='weui-back'>
       <navigator class='weui-cell weui-cell_access'  url=''>
       <image src='/image/u4.png' class='user-img user-img1'></image>

@@ -78,7 +78,6 @@ Page({
             }
           }
         }
-        console.log(arrMall)
         _this.setData({
           movies: obj.banners,
           activities: obj.activities,
