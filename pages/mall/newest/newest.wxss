@@ -20,7 +20,7 @@
   margin-top: 30rpx;
 }
 .lw-pop{
-  margin-top: 20rpx;padding:35rpx 50rpx;
+  margin-top: 20rpx;padding:40rpx 50rpx;
 }
 .lw-pop>view:first-child view{
   float: right;font-weight: normal;
@@ -29,7 +29,7 @@
   font-size: 24rpx;color: #999;float:none;
 }
 .fw-cont>view{
-  width:310rpx;position: relative
+  width:310rpx;position: relative;margin-top: 40rpx;
 }
 .fw-c-img{
   width: 310rpx;height: 310rpx;text-align: center
@@ -37,7 +37,9 @@
 .fw-c-img image{
  max-width: 310rpx;max-height: 310rpx;
 }
-
+.fw-cont{
+  color: #333;
+}
 .fw-cont>view view:nth-child(2),.fw-cont>view view:nth-child(3),.fw-cont>view view:nth-child(4){
   text-align: left;text-overflow: -o-ellipsis-lastline;
   overflow: hidden;text-overflow: ellipsis;
@@ -48,5 +50,5 @@
   margin-left: 30rpx;
 }
 .fw-cont>view .new_left{
-  text-align: left;padding-left: 13rpx;
+  text-align: left;padding-left: 10rpx;color: #999;
 }

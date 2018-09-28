@@ -1,7 +1,7 @@
 
 .fw-store{
   background: #fff;margin: 20rpx;position: relative;
-  border-radius: 10rpx;padding:40rpx 20rpx;
+  border-radius: 10rpx;padding:40rpx 50rpx;
 }
 .fw-store .fw-top{
   position: relative;font-size:36rpx;
@@ -45,7 +45,7 @@
   color: #CCAA77
 }
 .fw-cont>view{
-  display: inline-block;width: 33%;margin-top:35rpx;text-align: center;
+  display: inline-block;width: 33.3%;margin-top:35rpx;text-align: center;
 }
 .fw-c-img{
   height: 200rpx;width: 200rpx;border-radius: 10rpx;margin-bottom: 40rpx;text-align: center;
