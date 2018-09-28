@@ -2,15 +2,15 @@
 <view class="weui_cells weui_cells_n">
   <view class="weui-cell">
     <view class="weui-cell__hd">
-      <image src="/image/userphoto.png" mode="widthFix"></image>
+      <image src="{{baseUrl+headPic}}" mode="widthFix"></image>
     </view>
     <view class="weui-cell__name">
       <text class='user-text'>{{user.name}}</text>
-      <image src='/image/ermR.png'></image>
+      <image wx:if="{{user.sex==2}}" src='/image/ermR.png'></image>
       <view wx:if='{{isSuperAdmin}}' class='floor-admin'>超级管理员</view>
       <view wx:else class='floor-admin'>楼层管理员</view>
       <view class="weui-dp">
-        <image src='/image/dp.png' mode="widthFix"></image>{{user.mallName?user.mallName:""}} {{user.deptName?user.deptName:""}}
+        <image src='{{baseUrl+user.mallLogo}}' mode="widthFix"></image>{{user.mallName?user.mallName:""}} <text hidden='{{isSuperAdmin}}'>{{user.deptName?user.deptName:""}}</text>
       </view>
     </view>
     <!-- <view class='weui-view'>
@@ -18,7 +18,7 @@
       </view> -->
   </view>
 </view>
-<view class="weui_cells " wx:if="{{!isSuperAdmin}}">
+<view class="weui_cells " hidden="{{isSuperAdmin}}">
   <view>
     <text class="store-address">优惠码 </text>
     <view class='weui-view'>

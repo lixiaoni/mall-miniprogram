@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isSuperAdmin: wx.getStorageSync("isSuperAdmin")
+    isSuperAdmin: wx.getStorageSync("isSuperAdmin"),
+    baseUrl: app.globalData.imageUrl
   },
   //打电话
   tel: function () {
