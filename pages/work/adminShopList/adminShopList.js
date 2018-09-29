@@ -16,7 +16,8 @@ Page({
     ],
     isHideLoadMore:true,
     val:"", //搜索内容
-    inputVal:""
+    inputVal:"",
+    baseUrl: app.globalData.imageUrl
   },
 
   // 切换TAB
