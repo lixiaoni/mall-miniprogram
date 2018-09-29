@@ -10,6 +10,9 @@
 .fw-store{
   position: relative;
 }
+.fw-store .fw-logo{
+  top: 10rpx;
+}
 .st-ser .fw-title{
   height: 90rpx;
 }
