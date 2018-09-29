@@ -64,7 +64,7 @@
             <view class='fw-c-img'><image src='{{baseUrl}}{{item.mainImgUrl}}'  mode="aspectFill"></image></view>
             <view>零售 <text>￥{{item.sellPrice}}</text></view>
             <view  hidden='{{!list.isPurchaser}}'>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>
-            <view  hidden='{{list.isPurchaser}}'>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
+            <view  hidden='{{list.isPurchaser}}'><navigator  hidden='{{list.isPurchaser}}' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/businessFriend/information/information?status=0&send=&accept={{list.storeId}}&remark=&name={{list.store.name}}&logo={{list.store.logo}}" extra-data="" version="trial">批发 <image  class='fw-c-you' src='/image/wh.png'></image></navigator></view>
           </view>
       </view>
     </view>

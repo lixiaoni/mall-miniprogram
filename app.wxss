@@ -15,6 +15,9 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.new_left navigator{
+  color: #333;
+}
 .goHome{
   position:fixed;bottom: 170rpx;right: 20rpx;background: #fff;width: 100rpx;height: 100rpx;border-radius: 50%;color: #CCAA77;font-size: 24rpx;
   border:2rpx solid #CCAA77;text-align: center;

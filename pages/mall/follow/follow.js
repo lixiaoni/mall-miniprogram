@@ -83,6 +83,13 @@ Page({
       .then(res => {
         if (res.obj != null) {
           var detailList = res.obj.result
+          if(res.obj.result.length==0){
+            wx.showToast({
+              title: '暂无更多了！',
+              icon: 'none',
+              duration: 2000
+            })
+          }
           for (var i = 0; i < detailList.length; i++) {
             if (that.isPurchaser(detailList[i].storeId)) {
               detailList[i].isPurchaser = true

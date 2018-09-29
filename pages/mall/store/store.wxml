@@ -13,7 +13,7 @@
   <view class='show-floor'  wx:if='{{isShow==true}}' bindtap='searchBtn'>全部楼座</view>
   <view class='st-ser-cont' wx:if='{{isShow!=true}}'>
       <view class='ser-left'>
-        <view   wx:for="{{childList}}" wx:key="{{index}}"   class="{{floorTab==index?'active':''}}" data-current='{{index}}' data-code='{{item.code}}' bindtap="serFloorNav">{{item.name}}</view>
+        <view   wx:for="{{childList}}" wx:key="{{index}}"   class="{{floorTab==index?'active':''}}" data-current='{{index}}' data-code='{{item.code}}' bindtap="serFloorNav">{{item.floorNum}}  {{item.name}}</view>
       </view>
       <view class='ser-right'>
         <view bindtap="allFloorNav">全部分区</view>
@@ -49,20 +49,20 @@
       </view>
       <view> <view class='button'>购买过的店</view><view class='button'>12件上新</view><view class='button'>3523人买过</view></view>
     </view> -->
-    <view class='fw-store' wx:for="{{dataList}}" wx:key="{{index}}">
-    <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.storeId}}" extra-data="" version="trial"></navigator>
+    <view class='fw-store' wx:for="{{dataList}}" wx:key="{{index}}"  wx:for-item="list">
+    <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{list.storeId}}" extra-data="" version="trial"></navigator>
       <view class='fw-top'>
-        <image class='fw-logo' src='{{baseUrl}}{{item.store.logo}}'></image>
-        <view class='fw-iew1'>{{item.store.name}}<text>新批零</text><text hidden='{{!list.isPurchaser}}'>友</text></view>
-        <view class='fw-iew'><text>{{item.store.businessScope}}</text>{{item.store.address}}</view>
+        <image class='fw-logo' src='{{baseUrl}}{{list.store.logo}}'></image>
+        <view class='fw-iew1'>{{list.store.name}}<text>新批零</text><text hidden='{{!list.isPurchaser}}'>友</text></view>
+        <view class='fw-iew'><text>{{list.store.businessScope}}</text>{{list.store.address}}</view>
         <image class='fw-left' src='/image/mallr.png'></image>
       </view>
       <view class='fw-cont'>
-        <view wx:for="{{item.goodsList}}" wx:key="{{index}}">
+        <view wx:for="{{list.goodsList}}" wx:key="{{index}}">
             <image class='fw-c-img' src='{{baseUrl}}{{item.mainImgUrl}}' ></image>
             <view>零售 <text>￥{{item.sellPrice}}</text></view>
             <view  hidden='{{!list.isPurchaser}}'>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>
-            <view  hidden='{{list.isPurchaser}}'>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
+            <view  hidden='{{list.isPurchaser}}'><navigator  hidden='{{list.isPurchaser}}' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/businessFriend/information/information?status=0&send=&accept={{list.storeId}}&remark=&name={{list.store.name}}&logo={{list.store.logo}}" extra-data="" version="trial">批发 <image  class='fw-c-you' src='/image/wh.png'></image></navigator></view>
           </view>
       </view>
       <!-- <view> <view class='button'>购买过的店</view></view> -->

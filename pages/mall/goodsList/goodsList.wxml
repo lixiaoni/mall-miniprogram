@@ -8,7 +8,7 @@
       <view hidden='{{!item.isPurchaser}}'><text>批发 </text><text class='st-mom'>￥{{item.sellPrice}}</text></view>
       <view hidden='{{item.isPurchaser}}'><text>批发 </text><image src='/image/wh.png'></image></view>
       <view><text>零售 </text><text class='st-mom'>￥{{item.wholesalePrice}}</text></view>
-      <view>{{item.brand}}<image src='/image/mallr.png'></image></view>
+      <view>{{item.storeName}}<image src='/image/mallr.png'></image></view>
       </view>
     </view>
 </view>

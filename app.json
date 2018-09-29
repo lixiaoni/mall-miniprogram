@@ -2,6 +2,8 @@
 
   "pages":[
     "pages/mall/follow/follow",
+    
+    "pages/mall/store/store",
     "pages/page/user/user",
     "pages/mall/mallMes/mallMes",
     "pages/floor/adminList/adminList",
@@ -17,7 +19,6 @@
     "pages/mall/search/search",
     "pages/mall/seaList/seaList",
     
-    "pages/mall/store/store",
     "pages/floor/addAdmin/addAdmin",
     
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
