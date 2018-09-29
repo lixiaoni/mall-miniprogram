@@ -3,6 +3,15 @@
   "pages":[
     "pages/page/user/user",
     
+    "pages/mall/store/store",
+    
+    
+    
+    
+    
+    
+    
+    
     "pages/mall/mallMes/mallMes",
     
     
@@ -22,7 +31,6 @@
     "pages/mall/search/search",
     "pages/mall/seaList/seaList",
     
-    "pages/mall/store/store",
     "pages/floor/addAdmin/addAdmin",
     
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",

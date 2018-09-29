@@ -8,8 +8,8 @@
   </view>
   <view class='cl-right'>
     <s wx:for='{{twoList}}'  wx:key="{{index}}">
-      <view class='active' bindtap='serList' data-code='{{item.categoryCode}}' data-name='{{item.name}}'>{{item.name}}<image  src='/image/mallr.png'></image></view>
-      <view wx:for='{{item.subGoodsCategoryList}}'  wx:key="{{index}}"  bindtap='serList' data-code='{{item.categoryCode}}' data-name='{{item.name}}'>{{item.name}}<image  src='/image/mallr.png'></image></view>
+      <view class='active' bindtap='serList' data-code='{{item.categoryCode}}' data-name='{{item.name}}'><text class='gold-border padding-box'></text>{{item.name}}<text class='gold-border padding-box'></text></view>
+      <view class='padding-left' wx:for='{{item.subGoodsCategoryList}}'  wx:key="{{index}}"  bindtap='serList' data-code='{{item.categoryCode}}' data-name='{{item.name}}'>{{item.name}}<image  src='/image/mallr.png'></image></view>
     </s>
   </view>
 </view>
