@@ -5,6 +5,10 @@
     
     "pages/mall/store/store",
     "pages/page/user/user",
+    
+    "pages/mall/store/store",
+    
+    
     "pages/mall/mallMes/mallMes",
     "pages/floor/adminList/adminList",
     "pages/work/adminShopList/adminShopList",

@@ -12,7 +12,7 @@
   color: #CCAA77;border-bottom:4rpx solid #CCAA77;background: #fff;border-right: 0;font-weight: bold;
 }
 .cl-right{
-  position: absolute;left: 220rpx;top: 0;width: 66%;height: 1200rpx;overflow:scroll;
+  position: absolute;padding-left:40rpx;left: 180rpx;top: 0;width: 66%;height: 1200rpx;overflow:scroll;
 }
 .cl-right view{
   height: 100rpx;line-height: 100rpx;
@@ -22,4 +22,18 @@
 }
 .cl-right view.active{
   font-weight: bold;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+}
+.gold-border{
+  border-top:1rpx solid #000;
+  width:60rpx;
+  display:inline-block;
+}
+.padding-box{
+  margin:0 30rpx;
+}
+.padding-left{
+  /* padding-left:28rpx; */
 }

@@ -21,7 +21,7 @@
   width:100%;top: 0;
 }
 .st-ser .fw-title>view {
-  font-size: 30rpx;font-weight: bold;padding-top: 45rpx;display: inline-block;width: auto;margin-right:20rpx;margin-left: 20rpx;
+  font-size: 30rpx;font-weight: bold;padding-top: 56rpx;display: inline-block;width: auto;margin-right:20rpx;margin-left: 20rpx;
 }
 .st-ser{
   position:fixed;width: 100%;z-index: 9999;background: #fff;padding-bottom: 80rpx;
@@ -55,9 +55,47 @@
   position: fixed;height: 100%;width: 100%;background: rgba(0, 0, 0, 0.5);top: 0;z-index: 100;
 }
 .st-ser  .fw-title{
-  height: 117rpx;
+  height: 140rpx;
+  display: flex;
+  justify-content: space-around;
 }
 .fw-title1>view.active view {
   width: auto
 }
 
+.fw-title{
+height:100rpx;
+padding-top: 33rpx;
+box-sizing: border-box;
+}
+.goods-ser {
+  height: 100rpx;
+}
+.fw-iew1{
+  display: flex;
+  align-items: center;
+}
+.fw-store .fw-logo{
+  top:10rpx;
+}
+
+.fw-store{
+  padding: 40rpx 30rpx;
+}
+.fw-top view.fw-iew1 text{
+height: 34rpx;
+line-height: 34rpx;
+padding: 0 10rpx;
+}
+.fw-c-img{
+  margin-bottom: 20rpx;
+}
+.fw-top view.fw-iew{
+  padding-right: 47rpx;
+}
+.fw-store .fw-left{
+  position: absolute;
+  right: 0;
+  top:58rpx;
+  margin: 0;
+}
