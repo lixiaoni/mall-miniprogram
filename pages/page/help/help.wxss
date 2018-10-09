@@ -26,3 +26,9 @@
   padding:0 35rpx;
   height: 105rpx;
 }
+
+.page__bd {
+  width:690rpx;
+  margin:20rpx auto;
+  border-radius:10rpx;
+}
