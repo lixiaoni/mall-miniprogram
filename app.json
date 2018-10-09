@@ -1,23 +1,16 @@
 {
 
   "pages":[
+    "pages/mall/newest/newest",
     "pages/mall/follow/follow",
     "pages/page/user/user",
-    
     "pages/mall/store/store",
-    
-    
     "pages/mall/mallMes/mallMes",
     "pages/floor/adminList/adminList",
     "pages/work/adminShopList/adminShopList",
     "pages/cloudOrder/orderList/orderList",
-    
     "pages/work/shopList/shopList",
-    
     "pages/floor/floorList/floorList",
-    
-    
-    
     "pages/mall/search/search",
     "pages/mall/seaList/seaList",
     
@@ -39,7 +32,6 @@
     "pages/page/userDetails/userDetails",
     "pages/page/newAddress/newAddress",
     "pages/page/details/details",
-    "pages/mall/newest/newest",
     
     
     

@@ -172,7 +172,11 @@ Page({
     this.getList({ keyword: this.data.value, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode})
   },
   allFloorNav:function(){
-    this.getList({ keyword: this.data.value, balconyCode: this.data.balconyCode})
+    var  floorCode = this.data.floorCode
+    this.setData({
+      dataList: [],
+    })
+    this.getList({ keyword: this.data.value, balconyCode: this.data.balconyCode, floorCode: floorCode})
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -7,7 +7,7 @@ Page({
    */
   data: {
     dataList: [],
-    baseUrl: wx.getStorageSync('baseUrl'),
+    baseUrl: app.globalData.imageUrl,
   },
 
   /**
