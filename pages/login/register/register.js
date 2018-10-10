@@ -1,4 +1,4 @@
-const app = getApp(); 
+const app = getApp();
 import API from '../../../utils/api.js';
 // pages/register/register.js
 Page({
@@ -22,9 +22,9 @@ Page({
     ifhide: true,
     //密码图片src
     see: '/image/pass-hide.png',
-    tip:""
+    tip: ""
   },
-  register(){
+  register() {
     if (!this.testTel()) {
       wx.showToast({
         title: '请输入正确手机号码',
@@ -48,9 +48,9 @@ Page({
     }
 
     let obj = {
-      mobile : this.data.telephone,
-      password : this.data.password,
-      smsCode : this.data.verificationCode
+      mobile: this.data.telephone,
+      password: this.data.password,
+      smsCode: this.data.verificationCode
     }
 
     API.register(obj).then(res => {
@@ -58,9 +58,9 @@ Page({
         title: res.message,
         icon: 'none'
       })
-      setTimeout(()=>{
+      setTimeout(() => {
         wx.navigateBack({})
-      },1000)
+      }, 1000)
     })
 
   },
@@ -80,7 +80,7 @@ Page({
       })
     }
   },
-  showPage(){
+  showPage() {
     this.loginCom.showPage();
   },
   //存入手机号
@@ -107,12 +107,12 @@ Page({
   //判断是否输入完整
   checkComplete() {
     if (this.data.telephone.length > 0 && this.data.verificationCode.length > 0 && this.data.password.length > 0) {
-        this.setData({
-          btnID: 'loginBtnAc'
-        })
-        return
-      }
-      
+      this.setData({
+        btnID: 'loginBtnAc'
+      })
+      return
+    }
+
     this.setData({
       btnID: 'loginBtnDis'
     })
@@ -125,38 +125,57 @@ Page({
         icon: 'none',
       })
     } else {
-      API.registerPhoneMsg({ mobile: this.data.telephone }).then(res => {
-
-      })
-      
-      //获取验证码倒计时
-      let sec = this.data.btnSec;
-      this.setData({
-        buttonTimer: sec + "s",
-        disabled: true
-      })
-      let timer = setInterval(() => {
-        sec--;
-        this.setData({
-          buttonTimer: sec + "s"
+      this.testAlreadyRegister().then(res => {
+        wx.showToast({
+          title: '该手机号已注册，请登录',
+          icon: 'none'
         })
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 1000)
+      }).catch(e => {
+        API.registerPhoneMsg({ mobile: this.data.telephone }).then(res => {
 
-        if (sec <= 1) {
-          clearInterval(timer)
+        })
+        //获取验证码倒计时
+        let sec = this.data.btnSec;
+        this.setData({
+          buttonTimer: sec + "s",
+          disabled: true
+        })
+        let timer = setInterval(() => {
+          sec--;
           this.setData({
-            buttonTimer: "获取验证码",
-            disabled: false
+            buttonTimer: sec + "s"
           })
-        }
-      }, 1000)
+
+          if (sec <= 1) {
+            clearInterval(timer)
+            this.setData({
+              buttonTimer: "获取验证码",
+              disabled: false
+            })
+          }
+        }, 1000)
+      })
+
     }
-  }, 
+  },
   testTel() {
     let phone = this.data.telephone;
     if (!phone || phone.trim().length != 11 || !/^1[3|4|5|6|7|8|9]\d{9}$/.test(phone)) {
       return false;
     }
     return true;
+  },
+  testAlreadyRegister() {
+    return new Promise((resolve, reject) => {
+      app.http.getRequest("/api/user/mobileexist/" + this.data.telephone).then((res) => {
+        resolve(res);
+      }).catch(e => {
+        reject(e);
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -177,41 +196,41 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

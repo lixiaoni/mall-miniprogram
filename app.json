@@ -1,12 +1,13 @@
 {
 
   "pages":[
+    "pages/page/user/user",
+    
     "pages/page/newAddress/newAddress",
     
     "pages/page/updataPwd/updataPwd",
     
     
-    "pages/page/user/user",    
     "pages/mall/newest/newest",
     
     "pages/mall/follow/follow",
