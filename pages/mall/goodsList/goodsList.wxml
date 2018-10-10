@@ -1,13 +1,13 @@
 <scroll-view scroll-y="true" style="height:100%;" bindscrolltolower="bindDownLoad">
 <view class="st-cont"  wx:for="{{goodsList}}" wx:key="{{index}}">
- <navigator class='miniDetails' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.id}}" extra-data="" version="trial"></navigator>
+ <navigator class='miniDetails' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.id}}&storeId={{item.storeId}}" extra-data="" version="trial"></navigator>
   <image class="cart-thumb" src="{{baseUrl}}{{item.mainImgUrl}}"></image>
   <view  class='st-d-t'>{{item.name}}</view> 
   <view class='st-details'>
     <view class='st-d-status'>
-      <view hidden='{{!item.isPurchaser}}'><text>批发 </text><text class='st-mom'>￥{{item.sellPrice}}</text></view>
+      <view hidden='{{!item.isPurchaser}}'><text>批发 </text><text class='st-mom'>￥{{item.wholesalePrice}}</text></view>
       <view hidden='{{item.isPurchaser}}'><text>批发 </text><image src='/image/wh.png'></image></view>
-      <view><text>零售 </text><text class='st-mom'>￥{{item.wholesalePrice}}</text></view>
+      <view><text>零售 </text><text class='st-mom'>￥{{item.sellPrice}}</text></view>
       <view>{{item.storeName}}<image src='/image/mallr.png'></image></view>
       </view>
     </view>

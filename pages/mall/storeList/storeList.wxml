@@ -16,7 +16,7 @@
             <view hidden='{{item.isPurchaser}}' class='new_left'>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
           </view>
       </view>
-      <view> <view class='button'>购买过的店</view></view>
+      <!-- <view> <view class='button'>购买过的店</view></view> -->
     </view>
   </view>
 </scroll-view>

@@ -2,7 +2,10 @@
 
   "pages":[
     "pages/mall/newest/newest",
+    
     "pages/mall/follow/follow",
+    
+    "pages/work/workIndex/workIndex",
     "pages/page/user/user",
     "pages/mall/store/store",
     "pages/mall/mallMes/mallMes",
@@ -17,7 +20,6 @@
     "pages/floor/addAdmin/addAdmin",
     
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
-    "pages/work/workIndex/workIndex",
 
     "pages/page/manageM/manageM",    
     "pages/page/set/set",
