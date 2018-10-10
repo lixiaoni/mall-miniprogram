@@ -52,6 +52,7 @@ Page({
            newArr = app.pageRequest.addDataList(datas, detailList)
          _this.setData({
             result: newArr,
+            showFavorite:false
           })
        }else{
          if (!nextPage){

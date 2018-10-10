@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wx6241529c7dc70d51",
-	"projectname": "develop",
+	"projectname": "mall-miniprogram",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

@@ -42,18 +42,6 @@ Page({
       current: e.detail.current
     })
   },
-  getUrl: function () {
-    wx.navigateToMiniProgram({
-      appId: 'wx6241529c7dc70d51',
-      path: 'pages/page/goodsDetails/goodsDetails?id=sdfsfdfd',
-      extraData: { user_id: 111 },
-      envVersion: 'trial',
-      success(res) {
-        // 打开成功
-      }
-    })
-
-  },
    isPurchaser:function(index){
      var arr = Api.getPurchaserStoreIds()
     if(arr.indexOf(index)!=-1){
