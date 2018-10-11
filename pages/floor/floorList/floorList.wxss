@@ -33,4 +33,5 @@
 .more-box{
   width: 50rpx;
   text-align: center;
+  height:43rpx;
 }

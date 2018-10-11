@@ -1,5 +1,6 @@
 // pages/work/shopDetail/shopDetail.js
 const app = getApp();
+import Api from '../../../utils/api.js'
 Page({
 
   /**
@@ -62,8 +63,9 @@ Page({
   },
   getData(){
     app.http.getRequest("/admin/mall/store/flooradmin/"+this.data.id+"/info").then((res)=>{
+      this.nonull(res.obj.store[0].store)
       this.setData({
-        store : res.obj.store[0].store,
+        store: res.obj.store[0].store,
         goodsList: res.obj.store[0].goodsList,
         count: res.obj.countData,
         floor: res.obj.floor
@@ -84,6 +86,13 @@ Page({
       }
       this.setData(obj)
     })
+  },
+  nonull(obj){
+    for(var i in obj){
+      if(!Api.isEmpty(obj[i])){
+        obj[i]="";
+      }
+    }
   },
   /**
    * 生命周期函数--监听页面加载

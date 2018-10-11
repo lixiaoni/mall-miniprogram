@@ -176,5 +176,56 @@ class request {
       })
     })
   }
+  onlychoseImg() {
+    return new Promise((resolve, reject) => {
+      wx.chooseImage({
+        count: 6,
+        sizeType: ['compressed'], // original 原图，compressed 压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
+        success: function (res) {
+          resolve(res)
+        },
+        fail: (e => {
+          reject(e)
+        })
+      })
+    })
+  }
+  onlyUploadImg(url, types) {
+    if (!url) {
+      console.warn('no upload url')
+      return
+    }
+    return new Promise((resolve, reject) => {
+      this.authHandler.getTokenOrRefresh().then(token => {
+        var header = this.defaultUploadHeader
+        if (token) {
+          header['Authorization'] = token;
+        } else {
+          delete header['Authorization'];
+        }
+        wx.uploadFile({
+          url: uploadImg,
+          filePath: url,
+          name: 'file',
+          header: header,
+          formData: {
+            'type': types
+          },
+          success: (res => {
+            if (res.statusCode === 200) {
+              resolve(res.data)
+            } else {
+              if (this._errorHandler != null) {
+                this._errorHandler(res)
+              }
+              reject(res)
+            }
+          }),
+        })
+      })
+    })
+
+  }
 }
 export default request

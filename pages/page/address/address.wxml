@@ -5,7 +5,7 @@
 <view class='ad-send'>
   <view class='ad-tel' hidden="{{hiddenSelt}}">
     <image src="/image/tel.png"></image>为确保正常取货，请预留您的手机号码
-    <button>自动填写</button>
+    <!-- <button>自动填写</button> -->
   </view>
   <navigator class='ad-tel'  hidden="{{hiddenSend}}" url='../addressWe/addressWe'>
     <image src="/image/ad.png"></image>添加收货人信息

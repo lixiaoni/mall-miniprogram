@@ -1,7 +1,6 @@
 @import '../../mall/mallMes/mallMes';
 .user-text{
   max-width: 230rpx;
-  height: 55rpx;
   overflow: hidden;
   display: inline-block;
   text-overflow: ellipsis;
@@ -51,5 +50,5 @@
    top: 60rpx;
 }
 .weui_cells image{
-  margin-right: 5rpx;
+  margin:0 10rpx 0 5rpx;
 }

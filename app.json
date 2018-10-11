@@ -1,7 +1,21 @@
 {
 
   "pages":[
+    "pages/page/manageM/manageM",
+    
     "pages/page/user/user",
+    
+    "pages/login/register/register",
+    "pages/page/upload/upload",
+    
+    
+    "pages/floor/myFloor/myFloor",
+    
+    
+    
+    "pages/floor/adminList/adminList",
+    
+    
     
     "pages/page/newAddress/newAddress",
     
@@ -15,11 +29,9 @@
     "pages/work/workIndex/workIndex",
     "pages/mall/store/store",
     "pages/mall/mallMes/mallMes",
-    "pages/floor/adminList/adminList",
     "pages/work/adminShopList/adminShopList",
     "pages/cloudOrder/orderList/orderList",
     "pages/work/shopList/shopList",
-    "pages/floor/floorList/floorList",
     "pages/mall/search/search",
     "pages/mall/seaList/seaList",
     
@@ -27,13 +39,11 @@
     
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
 
-    "pages/page/manageM/manageM",    
     "pages/page/set/set",
     "pages/work/shopDetail/shopDetail",
     "pages/mall/class/class",
     "pages/page/derm/derm",
     "pages/mall/storeList/storeList",
-    "pages/login/register/register",
     "pages/page/addressWe/addressWe",
     "pages/page/shopkeeper/shopkeeper",
     "pages/page/userDetails/userDetails",

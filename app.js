@@ -25,7 +25,8 @@ App({
   globalData: {
     userInfo: null,
     skin: "normal",
-    imageUrl:imageUrl
+    imageUrl:imageUrl,
+    companyIcon: "/image/dp.png"
   },
   http: new http(),
   pageRequest: new pageRequest(),
