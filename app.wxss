@@ -540,3 +540,9 @@ input:focus{
 .bottom_M .active{
   color: #CCAA77
 }
+/* 公用左右顶头布局 上下居中 */
+.common-flex-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

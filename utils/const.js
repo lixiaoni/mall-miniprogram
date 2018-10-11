@@ -10,3 +10,6 @@ export const imageUrl = 'https://dev-image.youlife.me/'
 export const basicAuthorization = 'Basic QmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQ6ZTU2YThmMWZkOWJlMmMzMzNmYjdiZTcyNjVkMjRhYTM=';
 export const uploadImg = 'https://dev-mall.youlife.me/base/image'
 export const mallCode = '1000'
+
+
+

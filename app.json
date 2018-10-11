@@ -3,10 +3,17 @@
   "pages":[
     "pages/mall/newest/newest",
     
+    "pages/page/user/user",
+    
+    "pages/page/newAddress/newAddress",
+    
+    "pages/page/updataPwd/updataPwd",
+    
+    
+    
     "pages/mall/follow/follow",
     
     "pages/work/workIndex/workIndex",
-    "pages/page/user/user",
     "pages/mall/store/store",
     "pages/mall/mallMes/mallMes",
     "pages/floor/adminList/adminList",
@@ -23,7 +30,6 @@
 
     "pages/page/manageM/manageM",    
     "pages/page/set/set",
-    "pages/page/updataPwd/updataPwd",
     "pages/work/shopDetail/shopDetail",
     "pages/mall/class/class",
     "pages/page/derm/derm",
@@ -32,7 +38,6 @@
     "pages/page/addressWe/addressWe",
     "pages/page/shopkeeper/shopkeeper",
     "pages/page/userDetails/userDetails",
-    "pages/page/newAddress/newAddress",
     "pages/page/details/details",
     
     
