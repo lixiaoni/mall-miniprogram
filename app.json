@@ -2,6 +2,7 @@
 
   "pages":[
     "pages/page/manageM/manageM",
+    "pages/mall/newest/newest",
     
     "pages/page/user/user",
     
@@ -22,7 +23,6 @@
     "pages/page/updataPwd/updataPwd",
     
     
-    "pages/mall/newest/newest",
     
     "pages/mall/follow/follow",
     
