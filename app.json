@@ -3,6 +3,9 @@
   "pages":[
     "pages/mall/newest/newest",
     
+    "pages/mall/follow/follow",
+    
+    
     "pages/page/user/user",
     
     "pages/page/newAddress/newAddress",
@@ -11,7 +14,6 @@
     
     
     
-    "pages/mall/follow/follow",
     
     "pages/work/workIndex/workIndex",
     "pages/mall/store/store",

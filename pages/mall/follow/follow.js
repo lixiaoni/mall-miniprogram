@@ -92,6 +92,7 @@ Page({
             })
           }
           for (var i = 0; i < detailList.length; i++) {
+            console.log(detailList[i])
             if (that.isPurchaser(detailList[i].storeId)) {
               detailList[i].isPurchaser = true
             } else {
