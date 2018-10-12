@@ -1,0 +1,30 @@
+<!-- 管理层 -->
+    <view class='list-show floor-part'>
+      <view class='list-title'>我的管理层</view>
+
+      <block wx:for="{{manage}}" wx:key="index">
+        <view class='border-box list-part'>
+          <view class='column-center'>
+            <image src='{{companyIcon}}' class='com-icon'></image>
+            <text class='com-title'>{{item.name}}</text>
+          </view>
+
+          <block wx:for="{{item.childList}}" wx:key="index" wx:for-item="floor">
+            <view class='floor-box'>        
+              <view class='column-center'>
+                <image src='/image/floor.png' class='com-icon'></image>
+                <text>{{floor.floorNum}}</text>
+                <text>{{floorNum.name}}</text>
+              </view>
+              <block wx:for="{{floor.childList}}" wx:key="index" wx:for-item="area">
+                <view class='column-center area-box'>
+                  <text class='area-font'>{{area.name}}</text>
+                  <text class='count-font'>{{area.storeCount}}</text>家
+                </view>
+               </block>
+            </view>
+          </block>
+
+        </view>
+      </block>
+    </view>

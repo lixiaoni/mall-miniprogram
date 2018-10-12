@@ -45,25 +45,31 @@ Page({
   changeWx(){
 
   },
-  //改头像
-  changeIcon(){
-    Api.uploadImage()
-      .then(res => {
-        var url = JSON.parse(res).obj
-        if(url){
-          app.http.putRequest("/api/user/headpic",{
-            headPic:url
-          }, { 'content-type': 'application/x-www-form-urlencoded' }).then(res=>{
-            wx.showToast({
-              title: res.message,
-              icon:'none'
-            })
-            this.setData({
-              ['user.headPic']: url
-            })
+   //改头像
+  changeIcon() {
+    app.http.onlychoseImg().then(res=>{
+      let url = res.tempFilePaths[0];
+      Api.toCuttingImg(url)
+    })
+  },
+  afterCuttingImg(url){
+    app.http.onlyUploadImg(url).then(res => {
+      var url = JSON.parse(res).obj
+      if (url) {
+        Api.changeIcon({
+          headPic: url
+        }).then(res => {
+          wx.showToast({
+            title: res.message,
+            icon: 'none'
           })
-        }
-      })
+          this.setData({
+            ['user.headPic']: url
+          })
+        })
+
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

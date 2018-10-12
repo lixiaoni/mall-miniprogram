@@ -24,7 +24,9 @@ import {
   resetPasswordUrl,
   phoneMessageUrl,
   registerUrl,
-  registerPhoneMsgUrl
+  registerPhoneMsgUrl,
+  changeIconUrl,
+  userFloorInfoUrl
 } from './constUrl.js'
 
 import {
@@ -34,6 +36,22 @@ import {
 import AuthHandler from './authHandler.js';
 
 const app = getApp()
+/**判断是否为空**/
+function isEmpty(str) {
+  if (str == '' || str == undefined || str == null) {
+    return false
+  } else {
+    return true
+  }
+}
+/**提示**/
+function showToast(message) {
+  wx.showToast({
+    title: message,
+    icon: 'none',
+    duration: 2000,
+  })
+}
 /**mall首页**/
 function mallIndex(data) {
   data = initMallCode(data);
@@ -191,7 +209,32 @@ function initMallCode(data) {
   data.mallCode = mallCode;
   return data;
 }
+
+// 获取用户楼层信息
+function userFloorInfo(data){
+  return app.http.getRequest(userFloorInfoUrl, data)
+}
+// 裁剪图片跳转
+function toCuttingImg(url, quality) {
+  // quality为true截图质量高
+  if (url) {
+    let add = '../upload/upload?src=' + url;
+    quality ? add += "&quality=true" : "";
+    wx.navigateTo({
+      url: add,
+    })
+  }
+}
+// 修改头像
+function changeIcon(data) {
+  return app.http.putRequest(changeIconUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
+}
 module.exports = {
+  showToast: showToast,
+  isEmpty: isEmpty,
+  changeIcon: changeIcon,
+  toCuttingImg: toCuttingImg,
+  userFloorInfo: userFloorInfo,
   mallIndex: mallIndex,
   goodsSer: goodsSer,
   storeLook: storeLook,

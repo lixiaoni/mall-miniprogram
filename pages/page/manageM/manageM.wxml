@@ -5,10 +5,14 @@
       <image src="{{user.headPic?baseUrl+user.headPic:'/image/42.png'}}" mode="widthFix"></image>
     </view>
     <view class="weui-cell__name">
-      <text class='user-text'>{{user.name}}</text>
-      <image wx:if="{{user.sex==2}}" src='/image/ermR.png'></image>
-      <view wx:if='{{isSuperAdmin}}' class='floor-admin'>超级管理员</view>
-      <view wx:else class='floor-admin'>楼层管理员</view>
+      <view style='display:flex;align-items:center;'>
+        <text class='user-text'>{{user.name}}</text>
+        <image wx:if="{{user.sex==1}}" src='/image/man.png'></image>
+        <image wx:if="{{user.sex==2}}" src='/image/ermR.png'></image>
+        <view wx:if='{{isSuperAdmin}}' class='floor-admin'>超级管理员</view>
+        <view wx:else class='floor-admin'>楼层管理员</view>
+      </view>
+      
       <view class="weui-dp">
         <image src='{{baseUrl+user.mallLogo}}' mode="widthFix"></image>{{user.mallName?user.mallName:""}} <text hidden='{{isSuperAdmin}}'>{{user.deptName?user.deptName:""}}</text>
       </view>
@@ -33,7 +37,7 @@
         </view>
         <view class='weui-xian weui-xian1'></view>
     </navigator> -->
-  <navigator url='../../floor/floorList/floorList'>
+  <navigator url='../../floor/myFloor/myFloor'>
     <text class="store-address">我的楼层管理 </text>
     <view class='weui-view'>
       <image class='img' src="/image/icl.png"></image>
