@@ -11,7 +11,7 @@ Page({
   //打电话
   tel: function () {
     wx.makePhoneCall({
-      phoneNumber: '1316773022',
+      phoneNumber: '01053361798',
     })
   },
   getData() {

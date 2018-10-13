@@ -196,6 +196,7 @@ class request {
       console.warn('no upload url')
       return
     }
+   
     return new Promise((resolve, reject) => {
       this.authHandler.getTokenOrRefresh().then(token => {
         var header = this.defaultUploadHeader
@@ -210,7 +211,7 @@ class request {
           name: 'file',
           header: header,
           formData: {
-            'type': types
+            'type': types ? types : ""
           },
           success: (res => {
             if (res.statusCode === 200) {
