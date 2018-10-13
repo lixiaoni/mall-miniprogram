@@ -1,10 +1,11 @@
 {
 
   "pages":[
+    "pages/page/user/user",
+    
     "pages/page/manageM/manageM",
     "pages/mall/newest/newest",
     
-    "pages/page/user/user",
     
     "pages/login/register/register",
     "pages/page/upload/upload",
