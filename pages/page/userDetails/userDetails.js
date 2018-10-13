@@ -49,7 +49,7 @@ Page({
   changeIcon() {
     app.http.onlychoseImg().then(res=>{
       let url = res.tempFilePaths[0];
-      Api.toCuttingImg(url)
+      Api.toCuttingImg(url,true)
     })
   },
   afterCuttingImg(url){

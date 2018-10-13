@@ -3,9 +3,11 @@
   "pages":[
     "pages/mall/newest/newest",
     
+    "pages/mall/follow/follow",
+    
+    
     "pages/page/manageM/manageM",
     
-    "pages/mall/follow/follow",
     
     
     "pages/page/user/user",

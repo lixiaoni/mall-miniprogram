@@ -8,12 +8,12 @@
 </view>
 <view class='st-ser' hidden='{{!serHide}}'>
   <view class='fw-title fw-title1'>
-    <view wx:for='{{floorserList}}'  class="{{stTab==index?'active':''}}"  data-current='{{index}}'  data-code='{{item.code}}' wx:key='{{index}}'  bindtap="serNav">{{item.name}}<view></view></view>
+    <view wx:for='{{floorserList}}'  class="{{stTab==index?'active':''}}"  data-current='{{index}}'  data-code='{{item.code}}' wx:key='{{index}}'  bindtap="serNav">{{item.name==null?'':item.name}}<view></view></view>
   </view>
   <view class='show-floor'  wx:if='{{isShow==true}}' bindtap='searchBtn'>全部楼座</view>
   <view class='st-ser-cont' wx:if='{{isShow!=true}}'>
       <view class='ser-left'>
-        <view   wx:for="{{childList}}" wx:key="{{index}}"   class="{{floorTab==index?'active':''}}" data-current='{{index}}' data-code='{{item.code}}' bindtap="serFloorNav">{{item.floorNum}}  {{item.name}}</view>
+        <view   wx:for="{{childList}}" wx:key="{{index}}"   class="{{floorTab==index?'active':''}}" data-current='{{index}}' data-code='{{item.code}}' bindtap="serFloorNav">{{item.floorNum}}  {{item.name==null?'':item.name}}</view>
       </view>
       <view class='ser-right'>
         <view bindtap="allFloorNav">全部分区</view>
