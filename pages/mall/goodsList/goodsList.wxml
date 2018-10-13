@@ -5,9 +5,9 @@
   <view  class='st-d-t'>{{item.name}}</view> 
   <view class='st-details'>
     <view class='st-d-status'>
+      <view><text>零售 </text><text class='st-mom'>￥{{item.sellPrice}}</text></view>
       <view hidden='{{!item.isPurchaser}}'><text>批发 </text><text class='st-mom'>￥{{item.wholesalePrice}}</text></view>
       <view hidden='{{item.isPurchaser}}'><text>批发 </text><image src='/image/wh.png'></image></view>
-      <view><text>零售 </text><text class='st-mom'>￥{{item.sellPrice}}</text></view>
       <view>{{item.storeName}}<image src='/image/mallr.png'></image></view>
       </view>
     </view>
