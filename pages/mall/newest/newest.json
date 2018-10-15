@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "精 选"
+  "navigationBarTitleText": "精 选",
+  "enablePullDownRefresh": true
 }

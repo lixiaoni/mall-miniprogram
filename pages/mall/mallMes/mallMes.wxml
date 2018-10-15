@@ -4,10 +4,10 @@
       <navigator url=''><image class="store-logo" src="/image/dp.png" ></image></navigator>
     </view>
     百荣世贸商城
-    <view class='ms-mes'><text>综合商贸城</text></view>
+    <view class='ms-mes'><text>复合式服务中心</text></view>
   </view>
   <view class="ym_jpstoredesc">
-    <text class="leftyh">“</text>百荣世贸商城总面积60万平米，汇集近3000家国际知名品牌及设计师自主品牌，拥有6000余家店，集购物、餐饮、儿童、休闲、运动于一体，面向家庭消费、全年龄段消费人群，引领新生活方式的南城地标行商业旗舰。<text class="rightyh">”</text>
+    <text class="leftyh">“</text>百荣世贸商城总面积60万平米，汇集近3000家国际知名品牌及设计师自主品牌，拥有6000余家店，集购物、餐饮、儿童、休闲、运动于一体，面向家庭消费、全年龄段消费人群，引领新生活方式的复合式服务中心。<text class="rightyh">”</text>
   </view>
 </view>
 <view class="weui_cells new-weui">
@@ -40,8 +40,8 @@
 </view>
 <view class='weui-time weui-time-new'>
   <view>客服电话<text>010-87803388</text><view class='mes-tel'><image src="/image/tel1.png"></image></view></view>
-  <view>客服微信<text>bairongshimao666</text></view>
-  <view>公众号<text>百荣世贸</text></view>
+  <view>客服微信<text>vbairong666</text></view>
+  <view>公众号<text>百荣</text></view>
 </view>
 <view class="weui_cells weui_cells-new">
     <image  src="/image/jt.png"></image>
@@ -63,9 +63,9 @@
  <view><view><image  src="/image/mall33.png"></image></view>失物招领</view>
  <view><view><image  src="/image/mall44.png"></image></view>投诉转接处理</view>
  <view><view><image  src="/image/mall5.png"></image></view>问路指路</view>
- <view><view><image  src="/image/mall6.png"></image></view>复印传真</view>
- <view><view><image  src="/image/mall7.png"></image></view>小物品存放</view>
- <view><view><image  src="/image/mall8.png"></image></view>应急药品</view>
+ <view><view><image  src="/image/mall6.png"></image></view>打印复印</view>
+ <!-- <view><view><image  src="/image/mall7.png"></image></view>小物品存放</view>
+ <view><view><image  src="/image/mall8.png"></image></view>应急药品</view> -->
  <view><view><image  src="/image/mall9.png"></image></view>提款机</view>
  <view><view><image  src="/image/mall10.png"></image></view>物流快递</view>
  <view><view><image  src="/image/mall11.png"></image></view>停车场</view>

@@ -12,9 +12,12 @@ Page({
     duration: 1000,
     current: 0,
     movies: [],
-    getPurchaserStoreIds:'',
+    purchaserStoreIds:'',
     activities:[],
     mallChosenGoods:[],
+    goodsSmall: app.globalData.goodsSmall,
+    logo: app.globalData.logo,
+    storeCover: app.globalData.storeCover, 
     baseUrl: app.globalData.imageUrl,
   },
   intervalChange: function (e) {//自动切换时间间隔
@@ -44,7 +47,7 @@ Page({
     })
   },
   isPurchaser: function (index) {
-    var arr = this.data.getPurchaserStoreIds
+    var arr = this.data.purchaserStoreIds
     if (arr.indexOf(index) != -1) {
       return true
     }
@@ -101,7 +104,7 @@ Page({
     Api.getPurchaserStoreIds()
       .then(res => {
         _this.setData({
-          getPurchaserStoreIds: res
+          purchaserStoreIds: res
         }, function () {
           _this.getList()
         })
@@ -126,7 +129,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.onShow()
+    wx.stopPullDownRefresh();
   },
 
   /**

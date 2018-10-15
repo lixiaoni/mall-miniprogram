@@ -168,7 +168,7 @@ Page({
     this.setData({
       dataList: []
     })
-    this.getList({ keyword: this.data.value, mallCode: 1000})
+    this.getList({ keyword: this.data.value})
   },
   serChildFloorNav:function(e){
     var _this=this,
@@ -220,7 +220,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-   
+    this.setData({
+      dataList: []
+    })
+    this.getList({ keyword: this.data.value })
+    wx.stopPullDownRefresh();
   },
 
   /**

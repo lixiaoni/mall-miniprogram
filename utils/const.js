@@ -6,3 +6,8 @@ export const uploadImg = 'https://dev-mall.youlife.me/base/image'
 // export const uploadImg = 'https://mall.youlife.me/base/image'
 export const basicAuthorization= 'Basic QmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQ6ZTU2YThmMWZkOWJlMmMzMzNmYjdiZTcyNjVkMjRhYTM=';
 export const mallCode= '1000'
+export const logo = '?x-oss-process=style/logo'
+export const goodsSmall = '?x-oss-process=style/goods-small'
+export const storeCover = '?x-oss-process=style/store-cover'
+export const qrcode = '?x-oss-process=style/qrcode'
+export const general = '?x-oss-process=style/general'

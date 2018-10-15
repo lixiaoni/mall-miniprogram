@@ -2,6 +2,9 @@
 
   "pages":[
     "pages/mall/newest/newest",
+    
+    "pages/mall/store/store",
+    
     "pages/mall/follow/follow",
     "pages/page/manageM/manageM",
     "pages/page/user/user",
@@ -25,7 +28,6 @@
     
     
     "pages/work/workIndex/workIndex",
-    "pages/mall/store/store",
     "pages/mall/mallMes/mallMes",
     "pages/work/adminShopList/adminShopList",
     "pages/cloudOrder/orderList/orderList",
@@ -72,7 +74,7 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F7F7F7",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": false
   },
   "networkTimeout":{
     "request":3000

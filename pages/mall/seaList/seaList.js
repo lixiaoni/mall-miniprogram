@@ -81,6 +81,9 @@ Page({
   searchBtn: function (e) {
     app.pageRequest.pageData.pageNum = 0
     var name = e.detail.value
+    this.setData({
+      goodsList: []
+    })
     this.getSerList(e.detail.value)
   },
   onLoad: function (options) {
@@ -153,7 +156,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
- 
+    app.pageRequest.pageData.pageNum = 0
+    this.setData({
+      goodsList: []
+    })
+    this.getSerList('')
+    wx.stopPullDownRefresh();
   },
 
   bindDownLoad: function () {

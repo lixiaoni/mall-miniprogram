@@ -52,14 +52,14 @@
     <view class='fw-store' wx:for="{{dataList}}" wx:key="{{index}}"  wx:for-item="list">
     <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{list.storeId}}" extra-data="" version="trial"></navigator>
       <view class='fw-top'>
-        <image class='fw-logo' src='{{baseUrl}}{{list.store.logo}}'></image>
+        <image class='fw-logo' src='{{baseUrl}}{{list.store.logo}}?x-oss-process=style/logo'></image>
         <view class='fw-iew1'>{{list.store.name}}<text>新批零</text><text hidden='{{!list.isPurchaser}}'>友</text></view>
         <view class='fw-iew'><text>{{list.store.businessScope}}</text>{{list.store.address}}</view>
         <image class='fw-left' src='/image/mallr.png'></image>
       </view>
       <view class='fw-cont'>
         <view wx:for="{{list.goodsList}}" wx:key="{{index}}">
-            <image class='fw-c-img' src='{{baseUrl}}{{item.mainImgUrl}}' ></image>
+            <image class='fw-c-img' src='{{baseUrl}}{{item.mainImgUrl}}?x-oss-process=style/goods-small' ></image>
             <view>零售 <text>￥{{item.sellPrice}}</text></view>
             <view  hidden='{{!list.isPurchaser}}'>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>
             <view  hidden='{{list.isPurchaser}}'><navigator  hidden='{{list.isPurchaser}}' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/businessFriend/information/information?status=0&send=&accept={{list.storeId}}&remark=&name={{list.store.name}}&logo={{list.store.logo}}" extra-data="" version="trial">批发 <image  class='fw-c-you' src='/image/wh.png'></image></navigator></view>
