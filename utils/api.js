@@ -171,11 +171,12 @@ function registerPhoneMsg(data){
  * 获取用户对应进货商列表
  */
 function getPurchaserStoreIds() {
+  return new Promise((resolve, reject) => {
     //如果用户没有登录，则返回空
     if (!AuthHandler.isLogin()) {
-      return [];
+      resolve([]);
     }
-  return new Promise((resolve, reject) => {
+  
     app.http.getRequest(purchaserStoreUrl).then((res) => {
       resolve(res.obj);
     });
