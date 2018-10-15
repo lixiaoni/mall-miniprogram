@@ -50,7 +50,7 @@
 <view class='show-img-box'>
   <block wx:key="{{index}}" wx:for="{{goodsList}}">
     <view wx:if="{{index<6}}" class='img-item'>
-      <image mode='aspectFit' src="{{item.mainImgUrl}}"></image>
+      <image mode='aspectFit' src="{{baseUrl}}{{item.mainImgUrl}}?x-oss-process=style/logo"></image>
     </view>
   </block>
 </view>

@@ -26,7 +26,7 @@
 
     <view class='order-title'>
       <view class='col-md'>
-        <image class='user-icon' src='{{item.userInfoVO.headPic?baseUrl+item.userInfoVO.headPic:"/image/w2.png"}}'></image>
+        <image class='user-icon' src='{{item.userInfoVO.headPic?baseUrl+item.userInfoVO.headPic+"?x-oss-process=style/logo":"/image/w2.png"}}'></image>
         <text class='store-name'>{{item.userInfoVO.nickName}}</text>
       </view>
       <text wx:if='{{item.orderStatus=="unpaid"}}' class='youyou'>已付款</text>

@@ -28,7 +28,7 @@
           <!-- 商品信息 -->
           <view class='flex'>
             <view class='icon-box'>
-              <image class='good-icon' mode='aspectFit' src='{{item.logo}}'></image>
+              <image class='good-icon' mode='aspectFit' src='{{baseUrl}}{{item.logo}}?x-oss-process=style/logo'></image>
             </view>
             <view>
               <view class='name-box'>

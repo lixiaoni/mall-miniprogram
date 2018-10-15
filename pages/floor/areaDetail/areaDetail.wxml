@@ -30,7 +30,7 @@
        <view class='admin-list-box'>
           <block wx:for="{{admin}}">
             <view  class='admin-item'>
-              <image class='admin-item-img' src='{{item.headPic}}'></image>
+              <image class='admin-item-img' src='{{baseUrl}}{{item.headPic}}?x-oss-process=style/logo'></image>
               <text class='add-admin-font'>{{item.name}}</text>
             </view>
           </block>

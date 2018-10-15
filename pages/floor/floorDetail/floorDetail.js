@@ -24,7 +24,7 @@ Page({
     //新建模态框
     areaModal:false,
     areaName:"",
-    
+    baseUrl: app.globalData.imageUrl
   },
   choseAdmin(){
     wx.navigateTo({
