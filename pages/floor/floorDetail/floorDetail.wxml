@@ -25,7 +25,7 @@
           <view class='admin-list-box'>
             <block wx:for="{{admin}}">
               <view  class='admin-item'>
-                <image class='admin-item-img' src='{{item.headPic}}'></image>
+                <image class='admin-item-img' src='{{baseUrl}}{{item.headPic}}?x-oss-process=style/logo'></image>
                 <text class='add-admin-font'>{{item.name}}</text>
               </view>
             </block>
@@ -82,7 +82,7 @@
       <view bindtap='toAreaDetail' data-code='{{item.code}}'>
         <view wx:if='{{item.userList}}' class='area-img-list'>
           <block wx:for='{{item.userList}}' wx:for-item='ad'>
-            <image style='right:{{40*index}}rpx;z-index:{{10-index}}' class='floor-admin area-admin' src="{{ad.headPic?ad.headPic:'/image/41.png'}}"></image>
+            <image style='right:{{40*index}}rpx;z-index:{{10-index}}' class='floor-admin area-admin' src="{{baseUrl+ad.headPic?ad.headPic+'?x-oss-process=style/logo':'/image/41.png'}}"></image>
           </block>
         </view>
         <view wx:else>

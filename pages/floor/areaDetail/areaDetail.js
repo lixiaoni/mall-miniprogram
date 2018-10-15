@@ -17,6 +17,7 @@ Page({
     //修改弹窗
     areaModal:false,
     newAreaName:"",
+    baseUrl: app.globalData.imageUrl,
     //删除弹层
     delModal:false
   },

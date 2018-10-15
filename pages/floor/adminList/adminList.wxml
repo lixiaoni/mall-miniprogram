@@ -86,7 +86,7 @@
           <view class='flex-box align-center admin-item-box'>
             <view class='column-box' bindtap='toDetail' data-id='{{item.userId}}'>
               <view class="title-box">
-                  <image src='{{baseUrl+item.headPic}}' class='admin-ball'></image>
+                  <image src='{{baseUrl+item.headPic}}?x-oss-process=style/logo' class='admin-ball'></image>
               </view>
               <text>{{item.name}}</text>
             </view>

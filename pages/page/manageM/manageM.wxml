@@ -14,7 +14,7 @@
       </view>
       
       <view class="weui-dp">
-        <image src='{{baseUrl+user.mallLogo}}' mode="widthFix"></image>{{user.mallName?user.mallName:""}} <text hidden='{{isSuperAdmin}}'>{{user.deptName?user.deptName:""}}</text>
+        <image src='{{baseUrl+user.mallLogo}}?x-oss-process=style/logo' mode="widthFix"></image>{{user.mallName?user.mallName:""}} <text hidden='{{isSuperAdmin}}'>{{user.deptName?user.deptName:""}}</text>
       </view>
     </view>
     <!-- <view class='weui-view'>
