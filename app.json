@@ -1,10 +1,10 @@
 {
 
   "pages":[
-
+    "pages/mall/follow/follow",
+    
     "pages/mall/newest/newest",
     
-    "pages/mall/follow/follow",
     
     
     "pages/page/manageM/manageM",

@@ -41,7 +41,6 @@ Page({
         var obj=res.obj
        if(obj!=null){
          var detailList = res.obj.result
-         console.log(detailList)
          for (var i = 0; i < detailList.length;i++){
            if(_this.isPurchaser(detailList[i].storeId)){
              detailList[i].isPurchaser=true
@@ -73,6 +72,7 @@ Page({
   },
   isPurchaser:function(index){
     var arr = Api.getPurchaserStoreIds()
+    console.log(arr)
     if(arr.indexOf(index)!=-1){
       return true
     }
