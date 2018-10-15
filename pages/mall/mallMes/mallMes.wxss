@@ -209,7 +209,7 @@ color: #999;margin-top: 0rpx;
   border-bottom-right-radius:10rpx; border-bottom-left-radius:10rpx;
 }
 .weui-time-last{
-  background: #fff;margin:20rpx;margin-top: -17rpx;border-bottom-right-radius:10rpx; border-bottom-left-radius:10rpx;
+  background: #fff;margin:20rpx;margin-top: -17rpx;border-bottom-right-radius:10rpx; border-bottom-left-radius:10rpx;margin-bottom:50rpx;
 }
 .weui-time-last>view{
   width: 25%;display: inline-block;text-align: center;font-size: 24rpx;margin-top:40rpx;margin-bottom: 30rpx;

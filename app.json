@@ -2,24 +2,14 @@
 
   "pages":[
     "pages/mall/newest/newest",
-    
-    "pages/mall/store/store",
-    
     "pages/mall/follow/follow",
+    "pages/mall/store/store",
     "pages/page/manageM/manageM",
     "pages/page/user/user",
     "pages/login/register/register",
     "pages/page/upload/upload",
-    
-    
     "pages/floor/myFloor/myFloor",
-    
-    
-    
     "pages/floor/adminList/adminList",
-    
-    
-    
     "pages/page/newAddress/newAddress",
     
     "pages/page/updataPwd/updataPwd",

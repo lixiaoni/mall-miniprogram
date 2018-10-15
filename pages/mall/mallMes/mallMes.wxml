@@ -1,7 +1,7 @@
 <view class='mes-cont'>
   <view class="ym_jpstorename">
   <view class="ym_jpstorelogo">
-      <navigator url=''><image class="store-logo" src="/image/dp.png" ></image></navigator>
+      <navigator url=''><image class="store-logo" src="/image/dp.jpg" ></image></navigator>
     </view>
     百荣世贸商城
     <view class='ms-mes'><text>复合式服务中心</text></view>
