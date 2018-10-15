@@ -8,13 +8,14 @@ Page({
   data: {
     dataList: [],
     baseUrl: app.globalData.imageUrl,
+    getPurchaserStoreIds:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   isPurchaser: function (index) {
-    var arr = Api.getPurchaserStoreIds()
+    var arr = this.data.getPurchaserStoreIds
     if (arr.indexOf(index) != -1) {
       return true
     }
@@ -47,7 +48,15 @@ Page({
   },
   onLoad: function (options) {
     var _this = this
-    this.getInfo(options.index)
+    Api.getPurchaserStoreIds()
+      .then(res => {
+        _this.setData({
+          getPurchaserStoreIds: res
+        }, function () {
+          _this.getInfo(options.index)
+        })
+      })
+    
   },
 
   /**

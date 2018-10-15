@@ -1,18 +1,10 @@
 {
 
   "pages":[
-    "pages/mall/follow/follow",
-    
     "pages/mall/newest/newest",
-    
-    
-    
+    "pages/mall/follow/follow",
     "pages/page/manageM/manageM",
-    
-    
-    
     "pages/page/user/user",
-    
     "pages/login/register/register",
     "pages/page/upload/upload",
     

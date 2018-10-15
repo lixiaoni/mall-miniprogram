@@ -20,11 +20,12 @@ Page({
     balconyCode:'',
     floorCode:'',
     floorAreaCode:'',
+    getPurchaserStoreIds:'',
     isShow:true
   },
-   isPurchaser:function(index){
-     var arr = Api.getPurchaserStoreIds()
-    if(arr.indexOf(index)!=-1){
+  isPurchaser: function (index) {
+    var arr = this.data.getPurchaserStoreIds
+    if (arr.indexOf(index) != -1) {
       return true
     }
   },
@@ -43,15 +44,24 @@ Page({
       })
   },
   onLoad: function (options) {
-    this.getFloorSer()
-    if (options.name){
-      this.setData({
-        value: options.name
+    var _this = this
+    Api.getPurchaserStoreIds()
+      .then(res => {
+        _this.setData({
+          getPurchaserStoreIds: res
+        }, function () {
+          _this.getFloorSer()
+          if (options.name) {
+            _this.setData({
+              value: options.name
+            })
+            _this.getList({ keyword: options.name })
+          } else {
+            _this.getList()
+          }
+        })
       })
-      this.getList({ keyword: options.name})
-    }else{
-      this.getList()
-    }
+    
   },
   // tab切换
   swichNav: function (e) {

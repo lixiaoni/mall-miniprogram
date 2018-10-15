@@ -1,5 +1,6 @@
 const app = getApp();
 import Api from '../../../utils/api.js'
+
 Page({
 
   /**
@@ -12,6 +13,7 @@ Page({
     dataList:[],
     showFavorite:false,
     limitShow:false,
+    getPurchaserStoreIds:'',
     baseUrl: app.globalData.imageUrl,
     token:wx.getStorageSync('access_token'),
   },
@@ -71,13 +73,13 @@ Page({
       })
   },
   isPurchaser:function(index){
-    var arr = Api.getPurchaserStoreIds()
-    console.log(arr)
+    var arr = this.data.getPurchaserStoreIds
     if(arr.indexOf(index)!=-1){
       return true
     }
   },
   onLoad: function (options) {
+    
   },
   getNewList: function (nextPage){
     var that = this
@@ -93,7 +95,6 @@ Page({
             })
           }
           for (var i = 0; i < detailList.length; i++) {
-            console.log(detailList[i])
             if (that.isPurchaser(detailList[i].storeId)) {
               detailList[i].isPurchaser = true
             } else {
@@ -151,7 +152,15 @@ Page({
     this.setData({
       result: []
     })
-    this.getFavorite()
+    var _this=this
+    Api.getPurchaserStoreIds()
+    .then(res => {
+      _this.setData({
+        getPurchaserStoreIds:res
+      },function(){
+        this.getFavorite()
+      })
+    })
   },
   goStore:function(){
     wx.navigateTo({

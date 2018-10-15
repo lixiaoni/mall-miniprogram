@@ -177,9 +177,7 @@ function getPurchaserStoreIds() {
     }
   return new Promise((resolve, reject) => {
     app.http.getRequest(purchaserStoreUrl).then((res) => {
-      resolve(purchaserStoreIds = res.obj);
-    }).fail((res)=>{
-      reject(res);
+      resolve(res.obj);
     });
   });
 }

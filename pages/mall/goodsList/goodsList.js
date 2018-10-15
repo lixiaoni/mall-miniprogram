@@ -8,10 +8,10 @@ Page({
   data: {
     goodsList:[],
     baseUrl: app.globalData.imageUrl,
-
+    getPurchaserStoreIds: '',
   },
   isPurchaser: function (index) {
-    var arr = Api.getPurchaserStoreIds()
+    var arr = this.data.getPurchaserStoreIds
     if (arr.indexOf(index) != -1) {
       return true
     }
@@ -21,36 +21,45 @@ Page({
    */
   onLoad: function (options) {
     var _this = this
-    if (options.index){
-      var index = options.index
-      Api.mallIndex()
-        .then(res => {
-          const obj = res.obj
-          const goodsList= obj.mallChosenGoods[index].goodsList
-          for (var j = 0; j < goodsList.length; j++) {
-            if (j < 5) {
-              if (_this.isPurchaser(goodsList[j].storeId)) {
-                goodsList[j].isPurchaser = true
-              } else {
-                goodsList[j].isPurchaser = false
-              }
-            }
+    var _this = this
+    Api.getPurchaserStoreIds()
+      .then(res => {
+        _this.setData({
+          getPurchaserStoreIds: res
+        }, function () {
+          if (options.index) {
+            var index = options.index
+            Api.mallIndex()
+              .then(res => {
+                const obj = res.obj
+                const goodsList = obj.mallChosenGoods[index].goodsList
+                for (var j = 0; j < goodsList.length; j++) {
+                  if (j < 5) {
+                    if (_this.isPurchaser(goodsList[j].storeId)) {
+                      goodsList[j].isPurchaser = true
+                    } else {
+                      goodsList[j].isPurchaser = false
+                    }
+                  }
+                }
+                _this.setData({
+                  goodsList: goodsList
+                })
+                wx.setNavigationBarTitle({
+                  title: obj.mallChosenGoods[index].name
+                })
+              })
           }
-          _this.setData({
-            goodsList: goodsList
-          })
-          wx.setNavigationBarTitle({
-            title: obj.mallChosenGoods[index].name
-          })
+          if (options.code) {
+            wx.setNavigationBarTitle({
+              title: options.keyword
+            })
+            _this.getSerList(options.code)
+
+          }
         })
-    }
-    if(options.code){
-      wx.setNavigationBarTitle({
-        title: options.keyword
       })
-      _this.getSerList(options.code)
-     
-    }
+   
   },
   getSerList(code){
     var _this=this
