@@ -193,7 +193,6 @@ class request {
   }
   onlyUploadImg(url, types) {
     if (!url) {
-      console.warn('no upload url')
       return
     }
    

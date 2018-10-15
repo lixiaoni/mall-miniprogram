@@ -105,7 +105,6 @@ Page({
       this.setData({
         history: JSON.parse(history)
       })
-      console.log(this.data.history);
     }
   }
 })

@@ -38,7 +38,6 @@ Page({
           title:obj.name
         })
         dataList=dataList[index].storeGoodsList
-        console.log(dataList)
         _this.setData({
           dataList: dataList,
           showFavorite: true

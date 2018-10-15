@@ -19,8 +19,7 @@ Page({
     baseUrl: app.globalData.imageUrl
   },
   chose(e){
-    console.log(e.currentTarget.dataset.id)
-    
+ 
   },
   call(e){
     wx.makePhoneCall({
@@ -62,7 +61,6 @@ Page({
   },
   //获取展示管理员列表
   getList(obj) {
-    console.log(obj)
     let send = obj ? obj : {};
     send.mallCode = app.http.mallCode;
    

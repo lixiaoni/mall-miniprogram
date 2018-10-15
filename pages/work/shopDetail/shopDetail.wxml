@@ -1,7 +1,7 @@
 <view class='mes-cont'>
   <view class="ym_jpstorename">
   <view class="ym_jpstorelogo">
-      <navigator url=''><image class="store-logo" src="/image/dp.png" ></image></navigator>
+      <navigator url=''><image class="store-logo" src="{{baseUrl}}{{store.logo}}?x-oss-process=style/logo" ></image></navigator>
     </view>
     {{store.name}}
     <view><text class='shopStatus'>运营中</text></view>

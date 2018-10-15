@@ -18,7 +18,6 @@ Page({
           user: res.obj,
           hasUser: true
         })
-        console.log(this.data.user.gender)
       }
     }).catch(e => {
       this.setData({

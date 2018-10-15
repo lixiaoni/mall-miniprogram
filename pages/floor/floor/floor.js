@@ -122,7 +122,6 @@ Page({
     })
   },
   toFloorDetail(e){
-    console.log()
     wx.navigateTo({
       url: '../floorDetail/floorDetail?code=' + e.currentTarget.dataset.code,
     })

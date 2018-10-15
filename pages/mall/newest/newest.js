@@ -39,7 +39,6 @@ Page({
     })
   },
   swipclick: function (e) {//点击图片触发事件
-    // console.log(this.data.imageUrls[this.data.current]);
   },
   bindchange: function (e) {//轮播图发生改变
     this.setData({

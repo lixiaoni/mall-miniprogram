@@ -86,7 +86,6 @@ Page({
             _that.afterGetPath(tmpPath)
           },
           fail(e) {
-            console.log(e)
           }
         })
       })

@@ -31,7 +31,6 @@ Page({
       pageSize = this.data.pageSize
     app.http.getRequest('/admin/shop/goods/findUnderStoreGoodsByCustomCategoryCode/' + storeId + '?customCategoryCode=' + customCategoryCode + '&pageNum=' + pageNum + '&pageSize=' + pageSize)
       .then(res => {
-        console.log(obj.result)
         _this.setData({
           result: obj.result
         })

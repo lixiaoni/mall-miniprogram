@@ -8,7 +8,8 @@ Page({
    */
   data: {
     //1认证 2冻结 3解冻
-    state: ""
+    state: "",
+    baseUrl: app.globalData.imageUrl
   },
 
   //认证

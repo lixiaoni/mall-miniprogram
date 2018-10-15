@@ -11,7 +11,6 @@ class publicMethod {
    * 统一的异常处理方法
    */
   errorHander(res) {
-    console.error(res)
   }
 
   /**
