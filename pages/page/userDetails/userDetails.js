@@ -49,10 +49,13 @@ Page({
   changeIcon() {
     app.http.onlychoseImg().then(res=>{
       let url = res.tempFilePaths[0];
-      Api.toCuttingImg(url,true)
+      Api.toCuttingImg(url)
     })
   },
   afterCuttingImg(url){
+    this.setData({
+      noUpload: true
+    })
     app.http.onlyUploadImg(url).then(res => {
       var url = JSON.parse(res).obj
       if (url) {
@@ -102,7 +105,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData();
+    if (this.data.noUpload) {
+      this.setData({
+        noUpload: false
+      })
+    } else {
+      this.getData();
+    }
   },
 
   /**
