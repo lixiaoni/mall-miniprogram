@@ -204,6 +204,9 @@ class request {
         } else {
           delete header['Authorization'];
         }
+        wx.showLoading({
+          title: '上传中',
+        })
         wx.uploadFile({
           url: uploadImg,
           filePath: url,
@@ -222,6 +225,9 @@ class request {
               reject(res)
             }
           }),
+          complete: (res => {
+            wx.hideLoading();
+          })
         })
       })
     })
