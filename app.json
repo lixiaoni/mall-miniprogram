@@ -67,7 +67,10 @@
     "enablePullDownRefresh": false
   },
   "networkTimeout":{
-    "request":3000
+    "request": 3000,
+    "connectSocket": 3000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
   },
   "tabBar": {
     "borderStyle": "white",
