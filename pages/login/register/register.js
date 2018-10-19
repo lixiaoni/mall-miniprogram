@@ -58,7 +58,7 @@ Page({
         title: res.message,
         icon: 'none'
       })
-
+      
       //登录
       app.authHandler.loginByUser(obj.mobile, obj.password).then(res => {
         //获取上一页
@@ -199,7 +199,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.authHandler.flushTokenInfo()
   },
 
   /**
