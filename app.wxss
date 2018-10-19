@@ -6,6 +6,9 @@
 .miniDetails{
   width: 90%;height: 100rpx;position: absolute;height: 80%;z-index: 100;
 }
+.goods-ser-right{
+  color:#CCAA77;font-size:30rpx;position: absolute;right: 50rpx;top:20rpx;z-index: 100;
+}
 .container {
   height: 100%;
   display: flex;

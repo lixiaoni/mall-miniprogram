@@ -1,6 +1,7 @@
 <view class="goods-ser">
     <input placeholder="搜索小云店" bindconfirm="searchBtn" bindinput='changeValue' value="{{value}}"/>
     <image class="home-ser"  src="/image/search1.png"></image>
+    <view class='goods-ser-right' bindtap="searchBtn">搜索</view>
 </view>
 <view class='fw-title {{serHide?"fw-title-active":""}}'>
   <view class="{{currentTab==0?'active':''}}" data-current='0'  bindtap="swichNav">楼层导航 <image  wx:if="{{currentTab==1}}" src='/image/xl.png'></image><image  wx:else src='/image/xl1.png'></image><view></view></view>

@@ -1,6 +1,7 @@
 <view class="goods-ser">
-    <input placeholder="请输入搜索关键词"  bindconfirm="searchBtn" value="{{value}}"/>
+    <input placeholder="请输入搜索关键词" bindinput='changeValue'  bindconfirm="searchBtn" value="{{value}}"/>
     <image class="home-ser"  src="/image/search1.png"></image>
+    <view class='goods-ser-right' bindtap="searchBtn">搜索</view>
 </view>
 <view class='fw-title'>
   <view class="{{currentTab==0?'active':''}}" data-current='0'  bindtap="swichNav">商品<view></view></view>

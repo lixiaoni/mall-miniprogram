@@ -86,11 +86,11 @@ Page({
   },
   searchBtn: function (e) {
     app.pageRequest.pageData.pageNum = 0
-    var name = e.detail.value
+    var name = this.data.value
     this.setData({
       goodsList: []
     })
-    this.getSerList(e.detail.value)
+    this.getSerList(name)
   },
   onLoad: function (options) {
     var _this = this

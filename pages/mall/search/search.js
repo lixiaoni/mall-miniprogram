@@ -8,6 +8,7 @@ Page({
     currentTab: 0,
     // history: ["阿迪", "T恤", "短袖"],
     hot: ["羽绒服", "毛衣", "短袖"],
+    value:'',
     hot1: ["耐克", "only", "杰克琼斯", "安踏"],
   },
 
@@ -45,8 +46,14 @@ Page({
     }
   },
   searchBtn: function (e) {
-    var name = e.detail.value
+    var name = this.data.value
     this.goSerList(name)
+  },
+  changeValue:function(e){
+    var val = e.detail.value
+    this.setData({
+      value:val
+    })
   },
   // removeAll() {
     // this.setData({
