@@ -61,6 +61,9 @@ function fill_zero_prefix(num) {
 
 // 保存至相册
 const saveImgToPhone = imgUrl => {
+  wx.showLoading({
+    title: "保存中",
+  })
   wx.downloadFile({
     url: imgUrl,
     success: function (res) {
@@ -81,6 +84,9 @@ const saveImgToPhone = imgUrl => {
           }
         })
       }
+    },
+    complete: function (res) {
+      wx.hideLoading()
     }
   })
 }
