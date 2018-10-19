@@ -10,9 +10,15 @@ Page({
     goodsList:[],
     baseUrl: app.globalData.imageUrl,
     value:'',
+    purchaserStoreIds: '',
     priceShow:false,
   },
-
+  changeInput:function(e){
+    var val = e.detail.value
+    this.setData({
+      value:val
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -22,7 +28,7 @@ Page({
     })
   },
   isPurchaser: function (index) {
-    var arr = Api.getPurchaserStoreIds()
+    var arr = this.data.purchaserStoreIds
     if (arr.indexOf(index) != -1) {
       return true
     }
@@ -87,12 +93,19 @@ Page({
     this.getSerList(e.detail.value)
   },
   onLoad: function (options) {
-    if (options.name){
-      this.getSerList(options.name)
-    }else{
-      this.getSerList('')
-    }
-    
+    var _this = this
+    Api.getPurchaserStoreIds()
+      .then(res => {
+        _this.setData({
+          purchaserStoreIds: res
+        }, function () {
+          if (options.name) {
+            _this.getSerList(options.name)
+          } else {
+            _this.getSerList('')
+          }
+        })
+      })
   },
   swichNav: function (e) {
     var that = this,
@@ -160,7 +173,8 @@ Page({
     this.setData({
       goodsList: []
     })
-    this.getSerList('')
+    var val=this.data.value
+    this.getSerList(val)
     wx.stopPullDownRefresh();
   },
 

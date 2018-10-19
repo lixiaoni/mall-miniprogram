@@ -1,5 +1,5 @@
 <view class="goods-ser">
-    <view url='../search/search'><input placeholder="请输入搜索关键词"  bindconfirm="searchBtn" value="{{value}}"/></view>
+    <view url='../search/search'><input placeholder="请输入搜索关键词" bindinput='changeInput'  bindconfirm="searchBtn" value="{{value}}"/></view>
     <image class="home-ser"  src="/image/search.png"></image>
     <image class="home-ser home-ser1"  src="/image/ser.png" bindtap='emptyVal'></image>
 </view>
@@ -33,5 +33,5 @@
       </view>
     </view>
 </view>
-<view class='sl-font'>没有更多了</view>
+<!-- <view class='sl-font'>没有更多了</view> -->
 </scroll-view>
