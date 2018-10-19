@@ -77,6 +77,7 @@ Page({
     } else {
       that.setData({
         currentTab: e.target.dataset.current,
+        floorTab:0
       })
     }
   },

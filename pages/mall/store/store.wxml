@@ -23,32 +23,6 @@
   </view>
 <scroll-view scroll-y="true" style="height:100%;" bindscrolltolower="bindDownLoad">
   <view>
-    <!-- <view class='fw-store'>
-      <view class='fw-top'>
-        <image class='fw-logo' src='/image/wytjimg.png'></image>
-        <view class='fw-iew1'>JANE STUDIO 简约<text>新批零</text></view>
-        <view class='fw-iew'><text>时尚女装</text>百荣世贸一期3FB区306</view>
-        <image class='fw-left' src='/image/mallr.png'></image>
-      </view>
-      <view class='fw-cont'>
-        <view>
-            <image class='fw-c-img' src='/image/userphoto.png' ></image>
-            <view>零售 <text>￥3232</text></view>
-            <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
-          </view>
-          <view>
-            <image class='fw-c-img' src='/image/userphoto.png' ></image>
-            <view>零售 <text>￥3232</text></view>
-            <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
-          </view>
-          <view>
-            <image class='fw-c-img' src='/image/userphoto.png' ></image>
-            <view>零售 <text>￥3232</text></view>
-            <view>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
-          </view>
-      </view>
-      <view> <view class='button'>购买过的店</view><view class='button'>12件上新</view><view class='button'>3523人买过</view></view>
-    </view> -->
     <view class='fw-store' wx:for="{{dataList}}" wx:key="{{index}}"  wx:for-item="list">
     <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{list.storeId}}" extra-data="" version="trial"></navigator>
       <view class='fw-top'>

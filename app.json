@@ -2,8 +2,9 @@
 
   "pages":[
     "pages/mall/newest/newest",
-    "pages/mall/follow/follow",
     "pages/mall/store/store",
+    "pages/mall/seaList/seaList",
+    "pages/mall/follow/follow",
     "pages/page/manageM/manageM",
     "pages/page/user/user",
     "pages/login/register/register",
@@ -11,24 +12,15 @@
     "pages/floor/myFloor/myFloor",
     "pages/floor/adminList/adminList",
     "pages/page/newAddress/newAddress",
-    
     "pages/page/updataPwd/updataPwd",
-    
-    
-    
-    
     "pages/work/workIndex/workIndex",
     "pages/mall/mallMes/mallMes",
     "pages/work/adminShopList/adminShopList",
     "pages/cloudOrder/orderList/orderList",
     "pages/work/shopList/shopList",
     "pages/mall/search/search",
-    "pages/mall/seaList/seaList",
-    
     "pages/floor/addAdmin/addAdmin",
-    
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
-
     "pages/page/set/set",
     "pages/work/shopDetail/shopDetail",
     "pages/mall/class/class",
