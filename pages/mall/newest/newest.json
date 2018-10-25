@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "精 选",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "login": "../../login/login/login"
+  }
 }

@@ -158,7 +158,7 @@ Page({
       _this.setData({
         getPurchaserStoreIds:res
       },function(){
-        this.getFavorite()
+        _this.getFavorite()
       })
     })
   },

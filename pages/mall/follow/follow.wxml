@@ -1,3 +1,4 @@
+<login id="login"></login>
 <view hidden='{{!showFavorite}}'>
   <view class='fw-no'>
     <view>还没关注小云店</view>
