@@ -15,13 +15,14 @@ Page({
     wx:"",
     part:"",
     code:"",
-    manage:[]
+    manage:[],
+    baseUrl: app.globalData.imageUrl
   },
   loadPage(){
     app.http.getRequest("/admin/floor/malluser/userfloor/"+this.data.userId).then((res)=>{
       let obj = res.obj;
       this.setData({
-        src: obj.headPic ? obj.headPic :"/image/41.png",
+        src: obj.headPic ? this.data.baseUrl+obj.headPic :"/image/41.png",
         name: obj.name,
         phoneNum: obj.phone,
         part: obj.deptName,

@@ -13,7 +13,7 @@
     <view class='floor-item'>
       <navigator url="../floor/floor?id={{item.code}}&name={{item.name}}" class='name-box'>
         <image class='icon' src='/image/dp.png'></image>
-        <text>{{item.name}}</text>
+        <text class='b-font'>{{item.name}}</text>
       </navigator>
       <view class='more-box' bindtap='showMenu' data-id='{{item.code}}' data-name='{{item.name}}'>
         <image class='more' src='/image/moreO.png'></image>

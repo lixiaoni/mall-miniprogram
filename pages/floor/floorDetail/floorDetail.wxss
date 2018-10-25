@@ -1,8 +1,15 @@
 /* pages/floor/floorDetail/floorDetail.wxss */
 @import '../floor/floor-common';
 @import '../floor/spec';
+
+.newComBox>view{
+  width: 100%;
+}
+.area-img-list{
+  height: 60rpx;
+}
 .danger{
-  background: #d9534f;
+  background: #ccaa77;
   color: #fff;
 }
 .add-icon{
@@ -12,18 +19,29 @@
 .edit-icon{
   width: 39rpx;
   height: 35rpx;
+  margin-top:20rpx;
 }
 .area-box{
   border-bottom: 2rpx solid #eee;
+  height:120rpx;
+  box-sizing:border-box;
+  padding-top:0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
 }
 .floor-title{
   font-size:44rpx;
   font-weight: 600;
 }
 .floor-edit{
-  width: 25rpx;
+  width: 35rpx;
   height: 35rpx;
   margin-top: 20rpx;
+}
+.go-icon-box{
+  text-align: right;
+  flex:1;
 }
 /* 分配管理员 */
 .add-admin{
@@ -80,7 +98,7 @@
 /* 滚动 */
 .scroll-tag{
   white-space:nowrap;
-  width: 500rpx;
+  width: 480rpx;
   height: 57rpx;
 }
 /* 删除 */

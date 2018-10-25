@@ -1,18 +1,22 @@
 /* pages/floor/choseAdmin/choseAdmin.wxss */
 @import '../floor/floor-common';
-
+.title-box{
+  text-align:center;  
+  line-height: 30rpx;
+}
+.lala{
+  flex: 1;
+}
 .phone-icon{
   width: 35rpx;
   height: 35rpx;
+  padding-left: 30rpx;
 }
 .add-img{
   width: 36rpx;
   height: 40rpx;
 }
-.ad-serch-box{
-  background: #f7f7f7;
-  padding: 14rpx 20rpx;
-}
+
 .search-img{
   width: 30rpx;
   height: 30rpx;
@@ -24,8 +28,7 @@
   border-radius: 50%;
 }
 .admin-item-box{
-  padding-bottom: 20rpx;
-  margin-bottom: 20rpx;
+  padding: 20rpx 0;
   border-bottom: 2rpx solid #eee;
 }
 

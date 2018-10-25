@@ -1,7 +1,7 @@
 @import '../../page/mesEdit/mesEdit';
 @import '../floor/spec';
 .floor-box{
-   padding: 20rpx 20rpx 130rpx; 
+   padding: 20rpx 20rpx 160rpx; 
 }
 .company-logo{
   width: 33rpx;
@@ -24,13 +24,14 @@
   margin-right: 16rpx;
 }
 .more image{
-  width: 7rpx;
+  width: 43rpx;
   height: 43rpx;
   float: right;
 }
 /* 楼层块 */
 .floor-part-box{
   margin-top: 20rpx;
+  border-radius:5px;
 }
 .floor-title{
   font-size:36rpx;
@@ -41,9 +42,13 @@
   height:60rpx;
 }
 /* 区 */
-.area-box{
+.floor-part-box .area-box{
   border-top: 2rpx solid #eee;
   font-size:26rpx;
+  height:120rpx;
+  padding-top:0;
+  padding-bottom:0;
+
 }
 .area-title{
   font-weight: 600;
@@ -57,12 +62,15 @@
 }
 .area-img-list{
   position: relative;
+  width: 120rpx;
+  height: 60rpx;
+  overflow: hidden;
 }
 .area-admin{
   position: absolute;
 }
 .tri{
-  width: 16rpx;
+  width: 32rpx;
   height: 32rpx;
 }
 /* 新建 */
@@ -73,22 +81,23 @@
   justify-content: center;
   width: 100%;
   font-size: 34rpx;
-  font-weight: 600;
   text-align: center;
   position: fixed;
   bottom: 0;
+  left: 0;
   background: #fff;
   z-index:11;
 }  
 /* 公用样式 */
 .floor-part{
-  border-radius: 5px;
+  /* border-radius: 5px; */
   background: white;    
   padding: 40rpx 30rpx; 
 }
 .flex-box{
   display: flex;
   justify-content: space-between;
+  align-items:center;
 }
 .column-box{
   display: flex;

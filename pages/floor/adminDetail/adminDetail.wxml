@@ -1,7 +1,9 @@
 <login id="login"></login>
 <view class='floor-box adminD-box'>
   <view class='floor-part detail-box'>
-    <image src='{{src}}' class='admin-icon'></image>
+    <view class='admin-icon'>
+      <image src='{{src}}' style='width:150rpx;height:150rpx;'></image>    
+    </view>
     <view class='admin-name'>{{name}}</view>
 
     <!-- 按钮 -->
@@ -49,7 +51,7 @@
   
     <!-- 管理层 -->
     <view class='list-show floor-part'>
-      <view class='list-title'>我的管理层</view>
+      <view class='list-title'>我的管理楼层</view>
 
       <block wx:for="{{manage}}">
         <view class='border-box list-part'>

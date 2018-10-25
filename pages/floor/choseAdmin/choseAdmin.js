@@ -17,6 +17,7 @@ Page({
     choseLou: false,//选择楼层
     bigComName: true,//公司名显示
     admin:[],
+    baseUrl: app.globalData.imageUrl,
     ballBack: [
       '#ffa515',
       '#fa69ab',

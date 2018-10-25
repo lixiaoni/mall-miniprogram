@@ -1,6 +1,6 @@
 /* 公用样式 */
 .tri-icon{
-  width: 25rpx;
+  width: 32rpx;
   height: 32rpx;
 }
 .floor-box{
@@ -22,7 +22,7 @@
   width: 26rpx;
   height: 36rpx;
   border-radius: 4rpx;
-  background: red;
+  background: #ccaa77;
   position: relative;
 }
 
@@ -91,7 +91,6 @@
   align-items: center;
   width: 100%;
   font-size: 34rpx;
-  font-weight: 600;
   text-align: center;
   position: fixed;
   bottom: 0;
@@ -103,9 +102,42 @@
   display: inline-block;
   border-radius: 4px;
   color: white;
-  background: blue;
+  background: #ccaa77;
   padding: 7rpx 32rpx;
   font-size: 26rpx;
   height: 40rpx;
   margin-right:20rpx;
+}
+/* 修改100rpx */
+.newComBox{
+  height:120rpx;
+  box-sizing:border-box;
+  padding-top:0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.newComBox>view{
+  width: 100%;
+}
+.newComBoxC{
+  height:120rpx;
+  box-sizing:border-box;
+  padding-top:0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.paddingLR{
+ padding: 0 30rpx;  
+}
+
+.ad-serch-box{
+  background: #f7f7f7;
+  padding: 10rpx 20rpx;
+  font-size:26rpx;
+  color: #333;
+}
+.no-border{
+  border:0!important;
 }

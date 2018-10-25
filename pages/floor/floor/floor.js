@@ -17,6 +17,7 @@ Page({
     showMenu:false,
     companyLogo:"/image/dp.png",
     moreSrc: "/image/moreO.png",
+    baseUrl: app.globalData.imageUrl,
     companyName:"",
     floorList: []
   },

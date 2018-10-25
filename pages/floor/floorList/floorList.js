@@ -96,6 +96,9 @@ Page({
    */
   onLoad: function (options) {
     // this.getList()
+    wx.setNavigationBarTitle({
+      title: '楼层管理',
+    })
   },
 
   /**

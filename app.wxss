@@ -549,3 +549,6 @@ input:focus{
   justify-content: space-between;
   align-items: center;
 }
+.radius-box{
+  border-radius: 5px;
+}

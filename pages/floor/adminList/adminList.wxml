@@ -2,7 +2,7 @@
 <login id="login"></login>
 <view class='floor-box'>
   <!-- 搜索 -->
-  <view class='floor-part flex-box align-center'>
+  <view class='floor-part flex-box align-center newComBoxC'>
     <view class='ad-serch-box column-box align-center'>
         <image src='/image/search1.png' class='search-img'></image>
         <input bindinput='serch' type='text' style="width:500rpx;" placeholder='搜索管理员 '></input>
@@ -49,7 +49,7 @@
 
   </view> -->
   <!-- 公司头 -->
-  <view class='floor-part flex-box align-center' wx:if='{{bigComName}}' bindtap='showLou'>
+  <view class='floor-part flex-box align-center' style='padding:24rpx 30rpx;' wx:if='{{bigComName}}' bindtap='showLou'>
     <view class='column-center'>
       <image class='company-logo' src='{{companyLogo}}'></image>
       <text class='company-name'>{{companyName}}</text>
@@ -80,13 +80,13 @@
 
   </view>
   <!-- 管理员列表 -->
-  <view class='floor-part floor-part-box'>
+  <view class='floor-part floor-part-box paddingLR'>
       <view wx:if="admin.length > 0">
         <block wx:for="{{admin}}" wx:key="{{index}}">
-          <view class='flex-box align-center admin-item-box'>
-            <view class='column-box' bindtap='toDetail' data-id='{{item.userId}}'>
+          <view class='flex-box align-center admin-item-box newComBoxC {{index==admin.length-1?"no-border":""}}'>
+            <view class='column-box lala align-center' bindtap='toDetail' data-id='{{item.userId}}'>
               <view class="title-box">
-                  <image src='{{baseUrl+item.headPic}}?x-oss-process=style/logo' class='admin-ball'></image>
+                  <image src='{{item.headPic?baseUrl+item.headPic+"?x-oss-process=style/logo":"/image/41.png"}}' class='admin-ball'></image>
               </view>
               <text>{{item.name}}</text>
             </view>

@@ -14,6 +14,6 @@
       </block>
     </view>
 
-    <button bindtap='create' type='default' style='background:#fff;border:1px solid #ccaa77;color:#ccaa77'>创建</button>
+    <button bindtap='create' type='default' style='background:#fff;border:1px solid #ccaa77;color:#ccaa77;margin:40rpx 0;'>创建标签</button>
   </view>
 </view>

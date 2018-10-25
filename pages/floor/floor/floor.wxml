@@ -1,20 +1,16 @@
 <login id="login"></login>
-<spec
-  show="{{editSpec == 'new'}}"
-  bind:sureSelectArea="sureSelectAreaListener"
->
+<spec show="{{editSpec == 'new'}}" bind:sureSelectArea="sureSelectAreaListener">
   <view class='spec-title'>新建楼层</view>
-  <input type='text' placeholder-class='spec-class'  bindinput='watchInput' value='{{value}}'  class='spec-input'  placeholder='请输入楼层' />
-  <view class='spec-view' bindtap='cancel'>取消</view><view  class="spec-view spec-view-ac {{watchInput?'spec-view-active':''}}" bindtap='newFloor'>确定</view>
+  <input type='text' placeholder-class='spec-class' bindinput='watchInput' value='{{value}}' class='spec-input' placeholder='请输入楼层' />
+  <view class='spec-view' bindtap='cancel'>取消</view>
+  <view class="spec-view spec-view-ac {{watchInput?'spec-view-active':''}}" bindtap='newFloor'>确定</view>
 </spec>
 
-<spec
-  show="{{editSpec == 'name'}}"
-  bind:sureSelectArea="sureSelectAreaListener"
->
+<spec show="{{editSpec == 'name'}}" bind:sureSelectArea="sureSelectAreaListener">
   <view class='spec-title'>重命名</view>
-  <input type='text' placeholder-class='spec-class'  bindinput='watchInput' value='{{newName}}'  class='spec-input'  placeholder='请输入新楼座名' />
-  <view class='spec-view' bindtap='cancel'>取消</view><view  class="spec-view spec-view-ac {{watchInput?'spec-view-active':''}}" bindtap='changeName'>确定</view>
+  <input type='text' placeholder-class='spec-class' bindinput='watchInput' value='{{newName}}' class='spec-input' placeholder='请输入新楼座名' />
+  <view class='spec-view' bindtap='cancel'>取消</view>
+  <view class="spec-view spec-view-ac {{watchInput?'spec-view-active':''}}" bindtap='changeName'>确定</view>
 </spec>
 
 
@@ -30,43 +26,36 @@
 
   <block wx:key='{{index}}' wx:for='{{floorList}}'>
     <view class='floor-part-box'>
-      <view class='floor-part flex-box'>
+      <view class='floor-part flex-box' data-code='{{item.code}}' bindtap='toFloorDetail'>
         <view class='column-box'>
           <view class='floor-title title-box'>{{item.floorNum}}</view>
-          <text class='floor-type floor-title'>{{item.name}}</text>
+          <text class='floor-type floor-title'>{{item.name?item.name:""}}</text>
         </view>
-        <view>
-          
-          <view class='area-img-list'  data-code='{{item.code}}' bindtap='toFloorDetail'>
-            <view wx:if="{{item.userList}}">
-              <block wx:key='{{index}}' wx:for='{{item.userList}}' wx:if="{{index<3}}" wx:for-item='ad'>
-                <image style='right:{{40*index}}rpx;z-index:{{10-index}}' class='floor-admin area-admin' src="{{ad.headPic?ad.headPic:'/image/41.png'}}"></image>
-              </block>
-            </view>
-            <view wx:else>
-              <image  class='tri' src='/image/icl.png' ></image>
-            </view>
-          </view>
+        <view wx:if="{{item.userList}}" class='area-img-list'>
+          <block wx:key='{{index}}' wx:for='{{item.userList}}' wx:if="{{index<3}}" wx:for-item='ad'>
+            <image style='right:{{40*index}}rpx;z-index:{{10-index}}' class='floor-admin area-admin' src="{{ad.headPic?baseUrl+ad.headPic+'?x-oss-process=style/logo':'/image/41.png'}}"></image>
+          </block>
+        </view>
+        <view wx:else>
+          <image class='tri' src='/image/icl.png'></image>
         </view>
       </view>
 
       <!-- 区 -->
       <block wx:key='{{index}}' wx:for="{{item.childList}}" wx:for-item="area">
-        <view class='floor-part flex-box area-box'>
+        <view class='floor-part flex-box area-box' data-code='{{area.code}}' bindtap='toAreaDetail'>
           <view class='column-box'>
             <view class='area-title title-box'>{{area.name}}</view>
             <block wx:if='{{index<3}}' wx:key='{{index}}' wx:for='{{area.tags}}' wx:for-item="tag">
               <text class='area-type'>{{tag.tagName}}</text>
             </block>
           </view>
-          <view class='area-img-list' data-code='{{area.code}}' bindtap='toAreaDetail'>
-              <view wx:if="{{area.userList}}">
-                <block wx:key='{{index}}' wx:for='{{area.userList}}'  wx:if="{{index<3}}" wx:for-item='ad'>
-                  <image style='right:{{40*index}}rpx;z-index:{{10-index}}' class='floor-admin area-admin' src="{{ad.headPic?ad.headPic:'/image/41.png'}}"></image>
-                </block>
-              </view>
-              <image wx:else class='tri' src='/image/icl.png'></image>
+          <view wx:if="{{area.userList}}" class='area-img-list'>
+            <block wx:key='{{index}}' wx:for='{{area.userList}}' wx:if="{{index<3}}" wx:for-item='ad'>
+              <image style='right:{{40*index}}rpx;z-index:{{10-index}}' class='floor-admin area-admin' src="{{ad.headPic?ad.headPic:'/image/41.png'}}"></image>
+            </block>
           </view>
+          <image wx:else class='tri' src='/image/icl.png'></image>
         </view>
       </block>
     </view>
@@ -79,11 +68,13 @@
   </view>
 </view>
 <!-- 弹窗 -->
- <view class='showHide' wx:if="{{showMenu}}" bindtap='closeShow'>
-    <view class='sh-cont'>
-      <view class='sh-title'>{{companyName}}</view>
-      <view bindtap='showName'>重命名</view>
-      <view><navigator url="../addAdmin/addAdmin">添加楼层管理员</navigator></view>
-      <view bindtap='closeShow'>取消</view>
+<view class='showHide' wx:if="{{showMenu}}" bindtap='closeShow'>
+  <view class='sh-cont'>
+    <view class='sh-title'>{{companyName}}</view>
+    <view bindtap='showName'>重命名</view>
+    <view>
+      <navigator url="../addAdmin/addAdmin">添加楼层管理员</navigator>
     </view>
+    <view bindtap='closeShow'>取消</view>
   </view>
+</view>

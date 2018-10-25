@@ -20,6 +20,8 @@
   width: 150rpx;
   height: 150rpx;
   border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
 }
 .admin-name{
   font-size: 44rpx;
@@ -31,6 +33,8 @@
 .btn-list{
   display: flex;
   justify-content: space-around;
+  width: 600rpx;
+  margin: 0 auto;
 }
 .fun-btn{
   display: flex;
@@ -57,6 +61,7 @@
   width: 410rpx;
   margin: 16rpx auto;
   font-size: 28rpx;
+  align-items: center;
 }
 .msg-title{
   width: 180rpx;
@@ -86,11 +91,11 @@
   padding: 30rpx 0;
 }
 .com-title{
-  font-size: 26rpx;
+  font-size: 36rpx;
 }
 
 .floor-box{
-  padding: 50rpx 0;
+  padding: 30rpx 20rpx 25rpx;
 }
 /* 区 */
 .area-box{

@@ -113,6 +113,6 @@
 }
 
 .danger{
-  background: #d9534f;
+  background: #ccaa77;
   color: #fff;
 }

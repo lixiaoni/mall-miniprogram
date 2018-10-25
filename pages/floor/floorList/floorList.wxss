@@ -2,7 +2,7 @@
 @import '../../page/mesEdit/mesEdit';
 @import '../floor/spec';
 .floor-item{
-  padding: 50rpx 30rpx;
+  padding: 0 30rpx;
   background: #fff;
   border-radius: 5px;
   margin-bottom: 20rpx;
@@ -16,7 +16,7 @@
   margin-right: 20rpx;
 }
 .more{
-  width:7rpx;
+  width:43rpx;
   height: 43rpx;
 }
 .floor-item{
@@ -29,6 +29,10 @@
   align-items: center;
   width: 580rpx;
   overflow: hidden;
+  padding: 40rpx 0;
+}
+.b-font{
+  font-weight: 600;
 }
 .more-box{
   width: 50rpx;

@@ -30,7 +30,7 @@
        <view class='admin-list-box'>
           <block wx:for="{{admin}}">
             <view  class='admin-item'>
-              <image class='admin-item-img' src='{{baseUrl}}{{item.headPic}}?x-oss-process=style/logo'></image>
+              <image class='admin-item-img' src='{{item.headPic?baseUrl+item.headPic+"?x-oss-process=style/logo":"/image/41.png"}}'></image>
               <text class='add-admin-font'>{{item.name}}</text>
             </view>
           </block>
@@ -47,7 +47,7 @@
   </view>    
   
   <!-- 标签 -->
-  <view class='border-box floor-part'>
+  <view class='border-box floor-part newComBox'  bindtap='moreTag'>
     <view class='flex-box'>
       <view class='column-box align-center'>
         <view class='floor-title title-box'><image class='floor-icon' src='/image/tags.png'></image></view>
@@ -57,20 +57,23 @@
           </block>
         </scroll-view>
       </view>
-      <view bindtap='moreTag'>
+      <view>
         <image class='floor-edit' src='/image/icl.png'></image>
       </view>
     </view>
   </view>
+<view style='height:2rpx;background:#fff;padding-left:104rpx;'>
+  <view style='height:2rpx;background:#eee;'></view>
+</view>  
 <!-- 商家数量 -->
-  <view class='border-box floor-part'>
+  <view class='floor-part newComBox'>
     <view class='flex-box'>
       <view class='column-box align-center'>
         <view class='floor-title title-box'><image class='floor-icon' src='/image/12.png'></image></view>
         <text class='floor-type b-font'>{{storeNum}}家</text>
       </view>
       <view>
-        <image class='floor-edit' src='/image/icl.png'></image>
+        <!-- <image class='floor-edit' src='/image/icl.png'></image> -->
       </view>
     </view>
   </view>
@@ -84,7 +87,7 @@
   </view>
   <!-- 删除弹框 -->
   <spec show="{{delModal}}">
-    <view class='spec-title'>是否确认删除该分区</view>
+    <view class='spec-title' style=" margin-bottom: 0;">是否确认删除该分区</view>
     <view class='spec-view' bindtap='cancel'>放弃</view><view  class="spec-view spec-view-ac danger"  bindtap='sureDel'>确定</view>
 </spec>
 
