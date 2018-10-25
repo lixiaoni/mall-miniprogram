@@ -27,7 +27,6 @@ Page({
    */
 
   onLoad: function (options) {
-    this.getList()
   },
   getList: function () {
     var _this = this
