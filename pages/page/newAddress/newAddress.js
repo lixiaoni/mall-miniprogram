@@ -5,9 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    province: '',
-    city: '',
-    area: '',
     show: false,
     nameVal: '',
     addressVal: '',
@@ -15,7 +12,8 @@ Page({
     isDefault:false,
     userId: '123',
     isEdit: false,
-    id: ''
+    id: '',
+    region:[]
   },
 
   /**
@@ -38,10 +36,8 @@ Page({
       .then(res => {
         const obj = res.obj
         _this.setData({
-          province: obj.province,
-          city: obj.city,
           isDefault: obj.isDefault,
-          area: obj.county,
+          region: [obj.province, obj.city, obj.county],
           nameVal: obj.userName,
           addressVal: obj.detailAddress,
           telephone: obj.userPhone,
@@ -99,22 +95,6 @@ Page({
     }
     return true;
   },
-  //城市选择
-  sureSelectAreaListener: function (e) {
-    var that = this;
-    that.setData({
-      show: false,
-      province: e.detail.currentTarget.dataset.province,
-      city: e.detail.currentTarget.dataset.city,
-      area: e.detail.currentTarget.dataset.area
-    })
-  },
-  chooseAddress: function () {
-    var that = this;
-    that.setData({
-      show: true
-    })
-  },
   bindRegionChange: function (e) {
     this.setData({
       region: e.detail.value
@@ -130,9 +110,10 @@ Page({
       userPhone = this.data.telephone,
       isDefault = this.data.isDefault,
       userId = this.data.userId,
-      county = this.data.area,
-      province = this.data.province,
-      city = this.data.city,
+      region = this.data.region,
+      county = region[2],
+      province = region[0],
+      city = region[1],
       detailAddress = this.data.addressVal,
       addressArr = {}
     addressArr = { userName: userName, userPhone: userPhone, isDefault: isDefault, userId: userId, county: county, province: province, city: city, detailAddress: detailAddress }

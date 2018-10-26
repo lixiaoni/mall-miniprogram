@@ -28,7 +28,7 @@
   height: 100%;background: rgba(0, 0, 0, 0.5);top: 0;padding-top:40rpx;
 }
 .fw-title>view.active view{
-  border-bottom:4rpx solid #CCAA77;padding-bottom: 23rpx;
+  border-bottom:4rpx solid #CCAA77;padding-bottom: 10rpx;
 }
 .st-ser-cont>view{
   display: inline-table;width: 45%;font-size:28rpx;height: 450rpx;overflow: scroll
@@ -64,8 +64,8 @@
 }
 
 .fw-title{
-height:100rpx;
-padding-top: 33rpx;
+height:70rpx;
+padding-top:17rpx;
 box-sizing: border-box;
 }
 .goods-ser {

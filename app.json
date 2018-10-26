@@ -1,6 +1,8 @@
 {
 
   "pages":[
+    "pages/mall/newest/newest",
+    
     "pages/page/user/user",
     "pages/floor/floorList/floorList",
     
@@ -8,7 +10,6 @@
     "pages/floor/goodsTag/goodsTag",
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",    
     "pages/cloudOrder/orderList/orderList",
-    "pages/mall/newest/newest",
     "pages/mall/store/store",
     "pages/mall/seaList/seaList",
     "pages/mall/follow/follow",
