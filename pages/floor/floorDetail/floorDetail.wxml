@@ -123,12 +123,21 @@
 </spec>
 
 <spec show="{{editModal}}">
-  <view class='spec-title'>编辑楼层信息</view>
-  <input type='text' id='num' placeholder-class='spec-class' bindinput='watchInput' value='{{floorNum}}' class='spec-input' placeholder='请输入新楼层编号' />
-  <view style='padding:30rpx;'></view>
-  <input type='text' id='name' placeholder-class='spec-class' bindinput='watchInput' value='{{floorName}}' class='spec-input' placeholder='请输入新楼层名字' />
+  <view class='spec-title' style="margin-bottom:30rpx;">编辑楼层信息</view>
+  <view class='alert-box'>
+    <text class='alert-title'>楼层编号:</text>
+    <input class='alert-input' type='text' id='num' placeholder-class='spec-class' bindinput='watchInput' value='{{floorTitle}}' placeholder='请输入新楼层编号' />
+  </view>
+   <view class='alert-box'>
+    <text class='alert-title'>楼层名字:</text>
+    <input type='text' id='name' placeholder-class='spec-class' bindinput='watchInput' value='{{floorType?floorType:""}}' class='alert-input' placeholder='请输入新楼层名字' />
+  </view>
+
+  <!-- <input type='text' id='num' placeholder-class='spec-class' bindinput='watchInput' value='{{floorTitle}}' class='spec-input' placeholder='请输入新楼层编号' />
+  <input type='text' id='name' placeholder-class='spec-class' bindinput='watchInput' value='{{floorType?floorType:""}}' class='spec-input' placeholder='请输入新楼层名字' /> -->
   <view class='spec-view' bindtap='cancel'>取消</view>
   <view class="spec-view spec-view-ac {{watchInput?'spec-view-active':''}}" bindtap='changeName'>确定</view>
+  <view style='padding:15rpx;'></view>
 </spec>
 
 <spec show="{{areaModal}}">

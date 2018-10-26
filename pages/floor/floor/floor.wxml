@@ -8,7 +8,7 @@
 
 <spec show="{{editSpec == 'name'}}" bind:sureSelectArea="sureSelectAreaListener">
   <view class='spec-title'>重命名</view>
-  <input type='text' placeholder-class='spec-class' bindinput='watchInput' value='{{newName}}' class='spec-input' placeholder='请输入新楼座名' />
+  <input type='text' placeholder-class='spec-class' bindinput='watchInput' value='{{companyName}}' class='spec-input' placeholder='请输入新楼座名' />
   <view class='spec-view' bindtap='cancel'>取消</view>
   <view class="spec-view spec-view-ac {{watchInput?'spec-view-active':''}}" bindtap='changeName'>确定</view>
 </spec>
@@ -33,7 +33,7 @@
         </view>
         <view wx:if="{{item.userList}}" class='area-img-list'>
           <block wx:key='{{index}}' wx:for='{{item.userList}}' wx:if="{{index<3}}" wx:for-item='ad'>
-            <image style='right:{{40*index}}rpx;z-index:{{10-index}}' class='floor-admin area-admin' src="{{ad.headPic?baseUrl+ad.headPic+'?x-oss-process=style/logo':'/image/41.png'}}"></image>
+            <image style='right:{{40*index}}rpx;z-index:{{10-index}};border-radius:50%;' class='floor-admin area-admin' src="{{ad.headPic?baseUrl+ad.headPic+'?x-oss-process=style/logo':'/image/41.png'}}"></image>
           </block>
         </view>
         <view wx:else>

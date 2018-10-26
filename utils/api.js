@@ -26,7 +26,8 @@ import {
   registerUrl,
   registerPhoneMsgUrl,
   changeIconUrl,
-  userFloorInfoUrl
+  userFloorInfoUrl,
+  floorListUrl
 } from './constUrl.js'
 
 import {
@@ -213,7 +214,13 @@ function toCuttingImg(url, quality) {
 function changeIcon(data) {
   return app.http.putRequest(changeIconUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
 }
+// 楼层列表
+function getFloorList(data){
+  data = initMallCode(data);
+  return app.http.getRequest(floorListUrl, data)
+}
 module.exports = {
+  getFloorList: getFloorList,
   showToast: showToast,
   isEmpty: isEmpty,
   changeIcon: changeIcon,

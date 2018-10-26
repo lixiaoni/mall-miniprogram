@@ -141,3 +141,18 @@
 .no-border{
   border:0!important;
 }
+
+/* 编辑楼层信息 */
+.alert-box{
+  display: flex;
+  align-items: center;
+  font-size:36rpx;
+}
+.alert-title{
+  width:174rpx;
+}
+.alert-input{
+  border-bottom:2rpx solid #F6F6F6;
+  flex: 1;
+  padding:15rpx 5rpx;
+}

@@ -1,5 +1,6 @@
 // pages/floor/choseAdmin/choseAdmin.js
 const app = getApp();
+import Api from "../../../utils/api.js";
 let timmer;
 Page({
 
@@ -59,6 +60,9 @@ Page({
       //获取所有管理员，并加上选中标识
       app.http.postRequest("/admin/floor/malluser/mallusers", send).then((res) => {
           let all = res.obj;
+          if(!all){
+            all = [];
+          }
           for(let j = 0;j< all.length;j++){
             if (adminObj[all[j].userId]){
               all[j].isSlected = true;
@@ -111,7 +115,7 @@ Page({
     })
     this.getList()
     //楼层筛选列表
-    app.http.getRequest("/admin/floor/balcony/1").then((res) => {
+    Api.getFloorList().then((res) => {
       this.setData({
         louList: res.obj
       })

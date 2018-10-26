@@ -95,6 +95,6 @@
 <!-- 修改 -->
 <spec show="{{areaModal}}">
   <view class='spec-title'>修改分区</view>
-  <input type='text' id='areaName' placeholder-class='spec-class'  bindinput='watchInput' value='{{newAreaName}}'  class='spec-input'  placeholder='请输入分区新名字' />
+  <input type='text' id='areaName' placeholder-class='spec-class'  bindinput='watchInput' value='{{areaTitle}}'  class='spec-input'  placeholder='请输入分区新名字' />
   <view class='spec-view' bindtap='cancel'>取消</view><view  class="spec-view spec-view-ac spec-view-active" bindtap='newName'>确定</view>
 </spec>

@@ -1,5 +1,6 @@
 // pages/floor/choseAdmin/choseAdmin.js
 const app = getApp();
+import Api from "../../../utils/api.js";
 let timmer;
 Page({
 
@@ -86,7 +87,7 @@ Page({
     this.getList()
     
     //楼层
-    app.http.getRequest("/admin/floor/balcony/1").then((res) => {
+    Api.getFloorList().then((res) => {
       this.setData({
         louList: res.obj
       })

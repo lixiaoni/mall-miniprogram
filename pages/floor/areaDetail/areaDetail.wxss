@@ -49,7 +49,8 @@
   margin:0 20rpx 0 0;
 }
 .lou-dir{
-  margin-bottom:75rpx;
+  margin-bottom:40rpx;
+  font-size: 36rpx;
 }
 .lou-dir-fon{
   font-size: 28rpx;

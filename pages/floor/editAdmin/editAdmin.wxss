@@ -2,7 +2,7 @@
 @import "../floor/floor-common";
 @import '../floor/spec';
 .danger{
-  background: #d9534f;
+  background: #ccaa77;
   color: #fff;
 }
 .edit-box{

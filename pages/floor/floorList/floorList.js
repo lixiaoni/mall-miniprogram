@@ -1,5 +1,6 @@
 // pages/floor/floorList/floorList.js
 const app = getApp();
+import Api from "../../../utils/api.js";
 Page({
 
   /**
@@ -30,7 +31,7 @@ Page({
     })
   },
   getList(){
-    app.http.getRequest("/admin/floor/balcony/1000").then((res) => {
+    Api.getFloorList().then((res) => {
       this.setData({
         list: res.obj
       })
@@ -97,7 +98,7 @@ Page({
   onLoad: function (options) {
     // this.getList()
     wx.setNavigationBarTitle({
-      title: '楼层管理',
+      title: '楼座管理',
     })
   },
 

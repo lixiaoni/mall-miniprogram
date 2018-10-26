@@ -77,7 +77,7 @@ Page({
     }
 
     if (id == "num" || id == "name") {
-      if (this.data.floorNum.trim() && this.data.floorName.trim() ){
+      if (this.data.floorNum.trim() || this.data.floorName.trim() ){
         this.setData({
           watchInput:true
         })

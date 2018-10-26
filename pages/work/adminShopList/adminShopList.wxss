@@ -35,8 +35,9 @@
 .search-item{
   height: 100rpx;
   line-height: 100rpx;
-  margin-right: 30rpx;
+  margin-right: 60rpx;
   white-space: nowrap;
+  font-size:30rpx;
 }
 .ac-item{
   border-bottom: 2rpx solid #ccaa77;
@@ -50,7 +51,7 @@
   height: 24rpx;
 }
 .goods-item{
-  padding: 30rpx 50rpx;
+  padding: 50rpx 50rpx;
   border-radius: 4px;
   margin: 20rpx;
   background: #fff;
@@ -67,6 +68,7 @@
 .good-icon{
   max-width: 100rpx;
   max-height: 100rpx;
+  border-radius: 5px;
 }
 .store-name{
   max-width:300rpx;
@@ -100,8 +102,11 @@
   margin-left: 15rpx;
 }
 /* 标签 */
+.tips-box{
+  margin-top: 15rpx;
+}
 .label-item{
-  padding: 16rpx 24rpx;
+  padding: 4rpx 24rpx;
   background: #f6f6f6;
   font-size: 24rpx;
   display: inline-block;

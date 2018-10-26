@@ -4,11 +4,17 @@
   bind:sureSelectArea="sureSelectAreaListener"
 >
   <view class='spec-title'>重命名</view>
-  <input type='text' placeholder-class='spec-class'  bindinput='watchInput' value='{{newName}}'  class='spec-input'  placeholder='请输入新楼座名' />
+  <input type='text' placeholder-class='spec-class'  bindinput='watchInput' value='{{cName}}'  class='spec-input'  placeholder='请输入新楼座名' />
   <view class='spec-view' bindtap='cancel'>取消</view><view  class="spec-view spec-view-ac {{watchInput?'spec-view-active':''}}" bindtap='changeName'>确定</view>
 </spec>
 
 <view class='box'>
+    <view class='floor-item'>
+      <view class='name-box'>
+        <image class='icon' src='/image/dp.png'></image>
+        <text class='b-font'>百荣世贸商城</text>
+      </view>  
+    </view>
   <block wx:for="{{list}}" bindtag="">
     <view class='floor-item'>
       <navigator url="../floor/floor?id={{item.code}}&name={{item.name}}" class='name-box'>

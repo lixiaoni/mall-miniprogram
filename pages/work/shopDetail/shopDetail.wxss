@@ -236,7 +236,7 @@ color: #999;margin-top: 0rpx;
 .show-img-box{
   display: flex;
   background:#fff;
-  padding:0 25rpx;
+  padding:25rpx;
   margin:0 20rpx 20rpx;
   border-top: 2rpx solid #F4F4F4; 
 }
@@ -270,5 +270,4 @@ color: #999;margin-top: 0rpx;
 .default-btn{
   color: #CCAA77;
   background: #fff;
-  border-top:1px solid #ddd;
 }
