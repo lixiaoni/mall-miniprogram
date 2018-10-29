@@ -99,3 +99,6 @@ padding: 0 10rpx;
   top:58rpx;
   margin: 0;
 }
+page{
+  height: unset;padding-bottom: 80rpx;
+}

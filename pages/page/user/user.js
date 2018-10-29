@@ -16,14 +16,8 @@ Page({
     Api.isAdmin({})
       .then(res => {
         var obj=res.obj
-        wx.setStorage({
-          key: 'isSuperAdmin',
-          data: obj.isSuperAdmin,
-        })
-        wx.setStorage({
-          key: 'isFloorAdmin',
-          data: obj.isFloorAdmin,
-        })
+        wx.setStorageSync("isSuperAdmin", obj.isSuperAdmin)
+        wx.setStorageSync("isFloorAdmin", obj.isFloorAdmin)
         this.setData({
           isSuperAdmin: obj.isSuperAdmin,
           isFloorAdmin: obj.isFloorAdmin

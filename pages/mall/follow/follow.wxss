@@ -109,7 +109,7 @@
   -webkit-box-orient: vertical;
 }
 .lw-pop-cont>view view:nth-child(4){
-  height:50rpx;width: 120rpx;background: #fff;color: #CCAA77;border-radius: 8rpx;margin:0 auto;margin-top: 20rpx;font-weight: normal
+  height:50rpx;width: 120rpx;background: #fff;color: #CCAA77;border-radius: 8rpx;margin:0 auto;margin-top: 20rpx;font-weight: normal;line-height: 45rpx
 }
 .lw-pop-cont>view image{
   height: 70rpx;width: 70rpx;border-radius: 8rpx;

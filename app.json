@@ -2,10 +2,8 @@
 
   "pages":[
     "pages/mall/newest/newest",
-    
     "pages/page/user/user",
     "pages/floor/floorList/floorList",
-    
     "pages/work/workIndex/workIndex",
     "pages/floor/goodsTag/goodsTag",
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",    
