@@ -29,7 +29,7 @@ Page({
         name: obj.name,
         phoneNum: obj.phone,
         part: obj.deptName ? obj.deptName : "",
-        code: obj.referralCode ? obj.referralCode:"",
+        code: obj.referralCode ? obj.referralCode:"暂无",
         wechatNumber: obj.wechatNumber ? obj.wechatNumber : "",
         id: obj.id
       })
@@ -78,21 +78,25 @@ Page({
   },
   changeMobel(e){
     let type = '';
+    let inputVal = "";
     switch (e.currentTarget.dataset.type) {
       case "name":
         type="姓名";
+        inputVal = this.data.name;
         break;
       case "wx":
         type = "微信";
+        inputVal = this.data.wechatNumber;
         break;
       case "part":
         type = "部门";
+        inputVal = this.data.part;
         break;
     }
     this.setData({
       change:type,
       mobel:true,
-      value:""
+      value: inputVal
     })
   },
   // 删除
