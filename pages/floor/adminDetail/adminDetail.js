@@ -16,13 +16,14 @@ Page({
     part:"",
     code:"",
     manage:[],
-    baseUrl: app.globalData.imageUrl
+    baseUrl: app.globalData.imageUrl,
+    defaultHead: app.globalData.defaultHeadPic,
   },
   loadPage(){
     app.http.getRequest("/admin/floor/malluser/userfloor/"+this.data.userId).then((res)=>{
       let obj = res.obj;
       this.setData({
-        src: obj.headPic ? this.data.baseUrl+obj.headPic :"/image/41.png",
+        src: obj.headPic ? this.data.baseUrl + obj.headPic : this.data.defaultHead,
         name: obj.name,
         phoneNum: obj.phone,
         part: obj.deptName,

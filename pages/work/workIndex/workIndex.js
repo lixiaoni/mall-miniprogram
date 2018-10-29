@@ -58,7 +58,7 @@ Page({
   },
   goDerm: function () {
     wx.navigateTo({
-      url: '../../page/derm/derm',
+      url: '../../page/mallIcon/mallIcon',
     })
   },
   /**

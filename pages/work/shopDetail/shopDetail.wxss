@@ -271,3 +271,8 @@ color: #999;margin-top: 0rpx;
   color: #CCAA77;
   background: #fff;
 }
+
+.weui-time .no-font{
+  color:#999;
+  font-weight: 100;
+}

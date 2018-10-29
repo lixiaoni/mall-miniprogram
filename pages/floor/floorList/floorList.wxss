@@ -1,6 +1,9 @@
 /* pages/floor/floorList/floorList.wxss */
 @import '../../page/mesEdit/mesEdit';
 @import '../floor/spec';
+.com-font{
+  font-size:36rpx;
+}
 .floor-item{
   padding: 0 30rpx;
   background: #fff;

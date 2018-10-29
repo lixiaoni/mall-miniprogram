@@ -38,8 +38,9 @@
   font-weight: 600;
 }
 .floor-admin{
-  width:60rpx;
-  height:60rpx;
+  width:56rpx;
+  height:56rpx;
+  border: 2rpx solid #fff;
 }
 /* 区 */
 .floor-part-box .area-box{
@@ -62,7 +63,7 @@
 }
 .area-img-list{
   position: relative;
-  width: 120rpx;
+  width: 150rpx;
   height: 60rpx;
   overflow: hidden;
 }
@@ -101,4 +102,9 @@
 }
 .column-box{
   display: flex;
+}
+
+.center-box{
+  display: flex;
+  align-items: center;
 }

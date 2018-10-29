@@ -15,9 +15,11 @@
 
 
 <view class='floor-box'>
-  <view class='floor-part'>
+  <view class='floor-part flex-box'>
+    <view class='center-box'>
     <image class='company-logo' src='{{companyLogo}}'></image>
     <text class='company-name'>{{companyName}}</text>
+    </view>
     <view class='more' bindtap='more'>
       <image src='{{moreSrc}}'></image>
     </view>
@@ -33,7 +35,7 @@
         </view>
         <view wx:if="{{item.userList}}" class='area-img-list'>
           <block wx:key='{{index}}' wx:for='{{item.userList}}' wx:if="{{index<3}}" wx:for-item='ad'>
-            <image style='right:{{40*index}}rpx;z-index:{{10-index}};border-radius:50%;' class='floor-admin area-admin' src="{{ad.headPic?baseUrl+ad.headPic+'?x-oss-process=style/logo':'/image/41.png'}}"></image>
+            <image style='right:{{40*index}}rpx;z-index:{{10-index}};border-radius:50%;' class='floor-admin area-admin' src="{{ad.headPic?baseUrl+ad.headPic+'?x-oss-process=style/logo':defaultHead}}"></image>
           </block>
         </view>
         <view wx:else>
@@ -46,13 +48,15 @@
         <view class='floor-part flex-box area-box' data-code='{{area.code}}' bindtap='toAreaDetail'>
           <view class='column-box'>
             <view class='area-title title-box'>{{area.name}}</view>
+            <view>
             <block wx:if='{{index<3}}' wx:key='{{index}}' wx:for='{{area.tags}}' wx:for-item="tag">
               <text class='area-type'>{{tag.tagName}}</text>
             </block>
+            </view>
           </view>
           <view wx:if="{{area.userList}}" class='area-img-list'>
             <block wx:key='{{index}}' wx:for='{{area.userList}}' wx:if="{{index<3}}" wx:for-item='ad'>
-              <image style='right:{{40*index}}rpx;z-index:{{10-index}}' class='floor-admin area-admin' src="{{ad.headPic?ad.headPic:'/image/41.png'}}"></image>
+              <image style='right:{{40*index}}rpx;z-index:{{10-index}};border-radius:50%;' class='floor-admin area-admin' src="{{ad.headPic?baseUrl+ad.headPic+'?x-oss-process=style/logo':defaultHead}}"></image>
             </block>
           </view>
           <image wx:else class='tri' src='/image/icl.png'></image>

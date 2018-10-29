@@ -3,9 +3,9 @@
 <view class='flex-box search-box'>
   <view class='flex'>
     <image class='search-img' src='/image/search1.png'></image>
-    <input bindinput='watchInput' placeholder='输入小云店名称、手机号' type='text'></input>
+    <input bindinput='watchInput' bindconfirm='search' placeholder='输入小云店名称、手机号' type='text'></input>
   </view>
-  <view bindtap='search' class='search-btn'>筛选</view>
+  <view bindtap='search' class='search-btn'>搜索</view>
 </view>
 
 <!-- 切换 -->

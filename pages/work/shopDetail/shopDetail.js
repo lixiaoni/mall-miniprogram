@@ -11,9 +11,30 @@ Page({
     state: "",
     baseUrl: app.globalData.imageUrl
   },
-
+  showModal(e){
+    let type = e.currentTarget.dataset.type;
+    switch(type){
+      case "freeze":
+      this.setData({
+        freezeModal:true
+      })
+      break;
+      case "unfreeze":
+        this.setData({
+          openModal: true
+        })
+      break;
+    }
+  },
+  closeModal(){
+    this.setData({
+      freezeModal:false,
+      openModal:false
+    })
+  },
   //认证
   authentication(){
+    this.closeModal()    
     app.http.getRequest("/admin/floor/store/pass/" + this.data.id).then((res)=>{
       wx.showToast({
         title: res.message,
@@ -28,6 +49,7 @@ Page({
   },
   //冻结
   freeze(){
+    this.closeModal()    
     app.http.getRequest("/admin/floor/store/freeze/" + this.data.id).then((res) => {
       wx.showToast({
         title: res.message,
@@ -42,6 +64,7 @@ Page({
   },
   //解冻
   unfreeze(){
+    this.closeModal() 
     app.http.getRequest("/admin/floor/store/unfreeze/" + this.data.id).then((res) => {
       wx.showToast({
         title: res.message,

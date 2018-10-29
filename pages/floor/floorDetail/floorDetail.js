@@ -24,7 +24,8 @@ Page({
     //新建模态框
     areaModal:false,
     areaName:"",
-    baseUrl: app.globalData.imageUrl
+    baseUrl: app.globalData.imageUrl,
+    defaultHead: app.globalData.defaultHeadPic,
   },
   choseAdmin(){
     wx.navigateTo({
@@ -35,8 +36,8 @@ Page({
   editFloor(){
     this.setData({
       editModal: true,
-      floorName: "",
-      floorNum: "",
+      floorName: this.data.floorType ? this.data.floorType:"",
+      floorNum: this.data.floorTitle ? this.data.floorTitle:"",
       watchInput: false
     })
   },
@@ -112,10 +113,11 @@ Page({
     })
   },
   sureDel(){
+    this.setData({
+      delModal: false
+    })
     app.http.deleteRequest("/admin/floor/" + this.data.code).then((res)=>{
-      this.setData({
-        delModal: false
-      })
+      
       wx.showToast({
         title: res.message,
         icon:'none'
@@ -148,14 +150,14 @@ Page({
   },
   newArea(){
     if (this.data.watchInput) {
+      this.setData({
+        areaModal: false
+      })
       app.http.postRequest("/admin/floor/add", {
         type:3,
         parentCode: this.data.code,
         name: this.data.areaName,
       }).then((res) => {
-        this.setData({
-          areaModal: false
-        })
         this.loadPart(['area'])
           wx.showToast({
             title: res.message,

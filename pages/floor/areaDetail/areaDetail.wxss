@@ -105,12 +105,13 @@
   display: flex;
   text-align: center;
   flex-direction: column;
-  padding: 14rpx;
+  padding: 14rpx 13rpx;
 }
 .admin-item-img{
   width: 80rpx;
   height: 80rpx;
   margin: 0 auto;
+  border-radius: 50%;
 }
 
 .danger{

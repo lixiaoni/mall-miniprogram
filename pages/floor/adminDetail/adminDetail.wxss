@@ -1,8 +1,9 @@
 /* pages/floor/adminDetail/adminDetail.wxss */
 @import "../floor/floor-common" ;
 
-.edit-part{
-  
+.no-font{
+  font-size:26rpx;
+  color:#999;
 }
 .adminD-box{
   margin-top: 135rpx;

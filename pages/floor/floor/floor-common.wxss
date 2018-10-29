@@ -69,15 +69,17 @@
 /* 区 */
 .area-img-list{
   position: relative;
-  width: 130rpx;
+  width: 150rpx;
   overflow: hidden;
 }
 .area-admin{
   position: absolute;
 }
 .floor-admin{
-  width:60rpx;
-  height:60rpx;
+  width:56rpx;
+  height:56rpx;
+  border: 2rpx solid #fff;
+  border-radius: 50%;
 }
 /* 边框 */
 .border-box{

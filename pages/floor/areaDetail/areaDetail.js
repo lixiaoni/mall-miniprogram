@@ -18,6 +18,7 @@ Page({
     areaModal:false,
     newAreaName:"",
     baseUrl: app.globalData.imageUrl,
+    defaultHead: app.globalData.defaultHeadPic,
     //删除弹层
     delModal:false
   },

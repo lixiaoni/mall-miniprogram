@@ -18,13 +18,14 @@ Page({
     change:'姓名',
     value:"" , //输入框
     //删除弹窗
-    delModal:false
+    delModal:false,
+    baseUrl: app.globalData.imageUrl
   },
   loadPage(){
     app.http.getRequest("/admin/floor/malluser/" + this.data.userId).then((res) => {
       let obj = res.obj;
       this.setData({
-        src: obj.headPic ? obj.headPic : "/image/41.png",
+        src: obj.headPic ? this.data.baseUrl+obj.headPic : "/image/defaultHeadPic.png",
         name: obj.name,
         phoneNum: obj.phone,
         part: obj.deptName ? obj.deptName : "",
@@ -101,13 +102,15 @@ Page({
     })
   },
   sureDel(){
-    app.http.deleteRequest("/admin/floor/malluser"+this.data.userId).then((res)=>{
-        wx.redirectTo({
-          url: '../adminList/adminList',
-        })
+    app.http.deleteRequest("/admin/floor/malluser/"+this.data.userId).then((res)=>{
         wx.showToast({
           title: '删除成功',
         })
+        setTimeout(()=>{
+          wx.navigateBack({
+            delta: 2
+          })
+        },800)
     })
   },
   back(){

@@ -1,6 +1,6 @@
 {
   "backgroundColor": "#f7f7f7",
-  "navigationBarTitleText": "分配管理员",
+  "navigationBarTitleText": "选择楼层标识",
   "usingComponents": {
     "login": "../../login/login/login"
   }
