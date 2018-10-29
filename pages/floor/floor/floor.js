@@ -18,6 +18,7 @@ Page({
     companyLogo:"/image/dp.png",
     moreSrc: "/image/moreO.png",
     baseUrl: app.globalData.imageUrl,
+    defaultHead: app.globalData.defaultHeadPic,
     companyName:"",
     floorList: []
   },
@@ -70,6 +71,10 @@ Page({
       return
     }
     
+    this.setData({
+      editSpec: false
+    })
+
     app.http.postRequest("/admin/floor/add",{
       mallCode: app.http.mallCode,
       parentCode:this.data.id,

@@ -19,6 +19,7 @@ Page({
     bigComName: true,//公司名显示
     admin:[],
     baseUrl: app.globalData.imageUrl,
+    defaultHead: app.globalData.defaultHeadPic,
     ballBack: [
       '#ffa515',
       '#fa69ab',
@@ -48,7 +49,7 @@ Page({
     let send = obj?obj:{};
     send.mallCode = app.http.mallCode;
     //获取已选中的管理员，存起来
-    app.http.postRequest("/admin/floor/malluser/mallusers", { floorCode: this.data.code, mallCode: app.http.mallCode }).then((own) => {//delit
+    app.http.postRequest("/admin/floor/malluser/{{floorCode}}/users", { floorCode: this.data.code, mallCode: app.http.mallCode }).then((own) => {//delit
       let myAdmin = own.obj ? own.obj:[];
       let adminObj = {};
       for (let i = 0; i < myAdmin.length; i++) {

@@ -12,7 +12,7 @@
     <view class='floor-item'>
       <view class='name-box'>
         <image class='icon' src='/image/dp.png'></image>
-        <text class='b-font'>百荣世贸商城</text>
+        <text class='b-font com-font'>百荣世贸商城</text>
       </view>  
     </view>
   <block wx:for="{{list}}" bindtag="">

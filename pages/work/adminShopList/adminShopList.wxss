@@ -1,6 +1,7 @@
 /* pages/work/shopList/shopList.wxss */
 .flex{
   display: flex;
+  align-items: center;
 }
 .flex-box{
   display: flex;
@@ -12,8 +13,8 @@
 }
 /* 搜索 */
 .search-img{
-  width: 50rpx;
-  height: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
   margin-right: 20rpx;
 }
 .search-btn{

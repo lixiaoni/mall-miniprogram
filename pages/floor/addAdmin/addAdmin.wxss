@@ -46,8 +46,8 @@
   background: #ccaa77;
 }
 .tip{
-  height: 24rpx;
-  font-size: 22rpx;
+  height: 28rpx;
+  font-size: 28rpx;
   text-align: center;
   margin: 50rpx 0;
 }

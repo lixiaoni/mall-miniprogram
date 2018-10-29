@@ -19,6 +19,12 @@ Page({
       })
       if (res.success){
         app.authHandler.flushTokenInfo();
+
+        try {
+          wx.removeStorageSync('isSuperAdmin')
+          wx.removeStorageSync('isFloorAdmin')          
+        } catch (e) {}
+
         this.setData({
           token:""
         })

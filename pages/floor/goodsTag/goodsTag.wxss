@@ -8,8 +8,8 @@
   color:#ccaa77;
 }
 .search-img{
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
   margin-right: 20rpx;
 }
 .admin-ball{

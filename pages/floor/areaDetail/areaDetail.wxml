@@ -29,10 +29,12 @@
           <view class='title-box'></view>
        <view class='admin-list-box'>
           <block wx:for="{{admin}}">
+            <navigator url='../adminDetail/adminDetail?code={{item.userId}}'>
             <view  class='admin-item'>
-              <image class='admin-item-img' src='{{item.headPic?baseUrl+item.headPic+"?x-oss-process=style/logo":"/image/41.png"}}'></image>
+              <image class='admin-item-img' src='{{item.headPic?baseUrl+item.headPic+"?x-oss-process=style/logo":defaultHead}}'></image>
               <text class='add-admin-font'>{{item.name}}</text>
             </view>
+            </navigator>            
           </block>
           <view wx:if="{{admin}}" class='admin-item' bindtap='choseAdmin'>
             <image class='admin-item-img' src='/image/addPer.png'></image>

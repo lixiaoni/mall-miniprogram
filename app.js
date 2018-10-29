@@ -11,6 +11,7 @@ App({
     skin: "normal",
     imageUrl:imageUrl,
     companyIcon: "/image/dp.png",
+    defaultHeadPic:"/image/defaultHeadPic.png"
   },
   http: new http(),
   pageRequest: new pageRequest(),

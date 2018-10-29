@@ -17,7 +17,8 @@ Page({
     choseLou: false,//选择楼层
     bigComName: true,//公司名显示
     admin:[],
-    baseUrl: app.globalData.imageUrl
+    baseUrl: app.globalData.imageUrl,
+    defaultHead: app.globalData.defaultHeadPic,
   },
   chose(e){
  
