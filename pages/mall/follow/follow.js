@@ -150,7 +150,8 @@ Page({
    */
   onShow: function () {
     this.setData({
-      result: []
+      result: [],
+      currentTab:0
     })
     var _this=this
     Api.getPurchaserStoreIds()

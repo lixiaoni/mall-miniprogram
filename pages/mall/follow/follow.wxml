@@ -3,7 +3,7 @@
   <view class='fw-no'>
     <view>还没关注小云店</view>
     <view>为您推荐 给生活加点小确幸</view>
-    <view>特色奇妙店铺等您来发现</view>
+    <view>特色奇妙小云店等您来发现</view>
   </view>
   <navigator></navigator>
   <view class='lw-pop' wx:for='{{storeList}}' wx:key='index'>
