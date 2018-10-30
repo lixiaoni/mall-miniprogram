@@ -34,7 +34,7 @@
           </block>
           <view wx:if="{{admin}}" class='admin-item' bindtap='choseAdmin'>
             <image class='admin-item-img' src='/image/addPer.png'></image>
-            <text class='add-admin-font'>添加</text>
+            <text class='add-admin-font'>管理</text>
           </view>
           <view wx:else class='column-box' bindtap='choseAdmin'>
             <image class='add-admin-img' src='/image/addPer.png'></image>
@@ -128,11 +128,11 @@
   <view class='spec-title' style="margin-bottom:30rpx;">编辑楼层信息</view>
   <view class='alert-box'>
     <text class='alert-title'>楼层编号:</text>
-    <input class='alert-input' type='text' id='num' placeholder-class='spec-class' bindinput='watchInput' value='{{floorTitle}}' placeholder='请输入新楼层编号' />
+    <input class='alert-input' type='text' id='num' placeholder-class='spec-class' bindinput='watchInput' value='{{floorTitle}}' placeholder='请输入楼层编号' />
   </view>
    <view class='alert-box'>
-    <text class='alert-title'>楼层名字:</text>
-    <input type='text' id='name' placeholder-class='spec-class' bindinput='watchInput' value='{{floorType?floorType:""}}' class='alert-input' placeholder='请输入新楼层名字' />
+    <text class='alert-title'>楼层名称:</text>
+    <input type='text' id='name' placeholder-class='spec-class' bindinput='watchInput' value='{{floorType?floorType:""}}' class='alert-input' placeholder='请输入楼层名称' />
   </view>
 
   <!-- <input type='text' id='num' placeholder-class='spec-class' bindinput='watchInput' value='{{floorTitle}}' class='spec-input' placeholder='请输入新楼层编号' />
@@ -144,7 +144,7 @@
 
 <spec show="{{areaModal}}">
   <view class='spec-title'>新建楼层分区</view>
-  <input type='text' id='areaName' placeholder-class='spec-class' bindinput='watchInput' value='{{areaName}}' class='spec-input' placeholder='请输入新分区名字' />
+  <input type='text' id='areaName' placeholder-class='spec-class' bindinput='watchInput' value='{{areaName}}' class='spec-input' placeholder='请输入分区名称' />
   <view class='spec-view' bindtap='cancel'>取消</view>
   <view class="spec-view spec-view-ac {{watchInput?'spec-view-active':''}}" bindtap='newArea'>确定</view>
 </spec>

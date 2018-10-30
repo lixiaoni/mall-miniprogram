@@ -91,7 +91,7 @@ Page({
       })
     }else{
       wx.showToast({
-        title: '请输入分区新名字',
+        title: '请输入分区名称',
         icon:"none"
       })
     }

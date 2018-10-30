@@ -1,7 +1,7 @@
 <login id="login"></login>
 <spec show="{{editSpec == 'new'}}" bind:sureSelectArea="sureSelectAreaListener">
   <view class='spec-title'>新建楼层</view>
-  <input type='text' placeholder-class='spec-class' bindinput='watchInput' value='{{value}}' class='spec-input' placeholder='请输入楼层' />
+  <input type='text' placeholder-class='spec-class' bindinput='watchInput' value='{{value}}' class='spec-input' placeholder='请输入楼层名称' />
   <view class='spec-view' bindtap='cancel'>取消</view>
   <view class="spec-view spec-view-ac {{watchInput?'spec-view-active':''}}" bindtap='newFloor'>确定</view>
 </spec>

@@ -54,7 +54,6 @@ Page({
     this.setData({
       isSuperAdmin: wx.getStorageSync("isSuperAdmin")
     })
-    this.getMes()
   },
   goDerm: function () {
     wx.navigateTo({
@@ -72,7 +71,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getMes()
   },
 
   /**
