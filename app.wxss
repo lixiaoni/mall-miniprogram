@@ -552,3 +552,7 @@ input:focus{
 .radius-box{
   border-radius: 5px;
 }
+.common-in-icon{
+  width:24rpx;
+  height: 29rpx;
+}

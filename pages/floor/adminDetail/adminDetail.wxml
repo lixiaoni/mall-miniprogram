@@ -66,12 +66,12 @@
                 <image src='/image/floor.png' class='com-icon'></image>
                 <text>{{floor.floorNum}}</text>
                 <text style='margin-left:20rpx;'>{{floor.name}}</text>
-                <text wx:if='{{floor.childList.length==0||!floor.childList}}'><text  class='count-font'>{{floor.storeCount}}</text>家</text>
+                <text wx:if='{{floor.childList.length==0||!floor.childList}}'><text  class='count-font'>{{floor.storeCount}}</text> 家</text>
               </view>
               <block wx:for="{{floor.childList}}" wx:for-item="area" wx:key="{{index}}">
                 <view class='column-center area-box'>
                   <text class='area-font'>{{area.name}}</text>
-                  <text class='count-font'>{{area.storeCount}}</text>家
+                  <text><text class='count-font'>{{area.storeCount}} </text>家</text>
                 </view>
                </block>
             </view>

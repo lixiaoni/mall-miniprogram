@@ -1,3 +1,6 @@
+page{
+  font-size: 28rpx;
+}
 .modal-input{
   font-size:28rpx;
   border-bottom: 1rpx solid #ddd;
@@ -14,6 +17,7 @@
   background: #fff;
   border-radius: 5px;
   height: 60rpx;
+  font-size: 24rpx;
 }
 .search-box input{
   margin: 0 auto;
@@ -35,7 +39,6 @@
   margin-right: 30rpx;
   white-space: nowrap;
   padding: 0 20rpx;
-  font-size: 24rpx;
 }
 .ac-item{
   border-bottom: 2rpx solid #ccaa77;
@@ -46,9 +49,13 @@
 
 .order-box{
   margin: 20rpx;
-  padding: 50rpx;
+  padding: 43rpx 0 0;
   background: #fff;
   border-radius: 5px;
+} 
+.order-padding-box{
+  padding-left:50rpx;
+  padding-right: 50rpx;
 }
 .user-icon{
   width: 60rpx;
@@ -66,7 +73,7 @@
   justify-content: space-between;
 }
 .store-name{
-  font-size: 34rpx;
+  font-size: 36rpx;
   font-weight: 600;
   padding-right: 40rpx;
 }
@@ -116,19 +123,35 @@
 }
 .msg-item{
   display: flex;
-  font-size: 26rpx;
+  font-size: 28rpx;
   padding-bottom: 50rpx;
+}
+.between-box{
+  justify-content: space-between;
 }
 .msg-title{
   flex: 0 0 140rpx;
+  color: #666;
 
 }
 .msg-content{
   font-weight: 600;
+  color: #333;
+}
+.red-font{
+  color: #d30000;
 }
 
 .open-btn{
   width: 300rpx;
   background: #ccaa77;
   color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+.bottom-in-box{
+  height: 100rpx;
+  border-top: 1px solid #eee;
+  margin-top: 60rpx;
 }

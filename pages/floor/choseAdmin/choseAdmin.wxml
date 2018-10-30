@@ -24,7 +24,7 @@
     <view class='column-center'>
       <image class='company-logo' src='{{companyLogo}}'></image>
       <text class='company-sm-name' bindtap='returnCom'>{{companyName}}</text>
-      <text class='company-sm-name' wx:if="{{choseLou}}">>{{louName}}</text>
+      <text class='company-sm-name' wx:if="{{choseLou}}">> {{louName}}</text>
     </view>
 
     <view wx:if="{{!choseLou}}">

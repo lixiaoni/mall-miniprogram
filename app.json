@@ -33,9 +33,6 @@
     "pages/page/shopkeeper/shopkeeper",
     "pages/page/userDetails/userDetails",
     "pages/page/details/details",
-    
-    
-    
     "pages/floor/editAdmin/editAdmin",
     "pages/floor/adminDetail/adminDetail",
     "pages/floor/areaDetail/areaDetail",
