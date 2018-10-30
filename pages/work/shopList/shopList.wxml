@@ -33,7 +33,7 @@
             <view>
               <view class='name-box'>
                 <text class='store-name'>{{item.name}}</text>
-                <text class='tip'>{{item.storeNature}}</text>
+                <text class='tip'>{{item.storeNature=='1'?"批零店":"零售店"}}</text>
               </view>
               <view class='goods-type'>
                 <text class='theme-color'>{{item.businessScope}}</text>
