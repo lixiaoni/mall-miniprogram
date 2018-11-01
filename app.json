@@ -2,6 +2,7 @@
 
   "pages":[
     "pages/mall/newest/newest",
+    "pages/page/user/user",
     "pages/businessFriend/index/index",
     "pages/mall/store/store",
     "pages/mall/follow/follow",
@@ -13,7 +14,6 @@
     "pages/businessFriend/mewWholesaler/mewWholesaler",
     "pages/businessFriend/invitation/invitation",
     "pages/businessFriend/data/data",
-    "pages/page/user/user",
     "pages/page/mallIcon/mallIcon",
     "pages/floor/floorList/floorList",
     "pages/work/workIndex/workIndex",
