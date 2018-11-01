@@ -27,7 +27,22 @@ import {
   registerPhoneMsgUrl,
   changeIconUrl,
   userFloorInfoUrl,
-  floorListUrl
+  floorListUrl,
+  indexUrl,
+  mewWholesalerUrl,
+  setNameUrl,
+  addWholesalerUrl,
+  passUrl,
+  wholesalerAllUrl,
+  serWholesalerListUrl,
+  acceptmerchantUrl,
+  purchaserUserIdUrl,
+  applyinfoUrl,
+  isFriendUrl,
+  apiSetUserUrl,
+  apiAddUserUrl,
+  showPurchaserUrl,
+  isFriendStoreUrl
 } from './constUrl.js'
 
 import {
@@ -219,7 +234,62 @@ function getFloorList(data){
   data = initMallCode(data);
   return app.http.getRequest(floorListUrl, data)
 }
+/**批发商数据**/
+function index(data) {
+  return app.http.getRequest(indexUrl, data)
+}
+/**新增批发商列表**/
+function mewWholesaler(data) {
+  return app.pageRequest.pageGet(mewWholesalerUrl, data)
+}
+/**批发商列表**/
+function wholesalerAll(data) {
+  return app.pageRequest.pageGet(wholesalerAllUrl, data)
+}
+/**获取用户权限设置**/
+function apiSetUser(data) {
+  return app.http.getRequest(apiSetUserUrl, data)
+}
+/**权限设置**/
+function apiAddUser(data) {
+  return app.http.putRequest(apiAddUserUrl + "?bfPripermission=" + data)
+}
+/**扫一扫查看批发商**/
+function showPurchaser(data) {
+  return app.http.getRequest(showPurchaserUrl, data)
+}
+/**添加批发商分页查询列表**/
+function serWholesalerList(data) {
+  return app.pageRequest.pageGet(serWholesalerListUrl, data)
+}
+/**判断与供应商是否是好友关系**/
+function isFriendStore(data) {
+  return app.http.getRequest(isFriendStoreUrl, data)
+}
+/**批发商资料**/
+function purchaserUserId(url) {
+  return app.http.getRequest(url)
+}
+/**添加批发商**/
+function addWholesaler(data) {
+  return app.http.postRequest(addWholesalerUrl, data)
+}
+/**设置备注**/
+function setName(data) {
+  return app.http.postRequest(setNameUrl, data)
+}
 module.exports = {
+  index: index,
+  addWholesaler: addWholesaler,
+  setName:setName,
+  purchaserUserId: purchaserUserId,
+  isFriendStore: isFriendStore,
+  serWholesalerList: serWholesalerList,
+  showPurchaser: showPurchaser,
+  mewWholesaler: mewWholesaler,
+  wholesalerAll: wholesalerAll,
+  apiSetUser: apiSetUser,
+  apiAddUser: apiAddUser,
   getFloorList: getFloorList,
   showToast: showToast,
   isEmpty: isEmpty,

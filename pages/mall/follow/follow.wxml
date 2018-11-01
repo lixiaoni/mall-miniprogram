@@ -56,7 +56,7 @@
   <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{list.store.id}}" extra-data="" version="trial"></navigator>
       <view class='fw-top'>
         <image class='fw-logo' mode="aspectFill" src='{{baseUrl}}{{list.store.logo}}?x-oss-process=style/logo'></image>
-        <view class='fw-iew1'>{{list.store.name}}<text>新批零</text><text  hidden='{{!list.isPurchaser}}'>友</text></view>
+        <view class='fw-iew1'>{{list.store.name}}<text>{{list.store.storeNature==1?"新批零":"新零售"}}</text><text  hidden='{{!list.isPurchaser}}'>友</text></view>
         <view class='fw-iew'><text>{{list.store.businessScope}}</text>{{list.store.address}}</view>
         <image class='fw-left' src='/image/mallr.png'></image>
       </view>

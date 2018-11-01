@@ -26,6 +26,15 @@
 </view>
 <view class='page_bd'>
   <view class='weui-back weui-back1'>
+   <navigator  hidden='{{isStoreOwner}}' class='weui-cell weui-cell_access' url='../../businessFriend/index/index'>
+      <image src='/image/role.png' class='user-img'></image>
+      <view class='weui-cell__bd'>
+        我的商友
+      </view>
+      <view class='weui-img'>
+        <image src="/image/icl.png"></image>
+      </view>
+    </navigator>
     <navigator class='weui-cell weui-cell_access' url='../addressWe/addressWe'>
       <image src='/image/u1.png' class='user-img'></image>
       <view class='weui-cell__bd'>

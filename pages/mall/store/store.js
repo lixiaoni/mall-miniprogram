@@ -108,6 +108,12 @@ Page({
       that.setData({
         floorList:[]
       })
+    var floorCodes = floorserList[index].childList
+    if (floorCodes.length>0){
+      that.setData({
+        floorCode: floorCodes[0].code
+      })
+    }
     if (floorserList[index].childList.length==0){
       that.setData({
         isShow:true
@@ -123,7 +129,8 @@ Page({
       that.setData({
         stTab: index,
         childList: floorserList[index].childList,
-        balconyCode: balconyCode
+        balconyCode: balconyCode,
+        floorTab:0
       })
 
     }
@@ -133,8 +140,8 @@ Page({
     Api.storeSerList(data,nextPage)
       .then(res => {
       if(res.obj!==null){
-    
         var dataList = res.obj.result
+        console.log(dataList)
         for (var i = 0; i < dataList.length; i++) {
           if (_this.isPurchaser(dataList[i].storeId)) {
             dataList[i].isPurchaser = true
@@ -167,7 +174,10 @@ Page({
   },
   searchBtn: function (e) {
     this.setData({
-      dataList: []
+      dataList: [],
+      balconyCode: this.data.balconyCode,
+      floorCode: this.data.floorCode,
+      floorAreaCode: this.data.floorAreaCode
     })
     this.getList({ keyword: this.data.value})
   },
@@ -224,7 +234,11 @@ Page({
     this.setData({
       dataList: []
     })
-    this.getList({ keyword: this.data.value })
+    var _this = this,
+      balconyCode = this.data.balconyCode,
+      floorCode = this.data.floorCode,
+      floorAreaCode = this.data.floorAreaCode
+    this.getList({ keyword: this.data.value, mallCode: 1000, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode })
     wx.stopPullDownRefresh();
   },
 
@@ -232,14 +246,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   bindDownLoad:function(){
+   
+  },
+  onReachBottom: function () {
     var _this = this,
       balconyCode = this.data.balconyCode,
       floorCode = this.data.floorCode,
       floorAreaCode = this.data.floorAreaCode
-    this.getList({ keyword: this.data.value, mallCode: 1000, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode },true)
-  },
-  onReachBottom: function () {
-   
+    this.getList({ keyword: this.data.value, mallCode: 1000, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode }, true)
   },
 
 })
