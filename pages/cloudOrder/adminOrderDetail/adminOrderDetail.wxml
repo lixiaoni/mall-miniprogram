@@ -49,6 +49,15 @@
       </view>
       <image class='tel-icon'  src='/image/tel1.png'></image>
     </view>
+
+    <view class='msg-item'>
+      <text class='msg-title'>服务状态</text>
+      <text class="msg-content">{{msg.yunStoreGoodsOrderInfo.serviceDateEnd}}</text>
+    </view>
+    <view class='msg-item'>
+      <text class='msg-title'>剩余时间</text>
+      <text class="msg-content">{{msg.yunStoreGoodsOrderInfo.serviceDateEnd}}</text>
+    </view>
   </view>
 
 </view>

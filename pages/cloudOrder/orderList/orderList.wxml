@@ -49,7 +49,7 @@
 
         <view class='store-box'>
           <text class='store-name'>小云店商城专业版</text>
-          <text class='store-type'>新批零</text>
+          <!-- <text class='store-type'>新批零</text> -->
         </view>
 
         <view class='bb'>
@@ -72,7 +72,7 @@
             </view>
             <view class='msg-item between-box'>
               <text class='msg-title' style="flex:0 0 180rpx;">优惠码支付</text>
-              <text class="msg-content">111111</text>
+              <text class="msg-content" style="color:#000;">111111</text>
             </view>
             <view class='msg-item between-box'>
               <text class='msg-title'>微信支付</text>

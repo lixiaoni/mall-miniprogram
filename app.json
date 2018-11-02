@@ -1,18 +1,18 @@
 {
-
-  "pages":[
+  "pages": [
     "pages/page/user/user",
     
     "pages/cloudOrder/orderList/orderList",
     
+    
+    "pages/cloudOrder/newCloud/newCloud",
+    
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
     "pages/mall/newest/newest",
-    
     "pages/page/mallIcon/mallIcon",
     "pages/floor/floorList/floorList",
     "pages/work/workIndex/workIndex",
     "pages/floor/goodsTag/goodsTag",
-    
     "pages/mall/store/store",
     "pages/mall/seaList/seaList",
     "pages/mall/follow/follow",
@@ -37,9 +37,6 @@
     "pages/page/shopkeeper/shopkeeper",
     "pages/page/userDetails/userDetails",
     "pages/page/details/details",
-    
-    
-    
     "pages/floor/editAdmin/editAdmin",
     "pages/floor/adminDetail/adminDetail",
     "pages/floor/areaDetail/areaDetail",
@@ -48,9 +45,7 @@
     "pages/floor/choseAdmin/choseAdmin",
     "pages/floor/floor/floor",
     "pages/mall/goodsList/goodsList",
-
     "pages/login/login/login",
-    
     "pages/page/update/update",
     "pages/page/help/help",
     "pages/page/updataPhone/updataPhone",
@@ -64,7 +59,7 @@
     "backgroundColor": "#F7F7F7",
     "enablePullDownRefresh": false
   },
-  "networkTimeout":{
+  "networkTimeout": {
     "request": 3000,
     "connectSocket": 3000,
     "uploadFile": 20000,

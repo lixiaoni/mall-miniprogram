@@ -7,7 +7,8 @@ Page({
    */
   data: {
     hasUser:false,
-    isStoreOwner:''
+    isStoreOwner:'',
+    showCloud:false
   },
   showLogin(){
     this.selectComponent("#login").showPage();
@@ -30,6 +31,12 @@ Page({
             hasUser: true,
             isStoreOwner: res.obj.isStoreOwner
           })
+          //小云点订单列表
+        if (this.data.user.id == "cbced730cc43cead0592fbdd5ef10f99"){
+          this.setData({
+            showCloud:true
+          })
+        }
       }else{
         this.setData({
           user: "",
