@@ -85,7 +85,7 @@ Page({
       })
       next=false;
     }
-    app.pageRequest.pageGet("/admin/ystore/order/merchant/" + this.data.which, {}, next).then(res => {
+    app.pageRequest.pageGet("/admin/ystore/order/merchant/M1000000/orderStatus/" + this.data.which, {}, next).then(res => {
       if (!res.success) { return }
       this.setData({
         list: this.data.list.concat(res.obj.result)
@@ -98,7 +98,8 @@ Page({
   onLoad: function (options) {
     this.getList(true)
     this.setData({
-      baseUrl: app.globalData.imageUrl
+      baseUrl: app.globalData.imageUrl,
+      list:[{}]
     })
   },
 
