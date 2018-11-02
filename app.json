@@ -1,21 +1,26 @@
 {
-  "pages": [
-    "pages/page/user/user",
-    
-    "pages/cloudOrder/orderList/orderList",
-    
-    
-    "pages/cloudOrder/newCloud/newCloud",
-    
-    "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
+
+  "pages":[
     "pages/mall/newest/newest",
+    "pages/page/user/user",
+    "pages/businessFriend/index/index",
+    "pages/mall/follow/follow",
+    "pages/businessFriend/wholesaler/wholesaler",
+    "pages/businessFriend/information/information",
+    "pages/businessFriend/addWholesaler/addWholesaler",
+    "pages/businessFriend/serList/serList",
+    "pages/businessFriend/setUp/setUp",
+    "pages/businessFriend/mewWholesaler/mewWholesaler",
+    "pages/businessFriend/invitation/invitation",
+    "pages/businessFriend/data/data",
     "pages/page/mallIcon/mallIcon",
     "pages/floor/floorList/floorList",
     "pages/work/workIndex/workIndex",
     "pages/floor/goodsTag/goodsTag",
     "pages/mall/store/store",
+    "pages/cloudOrder/adminOrderDetail/adminOrderDetail",    
+    "pages/cloudOrder/orderList/orderList",
     "pages/mall/seaList/seaList",
-    "pages/mall/follow/follow",
     "pages/page/manageM/manageM",
     "pages/login/register/register",
     "pages/page/upload/upload",

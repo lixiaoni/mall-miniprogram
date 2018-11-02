@@ -98,6 +98,15 @@
   display: inline-block;width:30%;border-radius: 10rpx;background: #FAFAFA;font-weight: bold;height: 250rpx;position: relative;
   text-align: center;font-size: 28rpx;padding:35rpx 0;margin-top: 30rpx;margin-left: 10rpx;margin-right: 10rpx;
 }
+.lw-pop-cont>view view:nth-child(2){
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 .lw-pop-cont>view view:nth-child(3){
   font-size: 24rpx;color:#999;font-weight: normal;
   text-overflow: -o-ellipsis-lastline;

@@ -8,7 +8,8 @@ Page({
   data: {
     hasUser:false,
     isStoreOwner:'',
-    showCloud:false
+    showCloud:false,
+    storeNature:''
   },
   showLogin(){
     this.selectComponent("#login").showPage();
@@ -26,6 +27,13 @@ Page({
       })
     app.http.getRequest("/api/user/byuserid").then((res)=>{
       if (res.success){
+        var isStoreOwner = res.obj.isStoreOwner
+          if (isStoreOwner){
+            this.setData({
+              user: res.obj,
+              storeNature: res.obj.storeNature
+            })
+          }
           this.setData({
             user: res.obj,
             hasUser: true,

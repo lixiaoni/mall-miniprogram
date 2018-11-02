@@ -4,7 +4,7 @@
     <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.storeId}}" extra-data="" version="trial"></navigator>
       <view class='fw-top'>
         <image class='fw-logo' src='{{baseUrl}}{{item.store.logo}}?x-oss-process=style/logo'></image>
-        <view class='fw-iew1'>{{item.store.name}}<text>新批零</text><text hidden='{{!item.isPurchaser}}'>友</text></view>
+        <view class='fw-iew1'>{{item.store.name}}<text>{{item.store.storeNature==1?"新批零":"新零售"}}</text><text hidden='{{!item.isPurchaser}}'>友</text></view>
         <view class='fw-iew'><text>{{item.store.businessScope}}</text>{{item.store.address}}</view>
         <image class='fw-left' src='/image/mallr.png'></image>
       </view>
