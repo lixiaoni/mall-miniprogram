@@ -2,8 +2,8 @@
 
   "pages":[
     "pages/mall/newest/newest",
-    "pages/page/user/user",
     "pages/businessFriend/index/index",
+    "pages/page/user/user",
     "pages/mall/store/store",
     "pages/mall/follow/follow",
     "pages/businessFriend/wholesaler/wholesaler",
