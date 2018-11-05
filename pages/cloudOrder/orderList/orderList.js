@@ -16,7 +16,8 @@ Page({
     list:[],
     which: 'all',
     payCode: "",
-    openModal: false
+    openModal: false,
+    baseUrl:app.globalData.imageUrl
   },
   watchInput(e) {
     let val = e.detail.value;

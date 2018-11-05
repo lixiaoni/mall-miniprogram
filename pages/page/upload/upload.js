@@ -54,7 +54,11 @@ Page({
   //裁剪
   btnHandle() {
     //高清裁剪
+    let quality = 0.7;
     if (this.data.quality) {
+      quality = 1;
+    }
+    // if (this.data.quality) {
       let _that = this;
       // 点击了裁剪按钮
       let devicePixelRatio = this.data.cropperOpt.pixelRatio
@@ -81,6 +85,10 @@ Page({
           y,
           width,
           height,
+          destWidth: _that.data.uploadWidth,
+          destHeight: _that.data.uploadHeight,
+          fileType:'jpg',
+          quality,
           success(res) {
             const tmpPath = res.tempFilePath;
             _that.afterGetPath(tmpPath)
@@ -90,11 +98,11 @@ Page({
           }
         })
       })
-    } else {
-      this.wecropper.getCropperImage((avatar) => {
-        this.afterGetPath(avatar)
-      })
-    }
+    // } else {
+    //   this.wecropper.getCropperImage((avatar) => {
+    //     this.afterGetPath(avatar)
+    //   })
+    // }
   },
   afterGetPath(avatar) {
     if (avatar) {
@@ -131,6 +139,10 @@ Page({
         quality: true
       })
     }
+    this.setData({
+      uploadWidth: option.width,
+      uploadHeight: option.height
+    })
 
     if (option.src) {
       cropperOpt.src = option.src

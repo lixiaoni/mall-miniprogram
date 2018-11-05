@@ -215,11 +215,14 @@ function userFloorInfo(data){
   return app.http.getRequest(userFloorInfoUrl, data)
 }
 // 裁剪图片跳转
-function toCuttingImg(url, quality) {
-  // quality为true截图质量高
+function toCuttingImg(url, quality, width, height) {
   if (url) {
-    let add = '../upload/upload?src=' + url;
+    let add = '/pages/page/upload/upload?src=' + url;
     quality ? add += "&quality=true" : "";
+    add += "&width=";
+    width ? add += width : add += "750";
+    add += "&height=";
+    height ? add += height : add += "750";
     wx.navigateTo({
       url: add,
     })
