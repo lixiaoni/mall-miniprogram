@@ -13,7 +13,7 @@
 <view class='nt-title'>
     <view>
       <navigator url='../class/class'>
-        <view>商品分类</view><text>class</text>
+        <view>商品分类</view><text>Class</text>
       </navigator>
     </view>
   <view>
@@ -27,9 +27,17 @@
     </navigator>
   </view>
 </view>
+<!--  lw-pop1 -->
 <view class='lw-pop'>
-  <view>精彩活动推荐<view>{{current+1}}<text>/{{activities.length}}</text></view></view>
-  <view>全方位生活指南，每天都有新乐趣</view>
+  <view class='pop-n1'>匠心灵感<view>{{current+1}}<text>/{{activities.length}}</text></view></view>
+  <!-- <view>精彩活动推荐<view>{{current+1}}<text>/{{activities.length}}</text></view></view> -->
+  <view class='pop-n2'>与品质优生活不期而遇</view>
+  <!-- <view class='imgAll'>
+    <view wx:for="{{activities}}" wx:key="{{index}}">
+      <navigator wx:if='{{item.click}}'  target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.data.storeId}}" extra-data="" version="trial"><image src="{{baseUrl}}{{item.imageUrl}}?x-oss-process=style/store-cover" class="slide-image" mode="widthFix"/> </navigator>
+      <image wx:if='{{!item.click}}' src="{{baseUrl}}{{item.imageUrl}}?x-oss-process=style/store-cover" class="slide-image" mode="widthFix"/> 
+    </view>
+  </view> -->
   <swiper bindchange="bindchange" class="swiper nt-img" indicator-dots="{{dotsBoll}}" interval="{{interval}}" duration="{{duration}}" autoplay="{{autoplay}}" bindchange="bindchange">  
     <block wx:for="{{activities}}" wx:key="{{index}}">  
       <swiper-item>  
@@ -44,7 +52,7 @@
   <view class='fw-cont'>
        <view  wx:for="{{item.goodsList}}" wx:key="{{index}}"  wx:if="{{index<4}}">
        <navigator class='miniDetails' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.id}}&storeId={{item.storeId}}" extra-data="" version="trial"></navigator>
-          <view  class='fw-c-img fw-c-img1'><image mode="aspectFill" src='{{baseUrl}}{{item.mainImgUrl}}?x-oss-process=style/goods-small'></image></view>
+          <view  class='fw-c-img fw-c-img1'><image mode="widthFix" src='{{baseUrl}}{{item.mainImgUrl}}?x-oss-process=style/goods-small'></image></view>
           <view style='line-height:35rpx;margin-bottom:10rpx;'>{{item.name}}</view>
           <view>零售 <text>￥{{item.sellPrice}}</text></view>
           <view hidden='{{!item.isPurchaser}}' class='new_left'>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>

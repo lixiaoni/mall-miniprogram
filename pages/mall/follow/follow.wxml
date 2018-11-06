@@ -57,7 +57,7 @@
       <view class='fw-top'>
         <image class='fw-logo' mode="aspectFill" src='{{baseUrl}}{{list.store.logo}}?x-oss-process=style/logo'></image>
         <view class='fw-iew1'>{{list.store.name}}<text>{{list.store.storeNature==1?"新批零":"新零售"}}</text><text  hidden='{{!list.isPurchaser}}'>友</text></view>
-        <view class='fw-iew'><text>{{list.store.businessScope}}</text>{{list.store.address}}</view>
+        <view class='fw-iew'><text>{{list.store.businessScope}}</text><text class='text' wx:if='{{list.floorDes!=null}}'>{{list.floorDes}}</text></view>
         <image class='fw-left' src='/image/mallr.png'></image>
       </view>
       <view class='fw-cont'>

@@ -13,6 +13,9 @@
 .fw-top view.fw-iew text{
   color: #CCAA77;margin-right: 20rpx;
 }
+.fw-top view.fw-iew text.text{
+  color: #999
+}
 .fw-top view.fw-iew1 text{
   background: #CCAA77;font-size: 24rpx;color: #fff;border-radius: 8rpx;
   margin-left: 10rpx;

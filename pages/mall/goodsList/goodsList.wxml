@@ -1,4 +1,4 @@
-<scroll-view scroll-y="true" style="height:100%;">
+<scroll-view scroll-y="true" style="height:100%;" wx:if='{{goodsList.length>0}}'>
 <view class="st-cont"  wx:for="{{goodsList}}" wx:key="{{index}}">
  <navigator class='miniDetails' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.id}}&storeId={{item.storeId}}" extra-data="" version="trial"></navigator>
   <image class="cart-thumb" src="{{baseUrl}}{{item.mainImgUrl}}?x-oss-process=style/goods-small"></image>
@@ -12,27 +12,13 @@
       </view>
     </view>
 </view>
-<!-- <view class="st-cont">
-  <image class="cart-thumb" src="/image/userphoto.png"></image>
-  <view  class='st-d-t'>音米复古圆形金属眼镜框 男  近视眼镜架大框韩式全框</view> 
-  <view class='st-details'>
-    <view class='st-d-status'>
-      <view><text>批发 </text><text class='st-mom1'>￥444</text></view>
-      <view><text>零售 </text><image src='/image/wh.png'></image></view>
-      <view>inMix 眼镜百荣世贸店<image src='/image/mallr.png'></image></view>
-      </view>
-    </view>
-</view>
-<view class="st-cont">
-  <image class="cart-thumb" src="/image/userphoto.png"></image>
-  <view  class='st-d-t'>音米复古圆形金属眼镜框 男  近视眼镜架大框韩式全框</view> 
-  <view class='st-details'>
-    <view class='st-d-status'>
-      <view><text>批发 </text><text class='st-mom'>￥444</text></view>
-      <view><text>零售 </text><image src='/image/wh.png'></image></view>
-      <view>inMix 眼镜百荣世贸店<image src='/image/mallr.png'></image></view>
-      </view>
-    </view>
-</view> -->
-<view class='sl-font'>没有更多了</view>
+<view class='sl-font' wx:if='{{noMore}}'>没有更多了</view>
 </scroll-view>
+<view class="result-null" wx:if='{{noData && goodsList.length==0}}'>
+  <view class="nomore">
+    <view>
+      <image src="/image/nohome.png"></image>
+    </view>
+    暂无商品！
+  </view>
+</view>

@@ -14,6 +14,15 @@ Page({
   onLoad: function (options) {
   
   },
+  calling: function () {
+    wx.makePhoneCall({
+      phoneNumber:"010-87803388",
+      success: function () {
+      },
+      fail: function () {
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

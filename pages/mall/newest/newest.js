@@ -69,9 +69,13 @@ Page({
             }
           }
         }
+        var activities = obj.activities
+        for (var i = 0; i < activities.length;i++){
+          activities[i].data = JSON.parse(activities[i].url)
+        }
         _this.setData({
           movies: obj.banners,
-          activities: obj.activities,
+          activities: activities,
           mallChosenGoods: arrMall
         })
     })

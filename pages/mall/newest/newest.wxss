@@ -52,3 +52,21 @@
 .fw-cont>view .new_left{
   text-align: left;padding-left: 10rpx;color: #999;
 }
+.imgAll{
+  overflow-y: scroll;white-space: nowrap;margin-top:30rpx;padding-right:50rpx;
+}
+.imgAll view{
+  display: inline-block;width: 90%;margin-left:5%;
+}
+.imgAll view image{
+  width: 100%
+}
+.lw-pop1{
+  padding:40rpx 0;position: relative;overflow: hidden
+}
+.lw-pop1 .pop-n1,.lw-pop1 .pop-n2{
+  padding:0 50rpx;
+}
+.lw-pop1 .pop-n1{
+  margin-bottom:20rpx;
+}

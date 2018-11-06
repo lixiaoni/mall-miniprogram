@@ -1,12 +1,10 @@
 {
 
   "pages":[
-    "pages/page/user/user",
-    
-    "pages/cloudOrder/orderList/orderList",
-    
-    "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
     "pages/mall/newest/newest",
+    "pages/page/user/user",
+    "pages/cloudOrder/orderList/orderList",
+    "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
     "pages/businessFriend/index/index",
     "pages/mall/follow/follow",
     "pages/businessFriend/wholesaler/wholesaler",
@@ -22,7 +20,6 @@
     "pages/work/workIndex/workIndex",
     "pages/floor/goodsTag/goodsTag",
     "pages/mall/store/store",
-   
     "pages/mall/seaList/seaList",
     "pages/page/manageM/manageM",
     "pages/login/register/register",

@@ -141,7 +141,6 @@ Page({
       .then(res => {
       if(res.obj!==null){
         var dataList = res.obj.result
-        console.log(dataList)
         for (var i = 0; i < dataList.length; i++) {
           if (_this.isPurchaser(dataList[i].storeId)) {
             dataList[i].isPurchaser = true

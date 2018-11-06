@@ -1,1 +1,4 @@
 @import '../seaList/seaList';
+page{
+  height: unset
+}

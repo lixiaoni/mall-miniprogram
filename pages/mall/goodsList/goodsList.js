@@ -9,6 +9,10 @@ Page({
     goodsList:[],
     baseUrl: app.globalData.imageUrl,
     getPurchaserStoreIds: '',
+    noData:false,
+    noMore:false,
+    code:'',
+    codeList:false
   },
   isPurchaser: function (index) {
     var arr = this.data.getPurchaserStoreIds
@@ -20,8 +24,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var _this = this
-    var _this = this
+    var _this = this,
+    code=this.data.code
     Api.getPurchaserStoreIds()
       .then(res => {
         _this.setData({
@@ -50,24 +54,47 @@ Page({
                 })
               })
           }
-          if (options.code) {
+          if (options.code || code) {
             wx.setNavigationBarTitle({
               title: options.keyword
             })
-            _this.getSerList(options.code)
-
+            _this.setData({
+              code: options.code,
+              codeList:true
+            },function(){
+              _this.getSerList()
+            })
           }
         })
       })
    
   },
-  getSerList(code){
-    var _this=this
-    Api.goodsSer({ mallCode: 1000, categoryCode: code})
+  getSerList(nextPage){
+    var _this=this,
+    code=this.data.code
+    Api.goodsSer({ categoryCode: code }, nextPage)
       .then(res => {
-        const obj = res.obj
+        const detailList = res.obj
+        if (!Api.isEmpty(detailList)){
+          _this.setData({
+            noMore:true
+          })
+        }
+        for (var j = 0; j < detailList.length; j++) {
+          if (j < 5) {
+            if (_this.isPurchaser(detailList[j].storeId)) {
+              detailList[j].isPurchaser = true
+            } else {
+              detailList[j].isPurchaser = false
+            }
+          }
+        }
+        var datas = _this.data.goodsList,
+          newArr = app.pageRequest.addDataList(datas, detailList)
+        
         _this.setData({
-          goodsList: obj
+          goodsList: newArr,
+          noData:true
         })
       })
   },
@@ -110,7 +137,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    this.getSerList(true)
   },
-
 })
