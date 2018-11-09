@@ -19,6 +19,7 @@ Page({
     logo: app.globalData.logo,
     storeCover: app.globalData.storeCover, 
     baseUrl: app.globalData.imageUrl,
+    imageWidth: wx.getSystemInfoSync().windowWidth-100
   },
   intervalChange: function (e) {//自动切换时间间隔
     this.setData({
@@ -84,7 +85,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
   },
   moreList:function(e){
     var index = e.target.dataset.index

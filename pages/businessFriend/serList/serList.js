@@ -10,6 +10,7 @@ Page({
     value: '',
     baseUrl: app.globalData.imageUrl,
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -25,6 +26,7 @@ Page({
           url: '../information/information?status=2&send=&accept=' + accept+'&remark=&name='+name+'&logo='+logo,
         })
       }else{
+        console.log('../information/information?status=0&send=&accept=' + accept + '&remark=&logo=' + logo + '&name=' + name)
         wx.navigateTo({
           url: '../information/information?status=0&send=&accept=' + accept+'&remark=&logo='+logo+'&name='+name,
         })

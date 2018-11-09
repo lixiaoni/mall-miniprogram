@@ -273,6 +273,10 @@ function isFriendStore(data) {
 function purchaserUserId(url) {
   return app.http.getRequest(url)
 }
+/**进货商通过验证**/
+function acceptmerchant(data) {
+  return app.http.postRequest(acceptmerchantUrl, data)
+}
 /**添加批发商**/
 function addWholesaler(data) {
   return app.http.postRequest(addWholesalerUrl, data)
@@ -283,6 +287,7 @@ function setName(data) {
 }
 module.exports = {
   index: index,
+  acceptmerchant: acceptmerchant,
   addWholesaler: addWholesaler,
   setName:setName,
   purchaserUserId: purchaserUserId,

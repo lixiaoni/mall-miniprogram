@@ -254,5 +254,10 @@ Page({
       floorAreaCode = this.data.floorAreaCode
     this.getList({ keyword: this.data.value, mallCode: 1000, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode }, true)
   },
+  /**
+         * 用户点击右上角分享
+         */
+  onShareAppMessage: function (res) {
 
+  }
 })

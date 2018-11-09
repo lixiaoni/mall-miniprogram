@@ -32,15 +32,7 @@ Page({
           _this.setData({
             detailList: newArr,
           })
-        }else{
-          wx.showToast({
-            title: '暂无更多了',
-            icon: 'none',
-            duration: 1000,
-            mask: true
-          })
         }
-       
       })
   },
   searchBtn:function(e){
@@ -83,7 +75,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
