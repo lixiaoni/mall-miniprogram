@@ -258,6 +258,12 @@ Page({
          * 用户点击右上角分享
          */
   onShareAppMessage: function (res) {
-
+    return {
+      title: "逛小云店",
+      success: (res) => {
+      },
+      fail: (res) => {
+      }
+    }
   }
 })

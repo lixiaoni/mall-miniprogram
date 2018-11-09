@@ -1,54 +1,16 @@
-@import '../../mall/mallMes/mallMes';
-.user-text{
-  max-width: 230rpx;
-  overflow: hidden;
-  display: inline-block;
-  text-overflow: ellipsis;
-
-}
-.weui_cells>view,.weui_cells navigator{
-  position: relative
-}
-.weui_cells{
-  overflow: hidden;color: #333;
-}
-.store-address{
- font-weight: normal;
-}
-.weui-view{
-  font-weight: bold
-}
-.weui_cells .weui-xian{
-  left: 0;width: 104%
-}
-.weui-cell__hd{
-  width: 120rpx;height: 120rpx;
-}
-.weui_cells  .weui-cell__hd image{
- width: 120rpx;border-radius: 50%;margin-top: 25rpx;
-}
-.weui-dp{
-  color: #666;font-size: 24rpx;height: 40rpx;line-height: 30rpx;
-}
-.weui-dp image{
-  width: 25rpx;
-}
-.weui-cell__name{
-  margin-left: 30rpx;margin-top: 30rpx;line-height: 80rpx;font-size: 36rpx;color: #333;
-}
-.weui-cell__name>image{
-  margin-left: 15rpx;
-}
-.weui_cells_n{
-  height: 220rpx
-}
-.floor-admin{
-  width: 140rpx;height: 38rpx;border: 2rpx solid #CCAA77;border-radius: 10rpx;color: #CCAA77;
-  font-size: 24rpx;line-height: 38rpx;display: inline-block;text-align: center
-}
-.weui_cells_n .weui-view{
-   top: 60rpx;
-}
-.weui_cells image{
-  margin:0 10rpx 0 5rpx;
-}
+@import '../../mall/mallMes/mallMes';.user-text{max-width:230rpx;overflow:hidden;display:inline-block;text-overflow:ellipsis}
+.weui_cells>view,.weui_cells navigator{position:relative}
+.weui_cells{overflow:hidden;color:#333}
+.store-address{font-weight:normal}
+.weui-view{font-weight:bold}
+.weui_cells .weui-xian{left:0;width:104%}
+.weui-cell__hd{width:120rpx;height:120rpx}
+.weui_cells  .weui-cell__hd image{width:120rpx;border-radius:50%;margin-top:25rpx}
+.weui-dp{color:#666;font-size:24rpx;height:40rpx;line-height:30rpx}
+.weui-dp image{width:25rpx}
+.weui-cell__name{margin-left:30rpx;margin-top:30rpx;line-height:80rpx;font-size:36rpx;color:#333}
+.weui-cell__name>image{margin-left:15rpx}
+.weui_cells_n{height:220rpx}
+.floor-admin{width:140rpx;height:38rpx;border:2rpx solid #CCAA77;border-radius:10rpx;color:#CCAA77;font-size:24rpx;line-height:38rpx;display:inline-block;text-align:center}
+.weui_cells_n .weui-view{top:60rpx}
+.weui_cells image{margin:0 10rpx 0 5rpx}
