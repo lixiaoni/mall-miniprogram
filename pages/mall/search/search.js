@@ -41,7 +41,7 @@ Page({
       })
     } else {
       wx.navigateTo({
-        url: '../store/store?name='+name,
+        url: '../storeList/storeList?name='+name,
       })
     }
   },
@@ -101,5 +101,10 @@ Page({
    */
   onReachBottom: function () {
   },
+  /**
+         * 用户点击右上角分享
+         */
+  onShareAppMessage: function (res) {
 
+  }
 })

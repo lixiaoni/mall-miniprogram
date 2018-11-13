@@ -71,6 +71,31 @@ function showToast(message) {
     duration: 2000,
   })
 }
+/**判断楼座是否为空**/
+function isFloorInfo(obj) {
+  if(isEmpty(obj)){
+    var floor = obj.floor
+    if (floor==undefined){
+        var floor = obj
+        floor.mallName = floor.mallName == null ? '' : floor.mallName,
+        floor.areaName = floor.areaName == null ? '' : floor.areaName,
+        floor.balconyName = floor.balconyName == null ? '' : floor.balconyName,
+        floor.floorName = floor.floorName == null ? '' : floor.floorName,
+        floor.floorDescription = floor.floorDescription == null ? '' : floor.floorDescription,
+        floor.storeDoorNum = floor.storeDoorNum == null ? '' : floor.storeDoorNum
+    }else{
+        floor.mallName = floor.mallName == null ? '' : floor.mallName,
+        floor.areaName = floor.areaName == null ? '' : floor.areaName,
+        floor.balconyName = floor.balconyName == null ? '' : floor.balconyName,
+        floor.floorName = floor.floorName == null ? '' : floor.floorName,
+        floor.floorDescription = floor.floorDescription == null ? '' : floor.floorDescription,
+        floor.storeDoorNum = floor.storeDoorNum == null ? '' : floor.storeDoorNum
+    }
+    return floor
+  }else{
+    return null
+  }
+}
 /**mall首页**/
 function mallIndex(data) {
   data = initMallCode(data);
@@ -279,6 +304,10 @@ function isFriendStore(data) {
 function purchaserUserId(url) {
   return app.http.getRequest(url)
 }
+/**进货商通过验证**/
+function acceptmerchant(data) {
+  return app.http.postRequest(acceptmerchantUrl, data)
+}
 /**添加批发商**/
 function addWholesaler(data) {
   return app.http.postRequest(addWholesalerUrl, data)
@@ -304,7 +333,9 @@ module.exports = {
   floorAdminStoreList,
   cloudOrderDetail,
   getUserInfo:getUserInfo,
+  isFloorInfo: isFloorInfo,
   index: index,
+  acceptmerchant: acceptmerchant,
   addWholesaler: addWholesaler,
   setName:setName,
   purchaserUserId: purchaserUserId,

@@ -14,9 +14,9 @@
     <view>
       <text class='store-address'>商城概况</text>
     </view>
-    <view class='new-view'><view>342</view>品牌店铺</view>
-    <view class='new-view'><view>342</view>购物店铺</view>
-    <view class='new-view'><view>342</view>商品总量</view>
+    <view class='new-view'><view>2890</view>品牌店铺</view>
+    <view class='new-view'><view>3650</view>购物店铺</view>
+    <view class='new-view'><view>698902</view>商品总量</view>
 </view>
 <view class="weui_cells">
     <view>
@@ -24,14 +24,14 @@
       <text>北京市东城区永定门外大街101号</text>
     </view>
 </view>
-<view class="weui_cells weui_cells-new">
+<navigator class="weui_cells weui_cells-new" url='/pages/page/mallIcon/mallIcon'>
     <image  src="/image/mes12.png"></image>
     <text class="store-address">商城信息 </text>
     <view class='weui-view'>
       <image class='m-img' src="/image/xcx.png"></image><image class='img' src="/image/icl.png"></image>
     </view>
    <view class='weui-xian weui-xian1'></view>
-</view>
+</navigator>
 <view class='weui-time'>
   <view>营业时间</view>
   <view>百荣世贸商城 09:00~20:00</view>
@@ -39,7 +39,7 @@
   <view>鞋区 二期B1层 6:00-15:00</view>
 </view>
 <view class='weui-time weui-time-new'>
-  <view>客服电话<text>010-87803388</text><view class='mes-tel'><image src="/image/tel1.png"></image></view></view>
+  <view>客服电话<text>010-87803388</text><view class='mes-tel' bindtap='calling'><image src="/image/tel1.png"></image></view></view>
   <view>客服微信<text>vbairong666</text></view>
   <view>公众号<text>百荣</text></view>
 </view>

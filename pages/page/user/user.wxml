@@ -26,7 +26,7 @@
 </view>
 <view class='page_bd'>
   <view class='weui-back weui-back1'>
-   <!-- <navigator  hidden='{{isStoreOwner}}' class='weui-cell weui-cell_access' url='../../businessFriend/index/index'>
+   <navigator  hidden='{{isStoreOwner}}' class='weui-cell weui-cell_access' url='../../businessFriend/index/index'>
       <image src='/image/role.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         我的商友
@@ -34,8 +34,9 @@
       <view class='weui-img'>
         <image src="/image/icl.png"></image>
       </view>
-    </navigator> -->
+    </navigator>
     <navigator class='weui-cell weui-cell_access' url='../addressWe/addressWe'>
+     <view class='isStore' wx:if='{{isStoreOwner}}'></view>
       <image src='/image/u1.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         地址管理

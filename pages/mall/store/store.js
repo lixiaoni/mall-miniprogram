@@ -51,14 +51,7 @@ Page({
           getPurchaserStoreIds: res
         }, function () {
           _this.getFloorSer()
-          if (options.name) {
-            _this.setData({
-              value: options.name
-            })
-            _this.getList({ keyword: options.name })
-          } else {
-            _this.getList()
-          }
+          _this.getList()
         })
       })
     
@@ -141,8 +134,8 @@ Page({
       .then(res => {
       if(res.obj!==null){
         var dataList = res.obj.result
-        console.log(dataList)
         for (var i = 0; i < dataList.length; i++) {
+          dataList[i].floorInfo = Api.isFloorInfo(dataList[i].floorInfo)
           if (_this.isPurchaser(dataList[i].storeId)) {
             dataList[i].isPurchaser = true
           } else {
@@ -255,5 +248,16 @@ Page({
       floorAreaCode = this.data.floorAreaCode
     this.getList({ keyword: this.data.value, mallCode: 1000, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode }, true)
   },
-
+  /**
+         * 用户点击右上角分享
+         */
+  onShareAppMessage: function (res) {
+    return {
+      title: "逛小云店",
+      success: (res) => {
+      },
+      fail: (res) => {
+      }
+    }
+  }
 })

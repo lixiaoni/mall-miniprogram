@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "我的订单",
-  "usingComponents": {
-    "mes": "../../../../assembly/tips/tips",
-    "clo": "../../../../assembly/close/close"
-  }
-}

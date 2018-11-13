@@ -19,6 +19,23 @@ Page({
     logo: app.globalData.logo,
     storeCover: app.globalData.storeCover, 
     baseUrl: app.globalData.imageUrl,
+    imageWidth: wx.getSystemInfoSync().windowWidth-80
+  },
+  scroll:function(e){
+    var scrollWidth = e.detail.scrollWidth,
+      scrollLeft=e.detail.scrollLeft,
+      activities = this.data.activities
+      
+    if (1800 < scrollLeft && scrollLeft<2500){
+      console.log(scrollLeft)
+    }
+    // if (scrollLeft>1800){
+    //   var newArr=activities.concat(activities)
+    //   this.setData({
+    //     activities:newArr
+    //   })
+    // } 
+
   },
   intervalChange: function (e) {//自动切换时间间隔
     this.setData({
@@ -69,9 +86,13 @@ Page({
             }
           }
         }
+        var activities = obj.activities
+        for (var i = 0; i < activities.length;i++){
+          activities[i].data = JSON.parse(activities[i].url)
+        }
         _this.setData({
           movies: obj.banners,
-          activities: obj.activities,
+          activities: activities,
           mallChosenGoods: arrMall
         })
     })
@@ -80,7 +101,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
   },
   moreList:function(e){
     var index = e.target.dataset.index

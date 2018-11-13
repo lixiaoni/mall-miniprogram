@@ -1,5 +1,4 @@
 {
-
   "pages":[
     "pages/page/user/user",
     
@@ -20,27 +19,25 @@
     
     "pages/work/floorList/floorList",
     
-    "pages/cloudOrder/orderList/orderList",
-    
-    "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
     "pages/mall/newest/newest",
     "pages/businessFriend/index/index",
-    "pages/mall/follow/follow",
-    "pages/businessFriend/wholesaler/wholesaler",
-    "pages/businessFriend/information/information",
     "pages/businessFriend/addWholesaler/addWholesaler",
-    "pages/businessFriend/serList/serList",
-    "pages/businessFriend/setUp/setUp",
     "pages/businessFriend/mewWholesaler/mewWholesaler",
+    "pages/businessFriend/wholesaler/wholesaler",
+    "pages/businessFriend/setUp/setUp",
+    "pages/businessFriend/information/information",
+    "pages/businessFriend/serList/serList",
     "pages/businessFriend/invitation/invitation",
     "pages/businessFriend/data/data",
+    "pages/mall/seaList/seaList",
+    "pages/cloudOrder/orderList/orderList",
+    "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
+    "pages/mall/follow/follow",
     "pages/page/mallIcon/mallIcon",
     "pages/floor/floorList/floorList",
     "pages/work/workIndex/workIndex",
     "pages/floor/goodsTag/goodsTag",
     "pages/mall/store/store",
-   
-    "pages/mall/seaList/seaList",
     "pages/page/manageM/manageM",
     "pages/login/register/register",
     "pages/page/upload/upload",
@@ -58,10 +55,7 @@
     "pages/mall/class/class",
     "pages/page/derm/derm",
     "pages/mall/storeList/storeList",
-    "pages/page/addressWe/addressWe",
-    "pages/page/shopkeeper/shopkeeper",
     "pages/page/userDetails/userDetails",
-    "pages/page/details/details",
     "pages/floor/editAdmin/editAdmin",
     "pages/floor/adminDetail/adminDetail",
     "pages/floor/areaDetail/areaDetail",
@@ -73,8 +67,7 @@
     "pages/login/login/login",
     "pages/page/update/update",
     "pages/page/help/help",
-    "pages/page/updataPhone/updataPhone",
-    "pages/page/invoice/invoice"
+    "pages/page/updataPhone/updataPhone"
   ],
   "window": {
     "backgroundTextStyle": "black",
@@ -115,5 +108,8 @@
         "text": "我的"
       }
     ]
-  }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx4f385374765e4cbb"
+  ]
 }

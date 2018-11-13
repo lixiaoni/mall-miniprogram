@@ -1,4 +1,3 @@
 @import '../common/common';
-.bf-img{
-  position: absolute;
+.bf-img{ position: absolute;
 }
