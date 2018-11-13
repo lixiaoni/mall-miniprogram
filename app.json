@@ -3,6 +3,23 @@
   "pages":[
     "pages/page/user/user",
     
+    "pages/cloudOrder/myOrder/myOrder",
+    "pages/cloudOrder/orderDetail/orderDetail",
+    
+    "pages/cloudOrder/cloudPay/cloudPay",
+    
+    "pages/cloudOrder/newCloud/newCloud",
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    "pages/work/floorList/floorList",
+    
     "pages/cloudOrder/orderList/orderList",
     
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",

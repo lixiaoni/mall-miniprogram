@@ -11,6 +11,12 @@ Page({
     showCloud:false,
     storeNature:''
   },
+  init(){
+    this.setData({
+      hasUser: false,
+      showCloud: false
+    })
+  },
   showLogin(){
     this.selectComponent("#login").showPage();
   },
@@ -48,13 +54,15 @@ Page({
       }else{
         this.setData({
           user: "",
-          hasUser: false
+          hasUser: false,
+          isStoreOwner:false
         })
       }
     }).catch(e=>{
       this.setData({
         user: "",
-        hasUser: false
+        hasUser: false,
+        isStoreOwner: false        
       })
     })
   },
@@ -76,6 +84,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.init();
     this.getUser(); 
   },
 

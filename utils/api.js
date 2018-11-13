@@ -42,7 +42,10 @@ import {
   apiSetUserUrl,
   apiAddUserUrl,
   showPurchaserUrl,
-  isFriendStoreUrl
+  isFriendStoreUrl,
+  cloudOrderDetailUrl,
+  floorAdminStoreListUrl,
+  floorStoreListUrl,
 } from './constUrl.js'
 
 import {
@@ -80,6 +83,9 @@ function superAdminWork(data) {
 }
 /**用户身份判断**/
 function identityUser(data) {
+  return app.http.getRequest(identityUserUrl, data)
+}
+function getUserInfo(data) {
   return app.http.getRequest(identityUserUrl, data)
 }
 /**工作台首页**/
@@ -281,7 +287,23 @@ function addWholesaler(data) {
 function setName(data) {
   return app.http.postRequest(setNameUrl, data)
 }
+// 小云店订单详情查询
+function cloudOrderDetail(data){
+  return app.http.getRequest(cloudOrderDetailUrl,data)
+}
+// 楼层筛选小云店
+function floorStoreList(data,next){
+  return app.pageRequest.pageGet(floorStoreListUrl, data , next)
+}
+// 楼管筛选小云店
+function floorAdminStoreList(data, next) {
+  return app.pageRequest.pageGet(floorAdminStoreListUrl, data, next)
+}
 module.exports = {
+  floorStoreList,
+  floorAdminStoreList,
+  cloudOrderDetail,
+  getUserInfo:getUserInfo,
   index: index,
   addWholesaler: addWholesaler,
   setName:setName,

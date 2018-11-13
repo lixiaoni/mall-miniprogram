@@ -68,6 +68,7 @@
   <view style='height:2rpx;background:#eee;'></view>
 </view>  
 <!-- 商家数量 -->
+<navigator url="{{storeNum>0?'/pages/work/floorList/floorList?floorCode='+code:''}}">
   <view class='floor-part newComBox'>
     <view class='flex-box'>
       <view class='column-box align-center'>
@@ -75,11 +76,11 @@
         <text class='floor-type b-font'>{{storeNum}}家</text>
       </view>
       <view>
-        <!-- <image class='floor-edit' src='/image/icl.png'></image> -->
+        <image wx:if="{{storeNum>0}}" class='floor-edit' src='/image/icl.png'></image>
       </view>
     </view>
   </view>
-  
+</navigator>  
  
 </view>
  <!-- 删除楼层 -->

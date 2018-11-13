@@ -123,7 +123,8 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      id: options.id
+      id: options.id,
+      hideFreeze: options.hideFreeze ? false:true
     })
     this.getData();
   },

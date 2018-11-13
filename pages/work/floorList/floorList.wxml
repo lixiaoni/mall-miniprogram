@@ -1,15 +1,15 @@
-<login id="login"></login>
+<!-- <login id="login"></login> -->
 <!-- 搜索 -->
-<view class='flex-box search-box'>
+<!-- <view class='flex-box search-box'>
   <view class='flex'>
     <image class='search-img' src='/image/search1.png'></image>
     <input bindinput='watchInput' bindconfirm='search' placeholder='输入小云店名称、手机号' type='text'></input>
   </view>
   <view bindtap='search' class='search-btn'>搜索</view>
-</view>
+</view> -->
 
 <!-- 切换 -->
-<view class='tab-box'>
+<!-- <view class='tab-box'>
   <scroll-view scroll-x='true'>
     <view class='flex'>
       <block wx:for="{{tab}}" wx:key="{{index}}">
@@ -17,18 +17,18 @@
       </block>
     </view>
   </scroll-view>
-</view>
+</view> -->
 
 <!-- 商品 -->
-<view>
+<view wx:if="{{list.length>0 && list}}">
   <block wx:key="{{index}}" wx:for="{{list}}">
-    <navigator url='../shopDetail/shopDetail?id={{item.storeId}}'>
+    <!-- <navigator url='../shopDetail/shopDetail?id={{item.storeId}}&hideFreeze=true'> -->
       <view class='goods-item'>
         <view>
           <!-- 商品信息 -->
           <view class='flex'>
             <view class='icon-box'>
-              <image class='good-icon' mode='aspectFit' src='{{baseUrl+item.logo}}?x-oss-process=style/logo'></image>
+              <image class='good-icon' mode='aspectFit' src='{{baseUrl}}{{item.logo}}?x-oss-process=style/logo'></image>
             </view>
             <view>
               <view class='name-box'>
@@ -51,11 +51,12 @@
             </view>
           </view>
         </view>
-        <image class='more' src='/image/icl.png'></image>
+        <!-- <image class='more' src='/image/icl.png'></image> -->
       </view>
-    </navigator>
+    <!-- </navigator> -->
   </block>
 </view>
+<view class="no-tip" wx:else>无小云店</view>
 <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
   <view class="weui-loading"></view>
   <view class="weui-loadmore__tips">正在加载</view>

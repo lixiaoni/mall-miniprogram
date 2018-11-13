@@ -87,6 +87,9 @@
   font-size: 28rpx;
   font-weight: 600;
   margin-bottom: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .list-part{
   padding: 30rpx 0;
