@@ -56,7 +56,7 @@
     <!-- </navigator> -->
   </block>
 </view>
-<view class="no-tip" wx:else>无小云店</view>
+<view class="no-tip" wx:else>小云店列表为空</view>
 <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
   <view class="weui-loading"></view>
   <view class="weui-loadmore__tips">正在加载</view>
