@@ -19,7 +19,23 @@ Page({
     logo: app.globalData.logo,
     storeCover: app.globalData.storeCover, 
     baseUrl: app.globalData.imageUrl,
-    imageWidth: wx.getSystemInfoSync().windowWidth-100
+    imageWidth: wx.getSystemInfoSync().windowWidth-80
+  },
+  scroll:function(e){
+    var scrollWidth = e.detail.scrollWidth,
+      scrollLeft=e.detail.scrollLeft,
+      activities = this.data.activities
+      
+    if (1800 < scrollLeft && scrollLeft<2500){
+      console.log(scrollLeft)
+    }
+    // if (scrollLeft>1800){
+    //   var newArr=activities.concat(activities)
+    //   this.setData({
+    //     activities:newArr
+    //   })
+    // } 
+
   },
   intervalChange: function (e) {//自动切换时间间隔
     this.setData({

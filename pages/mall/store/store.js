@@ -51,14 +51,7 @@ Page({
           getPurchaserStoreIds: res
         }, function () {
           _this.getFloorSer()
-          if (options.name) {
-            _this.setData({
-              value: options.name
-            })
-            _this.getList({ keyword: options.name })
-          } else {
-            _this.getList()
-          }
+          _this.getList()
         })
       })
     
@@ -142,6 +135,7 @@ Page({
       if(res.obj!==null){
         var dataList = res.obj.result
         for (var i = 0; i < dataList.length; i++) {
+          dataList[i].floorInfo = Api.isFloorInfo(dataList[i].floorInfo)
           if (_this.isPurchaser(dataList[i].storeId)) {
             dataList[i].isPurchaser = true
           } else {

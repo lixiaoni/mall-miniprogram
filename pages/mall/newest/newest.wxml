@@ -33,7 +33,13 @@
   <!-- <view>精彩活动推荐<view>{{current+1}}<text>/{{activities.length}}</text></view></view> -->
   <view class='pop-n2'>与品质优生活不期而遇</view>
   <view class='imgAll'>
-  <scroll-view scroll-x="true"> 
+  <scroll-view scroll-x="true" bindscroll="scroll"> 
+  <!-- <view  style='width:{{imageWidth}}px'>
+      <image  src="/image/111.jpg" class="slide-image" mode="widthFix"/> 
+    </view>
+      <view  style='width:{{imageWidth}}px'>
+      <image  src="/image/222.jpg" class="slide-image" mode="widthFix"/> 
+    </view> -->
     <view wx:for="{{activities}}" wx:key="{{index}}" style='width:{{imageWidth}}px'>
       <navigator wx:if='{{item.click}}'  target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.data.storeId}}" extra-data="" version="trial"><image src="{{baseUrl}}{{item.imageUrl}}" class="slide-image" mode="widthFix"/> </navigator>
       <image wx:if='{{!item.click}}' src="{{baseUrl}}{{item.imageUrl}}" class="slide-image" mode="widthFix"/> 

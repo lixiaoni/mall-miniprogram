@@ -12,6 +12,7 @@ Page({
     noData:false,
     noMore:false,
     code:'',
+    indexShow:false,
     codeList:false
   },
   isPurchaser: function (index) {
@@ -47,7 +48,8 @@ Page({
                   }
                 }
                 _this.setData({
-                  goodsList: goodsList
+                  goodsList: goodsList,
+                  indexShow:true
                 })
                 wx.setNavigationBarTitle({
                   title: obj.mallChosenGoods[index].name
@@ -137,6 +139,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getSerList(true)
+    if(!this.data.indexShow){
+      this.getSerList(true)
+    }
   },
 })

@@ -44,6 +44,7 @@ Page({
        if(obj!=null){
          var detailList = res.obj.result
          for (var i = 0; i < detailList.length;i++){
+           detailList[i].floorInfo = Api.isFloorInfo(detailList[i].floorInfo)
            if(_this.isPurchaser(detailList[i].storeId)){
              detailList[i].isPurchaser=true
            }else{
@@ -95,6 +96,7 @@ Page({
             })
           }
           for (var i = 0; i < detailList.length; i++) {
+            detailList[i].floorInfo = Api.isFloorInfo(detailList[i].floorInfo)
             if (that.isPurchaser(detailList[i].storeId)) {
               detailList[i].isPurchaser = true
             } else {
@@ -168,12 +170,12 @@ Page({
       url: '../store/store',
     })
   },
-  moreList: function (e) {
-    var index = e.target.dataset.index
-    wx.navigateTo({
-      url: '../storeList/storeList?index=' + index,
-    })
-  },
+  // moreList: function (e) {
+  //   var index = e.target.dataset.index
+  //   wx.navigateTo({
+  //     url: '../storeList/storeList?index=' + index,
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -41,7 +41,7 @@ Page({
       })
     } else {
       wx.navigateTo({
-        url: '../store/store?name='+name,
+        url: '../storeList/storeList?name='+name,
       })
     }
   },

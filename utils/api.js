@@ -68,6 +68,31 @@ function showToast(message) {
     duration: 2000,
   })
 }
+/**判断楼座是否为空**/
+function isFloorInfo(obj) {
+  if(isEmpty(obj)){
+    var floor = obj.floor
+    if (floor==undefined){
+        var floor = obj
+        floor.mallName = floor.mallName == null ? '' : floor.mallName,
+        floor.areaName = floor.areaName == null ? '' : floor.areaName,
+        floor.balconyName = floor.balconyName == null ? '' : floor.balconyName,
+        floor.floorName = floor.floorName == null ? '' : floor.floorName,
+        floor.floorDescription = floor.floorDescription == null ? '' : floor.floorDescription,
+        floor.storeDoorNum = floor.storeDoorNum == null ? '' : floor.storeDoorNum
+    }else{
+        floor.mallName = floor.mallName == null ? '' : floor.mallName,
+        floor.areaName = floor.areaName == null ? '' : floor.areaName,
+        floor.balconyName = floor.balconyName == null ? '' : floor.balconyName,
+        floor.floorName = floor.floorName == null ? '' : floor.floorName,
+        floor.floorDescription = floor.floorDescription == null ? '' : floor.floorDescription,
+        floor.storeDoorNum = floor.storeDoorNum == null ? '' : floor.storeDoorNum
+    }
+    return floor
+  }else{
+    return null
+  }
+}
 /**mall首页**/
 function mallIndex(data) {
   data = initMallCode(data);
@@ -286,6 +311,7 @@ function setName(data) {
   return app.http.postRequest(setNameUrl, data)
 }
 module.exports = {
+  isFloorInfo: isFloorInfo,
   index: index,
   acceptmerchant: acceptmerchant,
   addWholesaler: addWholesaler,
