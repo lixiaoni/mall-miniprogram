@@ -11,12 +11,7 @@ Page({
     showCloud:false,
     storeNature:''
   },
-  init(){
-    this.setData({
-      hasUser: false,
-      showCloud: false
-    })
-  },
+  
   showLogin(){
     this.selectComponent("#login").showPage();
   },
@@ -49,6 +44,10 @@ Page({
         if (this.data.user.id == "cbced730cc43cead0592fbdd5ef10f99"){
           this.setData({
             showCloud:true
+          })
+        }else{
+          this.setData({
+            showCloud: false
           })
         }
       }else{
@@ -84,7 +83,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.init();
     this.getUser(); 
   },
 
