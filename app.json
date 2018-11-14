@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/mall/newest/newest",
+    
+    "pages/mall/moreStore/moreStore",
     "pages/businessFriend/index/index",
     "pages/businessFriend/addWholesaler/addWholesaler",
     "pages/businessFriend/mewWholesaler/mewWholesaler",
@@ -60,10 +62,10 @@
     "enablePullDownRefresh": false
   },
   "networkTimeout": {
-    "request": 3000,
-    "connectSocket": 3000,
-    "uploadFile": 20000,
-    "downloadFile": 20000
+    "request": 50000,
+    "connectSocket": 50000,
+    "uploadFile": 50000,
+    "downloadFile": 50000
   },
   "tabBar": {
     "borderStyle": "white",

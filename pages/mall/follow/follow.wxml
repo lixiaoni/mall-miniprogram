@@ -7,7 +7,7 @@
   </view>
   <navigator></navigator>
   <view class='lw-pop' wx:for='{{storeList}}' wx:key='index'>
-    <view class='common-flex-between'>{{item.name}}</view>
+    <view class='common-flex-between'>{{item.name}}<text data-index='{{index}}' bindtap='moreList'>更多</text></view>
     <view>{{item.desc}}</view>
     <view class='lw-pop-cont'>
       <view  wx:for='{{item.storeGoodsList}}' wx:key='index' wx:if='{{index<3}}' data-id='{{item.store.id}}'>

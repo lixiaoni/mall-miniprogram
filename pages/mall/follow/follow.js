@@ -170,12 +170,12 @@ Page({
       url: '../store/store',
     })
   },
-  // moreList: function (e) {
-  //   var index = e.target.dataset.index
-  //   wx.navigateTo({
-  //     url: '../storeList/storeList?index=' + index,
-  //   })
-  // },
+  moreList: function (e) {
+    var index = e.target.dataset.index
+    wx.navigateTo({
+      url: '../moreStore/moreStore?index=' + index,
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
