@@ -22,17 +22,18 @@
 <!-- 列表 -->
 <block wx:for="{{list}}" wx:key="{{index}}">
   <view class='order-box'>
-    <navigator url='../adminOrderDetail/adminOrderDetail?num={{item.orderNumber}}'>
 
-      <view class='order-padding-box'>
+    <view class='order-padding-box'>
+      <navigator url='../adminOrderDetail/adminOrderDetail?num={{item.orderNumber}}'>
 
         <view class='order-title'>
           <view class='col-md'>
             <image class='user-icon' src='{{item.userInfoVO.headPic?baseUrl+item.userInfoVO.headPic+"?x-oss-process=style/logo":"/image/defaultHeadPic.png"}}'></image>
             <text class='store-name'>{{item.userInfoVO.nickName}}</text>
           </view>
-          <text wx:if='{{item.orderStatus=="unpaid"}}' class='youyou'>已付款</text>
+          <text wx:if='{{item.orderStatus=="unpaid"}}' class='youyou'>未付款</text>
           <text wx:if='{{item.orderStatus=="paid"}}' class='youyou'>已付款</text>
+          <text wx:if='{{item.orderStatus=="cancelled"}}' class='youyou'>已取消</text>
         </view>
 
         <view class='price-box'>
@@ -56,7 +57,7 @@
           <view class='msg-box'>
             <view class='msg-item'>
               <text class='msg-title'>服务时间</text>
-              <text class="msg-content">{{item.yunStoreGoodsOrderInfo.serviceReriodMonth}}个月</text>
+              <text class="msg-content">{{item.yunStoreGoodsSnapshot.serviceReriodMonth}}个月</text>
             </view>
             <view class='msg-item'>
               <text class='msg-title'>客户手机</text>
@@ -72,23 +73,27 @@
             </view>
             <view class='msg-item between-box'>
               <text class='msg-title' style="flex:0 0 180rpx;">优惠码支付</text>
-              <text class="msg-content" style="color:#000;">{{item.yunStoreGoodsSnapshot.discountAmount}}</text>
+              <text class="msg-content" style="color:#000;">￥{{item.yunStoreGoodsSnapshot.discountAmount?item.yunStoreGoodsSnapshot.discountAmount:0}}</text>
             </view>
             <view class='msg-item between-box'>
               <text class='msg-title'>微信支付</text>
-              <text class="msg-content red-font">{{item.yunStoreGoodsSnapshot.serviceFee}}</text>
+              <text class="msg-content red-font">￥{{item.yunStoreGoodsSnapshot.serviceFee}}</text>
             </view>
           </view>
         </view>
-        <button bindtap='openStore' data-num='{{item.orderNumber}}' class='open-btn'>开通小云店</button>
-      </view>
+      </navigator>
 
-      <!-- 底部 -->
+      <button wx:if="{{item.orderStatus=='paid'}}" bindtap='openStore' data-num='{{item.orderNumber}}' class='open-btn'>开通小云店</button>
+    </view>
+
+    <!-- 底部 -->
+    <navigator url='../adminOrderDetail/adminOrderDetail?num={{item.orderNumber}}'>
       <view class='common-flex-between bottom-in-box order-padding-box'>
         <text>查看详情</text>
         <image class='common-in-icon' src='/image/icl.png'></image>
       </view>
     </navigator>
+
 
   </view>
 </block>

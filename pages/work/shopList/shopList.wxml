@@ -37,7 +37,7 @@
               </view>
               <view class='goods-type'>
                 <text class='theme-color'>{{item.businessScope}}</text>
-                <text class='area-font'>{{item.floorInfo}}</text>
+                <text class='area-font'>{{item.floorInfoVO.floorDescription}} {{item.floorInfoVO.storeDoorNum?item.floorInfoVO.storeDoorNum:""}}</text>
               </view>
             </view>
           </view>

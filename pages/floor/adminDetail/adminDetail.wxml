@@ -50,8 +50,10 @@
   </view>
   
     <!-- 管理层 -->
+  <navigator url="{{manage?'/pages/work/floorList/floorList?user='+userId:''}}">
+    
     <view class='list-show floor-part'>
-      <view class='list-title'>我的管理楼层</view>
+      <view class='list-title'>我的管理楼层 <image wx:if="{{manage}}" class='tri-icon' src='/image/icl.png'></image></view>
       <view wx:if="{{manage}}">
       <block wx:for="{{manage}}" wx:key="{{index}}">
         <view class='border-box list-part'>
@@ -82,6 +84,6 @@
       </view>
       <view class='no-font' wx:else>暂无分配楼层</view>
     </view>
-    
+  </navigator>  
 
 </view>

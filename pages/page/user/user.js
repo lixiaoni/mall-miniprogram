@@ -11,6 +11,7 @@ Page({
     showCloud:false,
     storeNature:''
   },
+  
   showLogin(){
     this.selectComponent("#login").showPage();
   },
@@ -44,17 +45,23 @@ Page({
           this.setData({
             showCloud:true
           })
+        }else{
+          this.setData({
+            showCloud: false
+          })
         }
       }else{
         this.setData({
           user: "",
-          hasUser: false
+          hasUser: false,
+          isStoreOwner:false
         })
       }
     }).catch(e=>{
       this.setData({
         user: "",
-        hasUser: false
+        hasUser: false,
+        isStoreOwner: false        
       })
     })
   },

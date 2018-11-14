@@ -43,3 +43,6 @@ export const apiSetUserUrl = '/api/user/set'
 export const apiAddUserUrl = '/api/user/set/bfpripermission'
 export const showPurchaserUrl = '/admin/bizscan/purchaser/{{userId}}'
 export const isFriendStoreUrl = '/admin/purchasermerchant/{{storeId}}/merchant'
+export const cloudOrderDetailUrl = '/api/yunstore/order/{{orderNumber}}'
+export const floorStoreListUrl = "/admin/mall/store/{{floorCode}}/store"
+export const floorAdminStoreListUrl = "/admin/mall/store/{{userId}}/storelist"

@@ -50,14 +50,14 @@
       <image src="/image/positionico.png"></image>
       <text class="store-address">所属商场</text>
     </view>
-    <view>{{floor.floorInfo.mallName}}</view>
+    <view>{{floor.mallName?floor.mallName:""}}</view>
   </view>
   <view class='flex-box'>
     <view class='area-box'>
       <image src="/image/positionico.png"></image>
       <text class="store-address">楼层区域</text>
     </view>
-    <view>{{floor.floorInfo.balcony}} {{floor.floorInfo.area}}</view>
+    <view>{{floor.floorDescription}}</view>
   </view>
 </view>
 <!-- 小云店 -->
@@ -115,6 +115,8 @@
   </view>
 </view>
 <!-- 按钮 -->
+<block wx:if="{{hideFreeze}}">
 <view wx:if="{{state=='1'}}" bindtap='authentication' class='bottom-button ac-btn'>商城认证</view>
 <view wx:if="{{state=='2'}}" bindtap='showModal' data-type="freeze" class='bottom-button default-btn'>冻结店铺</view>
 <view wx:if="{{state=='3'}}" bindtap='showModal' data-type="unfreeze" class='bottom-button default-btn'>解冻店铺</view>
+</block>

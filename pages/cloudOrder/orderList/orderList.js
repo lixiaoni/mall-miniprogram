@@ -100,8 +100,8 @@ Page({
     this.getList(true)
     this.setData({
       baseUrl: app.globalData.imageUrl,
-      list:[{}]
     })
+
   },
 
   /**

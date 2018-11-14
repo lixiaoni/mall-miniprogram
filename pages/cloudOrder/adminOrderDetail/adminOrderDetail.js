@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    payCode:""
+    payCode:"",
   },
 
   call(e){
@@ -20,16 +20,15 @@ Page({
   },
   getData(){
     app.http.getRequest("/admin/ystore/order/byordernumber/"+this.data.num).then(res=>{
-      wx.showToast({
-        title: res.message,
-        icon:'none'
-      })
       if(res.success){
         this.setData({
           msg: res.obj
         })
       }
     })
+    // this.setData({
+    //   msg: this.data.obj.obj
+    // })
   },
   //开通
   watchInput(e) {

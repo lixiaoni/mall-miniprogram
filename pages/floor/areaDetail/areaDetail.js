@@ -35,13 +35,15 @@ Page({
       let floor = lou.childList[0];
       let area = floor.childList[0];
       
+      let floorName = floor.floorNum + " ";
+      floorName += floor.name ? floor.name : "";
       let send = {
         companyName: lou.name,
         areaTitle: area.name,
         admin: area.userList,
         tag: area.tags,
         storeNum: area.storeCount,
-        floorName: floor.floorNum+" "+floor.name
+        floorName: floorName
       } 
       if(obj){
         let newSend = {};
