@@ -22,22 +22,18 @@ Page({
     baseUrl: app.globalData.imageUrl,
     imageWidth: wx.getSystemInfoSync().windowWidth-80
   },
-  // scroll:function(e){
-  //   var scrollWidth = e.detail.scrollWidth,
-  //     scrollLeft=e.detail.scrollLeft,
-  //     activitiesLength = this.data.activitiesLength,
-  //     activities = this.data.activities
-  //   if (scrollLeft > 1900 && scrollLeft < 2500){
-  //     console.log(activities.length + "//" + activitiesLength)
-  //     if (activities.length == activitiesLength){
-  //       var newArr = activities.concat(activities)
-  //       console.log(newArr)
-  //       this.setData({
-  //         activities: newArr
-  //       })
-  //     }
-  //   }
-  // },
+  scroll:function(e){
+    var scrollWidth = e.detail.scrollWidth,
+      scrollLeft=e.detail.scrollLeft,
+      activitiesLength = this.data.activitiesLength,
+      activities = this.data.activities
+    if (scrollWidth - scrollLeft<500){
+      var newArr = activities.concat(activities)
+      this.setData({
+        activities: newArr
+      })
+    }
+  },
   intervalChange: function (e) {//自动切换时间间隔
     this.setData({
       interval: e.detail.value

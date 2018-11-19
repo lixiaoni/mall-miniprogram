@@ -1,7 +1,7 @@
 <view class='wk-cont'>
   <view class='wk-title'>
     <text>今日销售额（元）</text>
-    <view>{{todaySaleNum}}.00</view>
+    <view>{{todaySaleNum==null?0.00:todaySaleNum}}</view>
     <image mode='widthFix' bindtap='goDerm' src='/image/xcx2.png'></image>
   </view>
   <view class='wk-bot'>

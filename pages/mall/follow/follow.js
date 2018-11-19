@@ -15,7 +15,6 @@ Page({
     limitShow:false,
     getPurchaserStoreIds:'',
     baseUrl: app.globalData.imageUrl,
-    token:wx.getStorageSync('access_token'),
   },
 
   /**
