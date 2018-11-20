@@ -273,12 +273,12 @@ function index(data) {
   return app.http.getRequest(indexUrl, data)
 }
 /**新增批发商列表**/
-function mewWholesaler(data) {
-  return app.pageRequest.pageGet(mewWholesalerUrl, data)
+function mewWholesaler(data,nextPage) {
+  return app.pageRequest.pageGet(mewWholesalerUrl, data, nextPage)
 }
 /**批发商列表**/
-function wholesalerAll(data) {
-  return app.pageRequest.pageGet(wholesalerAllUrl, data)
+function wholesalerAll(data, nextPage) {
+  return app.pageRequest.pageGet(wholesalerAllUrl, data, nextPage)
 }
 /**获取用户权限设置**/
 function apiSetUser(data) {
@@ -293,8 +293,8 @@ function showPurchaser(data) {
   return app.http.getRequest(showPurchaserUrl, data)
 }
 /**添加批发商分页查询列表**/
-function serWholesalerList(data) {
-  return app.pageRequest.pageGet(serWholesalerListUrl, data)
+function serWholesalerList(data, nextPage) {
+  return app.pageRequest.pageGet(serWholesalerListUrl, data, nextPage)
 }
 /**判断与供应商是否是好友关系**/
 function isFriendStore(data) {

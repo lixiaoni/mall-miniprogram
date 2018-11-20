@@ -9,7 +9,7 @@ Page({
     orders: '',
     purchaseOrders: '',
     storeNum: '',
-    todaySaleNum: '',
+    todaySaleNum: 0,
    
   },
 
@@ -28,7 +28,7 @@ Page({
             orders: obj.orders,
             purchaseOrders: obj.purchaseOrders,
             storeNum: obj.storeNum,
-            todaySaleNum: obj.todaySaleNum,
+            todaySaleNum: (obj.todaySaleNum).toFixed(2),
           })
         })
     }else{
@@ -40,7 +40,7 @@ Page({
             orders: obj.orders,
             purchaseOrders: obj.purchaseOrders,
             storeNum: obj.storeNum,
-            todaySaleNum: obj.todaySaleNum,
+            todaySaleNum: (obj.todaySaleNum).toFixed(2),
           })
         })
     }

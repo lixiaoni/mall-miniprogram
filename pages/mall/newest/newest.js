@@ -14,6 +14,7 @@ Page({
     movies: [],
     purchaserStoreIds:'',
     activities:[],
+    activitiesLength:0,
     mallChosenGoods:[],
     goodsSmall: app.globalData.goodsSmall,
     logo: app.globalData.logo,
@@ -24,18 +25,14 @@ Page({
   scroll:function(e){
     var scrollWidth = e.detail.scrollWidth,
       scrollLeft=e.detail.scrollLeft,
+      activitiesLength = this.data.activitiesLength,
       activities = this.data.activities
-      
-    if (1800 < scrollLeft && scrollLeft<2500){
-      console.log(scrollLeft)
+    if (scrollWidth - scrollLeft<500){
+      var newArr = activities.concat(activities)
+      this.setData({
+        activities: newArr
+      })
     }
-    // if (scrollLeft>1800){
-    //   var newArr=activities.concat(activities)
-    //   this.setData({
-    //     activities:newArr
-    //   })
-    // } 
-
   },
   intervalChange: function (e) {//自动切换时间间隔
     this.setData({
@@ -93,6 +90,7 @@ Page({
         _this.setData({
           movies: obj.banners,
           activities: activities,
+          activitiesLength: activities.length,
           mallChosenGoods: arrMall
         })
     })

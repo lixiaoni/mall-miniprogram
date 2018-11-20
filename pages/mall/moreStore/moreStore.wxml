@@ -6,7 +6,7 @@
       <view class='fw-top'>
         <image class='fw-logo' src='{{baseUrl}}{{item.store.logo}}?x-oss-process=style/logo'></image>
         <view class='fw-iew1'>{{item.store.name}}<text>{{item.store.storeNature==1?"新批零":"新零售"}}</text><text hidden='{{!item.isPurchaser}}'>友</text></view>
-        <view class='fw-iew'><text>{{item.store.businessScope}}</text><text class='text' wx:if='{{item.floorInfo!=null}}'>{{item.floorInfo.mallName}} {{item.floorInfo.balconyName}} {{item.floorInfo.floorName}} {{item.floorInfo.areaName}} {{item.floorInfo.storeDoorNum}}</text></view>
+        <view class='fw-iew'><text>{{item.store.businessScope}}</text>{{item.store.address}}</view>
         <image class='fw-left' src='/image/mallr.png'></image>
       </view>
       <view class='fw-cont'>
