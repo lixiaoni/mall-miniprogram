@@ -46,6 +46,7 @@
     "pages/login/register/register",
     "pages/page/upload/upload",
     "pages/floor/myFloor/myFloor",
+
     "pages/floor/adminList/adminList",
     "pages/page/newAddress/newAddress",
     "pages/page/updataPwd/updataPwd",
