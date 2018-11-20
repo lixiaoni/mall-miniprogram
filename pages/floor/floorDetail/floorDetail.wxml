@@ -24,7 +24,7 @@
         <view class='title-box'></view>
         <!-- 管理员 -->
         <view class='admin-list-box'>
-          <block wx:for="{{admin}}">
+          <block wx:for="{{admin}}" wx:key="{{index}}">
             <navigator url='../adminDetail/adminDetail?code={{item.userId}}'>
             <view class='admin-item'>
               <image class='admin-item-img' src='{{item.headPic?baseUrl+item.headPic+"?x-oss-process=style/logo":defaultHead}}'></image>
@@ -52,7 +52,7 @@
             <image class='floor-icon' src='/image/tags.png'></image>
           </view>
           <scroll-view scroll-x="true" class='scroll-tag'>
-            <block wx:for="{{tag}}">
+            <block wx:for="{{tag}}" wx:key="{{index}}">
               <view class='floor-tag' style='background:{{item.tagColor}}'>{{item.tagName}}</view>
             </block>
           </scroll-view>
@@ -84,17 +84,17 @@
   </view>
   <!-- 区 -->
   <view class='radius-box'>
-    <block wx:for="{{area}}">
+    <block wx:for="{{area}}" wx:key="{{index}}">
       <view class='floor-part flex-box area-box' bindtap='toAreaDetail' data-code='{{item.code}}'>
         <view class='column-center'>
           <view class='area-title title-box b-font'>{{item.name}}</view>
-          <block wx:for='{{item.tags}}' wx:if='{{index<3}}' wx:for-item='ad'>
+          <block wx:for='{{item.tags}}' wx:if='{{index<3}}' wx:for-item='ad' wx:key="{{index}}">
             <text class='area-type'>{{ad.tagName}} </text>
           </block>
         </view>
         <view>
           <view wx:if='{{item.userList}}' class='area-img-list'>
-            <block wx:for='{{item.userList}}' wx:for-item='ad'>
+            <block wx:for='{{item.userList}}' wx:for-item='ad' wx:key="{{index}}">
               <image style='right:{{40*index}}rpx;z-index:{{10-index}}' wx:if="{{index<3}}" class='floor-admin area-admin' src="{{ad.headPic?baseUrl+ad.headPic+'?x-oss-process=style/logo':defaultHead}}"></image>
             </block>
           </view>

@@ -26,7 +26,7 @@
   <!-- 管理员列表 -->
   <view class='floor-part floor-part-box paddingLR'>
       <view wx:if="tags.length > 0">
-        <block wx:for="{{tags}}">
+        <block wx:for="{{tags}}" wx:key="{{index}}">
           <view class='flex-box align-center admin-item-box newComBoxC {{index==tags.length-1?"no-border":""}}' data-id='{{item.tagCode}}' data-index="{{index}}" bindtap='chose'>
             <view class='column-center' >
               <view class="title-box">
