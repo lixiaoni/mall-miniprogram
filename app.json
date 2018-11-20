@@ -2,12 +2,16 @@
   "pages":[
     "pages/page/user/user",
     
+    "pages/cloudOrder/newCloud/newCloud",
+    
+    
+    
+    
     "pages/cloudOrder/myOrder/myOrder",
     "pages/cloudOrder/orderDetail/orderDetail",
     
     "pages/cloudOrder/cloudPay/cloudPay",
     
-    "pages/cloudOrder/newCloud/newCloud",
     
     
     

@@ -54,14 +54,16 @@ Page({
         this.setData({
           user: "",
           hasUser: false,
-          isStoreOwner:false
+          isStoreOwner:false,
+          showCloud: false
         })
       }
     }).catch(e=>{
       this.setData({
         user: "",
         hasUser: false,
-        isStoreOwner: false        
+        isStoreOwner: false,
+        showCloud: false        
       })
     })
   },
