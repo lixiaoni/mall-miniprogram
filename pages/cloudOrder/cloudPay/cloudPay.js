@@ -59,6 +59,9 @@ Page({
             title: res.data.message,
             icon: 'none'
           })
+          setTimeout(()=>{
+            wx.navigateBack()
+          },1000)
         }
       },
       fail: (e) => {

@@ -26,20 +26,24 @@
       <view class='goods-item'>
         <view>
           <!-- 商品信息 -->
-          <view class='flex'>
-            <view class='icon-box'>
-              <image class='good-icon' mode='aspectFit' src='{{baseUrl}}{{item.logo}}?x-oss-process=style/logo'></image>
-            </view>
-            <view>
-              <view class='name-box'>
-                <text class='store-name'>{{item.name}}</text>
-                <text class='tip'>{{item.storeNature=='1'?"新批零":"新零售"}}</text>
+          <view class='flex-box'>
+            <view class='flex'>
+              <view class='icon-box'>
+                <image class='good-icon' mode='aspectFit' src='{{baseUrl}}{{item.logo}}?x-oss-process=style/logo'></image>
               </view>
-              <view class='goods-type'>
-                <text class='theme-color'>{{item.businessScope}}</text>
-                <text class='area-font'>{{item.floorInfoVO.floorDescription}} {{item.floorInfoVO.storeDoorNum?item.floorInfoVO.storeDoorNum:""}}</text>
+              <view>
+                <view class='name-box'>
+                  <text class='store-name'>{{item.name}}</text>
+                  <text class='tip'>{{item.storeNature=='1'?"新批零":"新零售"}}</text>
+                </view>
+                <view class='goods-type'>
+                  <text class='theme-color'>{{item.businessScope}}</text>
+                  <text class='area-font'>{{item.floorInfoVO.floorDescription}} {{item.floorInfoVO.storeDoorNum?item.floorInfoVO.storeDoorNum:""}}</text>
+                </view>
               </view>
             </view>
+            <image class='more' src='/image/icl.png'></image>
+
           </view>
           <!-- 关注 -->
           <view class='tips-box'>
@@ -49,9 +53,14 @@
             <view class='label-item'>
               <text class='theme-color'>{{item.followNum?item.followNum:"0"}}</text>人关注
             </view>
+            <view class='label-item'>
+              <text class='theme-color'>{{item.orderNum?item.orderNum:"0"}}</text>笔订单
+            </view>
+            <view class='label-item'>
+              <text class='theme-color'>{{item.purchaseOrderNum?item.purchaseOrderNum:"0"}}</text>笔进货单
+            </view>
           </view>
         </view>
-        <image class='more' src='/image/icl.png'></image>
       </view>
     </navigator>
   </block>
