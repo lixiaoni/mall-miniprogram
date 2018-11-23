@@ -18,38 +18,72 @@ Page({
     })
   },
   buy(){
-    wx.navigateTo({
-      url: '../cloudPay/cloudPay?order=' + this.data.num,
-    })
-    // wx.login({
-    //   success:(res)=>{
-    //     if (res.code) {
-    //       console.log(res.code)
-    //       this.getOpenid(res.code);
-    //     }
-    //   }
-    // })
-    
-  },
-  getOpenid(code){
-    app.http.getRequest("/api/user/wx/APP001/obtain/openid",{jsCode:code}).then(res=>{
-      this.payment(res)
-    }).catch(e=>{
-
-    })
-  },
-  payment(res){
-    wx.requestPayment({
-      timeStamp: '',
-      nonceStr: '',
-      package: '',
-      signType: '',
-      paySign: '',
-      success:function(res){
-
+    wx.login({
+      success: (res) => {
+        if (res.code) {
+          console.log(res.code)
+          this.getOpenid(res.code);
+        }
       }
     })
   },
+  getOpenid(code) {
+    wx.request({
+      url: 'https://pay.youlife.me/api/pay',
+      method: 'POST',
+      data: {
+        "channel": "wx_pay",
+        "currency": "CNY",
+        "code": code,
+        "goodsInfo": "小云店购买",
+        "orderNumber": this.data.num,
+        "payWay": "wx_mini_app_pay",
+        "tradeType": "JSAPI"
+      },
+      header: {
+        "appNumber": "APP002",
+      },
+      success: (res) => {
+        if (res.data.code == 0) {
+          this.payment(res.data.obj.payData);
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none'
+          })
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 1000)
+        }
+      },
+      fail: (e) => {
+        console.log(e);
+      }
+    })
+  },
+    payment(res) {
+      console.log(res)
+      wx.requestPayment({
+        "timeStamp": res.timeStamp,
+        "package": res.package,
+        "paySign": res.paySign,
+        "signType": res.signType,
+        "nonceStr": res.nonceStr,
+        success: (res)=> {
+          console.log(res)
+
+        },
+        fail:(err)=>{
+          console.log(err)
+
+        },
+        complete:(res)=>{
+          setTimeout(()=>{
+            this.getData();            
+          },1000)
+        }
+      })
+    },
   /**
    * 生命周期函数--监听页面加载
    */

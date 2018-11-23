@@ -27,12 +27,12 @@
     <block wx:if='{{msg.orderStatus=="paid"}}'>
       <view class='msg-item'>
         <text class='msg-title'>开始时间</text>
-        <text class="msg-content">{{msg.yunStoreGoodsSnapshot.serviceDateBegin}}</text>
+        <text class="msg-content">{{msg.yunStore.serviceTimeStart}}</text>
       </view>
 
       <view class='msg-item'>
         <text class='msg-title'>结束时间</text>
-        <text class="msg-content">{{msg.yunStoreGoodsSnapshot.serviceDateEnd}}</text>
+        <text class="msg-content">{{msg.yunStore.serviceTimeEnd}}</text>
       </view>
     </block>
     <view class='msg-item'>
@@ -42,12 +42,12 @@
     <block wx:if='{{msg.orderStatus=="paid"}}'>
       <view class='msg-item'>
         <text class='msg-title'>服务状态</text>
-        <text class="msg-content">{{msg.yunStoreGoodsSnapshot.serviceStatus==1?"已开通":"未开通"}}</text>
+        <text class="msg-content">{{msg.yunStore.status?"已开通":"未开通"}}</text>
       </view>
 
       <view class='msg-item'>
         <text class='msg-title'>剩余时间</text>
-        <text class="msg-content">{{msg.yunStoreGoodsSnapshot.surplusDay}} 天</text>
+        <text class="msg-content">{{msg.yunStore.surplusDay}} 天</text>
       </view>
     </block>
   </view>
@@ -63,7 +63,7 @@
     </view>
     <view class='msg-item' wx:if='{{msg.orderStatus=="paid"}}'>
       <text class='msg-title'>交易单号</text>
-      <text class="msg-content">{{}}</text>
+      <text class="msg-content">{{msg.payVoucher}}</text>
     </view>
     <view class='msg-item'>
       <text class='msg-title'>下单时间</text>
@@ -105,13 +105,13 @@
   </view>
   <view class='pay-item'>
     <text class='msg-title'>实付金额</text>
-    <text class="msg-content gold">￥{{msg.yunStoreGoodsSnapshot.favourablePrice}}</text>
+    <text class="msg-content gold">￥{{msg.payAmount}}</text>
   </view>
 </view>
 <view style='padding:80rpx 0'></view>
 <view class='bottom-lr-box' wx:if='{{msg.orderStatus=="unpaid"}}'>
   <view class='bottom-price'>应付支付：
-    <text class="msg-content gold">￥{{msg.yunStoreGoodsSnapshot.favourablePrice}}元</text>
+    <text class="msg-content gold">￥{{msg.payAmount}}元</text>
   </view>
   <view bindtap='buy' class="buy-button">立即支付</view>
 </view>

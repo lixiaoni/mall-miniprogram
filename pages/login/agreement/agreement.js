@@ -1,25 +1,18 @@
-// pages/cloudOrder/newCloud/newCloud.js
-const Api = require("../../../utils/api.js");
+// pages/login/agreement/agreement.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    src: ""
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    Api.getUserInfo().then(res=>{
-      let id = res.obj.id;
-      this.setData({
-        src: "https://www.youlife.me?user=" + id
-      })
-    })
-   
+
   },
 
   /**

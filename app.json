@@ -1,12 +1,13 @@
 {
   "pages":[
+    "pages/page/user/user",
+    "pages/login/agreement/agreement",
+    "pages/cloudOrder/newCloud/newCloud",
     "pages/mall/newest/newest",
     "pages/businessFriend/index/index",
-    "pages/page/user/user",
     "pages/cloudOrder/myOrder/myOrder",
     "pages/cloudOrder/orderDetail/orderDetail",
     "pages/cloudOrder/cloudPay/cloudPay",
-    "pages/cloudOrder/newCloud/newCloud",
     "pages/work/floorList/floorList",
     "pages/mall/moreStore/moreStore",
     "pages/businessFriend/addWholesaler/addWholesaler",
