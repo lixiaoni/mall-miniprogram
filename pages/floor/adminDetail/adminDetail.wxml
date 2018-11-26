@@ -53,7 +53,13 @@
   <navigator url="{{manage?'/pages/work/floorList/floorList?user='+userId:''}}">
     
     <view class='list-show floor-part'>
-      <view class='list-title'>我的管理楼层 <image wx:if="{{manage}}" class='tri-icon' src='/image/icl.png'></image></view>
+      <view class='list-title'>我的管理楼层 
+      <view wx:if="{{manage}}" style='display:flex;align-items:center;'>
+        <text style='margin-right:13rpx;'>共 <text style='color:#ccaa77;'>{{allFloorNum}}</text> 家</text>
+       <image class='tri-icon' src='/image/icl.png'></image>
+      </view>
+
+      </view>
       <view wx:if="{{manage}}">
       <block wx:for="{{manage}}" wx:key="{{index}}">
         <view class='border-box list-part'>
