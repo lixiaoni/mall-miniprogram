@@ -26,7 +26,7 @@
   <view>
     <text class="store-address">优惠码 </text>
     <view class='weui-view'>
-      {{user.referralCode}}
+      {{user.referralCode?user.referralCode:'暂无'}}
     </view>
     <view class='weui-xian weui-xian1'></view>
   </view>
