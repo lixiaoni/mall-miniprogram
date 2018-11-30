@@ -1,5 +1,6 @@
 const app = getApp();
 import Api from '../../../utils/api.js'
+import authHandler from '../../../utils/authHandler.js';
 Page({
 
   /**
@@ -10,7 +11,9 @@ Page({
     show1: false,
     id: '',
   },
-
+  showLogin() {
+    this.selectComponent("#login").showPage();
+  },
   selectAdd(e) {
     let obj = this.data.list[e.currentTarget.dataset.index];
     var pages = getCurrentPages();
@@ -27,6 +30,7 @@ Page({
    */
 
   onLoad: function (options) {
+
   },
   getList: function () {
     var _this = this
@@ -89,9 +93,13 @@ Page({
     })
   },
   newAddress(e) {
-    wx.navigateTo({
-      url: '../newAddress/newAddress',
-    })
+    if (!authHandler.isLogin()) {
+      this.showLogin()
+    } else {
+      wx.navigateTo({
+        url: '../newAddress/newAddress',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -105,6 +113,9 @@ Page({
    */
   onShow: function () {
     this.getList()
+    wx.setNavigationBarTitle({
+      title:"地址管理"
+    })
   },
 
   /**

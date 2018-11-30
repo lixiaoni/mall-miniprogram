@@ -1,4 +1,5 @@
 import Api from '../../../utils/api.js'
+import authHandler from '../../../utils/authHandler.js';
 var app = getApp();
 Page({
 
@@ -14,6 +15,15 @@ Page({
   
   showLogin(){
     this.selectComponent("#login").showPage();
+  },
+  businessFriend:function(){
+    if (!authHandler.isLogin()){
+      this.showLogin()
+    }else{
+      wx.navigateTo({
+        url: '../../businessFriend/index/index',
+      })
+    }
   },
   getUser(){
     Api.isAdmin({})

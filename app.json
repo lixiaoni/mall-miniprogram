@@ -30,7 +30,6 @@
     "pages/login/register/register",
     "pages/page/upload/upload",
     "pages/floor/myFloor/myFloor",
-
     "pages/floor/adminList/adminList",
     "pages/page/newAddress/newAddress",
     "pages/page/updataPwd/updataPwd",
@@ -99,6 +98,7 @@
     ]
   },
   "navigateToMiniProgramAppIdList": [
-    "wx4f385374765e4cbb"
+    "wx4f385374765e4cbb",
+    "wx1a7532a2abdd1698"
   ]
 }
