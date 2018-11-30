@@ -9,23 +9,33 @@ Page({
   data: {
     tab: [
       { name: "全部", type: 'all', check: true },
-      { name: "待付款", type: 'unpaid', check: false },
-      { name: "已付款", type: 'paid', check: false },
+      { name: "待支付", type: 'unpaid', check: false },
+      { name: "已支付", type: 'paid', check: false },
       { name: "已取消", type: 'cancelled', check: false }
     ],
     list:[],
     which: 'all',
     payCode: "",
     openModal: false,
-    baseUrl:app.globalData.imageUrl
+    baseUrl:app.globalData.imageUrl,
+    search:""
   },
   watchInput(e) {
     let val = e.detail.value;
-    this.setData({
-      payCode: val
-    })
+    let type = e.currentTarget.dataset.type;
+    let obj = {};
+    switch(type){
+      case "search":
+      obj = {
+        search : val
+      }
+    }
+    this.setData(obj)
   },
-  sureOpen() {
+  search(){
+    this.getList(true)
+  },
+  sureOpen(){
     let num = this.data.num,
       payCode = this.data.payCode.trim();
     if(!payCode){
@@ -86,8 +96,10 @@ Page({
       })
       next=false;
     }
-    app.pageRequest.pageGet("/admin/ystore/order/merchant/M1000000/orderStatus/" + this.data.which, {}, next).then(res => {
-      if (!res.success) { return }
+    app.pageRequest.pageGet("/admin/yunstore/order/merchant/M1000000/orderStatus/" + this.data.which, {
+      keyWords:this.data.search
+    }, next).then(res => {
+      if (!res.success || !res.obj.result) { return }
       this.setData({
         list: this.data.list.concat(res.obj.result)
       })

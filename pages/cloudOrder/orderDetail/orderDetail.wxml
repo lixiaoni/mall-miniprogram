@@ -1,3 +1,17 @@
+<wxs src="../../../public/filter.wxs" module="filter" />
+<!-- 返回我的小云店 -->
+<mes show="{{returnModal}}">
+  <view>
+    <text>是否跳转至您的小云店？</text>
+    <navigator wx:if='{{toStatus=="xpl"}}' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/user/user?layerText=请登陆购买账号后，点击小云店工作台初始化账户" extra-data="" version="trial">
+      <button bindtap='gotoStore'>确定</button>
+    </navigator>
+     <navigator wx:if='{{toStatus=="xls"}}' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/user/user?layerText=请登陆购买账号后，点击小云店工作台初始化账户" extra-data="" version="trial">
+      <button bindtap='gotoStore'>确定</button>
+    </navigator>
+  </view>
+</mes>
+
 <view class='order-box'>
   <view class='price-box'>
     <image class='logo' src='/image/youlife.png'></image>
@@ -27,12 +41,12 @@
     <block wx:if='{{msg.orderStatus=="paid"}}'>
       <view class='msg-item'>
         <text class='msg-title'>开始时间</text>
-        <text class="msg-content">{{msg.yunStore.serviceTimeStart}}</text>
+        <text class="msg-content">{{filter.filterTime(msg.yunStore.serviceTimeStart)}}</text>
       </view>
 
       <view class='msg-item'>
         <text class='msg-title'>结束时间</text>
-        <text class="msg-content">{{msg.yunStore.serviceTimeEnd}}</text>
+        <text class="msg-content">{{filter.filterTime(msg.yunStore.serviceTimeEnd)}}</text>
       </view>
     </block>
     <view class='msg-item'>
@@ -47,7 +61,7 @@
 
       <view class='msg-item'>
         <text class='msg-title'>剩余时间</text>
-        <text class="msg-content">{{msg.yunStore.surplusDay}} 天</text>
+        <text class="msg-content">{{msg.yunStore.surplusDay?msg.yunStore.surplusDay:"0"}} 天</text>
       </view>
     </block>
   </view>
@@ -67,11 +81,11 @@
     </view>
     <view class='msg-item'>
       <text class='msg-title'>下单时间</text>
-      <text class="msg-content">{{msg.createDate}}</text>
+      <text class="msg-content">{{filter.filterTime(msg.createDate)}}</text>
     </view>
     <view class='msg-item' wx:if='{{msg.orderStatus=="paid"}}'>
       <text class='msg-title'>付款时间</text>
-      <text class="msg-content">{{msg.payDate}}</text>
+      <text class="msg-content">{{filter.filterTime(msg.payDate)}}</text>
     </view>
   </view>
 
@@ -110,7 +124,7 @@
 </view>
 <view style='padding:80rpx 0'></view>
 <view class='bottom-lr-box' wx:if='{{msg.orderStatus=="unpaid"}}'>
-  <view class='bottom-price'>应付支付：
+  <view class='bottom-price'>支付：
     <text class="msg-content gold">￥{{msg.payAmount}}元</text>
   </view>
   <view bindtap='buy' class="buy-button">立即支付</view>

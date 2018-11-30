@@ -2,31 +2,49 @@
 <login id="login"></login>
 
 <view class='u-title'>
-  <navigator url='../derm/derm' class='init-page'>
-    <image hidden='{{!hasUser}}' src='/image/er.png'></image>
+  <!-- 背景 -->
+  <image class='backImg' src='/image/userBack.png'></image>
+  <!-- 二维码 -->
+  <navigator url='../derm/derm' class='erImgIconBox'>
+    <image class='erImgIcon' hidden='{{!hasUser}}' src='/image/white-erCode.png'></image>
   </navigator>
-  <view class='u-t-cont'>
-    <view class='u-t-ewmico'>
-      <navigator url='{{hasUser?"../userDetails/userDetails":""}}'>
-        <image hidden='{{!hasUser}}' mode='aspectFit' class='user-headPic' src='{{user.headPic?baseUrl+user.headPic+"?x-oss-process=style/logo":"/image/42.png"}}'></image>
-        <view hidden='{{hasUser}}'>
-          <open-data class='user-headPic' type="userAvatarUrl"></open-data>
-        </view>
-      </navigator>
-    </view>
-    <view class='u-pic'>
-      <view hidden='{{!hasUser}}' wx:if="{{user.nickName}}">{{user.nickName}}</view>
-      <view hidden='{{hasUser}}'>
-        <open-data type="userNickName"></open-data>
+  <!-- 账户信息 -->
+  <view class='user-info-box'>
+    <view class='u-t-cont'>
+      <view class='u-t-ewmico'>
+        <navigator url='{{hasUser?"../userDetails/userDetails":""}}'>
+          <image hidden='{{!hasUser}}' mode='aspectFit' class='user-headPic' src='{{user.headPic?baseUrl+user.headPic+"?x-oss-process=style/logo":"/image/42.png"}}'></image>
+          <view hidden='{{hasUser}}'>
+            <open-data class='user-headPic' type="userAvatarUrl"></open-data>
+          </view>
+        </navigator>
       </view>
-      <button wx:if='{{user}}'>已绑定手机</button>
-      <button wx:else bindtap='showLogin'>绑定手机</button>
+      <view class='u-pic white-color'>
+        <view hidden='{{!hasUser}}' wx:if="{{user.nickName}}">{{user.nickName}}</view>
+        <view class='white-color' hidden='{{hasUser}}'>
+          <open-data type="userNickName"></open-data>
+        </view>
+        <button wx:if='{{user}}'>已绑定手机</button>
+        <button wx:else bindtap='showLogin'>绑定手机</button>
+      </view>
     </view>
   </view>
+  <!-- 订单 -->
+  <view class='order-panel'>
+    <navigator class='order-item' url='../order/order'>
+      <image class='order-icon' src='/image/order.png'></image>
+      <text>我的订单</text>
+    </navigator>
+    <navigator class='order-item' url='../stockOrder/stockOrder'>
+      <image class='order-icon' src='/image/supplyOrder.png'></image>
+      <text>我的进货单</text>
+    </navigator>
+  </view>
+
 </view>
 <view class='page_bd'>
   <view class='weui-back weui-back1'>
-   <navigator  hidden='{{isStoreOwner}}' class='weui-cell weui-cell_access' url='../../businessFriend/index/index'>
+    <navigator hidden='{{isStoreOwner}}' class='weui-cell weui-cell_access' url='../../businessFriend/index/index'>
       <image src='/image/role.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         我的商友
@@ -36,7 +54,7 @@
       </view>
     </navigator>
     <navigator class='weui-cell weui-cell_access' url='../addressWe/addressWe'>
-     <view class='isStore' wx:if='{{isStoreOwner}}'></view>
+      <view class='isStore' wx:if='{{isStoreOwner}}'></view>
       <image src='/image/u1.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         地址管理
@@ -57,18 +75,22 @@
   </view>
   <view class='weui-back' hidden='{{!isStoreOwner}}'>
     <navigator wx:if='{{storeNature!=2}}' class='weui-cell weui-cell_access' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/workIndex/workIndex?storeId={{user.storeId}}" extra-data="" version="trial">
-      <image src='/image/cloudIcon.png' class='user-img'></image>
+      <image wx:if="{{payStore}}" src='/image/cloudIcon.png' class='user-img'></image>
+      <image wx:else src='/image/13.png' class='user-img'></image>
       <view class='weui-cell__bd'>
-        小云店工作台
+        <!-- <text wx:if="{{!payStore}}">看看我的小云店</text> -->
+        <text>小云店工作台</text>
       </view>
       <view class='weui-img'>
         <image src="/image/icl.png"></image>
       </view>
     </navigator>
     <navigator class='weui-cell weui-cell_access' wx:if='{{storeNature==2}}' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/workIndex/workIndex?storeId_retail={{user.storeId}}" extra-data="" version="trial">
-      <image src='/image/cloudIcon.png' class='user-img'></image>
+      <image wx:if="{{payStore}}" src='/image/cloudIcon.png' class='user-img'></image>
+      <image wx:else src='/image/13.png' class='user-img'></image>
       <view class='weui-cell__bd'>
-        小云店工作台
+        <!-- <text wx:if="{{!payStore}}">看看我的小云店</text> -->
+        <text>小云店工作台</text>
       </view>
       <view class='weui-img'>
         <image src="/image/icl.png"></image>
@@ -86,7 +108,8 @@
       </view>
     </navigator>
   </view>
-  <view class='weui-back' wx:if="{{showCloud}}">
+
+  <view class='weui-back' wx:if="{{user.id=='cbced730cc43cead0592fbdd5ef10f99'}}">
     <navigator class='weui-cell weui-cell_access' url='../../cloudOrder/orderList/orderList'>
       <image src='/image/cloudOrder.png' class='user-img'></image>
       <view class='weui-cell__bd'>
@@ -97,7 +120,8 @@
       </view>
     </navigator>
   </view>
-  <view class='weui-back' wx:if="{{showCloud}}">
+
+  <!-- <view class='weui-back' wx:if="{{showCloud}}">
     <navigator class='weui-cell weui-cell_access' url='../../cloudOrder/myOrder/myOrder'>
       <image src='/image/cloudOrder.png' class='user-img'></image>
       <view class='weui-cell__bd'>
@@ -107,40 +131,20 @@
         <image src="/image/icl.png"></image>
       </view>
     </navigator>
-  </view>
-  <view class='weui-back' wx:if="{{showCloud}}">
+  </view> -->
+
+  <view class='weui-back' wx:if="{{!payStore && hasUser}}">
     <navigator class='weui-cell weui-cell_access' url='../../cloudOrder/newCloud/newCloud'>
-      <image src='/image/cloudOrder.png' class='user-img'></image>
+      <image src='/image/applyStore.png' class='user-img'></image>
       <view class='weui-cell__bd'>
-        开通小云店
+        我也要开小云店
       </view>
       <view class='weui-img'>
         <image src="/image/icl.png"></image>
       </view>
     </navigator>
   </view>
-  <!-- <view class='weui-back'>
-      <navigator class='weui-cell weui-cell_access'  url=''>
-      <image src='/image/u4.png' class='user-img user-img1'></image>
-        <view class='weui-cell__bd'>
-          申请小云店
-        </view>
-        <view class='weui-img'>
-          <image src="/image/icl.png"></image>
-        </view>
-      </navigator>
-    </view> -->
+ 
 </view>
-<!-- <view class='page_bd page_hd1'>
-    <view class='weui-back'>
-      <navigator class='weui-cell weui-cell_access'   url='../../floor/floorList/floorList'>
-      <image src='/image/u4.jpg' class='user-img user-img1'></image>
-        <view class='weui-cell__bd'>
-          进入工作台
-        </view>
-        <view class='weui-img'>
-          <image src="/image/icl.png"></image>
-        </view>
-      </navigator>
-    </view>
-  </view> -->
+
+  <view style='padding:10rpx;'></view>

@@ -14,3 +14,6 @@
 .floor-admin{width:140rpx;height:38rpx;border:2rpx solid #CCAA77;border-radius:10rpx;color:#CCAA77;font-size:24rpx;line-height:38rpx;display:inline-block;text-align:center}
 .weui_cells_n .weui-view{top:60rpx}
 .weui_cells image{margin:0 10rpx 0 5rpx}
+/* .weui_cells .sex-icon{
+  width: 30rpx;
+} */

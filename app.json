@@ -1,11 +1,17 @@
 {
   "pages":[
     "pages/page/user/user",
+    "pages/page/stockOrder/stockOrder",
+    "pages/page/allOrder/allOrder",
+    "pages/cloudOrder/orderList/orderList",
+    "pages/role/supplyVoucher/supplyVoucher",
+    "pages/page/order/order",
+    
+    "pages/cloudOrder/myOrder/myOrder",
     "pages/login/agreement/agreement",
     "pages/cloudOrder/newCloud/newCloud",
     "pages/mall/newest/newest",
     "pages/businessFriend/index/index",
-    "pages/cloudOrder/myOrder/myOrder",
     "pages/cloudOrder/orderDetail/orderDetail",
     "pages/cloudOrder/cloudPay/cloudPay",
     "pages/work/floorList/floorList",
@@ -19,7 +25,6 @@
     "pages/businessFriend/invitation/invitation",
     "pages/businessFriend/data/data",
     "pages/mall/seaList/seaList",
-    "pages/cloudOrder/orderList/orderList",
     "pages/cloudOrder/adminOrderDetail/adminOrderDetail",
     "pages/mall/follow/follow",
     "pages/page/mallIcon/mallIcon",
