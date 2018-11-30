@@ -41,7 +41,7 @@ page{
   padding: 0 20rpx;
 }
 .ac-item{
-  border-bottom: 2rpx solid #ccaa77;
+  border-bottom: 4rpx solid #ccaa77;
   color: #ccaa77;
 }
 
@@ -73,7 +73,7 @@ page{
   justify-content: space-between;
 }
 .store-name{
-  font-size: 36rpx;
+  font-size: 30rpx;
   font-weight: 600;
   padding-right: 40rpx;
 }
@@ -108,15 +108,15 @@ page{
 }
 
 .store-box{
-  padding: 58rpx 0 20rpx;
+  padding: 58rpx 0 10rpx;
 }
 .bb{
   display: flex;
-   align-items:center;
+   align-items:ce nter;
 }
 .msg-box{
-  padding: 50rpx 0 0;
-  flex: 1;
+  padding: 40rpx 0 0;
+  flex: 1; 
 }
 .more{
   width:40rpx;
@@ -150,9 +150,13 @@ page{
   height: 80rpx;
   line-height: 80rpx;
   font-size: 28rpx;
+  margin: 10rpx auto 60rpx;
 }
 .bottom-in-box{
   height: 100rpx;
   border-top: 1px solid #eee;
+}
+.margin-top-box{
   margin-top: 60rpx;
+
 }

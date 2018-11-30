@@ -31,6 +31,25 @@ Page({
         manage: obj.userFloors,
         wx:obj.wechatNumber
       })
+
+      if (obj.userFloors){
+        let all = 0;
+        obj.userFloors.forEach(el => {
+          el.childList.forEach(floor=>{
+            if (floor.childList.length == 0 || !floor.childList){
+              all += floor.storeCount;
+            }else{
+              floor.childList.forEach(area=>{
+                all += area.storeCount
+              })
+            }
+          })
+        })
+        this.setData({
+          allFloorNum:all
+        })
+      }
+
     })
   },
   //电话

@@ -1,12 +1,12 @@
 
-.user-headPic{overflow:hidden;display:block;border-radius:50%;max-width:200rpx;max-height:200rpx}
-.u-title{background:#fff;margin-top:-2rpx;text-align:center}
+.user-headPic{overflow:hidden;display:block;border-radius:50%;max-width:180rpx;max-height:180rpx}
+.u-title{position:relative;background:#fff;margin-top:-2rpx;text-align:center;height: 400rpx;margin-bottom:110rpx;overflow: initial;}
 .u-t-con{position:relative}
-.u-t-ewmico{width:200rpx;height:200rpx;border-radius:50%;margin:40rpx auto 30rpx}
-.u-pic{color:#333;font-size:32rpx;text-align:center;padding-bottom:40rpx}
+.u-t-ewmico{width:180rpx;height:180rpx;border-radius:50%;margin: 0 46rpx 0 50rpx;}
+.u-pic{color:#333;font-size:32rpx;text-align:center;padding-top: 30rpx;}
 .weui-back{margin-top:30rpx}
 .weui-back1{margin-top:20rpx}
-.u-pic button{color:#CEAD7D;height:60rpx;padding:0;line-height:55rpx;background:#fff;font-size:24rpx;width:160rpx;border:2rpx solid #EEE3D2}
+.u-pic button{color:#CEAD7D;height:60rpx;padding:0;line-height:55rpx;background:#1a191e;font-size:24rpx;width:160rpx;border:1rpx solid #8d7758}
 .u-pic view{margin-bottom:30rpx}
 .weui-img{font-size:28rpx;color:#C79359}
 .weui-img image{width:24rpx;height:29rpx;margin-top:0rpx;vertical-align:middle;margin-left:6rpx;margin-right:10rpx}
@@ -22,5 +22,66 @@
 .weui-back{background:#fff}
 .u-o-div image{width:55rpx;height:55rpx;margin-top:30rpx}
 .kf_button{position:absolute;width:100%;height:100rpx;opacity:0;background:#fff;z-index:10}
-.init-page image{width:50rpx;height:50rpx}
+.init-page image{width:50rpx;height:50rpx;z-index: 2;}
 .isStore{position: absolute;width: 100%;height: 4rpx;top: 0;background:#fff;left: 0}
+
+.backImg{
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.user-info-box{
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  color: white;
+}
+.u-t-cont{
+  padding-top: 40rpx;
+  display: flex;
+}
+.white-color{
+  color: white;
+}
+.erImgIconBox{
+  position: absolute;
+  top:45rpx;
+  right:25rpx;
+  z-index: 3;
+  width: 100rpx;
+  height: 100rpx;
+}
+.erImgIcon{
+  width:50rpx;
+  height:50rpx;
+}
+.order-panel{
+  position: absolute;
+  bottom: -80rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 690rpx;
+  height: 177rpx;
+  background: #fff;
+  z-index: 3;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+  .order-item{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30rpx;
+    color: #333;
+  }
+    .order-icon{
+      width: 47rpx;
+      height: 47rpx;
+      margin: 18rpx 0 20rpx;
+    }

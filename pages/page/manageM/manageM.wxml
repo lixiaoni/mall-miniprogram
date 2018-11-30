@@ -7,8 +7,8 @@
     <view class="weui-cell__name">
       <view style='display:flex;align-items:center;'>
         <text class='user-text'>{{user.name}}</text>
-        <image wx:if="{{user.sex==1}}" src='/image/man.png'></image>
-        <image wx:if="{{user.sex==2}}" src='/image/ermR.png'></image>
+        <image class='sex-icon' wx:if="{{user.sex==1}}" src='/image/man.png'></image>
+        <image class='sex-icon' wx:if="{{user.sex==2}}" src='/image/ermR.png'></image>
         <view wx:if='{{isSuperAdmin}}' class='floor-admin'>超级管理员</view>
         <view wx:else class='floor-admin'>楼层管理员</view>
       </view>
@@ -26,7 +26,7 @@
   <view>
     <text class="store-address">优惠码 </text>
     <view class='weui-view'>
-      {{user.referralCode}}
+      {{user.referralCode?user.referralCode:'暂无'}}
     </view>
     <view class='weui-xian weui-xian1'></view>
   </view>

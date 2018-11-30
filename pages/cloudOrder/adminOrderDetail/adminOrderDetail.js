@@ -7,6 +7,7 @@ Page({
    */
   data: {
     payCode:"",
+    baseUrl: app.globalData.imageUrl
   },
 
   call(e){
@@ -19,7 +20,7 @@ Page({
     })
   },
   getData(){
-    app.http.getRequest("/admin/ystore/order/byordernumber/"+this.data.num).then(res=>{
+    app.http.getRequest("/admin/yunstore/order/byordernumber/"+this.data.num).then(res=>{
       if(res.success){
         this.setData({
           msg: res.obj

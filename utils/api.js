@@ -46,6 +46,9 @@ import {
   cloudOrderDetailUrl,
   floorAdminStoreListUrl,
   floorStoreListUrl,
+  cancelOrderUrl,
+  getPaymentImgUrl,
+  uploadPayVoucherUrl,
 } from './constUrl.js'
 
 import {
@@ -213,7 +216,10 @@ function register(data){
 function registerPhoneMsg(data){
   return app.http.getRequest(registerPhoneMsgUrl, data)
 }
-
+// 上传凭证
+function uploadVoucher(data) {
+  return app.http.postRequest(uploadPayVoucherUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
+}
 /**
  * 获取用户对应进货商列表
  */
@@ -328,7 +334,18 @@ function floorStoreList(data,next){
 function floorAdminStoreList(data, next) {
   return app.pageRequest.pageGet(floorAdminStoreListUrl, data, next)
 }
+// 取消订单
+function cancelOrder(data) {
+  return app.http.putRequest(cancelOrderUrl + "?reason=" + data.reason, data)
+}
+// 获取收款二维码
+function getPaymentImg(data) {
+  return app.http.getRequest(getPaymentImgUrl, data)
+}
 module.exports = {
+  uploadVoucher,
+  getPaymentImg,
+  cancelOrder,
   floorStoreList,
   floorAdminStoreList,
   cloudOrderDetail,

@@ -46,3 +46,7 @@ export const isFriendStoreUrl = '/admin/purchasermerchant/{{storeId}}/merchant'
 export const cloudOrderDetailUrl = '/api/yunstore/order/{{orderNumber}}'
 export const floorStoreListUrl = "/admin/mall/store/{{floorCode}}/store"
 export const floorAdminStoreListUrl = "/admin/mall/store/{{userId}}/storelist"
+// 订单
+export const cancelOrderUrl = "/api/order/{{orderNumber}}/cancel"
+export const getPaymentImgUrl = "/admin/store/receiptcode/{{storeId}}"
+export const uploadPayVoucherUrl = "/api/order/orderpayment/{{orderNumber}}/uploadpayvoucher"
