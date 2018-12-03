@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/mall/newest/newest",
     "pages/page/user/user",
+    "pages/page/update/update",
+    "pages/mall/newest/newest",
     "pages/page/stockOrder/stockOrder",
     "pages/page/allOrder/allOrder",
     "pages/cloudOrder/orderList/orderList",
@@ -58,7 +59,6 @@
     "pages/floor/floor/floor",
     "pages/mall/goodsList/goodsList",
     "pages/login/login/login",
-    "pages/page/update/update",
     "pages/page/help/help",
     "pages/page/updataPhone/updataPhone"
   ],
