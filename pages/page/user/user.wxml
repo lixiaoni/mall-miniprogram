@@ -86,7 +86,6 @@
       </view>
     </navigator>
     <navigator class='weui-cell weui-cell_access' wx:if='{{storeNature==2}}' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/workIndex/workIndex?storeId={{user.storeId}}" extra-data="" version="trial">
-      <image src='/image/cloudIcon.png' class='user-img'></image>
       <image wx:if="{{payStore}}" src='/image/cloudIcon.png' class='user-img'></image>
       <image wx:else src='/image/13.png' class='user-img'></image>
       <view class='weui-cell__bd'>
@@ -110,7 +109,7 @@
     </navigator>
   </view>
 
-  <view class='weui-back' wx:if="{{user.id=='cbced730cc43cead0592fbdd5ef10f99'}}">
+  <view class='weui-back' wx:if="{{user.id=='4b842764e195768e9623bdb0b6396c6f'}}">
     <navigator class='weui-cell weui-cell_access' url='../../cloudOrder/orderList/orderList'>
       <image src='/image/cloudOrder.png' class='user-img'></image>
       <view class='weui-cell__bd'>
