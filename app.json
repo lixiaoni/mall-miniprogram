@@ -1,16 +1,15 @@
 {
   "pages":[
+    "pages/mall/newest/newest",
     "pages/page/user/user",
     "pages/page/stockOrder/stockOrder",
     "pages/page/allOrder/allOrder",
     "pages/cloudOrder/orderList/orderList",
     "pages/role/supplyVoucher/supplyVoucher",
     "pages/page/order/order",
-    
     "pages/cloudOrder/myOrder/myOrder",
     "pages/login/agreement/agreement",
     "pages/cloudOrder/newCloud/newCloud",
-    "pages/mall/newest/newest",
     "pages/businessFriend/index/index",
     "pages/cloudOrder/orderDetail/orderDetail",
     "pages/cloudOrder/cloudPay/cloudPay",
@@ -36,7 +35,6 @@
     "pages/login/register/register",
     "pages/page/upload/upload",
     "pages/floor/myFloor/myFloor",
-
     "pages/floor/adminList/adminList",
     "pages/page/newAddress/newAddress",
     "pages/page/updataPwd/updataPwd",
@@ -105,6 +103,7 @@
     ]
   },
   "navigateToMiniProgramAppIdList": [
-    "wx4f385374765e4cbb"
+    "wx4f385374765e4cbb",
+    "wx1a7532a2abdd1698"
   ]
 }

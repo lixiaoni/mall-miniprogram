@@ -1,7 +1,7 @@
 @import '../follow/follow';
 .swiper{height:400rpx;width:100%}
 .swiper image{height:100%;width:100%}
-.nt-title{background:#fff;margin:20rpx 0;padding:50rpx 0}
+.nt-title{background:#fff;margin:20rpx 0;padding:50rpx 0;margin-top: 0}
 .nt-title>view{display:inline-block;width:33%;text-align:center;font-size:32rpx}
 .nt-title text{color:#999;font-size:24rpx}
 .nt-img{margin-top:30rpx}

@@ -46,7 +46,8 @@
   <view>{{item.desc}}</view>
   <view class='fw-cont'>
        <view  wx:for="{{item.goodsList}}" wx:key="{{index}}"  wx:if="{{index<4}}">
-       <navigator class='miniDetails' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.id}}&storeId={{item.storeId}}" extra-data="" version="trial"></navigator>
+       <navigator wx:if='{{item.storeNature==1}}' class='miniDetails' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.id}}&storeId={{item.storeId}}" extra-data="" version="trial"></navigator>
+       <navigator wx:if='{{item.storeNature==2}}' class='miniDetails' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.id}}&storeId={{item.storeId}}" extra-data="" version="trial"></navigator>
           <view  class='fw-c-img fw-c-img1'><image mode="widthFix" src='{{baseUrl}}{{item.mainImgUrl}}?x-oss-process=style/goods-small'></image></view>
           <view style='line-height:35rpx;margin-bottom:10rpx;height:70rpx'>{{item.name}}</view>
           <view>零售 <text>￥{{item.sellPrice}}</text></view>

@@ -14,7 +14,7 @@
         <view>{{item.store.name}}</view>
         <view>{{item.store.address}}</view>
         <view>进店</view>
-      <navigator class='miniProgram' wx:if='{{item.store.storeNature==2}}'  target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/home/home?storeId_retail={{item.store.id}}" extra-data="" version="trial"></navigator>
+      <navigator class='miniProgram' wx:if='{{item.store.storeNature==2}}'  target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/home/home?storeId={{item.store.id}}" extra-data="" version="trial"></navigator>
       <navigator class='miniProgram' wx:if='{{item.store.storeNature==1}}' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.store.id}}" extra-data="" version="trial"></navigator>
       </view>
     </view>
@@ -28,7 +28,7 @@
   </view>
   <scroll-view scroll-y="true" style="height:100%;" bindscrolltolower="bindDownLoad">
   <view class='fw-store'  wx:for='{{result}}' wx:key='index' wx:for-item="list">
-  <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/home/home?storeId_retail={{list.store.id}}" extra-data="" wx:if='{{list.store.storeNature==2}}' version="trial"></navigator>
+  <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/home/home?storeId={{list.store.id}}" extra-data="" wx:if='{{list.store.storeNature==2}}' version="trial"></navigator>
   <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{list.store.id}}" extra-data="" wx:if='{{list.store.storeNature==1}}' version="trial"></navigator>
       <view class='fw-top'>
         <image class='fw-logo' mode="aspectFill" src='{{baseUrl}}{{list.store.logo}}?x-oss-process=style/logo'></image>

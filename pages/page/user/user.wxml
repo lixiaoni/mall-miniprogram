@@ -44,15 +44,15 @@
 </view>
 <view class='page_bd'>
   <view class='weui-back weui-back1'>
-    <navigator hidden='{{isStoreOwner}}' class='weui-cell weui-cell_access' url='../../businessFriend/index/index'>
-      <image src='/image/role.png' class='user-img'></image>
+   <view  hidden='{{isStoreOwner}}' class='weui-cell weui-cell_access' bindtap='businessFriend'>
+      <image src='/image/role1.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         我的商友
       </view>
       <view class='weui-img'>
         <image src="/image/icl.png"></image>
       </view>
-    </navigator>
+    </view>
     <navigator class='weui-cell weui-cell_access' url='../addressWe/addressWe'>
       <view class='isStore' wx:if='{{isStoreOwner}}'></view>
       <image src='/image/u1.png' class='user-img'></image>
@@ -85,7 +85,8 @@
         <image src="/image/icl.png"></image>
       </view>
     </navigator>
-    <navigator class='weui-cell weui-cell_access' wx:if='{{storeNature==2}}' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/workIndex/workIndex?storeId_retail={{user.storeId}}" extra-data="" version="trial">
+    <navigator class='weui-cell weui-cell_access' wx:if='{{storeNature==2}}' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/workIndex/workIndex?storeId={{user.storeId}}" extra-data="" version="trial">
+      <image src='/image/cloudIcon.png' class='user-img'></image>
       <image wx:if="{{payStore}}" src='/image/cloudIcon.png' class='user-img'></image>
       <image wx:else src='/image/13.png' class='user-img'></image>
       <view class='weui-cell__bd'>
