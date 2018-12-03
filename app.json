@@ -1,8 +1,8 @@
 {
   "pages":[
+    "pages/mall/newest/newest",
     "pages/page/user/user",
     "pages/page/update/update",
-    "pages/mall/newest/newest",
     "pages/page/stockOrder/stockOrder",
     "pages/page/allOrder/allOrder",
     "pages/cloudOrder/orderList/orderList",
