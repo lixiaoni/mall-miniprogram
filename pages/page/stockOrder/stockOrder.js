@@ -238,7 +238,7 @@ Page({
     app.pageRequest.pageGet("/api/order/user/mall/1000/ordercategory/1/orderstatus/" + this.data.whitch, {
       //pageNum:1,
       //pageSize:100
-    }).then((res) => {
+    },true).then((res) => {
       //this.resetData(res.obj.result);
       //this.resetData(this.data.orderList.obj.result)
       if (res.obj && res.obj.result) {

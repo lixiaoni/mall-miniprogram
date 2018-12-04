@@ -118,7 +118,7 @@
   </view>
   <view class='pay-item'>
     <text class='msg-title'>实付金额</text>
-    <text class="msg-content red-price-font">￥{{msg.yunStoreGoodsSnapshot.serviceFee}}</text>
+    <text class="msg-content red-price-font">￥{{msg.orderAmount}}</text>
   </view>
 </view>
 <view class='company'>优生活技术支持</view>

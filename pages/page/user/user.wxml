@@ -32,11 +32,11 @@
   <!-- 订单 -->
   <view class='order-panel'>
     <navigator class='order-item' url='../order/order'>
-      <image class='order-icon' src='/image/order.png'></image>
+      <image class='order-icon' src='/image/nav-order-gold.png'></image>
       <text>我的订单</text>
     </navigator>
     <navigator class='order-item' url='../stockOrder/stockOrder'>
-      <image class='order-icon' src='/image/supplyOrder.png'></image>
+      <image class='order-icon' src='/image/nav-sorder-gold.png'></image>
       <text>我的进货单</text>
     </navigator>
   </view>

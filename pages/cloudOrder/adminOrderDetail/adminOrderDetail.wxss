@@ -89,8 +89,8 @@
   color: #ccaa77;
 }
 .tel-icon{
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .company{
