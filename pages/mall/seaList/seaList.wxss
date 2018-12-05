@@ -24,3 +24,4 @@
 .up-p{width:0;top:45rpx;left:158rpx;height:0;position:absolute;z-index:100;border-left:7rpx solid transparent;border-right:7rpx solid transparent;border-top:10rpx solid #BBBBBB}
 .up-p1{border-top:10rpx solid #333}
 .top-p1{border-bottom:10rpx solid #333}
+.goods-ser input{width: 70%;}
