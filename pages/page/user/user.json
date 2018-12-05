@@ -1,7 +1,7 @@
 {
-  "navigationBarBackgroundColor": "#1a191e",
   "navigationBarTitleText": "个人中心",
   "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#bd0d23",
   "usingComponents": {
     "login": "../../login/login/login"
   }

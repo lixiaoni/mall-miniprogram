@@ -13,33 +13,30 @@ Page({
 
   },
   getData() {
-    wx.request({
-      url: 'https://mall.youlife.me/api/yunstore/order/'+this.data.num,
-      header: {
-        Authorization: wx.getStorageSync("access_token")
-      },
-      success: (res) => {
-        this.setData({
-          msg: res.data.obj
-        })
-      }
+    app.http.getRequest('/api/yunstore/order/' + this.data.num).then(res => {
+      this.setData({
+        msg: res.obj
+      })
     })
   },
   buy() {
-    wx.login({
-      success: (res) => {
-        if (res.code) {
-          this.getOpenid(res.code);
-          wx.showLoading({
-            title: '正在获取订单'
-          })
-        }
-      }
+    wx.navigateTo({
+      url: '../../casher/casher?num=' + this.data.num + '&type=cloud'
     })
+    // wx.login({
+    //   success: (res) => {
+    //     if (res.code) {
+    //       this.getOpenid(res.code);
+    //       wx.showLoading({
+    //         title: '正在获取订单'
+    //       })
+    //     }
+    //   }
+    // })
   },
   getOpenid(code) {
     wx.request({
-      url: 'https://pay.youlife.me/api/pay',
+      url: app.globalData.payUrl,
       method: 'POST',
       data: {
         "channel": "wx_pay",
@@ -51,7 +48,7 @@ Page({
         "tradeType": "JSAPI"
       },
       header: {
-        "appNumber": "APP002",
+        "platAppId": app.globalData.payNum,
       },
       success: (res) => {
         if (res.data.code == 0) {

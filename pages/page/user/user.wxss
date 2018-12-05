@@ -1,12 +1,12 @@
 
-.user-headPic{overflow:hidden;display:block;border-radius:50%;max-width:180rpx;max-height:180rpx}
+.user-headPic{overflow:hidden;display:block;border-radius:50%;max-width:160rpx;max-height:160rpx}
 .u-title{position:relative;background:#fff;margin-top:-2rpx;text-align:center;height: 400rpx;margin-bottom:110rpx;overflow: initial;}
 .u-t-con{position:relative}
-.u-t-ewmico{width:180rpx;height:180rpx;border-radius:50%;margin: 0 46rpx 0 50rpx;}
+.u-t-ewmico{width:160rpx;height:160rpx;border-radius:50%;margin: 17rpx 46rpx 0 60rpx;}
 .u-pic{color:#333;font-size:32rpx;text-align:center;padding-top: 30rpx;}
 .weui-back{margin-top:30rpx}
 .weui-back1{margin-top:20rpx}
-.u-pic button{color:#CEAD7D;height:60rpx;padding:0;line-height:55rpx;background:#1a191e;font-size:24rpx;width:160rpx;border:1rpx solid #8d7758}
+.u-pic button{color:white;height:60rpx;padding:0;line-height:55rpx;background:#bd0d23;font-size:24rpx;width:160rpx;border:1rpx solid white}
 .u-pic view{margin-bottom:30rpx}
 .weui-img{font-size:28rpx;color:#C79359}
 .weui-img image{width:24rpx;height:29rpx;margin-top:0rpx;vertical-align:middle;margin-left:6rpx;margin-right:10rpx}

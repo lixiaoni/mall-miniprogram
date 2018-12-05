@@ -109,7 +109,7 @@
     </navigator>
   </view>
 
-  <view class='weui-back' wx:if="{{user.id=='4b842764e195768e9623bdb0b6396c6f'}}">
+  <!-- <view class='weui-back' wx:if="{{user.id=='4b842764e195768e9623bdb0b6396c6f'}}">
     <navigator class='weui-cell weui-cell_access' url='../../cloudOrder/orderList/orderList'>
       <image src='/image/cloudOrder.png' class='user-img'></image>
       <view class='weui-cell__bd'>
@@ -119,7 +119,7 @@
         <image src="/image/icl.png"></image>
       </view>
     </navigator>
-  </view>
+  </view> -->
 
   <!-- <view class='weui-back' wx:if="{{showCloud}}">
     <navigator class='weui-cell weui-cell_access' url='../../cloudOrder/myOrder/myOrder'>

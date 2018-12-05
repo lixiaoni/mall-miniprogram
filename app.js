@@ -1,7 +1,7 @@
 import http from './utils/http.js'
 import pageRequest from './utils/pageRequest.js'
 import AuthHandler from './utils/authHandler.js'
-import { imageUrl} from './utils/const.js'
+import { imageUrl, payUrl} from './utils/const.js'
 App({
   onLaunch: function (options) {
     var that = this;
@@ -45,7 +45,9 @@ App({
     skin: "normal",
     imageUrl:imageUrl,
     companyIcon: "/image/dp.png",
-    defaultHeadPic:"/image/defaultHeadPic.png"
+    defaultHeadPic:"/image/defaultHeadPic.png",
+    payUrl: payUrl,
+    payNum:"APP002"
   },
   http: new http(),
   pageRequest: new pageRequest(),
