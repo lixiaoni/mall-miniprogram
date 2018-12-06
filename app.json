@@ -1,11 +1,11 @@
 {
   "pages":[
+    "pages/mall/newest/newest",
     "pages/page/user/user",
     "pages/casher/success/success",    
     "pages/casher/casher/casher",
     "pages/cloudOrder/orderDetail/orderDetail",
     "pages/cloudOrder/myOrder/myOrder",
-    "pages/mall/newest/newest",
     "pages/page/update/update",
     "pages/page/stockOrder/stockOrder",
     "pages/page/allOrder/allOrder",
