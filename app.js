@@ -47,7 +47,7 @@ App({
     companyIcon: "/image/dp.png",
     defaultHeadPic:"/image/defaultHeadPic.png",
     payUrl: payUrl,
-    payNum:"APP002"
+    payAppNum:"APP002"
   },
   http: new http(),
   pageRequest: new pageRequest(),
