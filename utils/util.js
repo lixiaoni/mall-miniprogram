@@ -15,9 +15,9 @@ const formatNumber = n => {
 }
 
 /**倒计时   定义一个总毫秒数，以一分钟为例。TODO，传入一个时间点，转换成总毫秒数**/
-var total_micro_second = 10000 * 40;
 /* 毫秒级倒计时 */
-function count_down(that) {
+function count_down(that,sec) {
+  var total_micro_second = sec ? sec : 0;   
   // 渲染倒计时时钟
   that.setData({
     clock: date_format(total_micro_second)
@@ -32,10 +32,10 @@ function count_down(that) {
   }
   setTimeout(function () {
     // 放在最后--
-    total_micro_second -= 10;
-    count_down(that);
+    total_micro_second -= 1000;
+    count_down(that, total_micro_second);
   }
-    , 10)
+    , 1000)
 }
 
 // 时间格式化输出，如03:25:19 86。每10ms都会调用一次
@@ -51,7 +51,7 @@ function date_format(micro_second) {
   // 毫秒位，保留2位
   var micro_sec = fill_zero_prefix(Math.floor((micro_second % 1000) / 10));
 
-  return hr + ":" + min + ":" + sec + " " + micro_sec;
+  return hr + ":" + min + ":" + sec ;
 }
 
 // 位数不足补零
