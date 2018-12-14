@@ -55,7 +55,7 @@
             <view class='label-item'>
               <text class='theme-color'>{{item.orderNum?item.orderNum:"0"}}</text>笔订单
             </view>
-            <view class='label-item'>
+            <view class='label-item' wx:if="{{item.storeNature=='1'}}">
               <text class='theme-color'>{{item.purchaseOrderNum?item.purchaseOrderNum:"0"}}</text>笔进货单
             </view>
           </view>

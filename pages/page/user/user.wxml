@@ -24,7 +24,7 @@
         <view class='white-color' hidden='{{hasUser}}'>
           <open-data type="userNickName"></open-data>
         </view>
-        <button wx:if='{{user}}'>已绑定手机</button>
+        <button wx:if='{{user}}' style='margin:0;'>已绑定手机</button>
         <button wx:else bindtap='showLogin'>绑定手机</button>
       </view>
     </view>
