@@ -85,12 +85,14 @@ Page({
       })
   },
   searchBtn: function (e) {
-    app.pageRequest.pageData.pageNum = 0
     var name = this.data.value
-    this.setData({
-      goodsList: []
-    })
-    this.getSerList(name)
+    if (Api.isEmpty(name)){
+      app.pageRequest.pageData.pageNum = 0
+      this.setData({
+        goodsList: []
+      })
+      this.getSerList(name)
+    }
   },
   onLoad: function (options) {
     var _this = this
@@ -101,8 +103,6 @@ Page({
         }, function () {
           if (options.name) {
             _this.getSerList(options.name)
-          } else {
-            _this.getSerList('')
           }
         })
       })
@@ -169,16 +169,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.stopPullDownRefresh();
+    var val = this.data.value
+    if (!val) { return }
     app.pageRequest.pageData.pageNum = 0
     this.setData({
       goodsList: []
     })
     var val=this.data.value
     this.getSerList(val)
-    wx.stopPullDownRefresh();
   },
 
   bindDownLoad: function () {
+    var val = this.data.value
+    if (!val) { return }
     this.getSerList(this.data.value,true)
   },
   /**

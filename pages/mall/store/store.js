@@ -165,6 +165,13 @@ Page({
       value: e.detail.value
     })
   },
+  searchBtn1:function(){
+    if (!this.data.value){return}
+    this.setData({
+      dataList: []
+    })
+    this.getList({ keyword: this.data.value })
+  },
   searchBtn: function (e) {
     this.setData({
       dataList: [],
@@ -172,7 +179,7 @@ Page({
       floorCode: this.data.floorCode,
       floorAreaCode: this.data.floorAreaCode
     })
-    this.getList({ keyword: this.data.value})
+    this.getList({ keyword: this.data.value })
   },
   serChildFloorNav:function(e){
     var _this=this,

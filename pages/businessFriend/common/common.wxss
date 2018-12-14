@@ -101,7 +101,7 @@ page{height:auto!important;margin-bottom:100rpx;padding-bottom:30rpx}
 .shop-cont>view view{min-width:110rpx;height:40rpx;line-height:40rpx;text-align:center;color:#CCAA77;border:2rpx dashed #CCAA77;position:absolute;right:0;top:20rpx}
 .shop-cont icon{margin-right:10rpx}
 goods-ser{height:80rpx;position:relative;background:#fff}
-.goods-ser input{color:#333;font-size:28rpx;height:80rpx;max-width:515rpx;padding-left:90rpx}
+.goods-ser input{color:#333;font-size:28rpx;height:80rpx;max-width:480rpx;padding-left:90rpx}
 .home-ser{height:40rpx;width:40rpx;position:absolute;left:30rpx;top:20rpx}
 .home-img{height:70rpx;width:48rpx;position:absolute;right:25rpx;top:25rpx;text-align:center;z-index:10;font-size:20rpx;color:#A8A8A8}
 .home-img1{right:90rpx}

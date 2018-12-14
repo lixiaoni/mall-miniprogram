@@ -7,6 +7,9 @@
 .fw-store .button:nth-child(2){
   color: #CCAA77;
 }
+.goods-ser input{
+  width: 70%
+}
 .fw-store{
   position: relative;
 }

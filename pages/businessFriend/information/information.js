@@ -14,6 +14,7 @@ Page({
     success: false,
     oneGreet: false,
     aginGreet: false,
+    greet: '',
     accept: '',
     logo: '',
     name: '',
@@ -69,6 +70,14 @@ Page({
           goodsList = store.goodsList,
           storeMes = store.store,
           floor = Api.isFloorInfo(obj.floor)
+        if (this.data.value == '') {
+          if (obj.merchantRemark) {
+            _this.setData({
+              value: obj.merchantRemark,
+              remarkName: obj.merchantRemark,
+            })
+          }
+        }
         if (goodsList != null) {
           _this.setData({
             goodsList: goodsList
@@ -100,6 +109,11 @@ Page({
     this.setData({
       send: send
     })
+    if (options.greet) {
+      this.setData({
+        greet: options.greet
+      })
+    }
     if (remark == "null") {
       this.setData({
         value: '',
