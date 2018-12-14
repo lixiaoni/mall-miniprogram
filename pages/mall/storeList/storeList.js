@@ -33,7 +33,9 @@ Page({
           _this.setData({
             value: options.name
           })
-          _this.getList({ keyword: options.name })
+          if (options.name){
+            _this.getList({ keyword: options.name })
+          }
         })
       })
   },

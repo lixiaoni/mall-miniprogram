@@ -1,2 +1,2 @@
 @import '../newest/newest';
-.goods-ser input{width: 70%;}
+.goods-ser input{width: 70%;z-index:1}

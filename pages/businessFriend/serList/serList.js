@@ -67,6 +67,8 @@ Page({
     })
   },
   initData: function () {
+    var val = this.data.value
+    if (!val) { return }
     app.pageRequest.pageData.pageNum = 0
     var _this = this
     this.setData({
@@ -81,6 +83,7 @@ Page({
   getList: function (nextPage) {
     var _this = this,
     val=this.data.value
+    if (!val) { return }
     Api.serWholesalerList({ keyword: val }, nextPage)
       .then(res => {
         var detailList = res.obj.result

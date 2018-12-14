@@ -24,11 +24,15 @@ Page({
                   status = obj.status
                 if (status) {
                   if (status == 3) {
-                    status == 0
+                    wx.navigateTo({
+                      url: '../information/information?status=0&send=&accept=' + obj.storeId_ + '&remark=&name=&logo=',
+                    })
+                  }else{
+                    wx.navigateTo({
+                      url: '../information/information?status=' + status + '&send=&accept=' + obj.storeId_ + '&remark=&name=&logo=',
+                    })
                   }
-                  wx.navigateTo({
-                    url: '../information/information?status=' + status + '&send=&accept=' + obj.storeId_ + '&remark= &name=&logo=',
-                  })
+                 
                 }
               })
               .catch(res => {
@@ -84,8 +88,14 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  searchBtn: function (e) {
+  changeInput: function (e) {
     var val = e.detail.value
+    this.setData({
+      value: val
+    })
+  },
+  searchBtn: function (e) {
+    var val = this.data.value
     wx.navigateTo({
       url: '../serList/serList?value='+val,
     })

@@ -92,7 +92,7 @@
         "pagePath": "pages/mall/newest/newest",
         "iconPath": "image/mall4.png",
         "selectedIconPath": "image/mall3.png",
-        "text": "精选"
+        "text": "优选"
       },
       {
         "pagePath": "pages/page/user/user",
