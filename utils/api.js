@@ -336,7 +336,8 @@ function floorAdminStoreList(data, next) {
 }
 // 取消订单
 function cancelOrder(data) {
-  return app.http.putRequest(cancelOrderUrl + "?reason=" + data.reason, data)
+  let url = cancelOrderUrl + "?reason=" + encodeURI(data.reason)
+  return app.http.putRequest(url, data)
 }
 // 获取收款二维码
 function getPaymentImg(data) {
