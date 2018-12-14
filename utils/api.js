@@ -49,6 +49,7 @@ import {
   cancelOrderUrl,
   getPaymentImgUrl,
   uploadPayVoucherUrl,
+  orderDetailUrl,
 } from './constUrl.js'
 
 import {
@@ -343,7 +344,12 @@ function cancelOrder(data) {
 function getPaymentImg(data) {
   return app.http.getRequest(getPaymentImgUrl, data)
 }
+//订单详情
+function getOrderDetail(data) {
+  return app.http.getRequest(orderDetailUrl, data);
+}
 module.exports = {
+  getOrderDetail,
   uploadVoucher,
   getPaymentImg,
   cancelOrder,

@@ -50,3 +50,5 @@ export const floorAdminStoreListUrl = "/admin/mall/store/{{userId}}/storelist"
 export const cancelOrderUrl = "/api/order/{{orderNumber}}/cancel"
 export const getPaymentImgUrl = "/admin/store/receiptcode/{{storeId}}"
 export const uploadPayVoucherUrl = "/api/order/orderpayment/{{orderNumber}}/uploadpayvoucher"
+//订单详情
+export const orderDetailUrl = "/api/order/byordernumber/{{orderNumber}}";

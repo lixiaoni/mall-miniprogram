@@ -167,3 +167,7 @@
   width: 35rpx;
   height: 35rpx;
 }
+
+.miniProgram {
+  top: 0;
+}
