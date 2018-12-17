@@ -16,7 +16,7 @@
   <view class="ym_jpstorename">
     <view class="ym_jpstorelogo">
       <navigator url=''>
-        <image class="store-logo" src="{{baseUrl}}{{store.logo}}?x-oss-process=style/logo"></image>
+        <image class="store-logo" src="{{store.logo?baseUrl+store.logo+'?x-oss-process=style/logo':'https://dev-image.youlife.me/store/defaultLogo.png?x-oss-process=style/logo'}}"></image>
       </navigator>
     </view>
     {{store.name}}
@@ -37,7 +37,7 @@
     <view>{{count.goodsNum}}</view>商品总量</view>
   <view class='new-view'>
     <view>{{count.followNum}}</view>关注人数</view>
-  <view class='new-view'>
+  <view class='new-view' wx:if="{{store.storeNature=='1'}}">
     <view>{{count.purchaserNum}}</view>进货商</view>
 </view>
 <view class="weui_cells">
