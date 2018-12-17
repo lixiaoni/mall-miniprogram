@@ -76,7 +76,7 @@ Page({
       })
     }).catch(e=>{
       wx.showToast({
-        title: e.message,
+        title: e.data.message,
         icon: 'none'
       })
     })
