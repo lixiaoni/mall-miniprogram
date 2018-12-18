@@ -50,6 +50,7 @@ import {
   getPaymentImgUrl,
   uploadPayVoucherUrl,
   orderDetailUrl,
+  seeVoucherUrl,
 } from './constUrl.js'
 
 import {
@@ -348,7 +349,12 @@ function getPaymentImg(data) {
 function getOrderDetail(data) {
   return app.http.getRequest(orderDetailUrl, data);
 }
+// 查看凭证
+function seeVoucher(data) {
+  return app.http.getRequest(seeVoucherUrl, data)
+}
 module.exports = {
+  seeVoucher,
   getOrderDetail,
   uploadVoucher,
   getPaymentImg,

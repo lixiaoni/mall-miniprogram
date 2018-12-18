@@ -52,3 +52,5 @@ export const getPaymentImgUrl = "/admin/store/receiptcode/{{storeId}}"
 export const uploadPayVoucherUrl = "/api/order/orderpayment/{{orderNumber}}/uploadpayvoucher"
 //订单详情
 export const orderDetailUrl = "/api/order/byordernumber/{{orderNumber}}";
+// 支付凭证
+export const seeVoucherUrl = "/api/order/orderpayment/{{orderNumber}}"
