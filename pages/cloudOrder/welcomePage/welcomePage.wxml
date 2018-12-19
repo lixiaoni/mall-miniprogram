@@ -1,0 +1,31 @@
+<view class='modal' wx:if="{{layerMobal}}">
+  <view class='close-box'>
+    <image src='/image/clo12.png' bindtap='toUser'></image>
+  </view>
+  <view>您已经是<text class='gold-color'>{{layerText}}</text>小云店</view>
+  <view>店主了哦~</view>
+  <view bindtap='toUser' class='know-btn'>知道了</view>
+</view>
+<view class='box'>
+  <view class='img-box'>
+    <image class='mall-img' src='/image/welcome-mall.png'></image>
+    <image class='store-logo' src='/image/welcome-logo.png'></image>
+    <image class='font-img' src='/image/welcome-font.png'></image>
+  </view>
+
+  <view class='flex-center input-box border-bottom'>
+    <image class='tel-icon' src='/image/tel-white.png'></image>
+    <input hidden='{{layerMobal}}' bindinput='watchInput' data-type='tel' placeholder-class='pre-input' placeholder='请输入手机号'></input>
+  </view>
+
+  <view class='flex-between input-box'>
+    <view class='flex-center border-bottom' style='height:100%;width:380rpx;'>
+      <image class='pro-icon' src='/image/protect.png'></image>
+      <input bindinput='watchInput' data-type='code' placeholder-class='pre-input' placeholder='请输入验证码'></input>
+    </view>
+    <view class='get-code' bindtap='getCode'>{{buttonTimer}}</view>
+  </view>
+
+  <view bindtap='buy' class='buy-btn'>我要入驻</view>
+  <view class='agreement'>注册即表示您完全同意<navigator url="/pages/login/agreement/agreement" class='agreement-font'>《用户协议》</navigator></view>
+</view>

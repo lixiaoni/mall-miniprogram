@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/mall/newest/newest",
+    "pages/cloudOrder/welcomePage/welcomePage",
     "pages/page/user/user",
     "pages/casher/success/success",    
     "pages/casher/casher/casher",
