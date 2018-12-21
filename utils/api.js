@@ -118,6 +118,9 @@ function identityUser(data) {
 function getUserInfo(data) {
   return app.http.getRequest(identityUserUrl, data)
 }
+function userInfor(data){
+  return app.http.getRequest(identityUserUrl, data)
+}
 /**工作台首页**/
 function workIndex(data) {
   return app.http.getRequest(workIndexUrl, data)
@@ -354,6 +357,7 @@ function seeVoucher(data) {
   return app.http.getRequest(seeVoucherUrl, data)
 }
 module.exports = {
+  userInfor,
   seeVoucher,
   getOrderDetail,
   uploadVoucher,
