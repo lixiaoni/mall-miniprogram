@@ -12,6 +12,7 @@ Page({
     duration: 1000,
     current: 0,
     movies: [],
+    retailStore: ["S1000096", "S1000367", "S1000334", "S1000327"],
     purchaserStoreIds:'',
     activities:[],
     activitiesLength:0,
@@ -84,8 +85,14 @@ Page({
           }
         }
         var activities = obj.activities
+        var retailStore = this.data.retailStore
         for (var i = 0; i < activities.length;i++){
           activities[i].data = JSON.parse(activities[i].url)
+          if (retailStore.indexOf(activities[i].data.storeId)!="-1"){
+            activities[i].data.nature=2
+          }else{
+            activities[i].data.nature = 1
+          }
         }
         _this.setData({
           movies: obj.banners,
