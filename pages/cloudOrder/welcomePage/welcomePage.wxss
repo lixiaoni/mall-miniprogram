@@ -1,10 +1,12 @@
 /* pages/cloudOrder/welcomePage/welcomePage.wxss */
 page{
   background: #981b1f;
+  border:0;
 }
 
 .box{
   padding:33rpx 72rpx 0;
+  color: #fff;
 }
 
 .img-box{
@@ -140,4 +142,52 @@ page{
 }
 .gold-color{
   color: #ca7;
+}
+
+/* 介绍页面 */
+.goStore{
+  text-align: center;
+  font-size: 36rpx;
+  color: #f2dabd;
+  text-decoration: underline;
+  padding-bottom: 70rpx;
+}
+.intro-title-img{
+  width:519rpx; 
+  height:87rpx;
+  margin-bottom: 50rpx;
+}
+.intro-fen{
+  font-size: 36rpx;
+  color: #f2dabd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:80rpx 0 60rpx;
+}
+.text-center{
+  text-align: center;
+}
+.intro-des{
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.intro-s-img{
+  width: 60rpx;
+  height: 20rpx;
+  margin:  0 30rpx;
+}
+.intor-s-font{
+  font-size: 26rpx;
+  text-indent:52rpx; 
+}
+
+.pro-item{
+  margin-left: 60rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.pro-item-s{
+  font-size: 24rpx;
+  margin-left: 60rpx;
 }

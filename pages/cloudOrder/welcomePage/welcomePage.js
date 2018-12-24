@@ -9,7 +9,8 @@ Page({
   data: {
     buttonTimer:"获取验证码",
     telephone:"",
-    layerMobal:false
+    layerMobal:false,
+    introPage:true
   },
   
   watchInput(e){
@@ -143,6 +144,17 @@ Page({
   toUser(){
     wx.switchTab({
       url: '../../page/user/user',
+    })
+  },
+  //介绍页面
+  toHome(){
+    wx.switchTab({
+      url: '../../mall/newest/newest',
+    })
+  },
+  loginBuy(){
+    this.setData({
+      introPage:false
     })
   },
   /**
