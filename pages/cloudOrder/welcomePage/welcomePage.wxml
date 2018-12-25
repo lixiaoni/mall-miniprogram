@@ -26,8 +26,8 @@
       
       <view class='intor-s-font'>百荣 · 小云店，是优生活互动专为实体店铺打造的移动电商系统，是基于微信生态内设计研发的、店铺链接顾客、店铺链接进货商的智能化移动销售利器</view>
 
-      <view class='pro-item' style='padding-top:60rpx;'>限时特价：1200元</view>
-      <view class='pro-item'>赠送：2个月</view>
+      <view class='pro-item' style='padding-top:60rpx;'>限时特价：1200元/年  服务费</view>
+      <view class='pro-item'>赠送：2个月 <text style='font-weight:500;'>（共14个月）</text></view>
       <view class='pro-item'>赠送：价值5980元课程</view>
       <view class='pro-item' style='padding-left:80rpx;'>《新商业进化10讲》（永久回放）</view>
       <view class='pro-item-s'>注：2019年1月1日后，价格将升为1688元。</view>
