@@ -24,7 +24,7 @@
   <block wx:key="{{index}}" wx:for="{{list}}">
     <navigator url='../shopDetail/shopDetail?id={{item.storeId}}'>
       <view class='goods-item'>
-        <view>
+        <view style="width:100%;">
           <!-- 商品信息 -->
           <view class='flex-box'>
             <view class='flex'>
