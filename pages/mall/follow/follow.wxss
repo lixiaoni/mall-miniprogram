@@ -12,7 +12,7 @@
 .lw-pop-cont>view .fw-logo image{max-height:70rpx;max-width:70rpx;border-radius:10rpx}
 .fw-store .fw-left{width:35rpx;height:35rpx;float:right}
 .fw-store .fw-left{position:absolute;right:0;top:58rpx;margin:0}
-.fw-cont{font-size:26rpx;color:#999}
+.fw-cont{font-size:24rpx;color:#999}
 .fw-cont text{color:#333}
 .fw-cont .fw-you{color:#CCAA77}
 .fw-cont>view{display:inline-block;width:33.3%;margin-top:35rpx;text-align:center}
