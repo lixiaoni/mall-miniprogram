@@ -51,6 +51,8 @@ import {
   uploadPayVoucherUrl,
   orderDetailUrl,
   seeVoucherUrl,
+  quitUrl,
+  updataPwdUrl,
 } from './constUrl.js'
 
 import {
@@ -207,15 +209,23 @@ function addressInfo(data) {
 }
 /**重置密码**/
 function resetPassword(data){
-  return app.http.postRequest(resetPasswordUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
+  return app.authHandler.postRequest(resetPasswordUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
 }
 /**短信验证码**/
 function phoneMessage(data){
-  return app.http.getRequest(phoneMessageUrl, data)
+  return app.authHandler.getRequest(phoneMessageUrl, data)
 }
 /**注册**/
 function register(data){
-  return app.http.postRequest(registerUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
+  return app.authHandler.postRequest(registerUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
+}
+/**退出登陆**/
+function quit(data) {
+  return app.authHandler.postRequest(quitUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
+}
+/**修改密码**/
+function updataPwd(data) {
+  return app.authHandler.postRequest(updataPwdUrl, data, { 'content-type': 'application/x-www-form-urlencoded' })
 }
 /**注册短信验证码**/
 function registerPhoneMsg(data){
@@ -357,6 +367,8 @@ function seeVoucher(data) {
   return app.http.getRequest(seeVoucherUrl, data)
 }
 module.exports = {
+  updataPwd,
+  quit,
   userInfor,
   seeVoucher,
   getOrderDetail,

@@ -133,7 +133,7 @@
     </navigator>
   </view> -->
 
-  <view class='weui-back' wx:if="{{!payStore && hasUser}}">
+  <view class='weui-back' wx:if="{{(!payStore && hasUser) || !hasUser}}">
     <navigator class='weui-cell weui-cell_access' url='../../cloudOrder/newCloud/newCloud'>
       <image src='/image/applyStore.png' class='user-img'></image>
       <view class='weui-cell__bd'>
@@ -144,6 +144,7 @@
       </view>
     </navigator>
   </view>
+  
  
 </view>
 

@@ -61,7 +61,7 @@
   </view>
 </view>
 <!-- 小云店 -->
-<navigator target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{store.id}}" extra-data="" version="trial">
+<navigator target="miniProgram" open-type="navigate" app-id="{{appid}}" path="pages/page/home/home?storeId={{store.id}}" extra-data="" version="trial">
   <view class="weui_cells weui_cells-new" style='margin-bottom:0;'>
     <image src="/image/mes12.png"></image>
     <text class="store-address">小云店 </text>
@@ -81,7 +81,7 @@
 
 
 <!-- 小云店信息 -->
-<navigator target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/storeIcon/storeIcon?storeId={{store.id}}" extra-data="" version="trial">
+<navigator target="miniProgram" open-type="navigate" app-id="{{appid}}" path="pages/page/storeIcon/storeIcon?storeId={{store.id}}" extra-data="" version="trial">
 <view class="weui_cells weui_cells-new" style="margin-bottom:0;">
   <image src="/image/mes12.png"></image>
   <text class="store-address">小云店信息 </text>

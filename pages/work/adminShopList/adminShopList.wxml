@@ -37,8 +37,9 @@
                   <text class='tip'>{{item.storeNature=='1'?"新批零":"新零售"}}</text>
                 </view>
                 <view class='goods-type'>
-                  <text class='theme-color'>{{item.businessScope}}</text>
-                  <text class='area-font'>{{item.floorInfoVO.floorDescription}} {{item.floorInfoVO.storeDoorNum?item.floorInfoVO.storeDoorNum:""}}</text>
+                  <image wx:if="{{item.floorInfoVO.mallLogo}}" src='{{baseUrl+item.floorInfoVO.mallLogo}}' class='mall-logo'></image>
+                  <text class='area-font'>{{item.floorInfoVO.mallName?item.floorInfoVO.mallName:''}} {{item.floorInfoVO.floorDescription}} {{item.floorInfoVO.storeDoorNum?item.floorInfoVO.storeDoorNum:""}}</text>
+                  <text class='theme-color' style='margin-left:15rpx;'>{{item.businessScope}}</text>
                 </view>
               </view>
             </view>

@@ -120,6 +120,11 @@ Page({
       orderType: options.type
     })
     this.buy();
+    
+    if(options.loginObj){
+      let user = JSON.parse(options.loginObj);
+      app.authHandler.saveTokenInfo(user)
+    }
   },
 
   /**

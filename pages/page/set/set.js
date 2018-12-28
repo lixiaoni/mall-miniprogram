@@ -1,5 +1,6 @@
 // pages/set/set.js
 const app = getApp();
+import API from "../../../utils/api.js";
 Page({
 
   /**
@@ -10,7 +11,7 @@ Page({
   },
 
   quit(){
-    app.http.postRequest("/oauth/authentication/removetoken",{
+    API.quit({
       accesstoken: this.data.token
     }, { 'content-type': 'application/x-www-form-urlencoded' }).then((res)=>{
       wx.showToast({

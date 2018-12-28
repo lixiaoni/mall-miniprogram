@@ -1,5 +1,6 @@
 // pages/updataPwd/updataPwd.js
 const app = getApp();
+import API from "../../../utils/api.js";
 Page({
 
   /**
@@ -48,7 +49,7 @@ Page({
     }
 
     if (newpass == re & newpass!=""){
-      app.http.postRequest("/oauth/authentication/changepassword",{
+      API.updataPwd({
         oldPassword: old,
         newPassword: newpass
       }, { 'content-type': 'application/x-www-form-urlencoded' }).then((res)=>{
