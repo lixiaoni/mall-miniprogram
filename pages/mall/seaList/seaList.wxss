@@ -15,6 +15,7 @@
 .st-details{position:relative}
 .st-d-status view{margin-bottom:0}
 .st-d-status view text{color:#666;font-size:26rpx}
+.st-d-status view text.st-mom1{color: #333;}
 .st-d-t{width:390rpx;text-overflow:-o-ellipsis-lastline;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;margin-bottom:40rpx;-webkit-box-orient:vertical}
 .st-d-status view text.st-mom{color:#C79359}
 .st-d-status image{width:40rpx;height:40rpx;vertical-align:middle;position:relative;left:10rpx}

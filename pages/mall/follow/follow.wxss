@@ -19,7 +19,8 @@
 .fw-c-img{display:block;margin:0 auto 40rpx;height:200rpx;width:200rpx;border-radius:10rpx;text-align:center}
 .fw-c-img image{max-height:200rpx;max-width:200rpx;border-radius:10rpx}
 .fw-c-you{height:35rpx;width:35rpx;vertical-align:middle;margin-top:-2rpx}
-.fw-cont>view view:nth-child(2),.fw-cont>view view:nth-child(3),.fw-cont>view view:nth-child(4){text-align:left;margin-left:10rpx}
+.fw-cont>view view:nth-child(2),.fw-cont>view view:nth-child(3),.fw-cont>view view:nth-child(4){text-align:left}
+.fw-cont>view>view{margin-left:10rpx}
 .fw-no{font-size:48rpx;background:#fff;border-top:2rpx solid #EFEFEF;padding-top:50rpx;padding-left:50rpx;font-weight:bold;padding-bottom:25rpx}
 .fw-no view:last-child{font-size:24rpx;color:#666;font-weight:normal}
 .fw-no view:first-child{line-height:40rpx}

@@ -10,11 +10,13 @@
         <image class='fw-left' src='/image/mallr.png'></image>
       </view>
       <view class='fw-cont'>
-        <view wx:for="{{item.goodsList}}" wx:key="{{index}}">
-            <image class='fw-c-img' src='{{baseUrl}}{{item.mainImgUrl}}?x-oss-process=style/goods-small' ></image>
-            <view>零售 <text>￥{{item.sellPrice}}</text></view>
-            <view hidden='{{!item.isPurchaser}}'>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>
-            <view hidden='{{item.isPurchaser}}' class='new_left'>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
+        <view wx:for="{{item.goodsList}}" wx:key="{{index}}" wx:for-item="list">
+            <image class='fw-c-img' src='{{baseUrl}}{{list.mainImgUrl}}?x-oss-process=style/goods-small' ></image>
+            <view>零售 <text>￥{{list.sellPrice}}</text></view>
+            <view  wx:if='{{item.store.storeNature==1}}'>
+              <view hidden='{{!list.isPurchaser}}'>批发 <text class='fw-you'>￥{{list.wholesalePrice}}</text></view>
+              <view hidden='{{list.isPurchaser}}' class='new_left'>批发 <image  class='fw-c-you' src='/image/wh.png'></image></view>
+            </view>
           </view>
       </view>
       <!-- <view> <view class='button'>购买过的店</view></view> -->
