@@ -129,7 +129,7 @@ Page({
         let obj = {layerMobal:true};
         if (res.obj.storeNature == 2){
           obj.layerText = "新零售";
-        }else{
+        } else if (res.obj.storeNature == 1){
           obj.layerText = "新批零";
         }
         this.setData(obj)
