@@ -4,21 +4,21 @@
     <view class='goods-ser-right' bindtap="searchBtn1">搜索</view>
 </view>
 <view class='fw-title {{serHide?"fw-title-active":""}}'>
-  <view class="{{currentTab==0?'active':''}}" data-current='0'  bindtap="swichNav">楼层导航 <image  wx:if="{{currentTab==1}}" src='/image/xl.png'></image><image  wx:else src='/image/xl1.png'></image><view></view></view>
+  <view class="{{currentTab==0?'active':''}}" data-current='0'  bindtap="swichNav"><text wx:if='{{showNav}}'>楼层导航</text><text wx:if='{{!showNav}}'>{{floorOneName}} {{floorTwoName}} {{floorThreeName}}</text> <image  wx:if="{{currentTab==1}}" src='/image/xl.png'></image><image  wx:else src='/image/xl1.png'></image><view></view></view>
   <view class="{{currentTab==1?'active':''}}" data-current='1' >购物 <image  wx:if="{{currentTab!=1}}" src='/image/xl.png'></image><image wx:else src='/image/xl1.png'></image><view></view></view>
 </view>
 <view class='st-ser' hidden='{{!serHide}}'>
   <view class='fw-title fw-title1'>
-    <view wx:for='{{floorserList}}'  class="{{stTab==index?'active':''}}"  data-current='{{index}}'  data-code='{{item.code}}' wx:key='{{index}}'  bindtap="serNav">{{item.name==null?'':item.name}}<view></view></view>
+    <view wx:for='{{floorserList}}'  class="{{stTab==index?'active':''}}"  data-current='{{index}}'  data-code='{{item.code}}' wx:key='{{index}}' data-name='{{item.name}}'  bindtap="serNav">{{item.name==null?'':item.name}}<view></view></view>
   </view>
   <view class='show-floor'  wx:if='{{isShow==true}}' bindtap='searchBtn'>全部楼座</view>
   <view class='st-ser-cont' wx:if='{{isShow!=true}}'>
       <view class='ser-left'>
-        <view   wx:for="{{childList}}" wx:key="{{index}}"   class="{{floorTab==index?'active':''}}" data-current='{{index}}' data-code='{{item.code}}' bindtap="serFloorNav">{{item.floorNum}}  {{item.name==null?'':item.name}}</view>
+        <view   wx:for="{{childList}}" wx:key="{{index}}"   class="{{floorTab==index?'active':''}}" data-current='{{index}}' data-code='{{item.code}}'  data-name='{{item.floorNum}}' bindtap="serFloorNav">{{item.floorNum}}  {{item.name==null?'':item.name}}</view>
       </view>
       <view class='ser-right'>
         <view bindtap="allFloorNav">全部分区</view>
-        <view  wx:for="{{childListLast}}" wx:key="{{index}}" data-code='{{item.code}}' bindtap="serChildFloorNav">{{item.name}}</view>
+        <view  wx:for="{{childListLast}}" wx:key="{{index}}" data-code='{{item.code}}' data-name='{{item.name}}' bindtap="serChildFloorNav">{{item.name}}</view>
       </view>
     </view>
   </view>

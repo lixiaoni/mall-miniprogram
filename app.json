@@ -2,6 +2,7 @@
   "pages":[
     "pages/mall/newest/newest",
     "pages/cloudOrder/webInitStore/webInitStore",
+    "pages/mall/store/store",
     "pages/cloudOrder/welcomePage/welcomePage",
     "pages/page/user/user",
     "pages/casher/success/success",
@@ -33,7 +34,6 @@
     "pages/floor/floorList/floorList",
     "pages/work/workIndex/workIndex",
     "pages/floor/goodsTag/goodsTag",
-    "pages/mall/store/store",
     "pages/page/manageM/manageM",
     "pages/login/register/register",
     "pages/page/upload/upload",

@@ -1,4 +1,3 @@
-
 .fw-store{background:#fff;margin:20rpx;position:relative;border-radius:10rpx;padding:40rpx 30rpx}
 .fw-store .fw-top{position:relative;font-size:36rpx;padding-left:90rpx;margin-top:10rpx}
 .fw-top view.fw-iew{font-size:24rpx;color:#999;padding-right:47rpx}

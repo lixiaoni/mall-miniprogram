@@ -3,6 +3,14 @@ import pageRequest from './utils/pageRequest.js'
 import AuthHandler from './utils/authHandler.js'
 import { imageUrl, payUrl} from './utils/const.js'
 App({
+  // 监听错误
+  onError: function (err) {
+    wx.showToast({
+      title: err,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
   onLaunch: function (options) {
     var that = this;
     // 获取小程序更新机制兼容
