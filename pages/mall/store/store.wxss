@@ -20,10 +20,11 @@
 .fw-title1>view.active view{width:auto}
 .fw-title{height:70rpx;padding-top:17rpx;box-sizing:border-box}
 .goods-ser{height:100rpx}
-.fw-iew1{display:flex;align-items:center}
+.fw-iew1{display:flex;align-items:center;width: 95%}
 .fw-store .fw-logo{top:10rpx}
 .fw-store{padding:40rpx 30rpx}
-.fw-top view.fw-iew1 text{height:34rpx;line-height:34rpx;padding:0 10rpx}
+.fw-top view.fw-iew1 text{height:34rpx;line-height:34rpx;padding:0 10rpx;width: 86rpx;text-align: center;}
+.fw-top view.fw-iew1 text:nth-child(2){width: unset}
 .fw-c-img{margin-bottom:20rpx}
 .fw-top view.fw-iew{padding-right:47rpx}
 .fw-store .fw-left{position:absolute;right:0;top:58rpx;margin:0}

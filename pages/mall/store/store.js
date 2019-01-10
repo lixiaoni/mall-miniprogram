@@ -21,7 +21,11 @@ Page({
     floorCode:'',
     floorAreaCode:'',
     getPurchaserStoreIds:'',
-    isShow:true
+    isShow:true,
+    floorOneName:'',
+    floorTwoName: '',
+    floorThreeName: '',
+    showNav:true,
   },
   isPurchaser: function (index) {
     var arr = this.data.getPurchaserStoreIds
@@ -74,6 +78,7 @@ Page({
       })
     }
   },
+  // 楼层
   serFloorNav:function(e){
     var that = this,
       indexFloor=e.target.dataset.current,
@@ -86,11 +91,13 @@ Page({
       that.setData({
         floorTab: indexFloor,
         childListLast: [],
+        floorTwoName: e.target.dataset.name,
         floorCode:code,
         childListLast: childList[indexFloor].childList
       })
     }
   },
+  // 楼座
   serNav: function (e) {
     var that = this,
       floorserList = this.data.floorserList,
@@ -99,11 +106,13 @@ Page({
       index = e.target.dataset.current,
       balconyCode = e.target.dataset.code
       that.setData({
-        floorList:[]
+        floorList:[],
+        floorOneName: e.target.dataset.name
       })
     var floorCodes = floorserList[index].childList
     if (floorCodes.length>0){
       that.setData({
+        floorTwoName: floorCodes[0].floorNum,
         floorCode: floorCodes[0].code
       })
     }
@@ -128,6 +137,7 @@ Page({
 
     }
   },
+  // 列表
   getList: function (data, nextPage){
     var   _this = this
     Api.storeSerList(data,nextPage)
@@ -175,12 +185,14 @@ Page({
   searchBtn: function (e) {
     this.setData({
       dataList: [],
+      showNav:true,
       balconyCode: this.data.balconyCode,
       floorCode: this.data.floorCode,
       floorAreaCode: this.data.floorAreaCode
     })
     this.getList({ keyword: this.data.value })
   },
+  // 选择区域
   serChildFloorNav:function(e){
     var _this=this,
       balconyCode = this.data.balconyCode,
@@ -188,14 +200,19 @@ Page({
       floorAreaCode = e.target.dataset.code
     _this.setData({
       dataList:[],
-      floorAreaCode: floorAreaCode
+      floorThreeName: e.target.dataset.name,
+      floorAreaCode: floorAreaCode,
+      showNav: false
     })
     this.getList({ keyword: this.data.value, balconyCode: balconyCode, floorCode: floorCode, floorAreaCode: floorAreaCode})
   },
+  // 全部分区
   allFloorNav:function(){
     var  floorCode = this.data.floorCode
     this.setData({
       dataList: [],
+      floorThreeName:'',
+      showNav:false
     })
     this.getList({ keyword: this.data.value, balconyCode: this.data.balconyCode, floorCode: floorCode})
   },
