@@ -153,9 +153,13 @@ Page({
     })
   },
   loginBuy(){
-    this.setData({
-      introPage:false
+    // this.setData({
+    //   introPage:false
+    // })
+    wx.navigateTo({
+      url: '../newCloud/newCloud',
     })
+
   },
   /**
    * 生命周期函数--监听页面加载
