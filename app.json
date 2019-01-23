@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/mall/newest/newest",
+    "pages/work/workIndex/workIndex",
     "pages/cloudOrder/webInitStore/webInitStore",
     "pages/mall/store/store",
     "pages/cloudOrder/welcomePage/welcomePage",
@@ -32,7 +33,6 @@
     "pages/mall/follow/follow",
     "pages/page/mallIcon/mallIcon",
     "pages/floor/floorList/floorList",
-    "pages/work/workIndex/workIndex",
     "pages/floor/goodsTag/goodsTag",
     "pages/page/manageM/manageM",
     "pages/login/register/register",

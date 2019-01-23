@@ -1,10 +1,11 @@
 .wk-cont{background:#fff;margin:20rpx;border-radius:20rpx;overflow:hidden}
-.wk-title{font-size:24rpx;background:#CCAA77;color:#fff;padding:50rpx;position:relative}
+.wk-title{font-size:24rpx;background:#CCAA77;color:#fff;padding:50rpx;padding-bottom:130rpx;position:relative;border-radius:20rpx;}
 .wk-title view{font-size:72rpx;margin-top:30rpx}
 .wk-bot{position:relative}
 .wk-bot>view{width:25%;font-size:40rpx;display:inline-block;text-align:center;margin:30rpx 0;position:relative}
 .wk-bot>view view{font-size:28rpx}
-.wk-bot>view text{font-size:24rpx}
+/* .wk-bot>view text{font-size:24rpx} */
+.over-text{display:block;max-width: 90%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;height: 64rpx;margin: 0 auto;}
 .wx-bot-cont>view,.wx-bot-cont>navigator{width:33.3%;padding-top:80rpx;padding-bottom:50rpx;display:inline-block;text-align:center}
 .wk-bot>view .wk-xian{height:45rpx;background:#EEEEEE;width:2rpx;position:absolute;right:0;top:38rpx}
 .wk-bot>.wk-fg{background:#EEEEEE;width:88%;position:absolute;height:2rpx;top:140rpx;left:6%}
@@ -12,3 +13,20 @@
 .wk-title image{width:55rpx;position:absolute;right:20rpx;top:50rpx}
 .wx-bot-cont image{width:45rpx}
 .wx-bot-cont>view view:first-child{width:50rpx;height:50rpx;margin:0 auto;padding-bottom:10rpx}
+/* 用户信息 */
+.userInfo-box{padding:36rpx;position: absolute;bottom:-74rpx;background: #fff;border-radius: 10rpx;width: 650rpx;box-sizing: border-box;left:0;right: 0;margin: auto;display: flex;}
+.mall-logo{width: 25rpx;height: 25rpx;margin-right:10rpx;}
+.logo-box{width: 75rpx;height: 75rpx;text-align: center;line-height: 75rpx;margin-right:30rpx;margin-top:10rpx;}
+.user-logo{max-width: 75rpx;max-height: 75rpx;border-radius: 50%;}
+.user-name{font-size: 34rpx;font-weight: 600;max-width: 290rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.user-identity{border: 1px solid #CCAA77;font-size: 24rpx;text-align: center;padding: 3rpx 10rpx;color: #CCAA77;border-radius: 5rpx;margin:0 20rpx;}
+.flex-center{display: flex;align-items: center;}
+.floorInfo-box{font-size: 24rpx;color: #666;}
+.floor-list{max-width: 244rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-left: 30rpx;}
+.mall-name{max-width: 144rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.floor-list text{margin: 0 5rpx;}
+.yesterday-amount{font-size: 26rpx!important;display: flex;align-items: center;justify-content: space-between;margin-top:10rpx!important;}
+.more-btn{font-size: 22rpx;display: flex;align-items: center;color: #666;justify-content: center;padding: 30rpx 0;}
+.more-icon{width:28rpx;height: 28rpx;margin-left:5rpx;}
+.amount-title{font-size:28rpx;color: #666;height: 100rpx;line-height: 100rpx;padding-left: 30rpx;}
+.wk-bot-new>view{width:33%}

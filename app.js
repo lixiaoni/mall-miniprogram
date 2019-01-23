@@ -1,7 +1,7 @@
 import http from './utils/http.js'
 import pageRequest from './utils/pageRequest.js'
 import AuthHandler from './utils/authHandler.js'
-import { imageUrl, payUrl} from './utils/const.js'
+import { imageUrl, payUrl, payAppNum, navigateToAppID, mallIcon} from './utils/const.js'
 App({
   // 监听错误
   onError: function (err) {
@@ -51,11 +51,12 @@ App({
   globalData: {
     userInfo: null,
     skin: "normal",
-    imageUrl:imageUrl,
-    companyIcon: "/image/dp.png",
     defaultHeadPic:"/image/defaultHeadPic.png",
-    payUrl: payUrl,
-    payAppNum:"APP002"
+    companyIcon: mallIcon,
+    payUrl,
+    imageUrl,
+    payAppNum,
+    navigateToAppID,
   },
   http: new http(),
   pageRequest: new pageRequest(),

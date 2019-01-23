@@ -41,7 +41,7 @@
     <view></view>
   </view>
   <!-- <view>精彩活动推荐<view>{{current+1}}<text>/{{activities.length}}</text></view></view> -->
-  <view class='pop-n2'>与品质优生活不期而遇</view>
+  <view class='pop-n2'>与品质生活不期而遇</view>
   <view class='imgAll'>
     <scroll-view scroll-x="true" bindscroll="scroll">
       <view wx:for="{{activities}}" wx:key="{{index}}" style='width:{{imageWidth}}px'>

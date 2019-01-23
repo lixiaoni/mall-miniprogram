@@ -1,10 +1,12 @@
 import Api from '../../../utils/api.js'
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    baseUrl: app.globalData.imageUrl,
     goodsNum:'',
     orders: '',
     purchaseOrders: '',
@@ -22,27 +24,45 @@ Page({
     if (isSuperAdmin){
       Api.superAdminWork()
         .then(res => {
-          var obj = res.obj
-          _this.setData({
-            goodsNum: obj.goodsNum,
-            orders: obj.orders,
-            purchaseOrders: obj.purchaseOrders,
-            storeNum: obj.storeNum,
-            todaySaleNum: (obj.todaySaleNum).toFixed(2),
-          })
+          _this.formateData(res)
         })
     }else{
       Api.workIndex()
         .then(res => {
-          var obj = res.obj
-          _this.setData({
-            goodsNum: obj.goodsNum,
-            orders: obj.orders,
-            purchaseOrders: obj.purchaseOrders,
-            storeNum: obj.storeNum,
-            todaySaleNum: (obj.todaySaleNum).toFixed(2),
-          })
+          _this.formateData(res)
         })
+    }
+  },
+  formateData(res){
+    var obj = res.obj;
+    this.setData({
+      goodsNum: obj.goodsNum,
+      orders: obj.orders,
+      purchaseOrders: obj.purchaseOrders,
+      storeNum: obj.storeNum,
+      todaySaleNum: (obj.todaySaleNum).toFixed(2),
+      statisticsData: obj
+    })
+    // 楼层数据
+    if(obj.user.userFloors){
+      let floor = obj.user.userFloors;
+      let floorArr = [];
+      floor.forEach(el=>{
+        //座
+        let str = el.name;
+        //楼层
+        if (el.childList){
+          el.childList.forEach(f=>{
+            str+=f.name;
+            floorArr.push(str);
+          })
+        }else{
+          floorArr.push(str);
+        }
+      })
+      this.setData({
+        floorList: floorArr
+      })
     }
   },
   goHome: function () {
@@ -54,10 +74,46 @@ Page({
     this.setData({
       isSuperAdmin: wx.getStorageSync("isSuperAdmin")
     })
+    this.getUser()
   },
   goDerm: function () {
     wx.navigateTo({
       url: '../../page/mallIcon/mallIcon',
+    })
+  },
+  getUser() {
+    Api.isAdmin({})
+      .then(res => {
+        var obj = res.obj
+        wx.setStorageSync("isSuperAdmin", obj.isSuperAdmin)
+        wx.setStorageSync("isFloorAdmin", obj.isFloorAdmin)
+        this.setData({
+          isSuperAdmin: obj.isSuperAdmin,
+          isFloorAdmin: obj.isFloorAdmin
+        })
+      })
+    Api.getUserInfo().then((res) => {
+      if (res.success) {
+        this.setData({
+          user: res.obj,
+          hasUser: true,
+        })
+      } else {
+        this.setData({
+          user: "",
+          hasUser: false,
+        })
+      }
+    }).catch(e => {
+      this.setData({
+        user: "",
+        hasUser: false,
+      })
+    })
+  },
+  showMore(){
+    this.setData({
+      showMore: !this.data.showMore
     })
   },
   /**
