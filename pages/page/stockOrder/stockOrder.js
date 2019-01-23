@@ -35,7 +35,11 @@ Page({
 
 
   },
-
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 1)
+  },
   //查看凭证
   seeVoucher(e) {
     let num = e.currentTarget.dataset.num;

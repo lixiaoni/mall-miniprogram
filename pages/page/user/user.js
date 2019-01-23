@@ -12,7 +12,11 @@ Page({
     showCloud:false,
     storeNature:''
   },
-  
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 3)
+  },
   showLogin(){
     this.selectComponent("#login").showPage();
   },

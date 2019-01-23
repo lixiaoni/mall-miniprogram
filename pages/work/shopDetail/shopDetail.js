@@ -11,6 +11,15 @@ Page({
     state: "",
     baseUrl: app.globalData.imageUrl
   },
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 4)
+  },
+  toMiniProgram1(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 1)
+  },
   showModal(e){
     let type = e.currentTarget.dataset.type;
     switch(type){
@@ -109,18 +118,6 @@ Page({
         obj = { state: 1}
       }
       this.setData(obj)
-
-      //跳转appid
-      let storeStatus = this.data.store.storeNature;
-      if (storeStatus == 1){
-        this.setData({
-          appid: 'wx4f385374765e4cbb'
-        })
-      } else if (storeStatus == 2){
-        this.setData({
-          appid: 'wx1a7532a2abdd1698'
-        })
-      }
     })
   },
   nonull(obj){

@@ -141,45 +141,25 @@
 
 <!-- 商品 -->
 <view class='cf-cont'>
-      <navigator wx:if='{{order.storeInfo.storeNature==2}}'  target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/home/home?storeId={{order.storeInfo.storeId}}" extra-data="" version="trial">
-        <view class='c-title {{orderType=="list"?"border-bottom":""}}'>
-          <image src="/image/ic1.png"></image>{{order.storeInfo.storeName}}
-          <image class='itimg' src="/image/icl.png"></image>
-          <view wx:if="{{self=='true'}}" class='order-zt'>自提</view>
-        </view>
-      </navigator>
-      <navigator wx:if='{{order.storeInfo.storeNature==1}}' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{order.storeInfo.storeId}}" extra-data="" version="trial">
-        <view class='c-title {{orderType=="list"?"border-bottom":""}}'>
-          <image src="/image/ic1.png"></image>{{order.storeInfo.storeName}}
-          <image class='itimg' src="/image/icl.png"></image>
-          <view wx:if="{{self=='true'}}" class='order-zt'>自提</view>
-        </view>
-      </navigator>
-
-
-
+ <view data-store-nature='{{order.storeInfo.storeNature}}' data-store-id='{{order.storeInfo.storeId}}' bindtap='toMiniProgram'>
+    <view class='c-title {{orderType=="list"?"border-bottom":""}}'>
+      <image src="/image/ic1.png"></image>{{order.storeInfo.storeName}}
+      <image class='itimg' src="/image/icl.png"></image>
+      <view wx:if="{{self=='true'}}" class='order-zt'>自提</view>
+    </view>
+  </view>
   <!-- 订单 -->
-
- 
   <view wx:if="{{orderType=='order'}}">
     <view class="cart-box">
       <view class="cart-list" wx:for="{{showList}}" wx:key="{{index}}">
-        <navigator wx:if='{{order.storeInfo.storeNature==2}}'  target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.goodsId}}&storeId={{order.storeInfo.storeId}}" extra-data="" version="trial">
+      <view data-store-nature='{{order.storeInfo.storeNature}}' data-store-id='{{order.storeInfo.storeId}}' data-goods-id='{{item.goodsId}}' bindtap='toMiniProgram1'>
           <image class="cart-thumb" src="{{baseUrl+item.mainImgUrl}}?x-oss-process=style/goods-small"></image>
           <view class='ct-text ct-text1'>￥{{item.goodsSkuInfoVOList.unitPrice}}
             <view>x {{item.goodsSkuInfoVOList.num}}</view>
           </view>
           <view class='ct-title ct-title1' style="width:360rpx;">{{item.goodsName}}</view>
           <text class="cart-pro-name">规格：{{item.goodsSkuInfoVOList.goodsDesc}}</text>
-        </navigator>
-        <navigator wx:if='{{order.storeInfo.storeNature==1}}' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.goodsId}}&storeId={{order.storeInfo.storeId}}" extra-data="" version="trial">
-          <image class="cart-thumb" src="{{baseUrl+item.mainImgUrl}}?x-oss-process=style/goods-small"></image>
-          <view class='ct-text ct-text1'>￥{{item.goodsSkuInfoVOList.unitPrice}}
-            <view>x {{item.goodsSkuInfoVOList.num}}</view>
-          </view>
-          <view class='ct-title ct-title1' style="width:360rpx;">{{item.goodsName}}</view>
-          <text class="cart-pro-name">规格：{{item.goodsSkuInfoVOList.goodsDesc}}</text>
-        </navigator>
+        </view>
       </view>
     </view>
   </view>
@@ -188,16 +168,11 @@
   <view wx:if="{{orderType=='list'}}">
     <view class="cart-box" wx:for="{{order.goodsInfoList}}" wx:key="{{index}}">
       <view class="cart-list" style='background:#fff;'>
-        <navigator wx:if='{{order.storeInfo.storeNature==2}}'  target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.goodsId}}&storeId={{order.storeInfo.storeId}}" extra-data="" version="trial">
+        <view data-store-nature='{{order.storeInfo.storeNature}}' data-store-id='{{order.storeInfo.storeId}}' data-goods-id='{{item.goodsId}}' bindtap='toMiniProgram1'>
           <image class="cart-thumb" src="{{baseUrl+item.mainImgUrl}}?x-oss-process=style/goods-small"></image>
           <view class='ct-title ct-title1'>{{item.goodsName}}</view>
           <view class="heji">共 <text style='font-size:26rpx;'>{{item.goodsNum}} 件</text>商品</view>
-        </navigator>
-        <navigator wx:if='{{order.storeInfo.storeNature==1}}' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/goodsDetails/goodsDetails?goodsId={{item.goodsId}}&storeId={{order.storeInfo.storeId}}" extra-data="" version="trial">
-          <image class="cart-thumb" src="{{baseUrl+item.mainImgUrl}}?x-oss-process=style/goods-small"></image>
-          <view class='ct-title ct-title1'>{{item.goodsName}}</view>
-          <view class="heji">共 <text style='font-size:26rpx;'>{{item.goodsNum}} 件</text>商品</view>
-        </navigator>
+        </view>
       </view>
 
       <!-- 表格 -->

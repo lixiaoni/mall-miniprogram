@@ -1,8 +1,7 @@
 <scroll-view scroll-y="true" style="height:100%;">
   <view>
     <view class='fw-store' wx:for="{{dataList}}" wx:key="{{index}}">
-    <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/home/home?storeId={{item.storeId}}" extra-data=""  wx:if='{{item.store.storeNature==2}}' version="trial"></navigator>
-    <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.storeId}}" extra-data=""  wx:if='{{item.store.storeNature==1}}' version="trial"></navigator>
+    <view class='miniProgram' data-store-nature='{{item.store.storeNature}}' data-store-id='{{item.storeId}}' bindtap='toMiniProgram'></view>
       <view class='fw-top'>
         <image class='fw-logo' src='{{baseUrl}}{{item.store.logo}}?x-oss-process=style/logo'></image>
         <view class='fw-iew1'>{{item.store.name}}<text>{{item.store.storeNature==1?"新批零":"新零售"}}</text><text hidden='{{!item.isPurchaser}}'>友</text></view>

@@ -15,6 +15,11 @@ Page({
     indexShow:false,
     codeList:false
   },
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 2)
+  },
   isPurchaser: function (index) {
     var arr = this.data.getPurchaserStoreIds
     if (arr.indexOf(index) != -1) {

@@ -6,47 +6,69 @@
     <view>特色奇妙小云店等您来发现</view>
   </view>
   <view class='lw-pop' wx:for='{{storeList}}' wx:key='index'>
-    <view class='common-flex-between'>{{item.name}}<text data-index='{{index}}' bindtap='moreList'>更多</text></view>
+    <view class='common-flex-between'>{{item.name}}
+      <text data-index='{{index}}' bindtap='moreList'>更多</text>
+    </view>
     <view>{{item.desc}}</view>
     <view class='lw-pop-cont'>
-      <view  wx:for='{{item.storeGoodsList}}' wx:key='index' wx:if='{{index<3}}' data-id='{{item.store.id}}'>
-        <view class='fw-logo'><image mode="aspectFill"src='{{baseUrl}}{{item.store.logo}}?x-oss-process=style/logo'></image></view>
+      <view wx:for='{{item.storeGoodsList}}' wx:key='index' wx:if='{{index<3}}' data-id='{{item.store.id}}'>
+        <view class='fw-logo'>
+          <image mode="aspectFill" src='{{baseUrl}}{{item.store.logo}}?x-oss-process=style/logo'></image>
+        </view>
         <view>{{item.store.name}}</view>
         <view>{{item.store.address}}</view>
         <view>进店</view>
-      <navigator class='miniProgram' wx:if='{{item.store.storeNature==2}}'  target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/home/home?storeId={{item.store.id}}" extra-data="" version="trial"></navigator>
-      <navigator class='miniProgram' wx:if='{{item.store.storeNature==1}}' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{item.store.id}}" extra-data="" version="trial"></navigator>
+        <view class='miniDetails' style='top:0' data-store-nature='{{item.store.storeNature}}' data-store-id='{{item.store.id}}' bindtap='toMiniProgram'></view>
       </view>
     </view>
   </view>
 </view>
-<view  hidden='{{showFavorite}}'>
+<view hidden='{{showFavorite}}'>
   <view>
     <view class='fw-title'>
-    <view class="{{currentTab==0?'active':''}}" data-current='0'  bindtap="swichNav">最近关注<view></view></view>
-    <view class="{{currentTab==1?'active':''}}" data-current='1'  bindtap="swichNav">最近上新<view></view></view>
-  </view>
-  <scroll-view scroll-y="true" style="height:100%;" bindscrolltolower="bindDownLoad">
-  <view class='fw-store'  wx:for='{{result}}' wx:key='index' wx:for-item="list">
-  <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/home/home?storeId={{list.store.id}}" extra-data="" wx:if='{{list.store.storeNature==2}}' version="trial"></navigator>
-  <navigator class='miniProgram' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/home/home?storeId={{list.store.id}}" extra-data="" wx:if='{{list.store.storeNature==1}}' version="trial"></navigator>
-      <view class='fw-top'>
-        <image class='fw-logo' mode="aspectFill" src='{{baseUrl}}{{list.store.logo}}?x-oss-process=style/logo'></image>
-        <view class='fw-iew1'>{{list.store.name}}<text>{{list.store.storeNature==1?"新批零":"新零售"}}</text><text  hidden='{{!list.isPurchaser}}'>友</text></view>
-        <view class='fw-iew'><text>{{list.store.businessScope}}</text><text class='text' wx:if='{{list.floorInfo!=null}}'>{{list.floorInfo.mallName}} {{list.floorInfo.balconyName}} {{list.floorInfo.floorName}} {{list.floorInfo.areaName}} {{list.floorInfo.storeDoorNum}}</text></view>
-        <image class='fw-left' src='/image/mallr.png'></image>
+      <view class="{{currentTab==0?'active':''}}" data-current='0' bindtap="swichNav">最近关注
+        <view></view>
       </view>
-      <view class='fw-cont'>
-        <view wx:for='{{list.goodsList}}' wx:key='index'>
-            <view class='fw-c-img'><image src='{{baseUrl}}{{item.mainImgUrl}}?x-oss-process=style/goods-small'  mode="aspectFill"></image></view>
-            <view>零售 <text>￥{{item.sellPrice}}</text></view>
-            <view wx:if='{{list.store.storeNature==1}}'>
-              <view  hidden='{{!list.isPurchaser}}'>批发 <text class='fw-you'>￥{{item.wholesalePrice}}</text></view>
-              <view  hidden='{{list.isPurchaser}}'><navigator  hidden='{{list.isPurchaser}}' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/businessFriend/information/information?status=0&send=&accept={{list.storeId}}&remark=&name={{list.store.name}}&logo={{list.store.logo}}" extra-data="" version="trial">批发 <image  class='fw-c-you' src='/image/wh.png'></image></navigator></view>
-            </view>
-          </view>
+      <view class="{{currentTab==1?'active':''}}" data-current='1' bindtap="swichNav">最近上新
+        <view></view>
       </view>
     </view>
+    <scroll-view scroll-y="true" style="height:100%;" bindscrolltolower="bindDownLoad">
+      <view class='fw-store' wx:for='{{result}}' wx:key='index' wx:for-item="list">
+        <view class='miniDetails' data-store-nature='{{list.store.storeNature}}' data-store-id='{{list.store.id}}' bindtap='toMiniProgram'></view>
+        <view class='fw-top'>
+          <image class='fw-logo' mode="aspectFill" src='{{baseUrl}}{{list.store.logo}}?x-oss-process=style/logo'></image>
+          <view class='fw-iew1'>{{list.store.name}}
+            <text>{{list.store.storeNature==1?"新批零":"新零售"}}</text>
+            <text hidden='{{!list.isPurchaser}}'>友</text>
+          </view>
+          <view class='fw-iew'>
+            <text>{{list.store.businessScope}}</text>
+            <text class='text' wx:if='{{list.floorInfo!=null}}'>{{list.floorInfo.mallName}} {{list.floorInfo.balconyName}} {{list.floorInfo.floorName}} {{list.floorInfo.areaName}} {{list.floorInfo.storeDoorNum}}</text>
+          </view>
+          <image class='fw-left' src='/image/mallr.png'></image>
+        </view>
+        <view class='fw-cont'>
+          <view wx:for='{{list.goodsList}}' wx:key='index'>
+            <view class='fw-c-img'>
+              <image src='{{baseUrl}}{{item.mainImgUrl}}?x-oss-process=style/goods-small' mode="aspectFill"></image>
+            </view>
+            <view>零售
+              <text>￥{{item.sellPrice}}</text>
+            </view>
+            <view wx:if='{{list.store.storeNature==1}}'>
+              <view hidden='{{!list.isPurchaser}}'>批发
+                <text class='fw-you'>￥{{item.wholesalePrice}}</text>
+              </view>
+              <view hidden='{{list.isPurchaser}}'>
+                <view bindtap='toMiniProgram6' data-store-nature='{{list.store.storeNature}}' data-store-id='{{list.storeId}}'>
+                  批发<image class='fw-c-you' src='/image/wh.png'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
     </scroll-view>
   </view>
 </view>

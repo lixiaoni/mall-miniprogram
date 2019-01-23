@@ -61,7 +61,7 @@
   </view>
 </view>
 <!-- 小云店 -->
-<navigator target="miniProgram" open-type="navigate" app-id="{{appid}}" path="pages/page/home/home?storeId={{store.id}}" extra-data="" version="trial">
+<navigator  data-store-nature='{{store.storeNature}}' data-store-id='{{store.id}}' bindtap='toMiniProgram1'>
   <view class="weui_cells weui_cells-new" style='margin-bottom:0;'>
     <image src="/image/mes12.png"></image>
     <text class="store-address">小云店 </text>
@@ -81,7 +81,7 @@
 
 
 <!-- 小云店信息 -->
-<navigator target="miniProgram" open-type="navigate" app-id="{{appid}}" path="pages/page/storeIcon/storeIcon?storeId={{store.id}}" extra-data="" version="trial">
+<view data-store-nature='{{store.storeNature}}' data-store-id='{{store.id}}' bindtap='toMiniProgram'>
 <view class="weui_cells weui_cells-new" style="margin-bottom:0;">
   <image src="/image/mes12.png"></image>
   <text class="store-address">小云店信息 </text>
@@ -91,8 +91,7 @@
   </view>
   <view class='weui-xian weui-xian1'></view>
 </view>
-</navigator>
-
+</view>
 <view class='weui-time weui-time-new' style="border-top:2rpx solid #F4F4F4;margin-top:0;">
   <view>营业时间
     <text wx:if="{{store.openingTime}}">{{store.openingTime}}</text>

@@ -9,6 +9,11 @@ Page({
   data: {
     returnModal:false
   },
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 5)
+  },
   gotoStore(){
 
   },

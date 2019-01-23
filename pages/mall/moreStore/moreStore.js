@@ -10,7 +10,11 @@ Page({
     baseUrl: app.globalData.imageUrl,
     getPurchaserStoreIds: '',
   },
-
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 1)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,29 +1,35 @@
 import http from './utils/http.js'
 import pageRequest from './utils/pageRequest.js'
 import AuthHandler from './utils/authHandler.js'
-import { imageUrl, payUrl} from './utils/const.js'
+import {
+  imageUrl,
+  payUrl,
+  rStoreAppId,
+  wStoreAppId
+} from './utils/const.js'
+import JumpMiniprogram from './utils/jumpMiniprogram.js'
 App({
   // 监听错误
-  onError: function (err) {
+  onError: function(err) {
     wx.showToast({
       title: err,
       icon: 'none',
       duration: 4000,
     })
   },
-  onLaunch: function (options) {
+  onLaunch: function(options) {
     var that = this;
     // 获取小程序更新机制兼容
     if (wx.canIUse('getUpdateManager')) {
       const updateManager = wx.getUpdateManager()
-      updateManager.onCheckForUpdate(function (res) {
+      updateManager.onCheckForUpdate(function(res) {
         // 请求完新版本信息的回调
         if (res.hasUpdate) {
-          updateManager.onUpdateReady(function () {
+          updateManager.onUpdateReady(function() {
             wx.showModal({
               title: '更新提示',
               content: '新版本已经准备好，是否重启应用？',
-              success: function (res) {
+              success: function(res) {
                 if (res.confirm) {
                   // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
                   updateManager.applyUpdate()
@@ -31,7 +37,7 @@ App({
               }
             })
           })
-          updateManager.onUpdateFailed(function () {
+          updateManager.onUpdateFailed(function() {
             // 新的版本下载失败
             wx.showModal({
               title: '已经有新版本了哟~',
@@ -51,15 +57,16 @@ App({
   globalData: {
     userInfo: null,
     skin: "normal",
-    imageUrl:imageUrl,
+    imageUrl: imageUrl,
+    rStoreAppId: rStoreAppId,
+    wStoreAppId: wStoreAppId,
     companyIcon: "/image/dp.png",
-    defaultHeadPic:"/image/defaultHeadPic.png",
+    defaultHeadPic: "/image/defaultHeadPic.png",
     payUrl: payUrl,
-    payAppNum:"APP002"
+    payAppNum: "APP002"
   },
   http: new http(),
   pageRequest: new pageRequest(),
-  authHandler: new AuthHandler()
+  authHandler: new AuthHandler(),
+  jumpMiniprogram: new JumpMiniprogram()
 });
-
-

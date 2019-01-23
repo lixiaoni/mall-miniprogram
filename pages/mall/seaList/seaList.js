@@ -12,19 +12,42 @@ Page({
     value:'',
     purchaserStoreIds: '',
     priceShow:false,
+    emptyVal: false,
   },
-  changeInput:function(e){
-    var val = e.detail.value
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 2)
+  },
+  // 显示隐藏清空按钮
+  showEmpty: function () {
     this.setData({
-      value:val
+      emptyVal: true
+    })
+  },
+  hideEmpty: function () {
+    this.setData({
+      emptyVal: false
+    })
+  },
+  changeInput: function (e) {
+    var val = e.detail.value
+    if (val) {
+      this.showEmpty()
+    } else {
+      this.hideEmpty()
+    }
+    this.setData({
+      value: val
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  emptyVal:function(){
+  emptyVal: function () {
     this.setData({
-      value:''
+      value: '',
+      emptyVal: false
     })
   },
   isPurchaser: function (index) {
@@ -103,6 +126,7 @@ Page({
         }, function () {
           if (options.name) {
             _this.getSerList(options.name)
+            _this.showEmpty()
           }
         })
       })

@@ -74,9 +74,9 @@
     </navigator>
   </view>
   <view class='weui-back' hidden='{{!isStoreOwner}}'>
-    <navigator wx:if='{{storeNature!=2}}' class='weui-cell weui-cell_access' target="miniProgram" open-type="navigate" app-id="wx4f385374765e4cbb" path="pages/page/workIndex/workIndex?storeId={{user.storeId}}" extra-data="" version="trial">
-      <image wx:if="{{payStore}}" src='/image/cloudIcon.png' class='user-img'></image>
-      <image wx:else src='/image/13.png' class='user-img'></image>
+    <view class='weui-cell weui-cell_access' data-store-nature='{{storeNature}}' data-store-id='{{user.storeId}}' bindtap='toMiniProgram'>
+      <image mode="widthFix" wx:if="{{payStore}}" src='/image/cloudIcon.png' class='user-img'></image>
+      <image mode="widthFix" wx:else src='/image/13.png' class='user-img'></image>
       <view class='weui-cell__bd'>
         <!-- <text wx:if="{{!payStore}}">看看我的小云店</text> -->
         <text>小云店工作台</text>
@@ -84,18 +84,7 @@
       <view class='weui-img'>
         <image src="/image/icl.png"></image>
       </view>
-    </navigator>
-    <navigator class='weui-cell weui-cell_access' wx:if='{{storeNature==2}}' target="miniProgram" open-type="navigate" app-id="wx1a7532a2abdd1698" path="pages/page/workIndex/workIndex?storeId={{user.storeId}}" extra-data="" version="trial">
-      <image wx:if="{{payStore}}" src='/image/cloudIcon.png' class='user-img'></image>
-      <image wx:else src='/image/13.png' class='user-img'></image>
-      <view class='weui-cell__bd'>
-        <!-- <text wx:if="{{!payStore}}">看看我的小云店</text> -->
-        <text>小云店工作台</text>
-      </view>
-      <view class='weui-img'>
-        <image src="/image/icl.png"></image>
-      </view>
-    </navigator>
+    </view>
   </view>
   <view class='weui-back' wx:if='{{(isFloorAdmin || isSuperAdmin) && hasUser}}'>
     <navigator class='weui-cell weui-cell_access' url='../../work/workIndex/workIndex'>
