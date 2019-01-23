@@ -8,9 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    companyLogo: "/image/dp.png",
-    companyName: "百荣世贸商城",
-    louName:"百荣世贸一期",
+    companyLogo: app.globalData.mallIcon,
+    companyName: app.globalData.mallName,
     //楼层选择
     louName: "",
     louList: [],

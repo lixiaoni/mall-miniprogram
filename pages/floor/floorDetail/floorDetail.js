@@ -9,7 +9,7 @@ Page({
     delModal:false,
     admin:{},
     code:"",
-    companyLogo: "/image/dp.png",
+    companyLogo: app.globalData.mallIcon,
     companyName: "",
     floorTitle: '',
     floorType: "",

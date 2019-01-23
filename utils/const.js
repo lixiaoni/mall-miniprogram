@@ -15,6 +15,8 @@ export const authUrl = "https://dev-accounts.youlife.me"
 export const basicAuthorization= 'Basic QmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQ6ZTU2YThmMWZkOWJlMmMzMzNmYjdiZTcyNjVkMjRhYTM=';
 export const mallCode= '1000'
 export const mallIcon = "/image/dp.png"
+export const mallName = "百荣世贸商城"
+export const mallNickname = "百荣"
 export const payAppNum= "APP002"
 export const rStoreAppId = 'wx1a7532a2abdd1698'//零售店APPID
 export const wStoreAppId = 'wx4f385374765e4cbb'//批零店APPID

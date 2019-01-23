@@ -8,7 +8,7 @@ Page({
   data: {
     code:"",
     floorName:"", //所属层名
-    companyLogo: "/image/dp.png",
+    companyLogo: app.globalData.mallIcon,
     companyName: "",
     areaTitle: "",
     storeNum:0,

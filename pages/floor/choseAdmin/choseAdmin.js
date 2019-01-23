@@ -10,8 +10,8 @@ Page({
   data: {
     loaded:false,
     code:"",
-    companyLogo: "/image/dp.png",
-    companyName: "百荣世贸商城",
+    companyLogo: app.globalData.mallIcon,
+    companyName: app.globalData.mallName,
     //楼层选择
     louName:"",
     louList:[],

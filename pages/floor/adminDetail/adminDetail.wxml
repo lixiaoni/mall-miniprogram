@@ -64,7 +64,7 @@
       <block wx:for="{{manage}}" wx:key="{{index}}">
         <view class='border-box list-part'>
           <view class='column-center'>
-            <image src='/image/dp.png' class='com-icon'></image>
+            <image src='{{mallIcon}}' class='com-icon'></image>
             <text class='com-title'>{{item.name}}</text>
           </view>
 

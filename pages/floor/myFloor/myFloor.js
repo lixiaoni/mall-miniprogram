@@ -6,7 +6,7 @@ Page({
      * 页面的初始数据
      */
   data: {
-    companyIcon: App.globalData.companyIcon
+    companyIcon: App.globalData.mallIcon
   },
 
   getList(){

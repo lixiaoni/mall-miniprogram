@@ -22,7 +22,7 @@
         <image wx:if='{{statisticsData.user.mallLogo}}' class='mall-logo' src='{{baseUrl + statisticsData.user.mallLogo}}'></image>
         <text class='mall-name'>{{statisticsData.user.mallName}}</text>
         <text class='floor-list'>
-          <text wx:for="{{floorList}}">{{item}}</text>
+          <text wx:for="{{floorList}}" wx:key="{{item}}">{{item}}</text>
         </text>
       </view>
     </view>

@@ -15,7 +15,7 @@ Page({
     newName:"",
     //操作菜单
     showMenu:false,
-    companyLogo:"/image/dp.png",
+    companyLogo: app.globalData.mallIcon,
     moreSrc: "/image/moreO.png",
     baseUrl: app.globalData.imageUrl,
     defaultHead: app.globalData.defaultHeadPic,

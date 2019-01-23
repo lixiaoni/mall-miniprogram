@@ -18,6 +18,7 @@ Page({
     manage:[],
     baseUrl: app.globalData.imageUrl,
     defaultHead: app.globalData.defaultHeadPic,
+    mallIcon: app.globalData.mallIcon
   },
   loadPage(){
     app.http.getRequest("/admin/floor/malluser/userfloor/"+this.data.userId).then((res)=>{

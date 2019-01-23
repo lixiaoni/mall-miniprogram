@@ -11,44 +11,6 @@
     <image src="/image/addFriend.png" bindtap='toCreate' class='add-img'></image>
   </view>
   <!-- 公司头 -->
-  <!-- <view class='floor-part flex-box align-center' wx:if='{{bigComName}}' bindtap='showLou'>
-    <view class='column-center'>
-      <image class='company-logo' src='{{companyLogo}}'></image>
-      <text class='company-name'>{{companyName}}</text>
-    </view>
-    <view>
-      <image class='tri-icon' src='/image/icl.png'></image>
-    </view>
-  </view> -->
-  <!-- 公司头 -->
-  <!-- <view class='floor-part' wx:else>
-    <view class='column-center padding-box'>
-      <image class='company-logo' src='{{companyLogo}}'></image>
-      <text class='company-sm-name'>{{companyName}}</text>
-      <text class='company-sm-name' wx:if="{{choseLou}}">>   {{louName}}</text>
-    </view>
-
-    <view wx:if="{{!choseLou}}">
-      <view class='flex-box align-center lou-box' bindtap='choseLou'>
-        <view class='column-center'>
-          <image class='lou-icon' src='/image/lou.png'></image>
-          <text>百荣世贸商城一期</text>
-        </view>
-        <image class='tri-icon' src='/image/icl.png'></image>
-      </view>
-
-      <view class='flex-box align-center lou-box'>
-        <view class='column-center'>
-          <image class='lou-icon' src='/image/lou.png'></image>
-          <text>百荣世贸商城一期</text>
-        </view>
-        <image class='tri-icon' src='/image/icl.png'></image>
-      </view>
-
-    </view>
-
-  </view> -->
-  <!-- 公司头 -->
   <view class='floor-part flex-box align-center' style='padding:0 30rpx 24rpx;' wx:if='{{bigComName}}' bindtap='showLou'>
     <view class='column-center'>
       <image class='company-logo' src='{{companyLogo}}'></image>

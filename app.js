@@ -1,7 +1,7 @@
 import http from './utils/http.js'
 import pageRequest from './utils/pageRequest.js'
 import AuthHandler from './utils/authHandler.js'
-import {imageUrl, payUrl, payAppNum, mallIcon, rStoreAppId,wStoreAppId} from './utils/const.js'
+import { imageUrl, payUrl, payAppNum, mallIcon, rStoreAppId, wStoreAppId, mallName,mallNickname} from './utils/const.js'
 import JumpMiniprogram from './utils/jumpMiniprogram.js'
 
 App({
@@ -54,7 +54,9 @@ App({
     userInfo: null,
     skin: "normal",
     defaultHeadPic:"/image/defaultHeadPic.png",
-    companyIcon: mallIcon,
+    mallIcon,
+    mallName,
+    mallNickname,
     payUrl,
     imageUrl,
     payAppNum,
