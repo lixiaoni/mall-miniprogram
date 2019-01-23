@@ -11,6 +11,11 @@ Page({
     secTime: 5,
     waitStatus: true
   },
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 5)
+  },
   afterPay() {
     if (this.data.waitStatus){
       return

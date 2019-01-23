@@ -15,7 +15,15 @@ Page({
     orderName: "订单",
     timeOnce: true
   },
-
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 1)
+  },
+  toMiniProgram1(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 2)
+  },
   //查看凭证
   seeVoucher(e) {
     let num = this.data.num;

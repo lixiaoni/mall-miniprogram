@@ -33,6 +33,15 @@ Page({
       return true
     }
   },
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 1)
+  },
+  toMiniProgram6(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 6)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

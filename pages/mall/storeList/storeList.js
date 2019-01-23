@@ -10,6 +10,11 @@ Page({
     dataList: [],
     value: '',
   },
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 1)
+  },
   isPurchaser: function (index) {
     var arr = this.data.getPurchaserStoreIds
     if (arr.indexOf(index) != -1) {

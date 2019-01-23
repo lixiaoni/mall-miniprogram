@@ -23,6 +23,15 @@ Page({
     baseUrl: app.globalData.imageUrl,
     imageWidth: wx.getSystemInfoSync().windowWidth-80
   },
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 2)
+  },
+  toMiniProgram1(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 1)
+  },
   scroll:function(e){
     var scrollWidth = e.detail.scrollWidth,
       scrollLeft=e.detail.scrollLeft,

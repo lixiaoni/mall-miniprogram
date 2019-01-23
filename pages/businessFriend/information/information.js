@@ -32,6 +32,11 @@ Page({
     mallLogo: '',
     floorInfo: null
   },
+  // 跳转小程序
+  toMiniProgram(e) {
+    const data = e.currentTarget.dataset
+    app.jumpMiniprogram.toMiniProgram(data, 1)
+  },
   showLogo: function () {
     this.selectComponent("#login").showPage();
   },

@@ -16,8 +16,14 @@ export const basicAuthorization= 'Basic QmVpSmluZ0JhaVJvbmdTaGlNYW9DbGllbnQ6ZTU2
 export const mallCode= '1000'
 export const mallIcon = "/image/dp.png"
 export const payAppNum= "APP002"
-
-export const navigateToAppID = {
-  xls: 'wx1a7532a2abdd1698',
-  xpl: 'wx4f385374765e4cbb'
+export const rStoreAppId = 'wx1a7532a2abdd1698'//零售店APPID
+export const wStoreAppId = 'wx4f385374765e4cbb'//批零店APPID
+// 需要跳到小程序的指定页面
+export const pathData = {
+  indexUrl: "pages/page/home/home",
+  goodsDetailsUrl: "pages/page/goodsDetails/goodsDetails",
+  workbenchUrl: "pages/page/workIndex/workIndex",
+  storeIconUrl:"pages/page/storeIcon/storeIcon",
+  userUrl: "pages/page/user/user",
+  informationUrl:"pages/businessFriend/information/information"
 }
