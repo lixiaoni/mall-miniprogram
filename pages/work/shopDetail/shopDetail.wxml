@@ -55,7 +55,7 @@
   <view class='flex-box'>
     <view class='area-box'>
       <image src="/image/positionico.png"></image>
-      <text class="store-address">楼层区域</text>
+      <text class="store-address">楼座楼层</text>
     </view>
     <view>{{floor.floorDescription}}</view>
   </view>

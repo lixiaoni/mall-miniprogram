@@ -25,7 +25,7 @@
 <view class="weui_cells " hidden="{{isSuperAdmin}}">
   <view>
     <text class="store-address">优惠码 </text>
-    <view class='weui-view'>
+    <view class='weui-view' bindtap="copyCode">
       {{user.referralCode?user.referralCode:'暂无'}}
     </view>
     <view class='weui-xian weui-xian1'></view>

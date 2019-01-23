@@ -129,7 +129,7 @@ Page({
         let obj = {layerMobal:true};
         if (res.obj.storeNature == 2){
           obj.layerText = "新零售";
-        }else{
+        } else{
           obj.layerText = "新批零";
         }
         this.setData(obj)
@@ -153,9 +153,13 @@ Page({
     })
   },
   loginBuy(){
-    this.setData({
-      introPage:false
+    // this.setData({
+    //   introPage:false
+    // })
+    wx.navigateTo({
+      url: '../newCloud/newCloud',
     })
+
   },
   /**
    * 生命周期函数--监听页面加载

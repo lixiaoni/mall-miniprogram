@@ -38,8 +38,6 @@ class JumpMiniprogram {
     }else {
       this.path = this.pathData.indexUrl + "?storeId=" + params.storeId
     }
-    console.log(this.path)
-    console.log(params)
     this.navigateToMiniProgram(params)
   }
   navigateToMiniProgram(params) {

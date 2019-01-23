@@ -24,6 +24,20 @@ Page({
       }  
     })
   },
+  //复制订单号
+  copyCode() {
+    if (this.data.user.referralCode){
+      wx.setClipboardData({
+        data: this.data.user.referralCode,
+        success: () => {
+          wx.showToast({
+            title: '复制优惠码成功',
+            icon: "none"
+          })
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
