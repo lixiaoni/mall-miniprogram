@@ -1,13 +1,9 @@
 import http from './utils/http.js'
 import pageRequest from './utils/pageRequest.js'
 import AuthHandler from './utils/authHandler.js'
-import {
-  imageUrl,
-  payUrl,
-  rStoreAppId,
-  wStoreAppId
-} from './utils/const.js'
+import {imageUrl, payUrl, payAppNum, mallIcon, rStoreAppId,wStoreAppId} from './utils/const.js'
 import JumpMiniprogram from './utils/jumpMiniprogram.js'
+
 App({
   // 监听错误
   onError: function(err) {
@@ -57,13 +53,14 @@ App({
   globalData: {
     userInfo: null,
     skin: "normal",
+    defaultHeadPic:"/image/defaultHeadPic.png",
+    companyIcon: mallIcon,
+    payUrl,
+    imageUrl,
+    payAppNum,
     imageUrl: imageUrl,
     rStoreAppId: rStoreAppId,
     wStoreAppId: wStoreAppId,
-    companyIcon: "/image/dp.png",
-    defaultHeadPic: "/image/defaultHeadPic.png",
-    payUrl: payUrl,
-    payAppNum: "APP002"
   },
   http: new http(),
   pageRequest: new pageRequest(),

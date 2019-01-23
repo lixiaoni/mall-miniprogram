@@ -1,16 +1,59 @@
-<view class='wk-cont'>
+<view class='wk-cont' style='margin-bottom:95rpx;position:relative;overflow:initial;'>
   <view class='wk-title'>
     <text>今日销售额（元）</text>
     <view>{{todaySaleNum==null?0.00:todaySaleNum}}</view>
     <image mode='widthFix' bindtap='goDerm' src='/image/xcx2.png'></image>
+    <view class='yesterday-amount'>
+      <text>昨日销售额：123123.00</text>
+      <text>数据日期2019-01-14</text>
+    </view>
+
   </view>
-  <view class='wk-bot'>
-    <view>{{goodsNum}}<text></text><view>商品数</view><view class='wk-xian'></view></view>
-    <view>{{storeNum}}<view>小云店总数</view><view class='wk-xian'></view></view>
-    <view>{{purchaseOrders}}<view>进货单数</view><view class='wk-xian'></view></view>
-    <view>{{orders}}<view>订单数</view></view>
+  
+  <view class='userInfo-box'>
+    <view class='logo-box'><image class='user-logo' src='{{user.headPic?baseUrl + user.headPic+"?x-oss-process=style/logo":"/image/42.png"}}'></image></view>
+    <view>
+      <view class='flex-center'>
+        <text class='user-name'>{{user.nickName}}</text>
+        <text wx:if="{{isSuperAdmin}}" class='user-identity'>超级管理员</text>
+        <text wx:elif="{{isFloorAdmin}}" class='user-identity'>楼层管理员</text>
+      </view>
+      <view class='flex-center floorInfo-box'>
+        <image wx:if='{{statisticsData.user.mallLogo}}' class='mall-logo' src='{{baseUrl + statisticsData.user.mallLogo}}'></image>
+        <text class='mall-name'>{{statisticsData.user.mallName}}</text>
+        <text class='floor-list'>
+          <text wx:for="{{floorList}}">{{item}}</text>
+        </text>
+      </view>
+    </view>
   </view>
 </view>
+
+<view class='wk-cont'>
+  <view class='amount-title'>累计数据</view>
+  <view class='wk-bot'>
+    <view><text class='over-text'>{{goodsNum}}</text><view>商品数</view><view class='wk-xian'></view></view>
+    <view><text class='over-text'>{{storeNum}}</text><view>小云店总数</view><view class='wk-xian'></view></view>
+    <view><text class='over-text'>{{statisticsData.allOrder}}</text><view>总订单数</view><view class='wk-xian'></view></view>
+    <view><text class='over-text'>{{statisticsData.followNum}}</text><view>关注量</view></view>
+  </view>
+  <view class='more-btn' bindtap='showMore' wx:if="{{!showMore}}">更多<image class='more-icon' src="/image/more-bottom.png"></image></view>
+  <block wx:else>
+    <view class='amount-title'>订单数据</view>
+    <view class='wk-bot wk-bot-new'>
+      <view><text class='over-text'>{{statisticsData.todayOrders}}</text><view>今日订单</view><view class='wk-xian'></view></view>
+      <view><text class='over-text'>{{statisticsData.yesterdayOrders}}</text><view>昨日订单</view><view class='wk-xian'></view></view>
+      <view><text class='over-text'>{{orders}}</text><view>订单总数</view></view>
+
+      <view><text class='over-text'>{{statisticsData.todayPurchaseOrders}}</text><view>今日进货单</view><view class='wk-xian'></view></view>
+      <view><text class='over-text'>{{statisticsData.yesterdayPurchaseOrders}}</text><view>昨日进货单</view><view class='wk-xian'></view></view>
+      <view><text class='over-text'>{{purchaseOrders}}</text><view>进货单总数</view></view>
+    </view>
+    <view class='more-btn' bindtap='showMore'>收起<image class='more-icon' src="/image/more-top.png"></image></view>  
+  </block>
+</view>
+
+
 <view class='wk-cont wk-cont'>
  <!-- 楼层管理员 -->
   <view class='wx-bot-cont' hidden='{{isSuperAdmin}}'>
@@ -38,3 +81,5 @@
     <view>我的</view>
   </navigator>
 </view>
+
+<view style='height:120rpx;'></view>

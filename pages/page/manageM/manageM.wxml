@@ -54,7 +54,7 @@
 <view class="weui_cells " bindtap='tel'>
   <view>
     <image src="/image/u2.png"></image>
-    <text class="store-address">联系优生活 </text>
+    <text class="store-address">优生活技术支持 </text>
     <view class='weui-view'>
       <image class='img' src="/image/icl.png"></image>
     </view>
