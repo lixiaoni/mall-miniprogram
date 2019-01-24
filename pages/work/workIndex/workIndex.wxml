@@ -4,8 +4,9 @@
     <view>{{todaySaleNum==null?0.00:todaySaleNum}}</view>
     <image mode='widthFix' bindtap='goDerm' src='/image/xcx2.png'></image>
     <view class='yesterday-amount'>
-      <text>昨日销售额：123123.00</text>
-      <text>数据日期2019-01-14</text>
+      <text></text>
+      <!-- <text>昨日销售额：123123.00</text> -->
+      <text>数据日期{{todayDate}}</text>
     </view>
 
   </view>

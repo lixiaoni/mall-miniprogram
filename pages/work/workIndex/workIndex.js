@@ -1,4 +1,5 @@
 import Api from '../../../utils/api.js'
+import { formatTime} from '../../../utils/util.js'
 const app = getApp();
 Page({
 
@@ -12,7 +13,7 @@ Page({
     purchaseOrders: '',
     storeNum: '',
     todaySaleNum: 0,
-   
+    todayDate:""
   },
 
   /**
@@ -71,10 +72,11 @@ Page({
     })
   },
   onLoad: function (options) {
-    this.setData({
-      isSuperAdmin: wx.getStorageSync("isSuperAdmin")
-    })
     this.getUser()
+    this.setData({
+      isSuperAdmin: wx.getStorageSync("isSuperAdmin"),
+      todayDate: formatTime(new Date(), true)
+    })
   },
   goDerm: function () {
     wx.navigateTo({
