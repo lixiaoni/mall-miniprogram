@@ -1,11 +1,11 @@
+<wxs src="../../../public/filter.wxs" module="filter" />
 <view class='wk-cont' style='margin-bottom:95rpx;position:relative;overflow:initial;'>
   <view class='wk-title'>
     <text>今日销售额（元）</text>
     <view>{{todaySaleNum==null?0.00:todaySaleNum}}</view>
     <image mode='widthFix' bindtap='goDerm' src='/image/xcx2.png'></image>
     <view class='yesterday-amount'>
-      <text></text>
-      <!-- <text>昨日销售额：123123.00</text> -->
+      <text>昨日销售额：{{filter.filterMoney(statisticsData.yesterdaySaleNum)}}</text>
       <text>数据日期{{todayDate}}</text>
     </view>
 
