@@ -54,7 +54,8 @@ Page({
         //楼层
         if (el.childList){
           el.childList.forEach(f=>{
-            str+=f.name;
+            str = el.name;
+            str += f.floorNum;
             floorArr.push(str);
           })
         }else{

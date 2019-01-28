@@ -77,7 +77,7 @@
     <image src="/image/12.png"></image>
     <view>小云店</view>
   </navigator>
-  <navigator open-type='redirect' url='../../page/manageM/manageM'>
+  <navigator  url='../../page/manageM/manageM'>
     <image src="/image/w11.png"></image>
     <view>我的</view>
   </navigator>

@@ -70,7 +70,7 @@
   </view>
 </view>
 <view class='bottom_M'>
-  <navigator  open-type='redirect'  url='../../work/workIndex/workIndex'>
+  <navigator    url='../../work/workIndex/workIndex'>
     <image src="/image/work.png"></image>
     <view>工作台</view>
   </navigator>
